@@ -9,13 +9,26 @@
 /* Begin PBXBuildFile section */
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
-		C0455E4C28257A0B00990351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* ViewController.swift */; };
-		C0455E4F28257A0B00990351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0455E4D28257A0B00990351 /* Main.storyboard */; };
+		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
 		C0455E5128257A0B00990351 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0455E5028257A0B00990351 /* Assets.xcassets */; };
 		C0455E5428257A0B00990351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0455E5228257A0B00990351 /* LaunchScreen.storyboard */; };
 		C0455E5F28257A0B00990351 /* BunkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E5E28257A0B00990351 /* BunkerTests.swift */; };
 		C0455E6928257A0B00990351 /* BunkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E6828257A0B00990351 /* BunkerUITests.swift */; };
 		C0455E6B28257A0B00990351 /* BunkerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E6A28257A0B00990351 /* BunkerUITestsLaunchTests.swift */; };
+		C0455E7828257C4400990351 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E7728257C4400990351 /* Colors.swift */; };
+		C0455E7C28257E8E00990351 /* YellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E7B28257E8E00990351 /* YellowButton.swift */; };
+		C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E7D28257ECD00990351 /* CALayer+Shadow.swift */; };
+		C0455E802825805000990351 /* View+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E7F2825805000990351 /* View+Pin.swift */; };
+		C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E822825827A00990351 /* BaseNavigationController.swift */; };
+		C0455E852825856500990351 /* BunkerLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E842825856500990351 /* BunkerLogo.swift */; };
+		C0455E892825912F00990351 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E882825912F00990351 /* SettingsViewController.swift */; };
+		C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E8B2825923200990351 /* CreateGameViewController.swift */; };
+		C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E8E282592C400990351 /* BunkerTextField.swift */; };
+		C0455E912825968C00990351 /* GameOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E902825968C00990351 /* GameOptionView.swift */; };
+		C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E942825A14300990351 /* WebSocketTypes.swift */; };
+		C0455E972825A1A200990351 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E962825A1A200990351 /* SettingsController.swift */; };
+		C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E982825A1C300990351 /* ConnectToGameViewController.swift */; };
+		C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9A2825A1DF00990351 /* TabGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +52,7 @@
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C0455E4B28257A0B00990351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C0455E4E28257A0B00990351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0455E4B28257A0B00990351 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		C0455E5028257A0B00990351 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0455E5328257A0B00990351 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0455E5528257A0B00990351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +61,20 @@
 		C0455E6428257A0B00990351 /* BunkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BunkerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E6828257A0B00990351 /* BunkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunkerUITests.swift; sourceTree = "<group>"; };
 		C0455E6A28257A0B00990351 /* BunkerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunkerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0455E7728257C4400990351 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C0455E7B28257E8E00990351 /* YellowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowButton.swift; sourceTree = "<group>"; };
+		C0455E7D28257ECD00990351 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
+		C0455E7F2825805000990351 /* View+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Pin.swift"; sourceTree = "<group>"; };
+		C0455E822825827A00990351 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		C0455E842825856500990351 /* BunkerLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunkerLogo.swift; sourceTree = "<group>"; };
+		C0455E882825912F00990351 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C0455E8B2825923200990351 /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		C0455E8E282592C400990351 /* BunkerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunkerTextField.swift; sourceTree = "<group>"; };
+		C0455E902825968C00990351 /* GameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionView.swift; sourceTree = "<group>"; };
+		C0455E942825A14300990351 /* WebSocketTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTypes.swift; sourceTree = "<group>"; };
+		C0455E962825A1A200990351 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		C0455E982825A1C300990351 /* ConnectToGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToGameViewController.swift; sourceTree = "<group>"; };
+		C0455E9A2825A1DF00990351 /* TabGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +125,10 @@
 		C0455E4628257A0B00990351 /* Bunker */ = {
 			isa = PBXGroup;
 			children = (
-				C0455E4728257A0B00990351 /* AppDelegate.swift */,
-				C0455E4928257A0B00990351 /* SceneDelegate.swift */,
-				C0455E4B28257A0B00990351 /* ViewController.swift */,
-				C0455E4D28257A0B00990351 /* Main.storyboard */,
+				C0455E812825825500990351 /* Main */,
+				C0455E7928257D7E00990351 /* Screens */,
+				C0455E932825A11200990351 /* Networking */,
+				C0455E7A28257E5500990351 /* Utils */,
 				C0455E5028257A0B00990351 /* Assets.xcassets */,
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
 				C0455E5528257A0B00990351 /* Info.plist */,
@@ -125,6 +151,91 @@
 				C0455E6A28257A0B00990351 /* BunkerUITestsLaunchTests.swift */,
 			);
 			path = BunkerUITests;
+			sourceTree = "<group>";
+		};
+		C0455E7928257D7E00990351 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E862825910C00990351 /* WelcomeScreen */,
+				C0455E872825911800990351 /* Settings */,
+				C0455E8A2825922200990351 /* CreateGame */,
+				C0455E8D2825923600990351 /* ConnectToGame */,
+				C0455E9228259BB300990351 /* Game */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C0455E7A28257E5500990351 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E7B28257E8E00990351 /* YellowButton.swift */,
+				C0455E842825856500990351 /* BunkerLogo.swift */,
+				C0455E7D28257ECD00990351 /* CALayer+Shadow.swift */,
+				C0455E7F2825805000990351 /* View+Pin.swift */,
+				C0455E7728257C4400990351 /* Colors.swift */,
+				C0455E8E282592C400990351 /* BunkerTextField.swift */,
+				C0455E902825968C00990351 /* GameOptionView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C0455E812825825500990351 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E4728257A0B00990351 /* AppDelegate.swift */,
+				C0455E4928257A0B00990351 /* SceneDelegate.swift */,
+				C0455E822825827A00990351 /* BaseNavigationController.swift */,
+				C0455E962825A1A200990351 /* SettingsController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C0455E862825910C00990351 /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E4B28257A0B00990351 /* WelcomeScreen.swift */,
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		C0455E872825911800990351 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E882825912F00990351 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C0455E8A2825922200990351 /* CreateGame */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E8B2825923200990351 /* CreateGameViewController.swift */,
+			);
+			path = CreateGame;
+			sourceTree = "<group>";
+		};
+		C0455E8D2825923600990351 /* ConnectToGame */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E982825A1C300990351 /* ConnectToGameViewController.swift */,
+			);
+			path = ConnectToGame;
+			sourceTree = "<group>";
+		};
+		C0455E9228259BB300990351 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E9A2825A1DF00990351 /* TabGameViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		C0455E932825A11200990351 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E942825A14300990351 /* WebSocketTypes.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +344,6 @@
 			files = (
 				C0455E5428257A0B00990351 /* LaunchScreen.storyboard in Resources */,
 				C0455E5128257A0B00990351 /* Assets.xcassets in Resources */,
-				C0455E4F28257A0B00990351 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +368,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0455E4C28257A0B00990351 /* ViewController.swift in Sources */,
+				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
+				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
+				C0455E7828257C4400990351 /* Colors.swift in Sources */,
+				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
+				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
+				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
+				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
+				C0455E972825A1A200990351 /* SettingsController.swift in Sources */,
+				C0455E7C28257E8E00990351 /* YellowButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
+				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
+				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,
+				C0455E802825805000990351 /* View+Pin.swift in Sources */,
+				C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */,
+				C0455E912825968C00990351 /* GameOptionView.swift in Sources */,
+				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +421,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C0455E4D28257A0B00990351 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0455E4E28257A0B00990351 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C0455E5228257A0B00990351 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +558,6 @@
 				INFOPLIST_FILE = Bunker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +585,6 @@
 				INFOPLIST_FILE = Bunker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
