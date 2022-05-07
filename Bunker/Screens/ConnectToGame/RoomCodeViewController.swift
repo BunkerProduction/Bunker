@@ -1,5 +1,5 @@
 //
-//  ConnectToGameViewController.swift
+//  RoomCodeViewController.swift
 //  Bunker
 //
 //  Created by Дмитрий Соколов on 06.05.2022.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class ConnectToGameViewController: UIViewController {
-    private let nameTextField = BunkerTextField()
+final class RoomCodeViewController: UIViewController {
     private let logo = BunkerLogo()
-    private let nextButton = YellowButton()
+    private let codeInput = SplittedDigitInput()
+    private let connectButton = YellowButton()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -36,24 +36,24 @@ final class ConnectToGameViewController: UIViewController {
         logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 60)
         logo.pinCenter(to: view.centerXAnchor)
         
-        view.addSubview(nameTextField)
-        nameTextField.pin(to: view, [.left: 24, .right: 24])
-        nameTextField.pinTop(to: logo.bottomAnchor, 46)
+        view.addSubview(codeInput)
+        codeInput.pin(to: view, [.left: 24, .right: 24])
+        codeInput.pinTop(to: logo.bottomAnchor, 46)
+        codeInput.setHeight(to: 105)
     }
     
     private func setButton() {
-        view.addSubview(nextButton)
+        view.addSubview(connectButton)
         
-        nextButton.pin(to: view, [.left: 24, .right: 24, .bottom: 58])
-        nextButton.setTitle("Далее", for: .normal)
-        nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
+        connectButton.pin(to: view, [.left: 24, .right: 24, .bottom: 58])
+        connectButton.setTitle("Присоединиться", for: .normal)
+        connectButton.addTarget(self, action: #selector(joinGame), for: .touchUpInside)
     }
     
     // MARK: - Interactions
     @objc
-    private func goNext() {
-        let enterRoomController = RoomCodeViewController()
-        self.navigationController?.pushViewController(enterRoomController, animated: true)
+    private func joinGame() {
+        codeInput.toggleInput(true)
     }
     
     @objc
@@ -63,4 +63,4 @@ final class ConnectToGameViewController: UIViewController {
 }
 
 // MARK: - GestureDelegate
-extension ConnectToGameViewController: UIGestureRecognizerDelegate { }
+extension RoomCodeViewController: UIGestureRecognizerDelegate { }

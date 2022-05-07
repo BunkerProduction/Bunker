@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BunkerTextField: UITextField {
+final class BunkerTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -19,7 +19,7 @@ class BunkerTextField: UITextField {
     }
     
     private func setupView() {
-        self.backgroundColor = .gray
+        self.backgroundColor = .Background.accent
         self.layer.cornerRadius = 12
         self.setLeftPaddingPoints(16)
         self.setHeight(to: 48)

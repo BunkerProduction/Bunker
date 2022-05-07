@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BunkerLogo: UIView {
+final class BunkerLogo: UIView {
     private let bunkerLabel = UILabel()
     
     // MARK: - Init
@@ -23,7 +23,7 @@ class BunkerLogo: UIView {
     
     // MARK: - Setup
     private func setup() {
-        self.backgroundColor = .yellow
+        self.backgroundColor = .Primary.primary
         
         bunkerLabel.text = "Бункер"
         bunkerLabel.textAlignment = .center

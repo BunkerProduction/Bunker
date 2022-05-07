@@ -12,9 +12,10 @@ final class YellowButton: UIButton {
         super.init(frame: frame)
         
         self.layer.cornerRadius = 12
-        self.layer.applySketchShadow(color: .yellow, alpha: 0.3, x: 0, y: 8, blur: 16, spread: 0)
-        self.backgroundColor = .yellow
+        self.layer.applySketchShadow(color: .Primary.primary ?? .yellow, alpha: 0.3, x: 0, y: 8, blur: 16, spread: 0)
+        self.backgroundColor = .Primary.primary
         self.setTitleColor(.black, for: .normal)
+        self.setHeight(to: 48)
     }
     
     required init?(coder: NSCoder) {

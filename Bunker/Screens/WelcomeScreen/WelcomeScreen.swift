@@ -66,7 +66,7 @@ final class WelcomeController: UIViewController {
     }
     
     private func setupSettingsButton() {
-        settingsButton.backgroundColor = .gray
+        settingsButton.backgroundColor = .Background.accent
         settingsButton.setHeight(to: 48)
         settingsButton.pinWidth(to: settingsButton.heightAnchor, 1)
         settingsButton.layer.cornerRadius = 12
@@ -75,7 +75,7 @@ final class WelcomeController: UIViewController {
     }
     
     private func setupInstructionView() {
-        instructionView.backgroundColor = .gray
+        instructionView.backgroundColor = .Background.accent
         instructionView.layer.cornerRadius = 12
         instructionView.setHeight(to: 281)
         instructionView.setWidth(to: 215)
@@ -101,6 +101,7 @@ final class WelcomeController: UIViewController {
     
     @objc
     private func joinGameButtonTapped() {
-        
+        let joinController = ConnectToGameViewController()
+        self.navigationController?.pushViewController(joinController, animated: true)
     }
 }

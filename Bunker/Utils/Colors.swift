@@ -7,6 +7,15 @@
 
 import UIKit
 
+public extension UIColor {
+    enum Primary {
+        static let primary = UIColor(named: "Primary")
+    }
+    
+    enum Background {
+        static let accent = UIColor(named: "Accent")
+    }
+}
 //public extension UIColor {
 //    enum background {
 //        case firstLevel

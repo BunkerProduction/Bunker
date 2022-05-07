@@ -30,6 +30,15 @@ final class CreateGameViewController: UIViewController {
 
         self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "returnIcon"),
+            style: .plain,
+            target: self,
+            action: #selector(goBack)
+        )
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         setOptions()
         setButton()
         setupView()
@@ -76,13 +85,21 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setButton() {
-        createButton.setHeight(to: 48)
         createButton.setTitle("Создать игру", for: .normal)
         createButton.addTarget(self, action: #selector(createGame), for: .touchUpInside)
     }
     
+    // MARK: - Interactions
     @objc
     private func createGame() {
         
     }
+    
+    @objc
+    private func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
+
+// MARK: - GestureDelegate
+extension CreateGameViewController: UIGestureRecognizerDelegate { }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameOptionView: UIView {
+final class GameOptionView: UIView {
     private let typeLabel = UILabel()
     private let chosenLabel = UILabel()
     private let emoji = UILabel()
@@ -23,7 +23,7 @@ class GameOptionView: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = .gray
+        self.backgroundColor = .Background.accent
         self.layer.cornerRadius = 12
         self.setHeight(to: 150)
         self.pinWidth(to: self.heightAnchor, 1)

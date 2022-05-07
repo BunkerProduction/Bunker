@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+
+final class UserSettings {
+    static let shared = UserSettings()
+}

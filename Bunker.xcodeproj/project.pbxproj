@@ -29,6 +29,8 @@
 		C0455E972825A1A200990351 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E962825A1A200990351 /* SettingsController.swift */; };
 		C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E982825A1C300990351 /* ConnectToGameViewController.swift */; };
 		C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9A2825A1DF00990351 /* TabGameViewController.swift */; };
+		C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */; };
+		C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		C0455E962825A1A200990351 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		C0455E982825A1C300990351 /* ConnectToGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToGameViewController.swift; sourceTree = "<group>"; };
 		C0455E9A2825A1DF00990351 /* TabGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGameViewController.swift; sourceTree = "<group>"; };
+		C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCodeViewController.swift; sourceTree = "<group>"; };
+		C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplittedDigitInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 				C0455E7728257C4400990351 /* Colors.swift */,
 				C0455E8E282592C400990351 /* BunkerTextField.swift */,
 				C0455E902825968C00990351 /* GameOptionView.swift */,
+				C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				C0455E982825A1C300990351 /* ConnectToGameViewController.swift */,
+				C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */,
 			);
 			path = ConnectToGame;
 			sourceTree = "<group>";
@@ -380,8 +386,10 @@
 				C0455E7C28257E8E00990351 /* YellowButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
+				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,
 				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,
 				C0455E802825805000990351 /* View+Pin.swift in Sources */,
+				C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */,
 				C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */,
 				C0455E912825968C00990351 /* GameOptionView.swift in Sources */,
 				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
