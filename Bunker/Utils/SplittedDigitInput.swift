@@ -94,6 +94,14 @@ final class SplittedDigitInput: UIView {
             label.switchState()
         }
     }
+    
+    public func DismissKeyboard() {
+        self.backTextField.resignFirstResponder()
+    }
+    
+    public func showKeyboard() {
+        self.backTextField.becomeFirstResponder()
+    }
 }
 
 // MARK: - TextFieldDelegate
@@ -123,6 +131,7 @@ final class DigitLabel: UILabel {
     }
     
     private func setupView() {
+        font = UIFont(name: font.fontName, size: 28)
         layer.masksToBounds = true
         layer.cornerRadius = 8
         textAlignment = .center

@@ -26,8 +26,22 @@ final class RoomCodeViewController: UIViewController {
         )
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        
         setButton()
         setupView()
+    }
+    
+    @objc
+    private func handleTap(tap: UITapGestureRecognizer) {
+        let location = tap.location(in: view)
+        
+        if(codeInput.frame.contains(location)) {
+            codeInput.showKeyboard()
+        } else {
+            codeInput.DismissKeyboard()
+        }
     }
     
     // MARK: - UI setup

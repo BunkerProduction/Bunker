@@ -38,6 +38,22 @@ final class CreateGameViewController: UIViewController {
         )
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        
+        setup()
+    }
+    
+    private func setup() {
+        if let username = UserSettings.shared.username {
+            nameTextField.text = username
+        }
+        nameTextField.placeholder = "Введите имя"
+        nameTextField.delegate = self
+        
+        voteTimeTextField.placeholder = "Введите время голосования (мин)"
+        voteTimeTextField.delegate = self
+        voteTimeTextField.keyboardType = .numberPad
         
         setOptions()
         setButton()
@@ -51,6 +67,9 @@ final class CreateGameViewController: UIViewController {
     
     // MARK: - View setup
     private func setupView() {
+        nameTextField.tag = 1
+        voteTimeTextField.tag = 2
+        
         let textSV = UIStackView(arrangedSubviews: [nameTextField, voteTimeTextField])
         textSV.distribution = .fillEqually
         textSV.alignment = .fill
@@ -91,6 +110,12 @@ final class CreateGameViewController: UIViewController {
     
     // MARK: - Interactions
     @objc
+    private func handleTap() {
+        nameTextField.resignFirstResponder()
+        voteTimeTextField.resignFirstResponder()
+    }
+    
+    @objc
     private func createGame() {
         
     }
@@ -103,3 +128,29 @@ final class CreateGameViewController: UIViewController {
 
 // MARK: - GestureDelegate
 extension CreateGameViewController: UIGestureRecognizerDelegate { }
+
+
+// MARK: - TextFieldDelegate
+extension CreateGameViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 1:
+            if let string = textField.text, string != "" {
+                UserSettings.shared.username = string
+            }
+        case 2:
+            return
+        default:
+            return
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+}

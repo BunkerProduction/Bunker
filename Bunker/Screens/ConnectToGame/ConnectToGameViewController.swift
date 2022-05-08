@@ -26,6 +26,19 @@ final class ConnectToGameViewController: UIViewController {
         )
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        
+        setup()
+    }
+    
+    private func setup() {
+        if let username = UserSettings.shared.username {
+            nameTextField.text = username
+        }
+        nameTextField.placeholder = "Введите имя"
+        nameTextField.delegate = self
+        
         setButton()
         setupView()
     }
@@ -51,6 +64,11 @@ final class ConnectToGameViewController: UIViewController {
     
     // MARK: - Interactions
     @objc
+    private func handleTap() {
+        nameTextField.resignFirstResponder()
+    }
+    
+    @objc
     private func goNext() {
         let enterRoomController = RoomCodeViewController()
         self.navigationController?.pushViewController(enterRoomController, animated: true)
@@ -64,3 +82,18 @@ final class ConnectToGameViewController: UIViewController {
 
 // MARK: - GestureDelegate
 extension ConnectToGameViewController: UIGestureRecognizerDelegate { }
+
+extension ConnectToGameViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let string = textField.text, string != "" {
+            UserSettings.shared.username = string
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        goNext()
+        
+        return false
+    }
+}

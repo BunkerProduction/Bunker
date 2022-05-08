@@ -26,7 +26,7 @@
 		C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E8E282592C400990351 /* BunkerTextField.swift */; };
 		C0455E912825968C00990351 /* GameOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E902825968C00990351 /* GameOptionView.swift */; };
 		C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E942825A14300990351 /* WebSocketTypes.swift */; };
-		C0455E972825A1A200990351 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E962825A1A200990351 /* SettingsController.swift */; };
+		C0455E972825A1A200990351 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E962825A1A200990351 /* UserSettings.swift */; };
 		C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E982825A1C300990351 /* ConnectToGameViewController.swift */; };
 		C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9A2825A1DF00990351 /* TabGameViewController.swift */; };
 		C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */; };
@@ -74,7 +74,7 @@
 		C0455E8E282592C400990351 /* BunkerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunkerTextField.swift; sourceTree = "<group>"; };
 		C0455E902825968C00990351 /* GameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionView.swift; sourceTree = "<group>"; };
 		C0455E942825A14300990351 /* WebSocketTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketTypes.swift; sourceTree = "<group>"; };
-		C0455E962825A1A200990351 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		C0455E962825A1A200990351 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		C0455E982825A1C300990351 /* ConnectToGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToGameViewController.swift; sourceTree = "<group>"; };
 		C0455E9A2825A1DF00990351 /* TabGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabGameViewController.swift; sourceTree = "<group>"; };
 		C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCodeViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				C0455E4728257A0B00990351 /* AppDelegate.swift */,
 				C0455E4928257A0B00990351 /* SceneDelegate.swift */,
 				C0455E822825827A00990351 /* BaseNavigationController.swift */,
-				C0455E962825A1A200990351 /* SettingsController.swift */,
+				C0455E962825A1A200990351 /* UserSettings.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -382,7 +382,7 @@
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
 				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
-				C0455E972825A1A200990351 /* SettingsController.swift in Sources */,
+				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* YellowButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
