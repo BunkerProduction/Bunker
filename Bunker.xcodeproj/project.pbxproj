@@ -133,8 +133,8 @@
 				C0455E7928257D7E00990351 /* Screens */,
 				C0455E932825A11200990351 /* Networking */,
 				C0455E7A28257E5500990351 /* Utils */,
-				C0455E5028257A0B00990351 /* Assets.xcassets */,
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
+				C0455E5028257A0B00990351 /* Assets.xcassets */,
 				C0455E5528257A0B00990351 /* Info.plist */,
 			);
 			path = Bunker;
