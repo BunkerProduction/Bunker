@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */; };
+		C003F2C1282C7615006F3FE9 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C0282C7615006F3FE9 /* OptionsViewController.swift */; };
+		C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */; };
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
 		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C003F2C0282C7615006F3FE9 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 				C0455E8E282592C400990351 /* BunkerTextField.swift */,
 				C0455E902825968C00990351 /* GameOptionView.swift */,
 				C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */,
+				C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */,
+				C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				C0455E882825912F00990351 /* SettingsViewController.swift */,
+				C003F2C0282C7615006F3FE9 /* OptionsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -376,6 +385,8 @@
 			files = (
 				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
+				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
+				C003F2C1282C7615006F3FE9 /* OptionsViewController.swift in Sources */,
 				C0455E7828257C4400990351 /* Colors.swift in Sources */,
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
@@ -385,6 +396,7 @@
 				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* YellowButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
+				C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
 				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,
 				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,
