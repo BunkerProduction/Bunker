@@ -8,12 +8,12 @@
 import UIKit
 
 extension CALayer {
-    func applySketchShadow(
-        color: UIColor = .black,
-        alpha: Float = 0.5,
+    func applyFigmaShadow(
+        color: UIColor = .Primary.primary ?? .black,
+        alpha: Float = 0.4,
         x: CGFloat = 0,
-        y: CGFloat = 2,
-        blur: CGFloat = 4,
+        y: CGFloat = 12,
+        blur: CGFloat = 24,
         spread: CGFloat = 0
     )
     {

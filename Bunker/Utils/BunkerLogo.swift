@@ -28,6 +28,7 @@ final class BunkerLogo: UIView {
         bunkerLabel.text = "Бункер"
         bunkerLabel.textAlignment = .center
         bunkerLabel.textColor = .black
+        bunkerLabel.font = .customFont.headline
         self.addSubview(bunkerLabel)
         
         bunkerLabel.pin(to: self, [.left: 8, .right: 8, .top: 6, .bottom: 6])
