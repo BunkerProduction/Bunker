@@ -4,70 +4,7 @@
 //
 //  Created by Дмитрий Соколов on 06.05.2022.
 //
-
 import Foundation
-
-protocol SettingsOption {
-    func associatedIcon() -> String
-    var optionName: String { get }
-}
-
-public enum Language: String, SettingsOption {
-    case ru,eng,zhi
-    
-    var optionName: String {
-        return "Язык"
-    }
-    
-    func associatedIcon() -> String {
-        switch self {
-        case .ru:
-            return "🇷🇺"
-        case .eng:
-            return "🇬🇧"
-        case .zhi:
-            return "🇨🇳"
-        }
-    }
-}
-
-public enum Appearence: String, SettingsOption {
-    case light, dark, system
-    
-    var optionName: String {
-        return "Тема"
-    }
-    
-    func associatedIcon() -> String {
-        switch self {
-        case .light:
-            return "🌕"
-        case .dark:
-            return "🌑"
-        case .system:
-            return "🌗"
-        }
-    }
-}
-
-public enum Sound: String, SettingsOption {
-    case on,off
-    
-    var optionName: String {
-        return "Звуки"
-    }
-    
-    func associatedIcon() -> String {
-        switch self {
-        case .on:
-            return "🔊"
-        case .off:
-            return "🔇"
-        }
-    }
-    
-    
-}
 
 // MARK: - Settings Manager
 final class UserSettings {
@@ -121,6 +58,16 @@ final class UserSettings {
         }
         if let langauge = storage.object(forKey: CodingKeys.language) as? String {
             self.language = Language(rawValue: langauge) ?? .ru
+        }
+    }
+    
+    public func setOption(_ option: SettingsOption) {
+        if let lang = option as? Language {
+            self.language = lang
+        } else if let sound = option as? Sound {
+            self.volume = sound
+        } else if let theme = option as? Appearence {
+            self.appearance = theme
         }
     }
 }

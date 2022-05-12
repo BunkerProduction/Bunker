@@ -13,6 +13,20 @@ class SettingsCollectionViewCell: UICollectionViewCell {
     private let nameLabel = UILabel()
     private let iconLabel = UILabel()
     
+    override var isSelected: Bool {
+        didSet {
+            if(isSelected) {
+              UIView.animate(withDuration: 0.1, animations: {
+                    self.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
+                    self.layer.borderWidth = 2
+                  self.layer.borderColor = UIColor.Primary.primary?.cgColor
+            }) {_ in self.transform = CGAffineTransform.identity}
+            } else {
+                self.layer.borderWidth = 0
+            }
+        }
+    }
+    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)

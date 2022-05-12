@@ -10,7 +10,11 @@ import UIKit
 final class SettingsViewController: UIViewController {
     typealias Spair = (String, String)
     
-    private var dataSource: [[Any]] = []
+    private var dataSource: [[Any]] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: generateLayout())
         collectionView.register(SettingsCollectionViewCell.self, forCellWithReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier)
@@ -30,6 +34,10 @@ final class SettingsViewController: UIViewController {
         constructDataSource()
         setupNavBar()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        constructDataSource()
     }
     
     private func constructDataSource() {
@@ -69,9 +77,8 @@ final class SettingsViewController: UIViewController {
     private func setupView() {
         view.addSubview(collectionView)
         
-        collectionView.pin(to: view, .left, .right)
+        collectionView.pin(to: view, .left, .right, .bottom)
         collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
-        collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
     }
     
     // MARK: - Layout
@@ -128,10 +135,11 @@ extension SettingsViewController: UIGestureRecognizerDelegate { }
 // MARK: - CollectionViewDelegate
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
         if(indexPath.section == 0) {
             let options = OptionsViewController()
             if let option  = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
-                options.type = option
+                options.option = option
             }
             self.navigationController?.pushViewController(options, animated: true)
         }
@@ -159,7 +167,7 @@ extension SettingsViewController: UICollectionViewDataSource {
                 for: indexPath
             ) as! SettingsCollectionViewCell
             if let option = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
-                let item = (option.optionName, option.associatedIcon())
+                let item = (option.optionType, option.associatedIcon())
                 cell.configure(item.0, item.1)
             }
             

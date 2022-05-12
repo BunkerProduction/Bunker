@@ -15,39 +15,40 @@ public extension UIColor {
     enum Background {
         static let accent = UIColor(named: "Accent")
     }
-}
-//public extension UIColor {
-//    enum background {
-//        case firstLevel
-//        case secondLevel
-//        case accent
-//
-//        public func style() -> UIColor {
-//            let color: UIColor
-//            switch self {
-//            case .accent:
-//                color = UIColor(named: "BackgroundAccent")!
-//            case .firstLevel:
-//                color = UIColor(named: "BackgroundFirstLevel")!
-//            case .secondLevel:
-//                color = UIColor(named: "BackgroundSeccondLevel")!
-//            }
-//            return color
-//        }
+    
+    // вариант был но так то херня полная
+//    вызывалось так UIColor.Background.accent.colorFor(.light)
+//    enum Primary {
+//        static let primary = PrimaryColors.self
 //    }
 //
-//    enum outline {
-//        case heavy
-//        case light
+//    enum Background {
+//        static let accent = AccentColors.self
+//    }
 //
-//        public func style() -> UIColor {
-//            let color: UIColor
-//            switch self {
-//            case .heavy:
-//                color = UIColor(named: "OutlineHeavy")!
+//    struct PrimaryColors {
+//        static func colorFor(_ theme: Appearence) -> UIColor? {
+//            switch theme {
 //            case .light:
-//                color = UIColor(named: "OutlineLight")!
+//                return UIColor(named: "Primary")
+//            case .dark:
+//                return UIColor(named: "Primary")
+//            case .system:
+//                return UIColor(named: "Primary")
 //            }
-//            return color
 //        }
 //    }
+//
+//    struct AccentColors {
+//        static func colorFor(_ theme: Appearence) -> UIColor? {
+//            switch theme {
+//            case .light:
+//                return UIColor(named: "Accent")
+//            case .dark:
+//                return UIColor(named: "Accent")
+//            case .system:
+//                return UIColor(named: "Accent")
+//            }
+//        }
+//    }
+}

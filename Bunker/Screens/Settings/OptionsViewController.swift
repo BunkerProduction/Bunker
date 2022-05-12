@@ -22,27 +22,31 @@ final class OptionsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        collectionView.allowsSelection = true
+        
         return collectionView
     }()
     
-    public var type: SettingsOption?
-    
+    public var option: SettingsOption?
     private var dataSource: [SettingsOption] = []
+    private let settings = UserSettings.shared
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        setupNavBar()
         
-        
-        if let type = type {
+        if let type = option {
+            dataSource = type.allCases
         }
+        
+        setupNavBar()
+        setupView()
     }
     
+    // MARK: - setup UI
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = type?.optionName ?? ""
+        self.navigationItem.title = option?.optionType ?? ""
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,
@@ -50,6 +54,14 @@ final class OptionsViewController: UIViewController {
             action: #selector(goBack)
         )
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    private func setupView() {
+        self.view.backgroundColor = .white
+        self.view.addSubview(collectionView)
+        
+        collectionView.pin(to: view, [.left, .right, .bottom])
+        collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
     }
     
     // MARK: - Layout
@@ -106,10 +118,7 @@ extension OptionsViewController: UIGestureRecognizerDelegate { }
 // MARK: - CollectionViewDelegate
 extension OptionsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if(indexPath.section == 0) {
-            let options = OptionsViewController()
-            self.navigationController?.pushViewController(options, animated: true)
-        }
+        settings.setOption(dataSource[indexPath.row])
     }
 }
 
@@ -117,15 +126,23 @@ extension OptionsViewController: UICollectionViewDelegate {
 // MARK: - Collection DataSource
 extension OptionsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier, for: indexPath)
+        let item = dataSource[indexPath.row]
+        if item.optionName == self.option?.optionName {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        }
+        if let cell = cell as? SettingsCollectionViewCell {
+            cell.configure(item.optionName, item.associatedIcon())
+        }
+        
         return cell
     }
 }
