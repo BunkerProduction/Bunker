@@ -8,20 +8,9 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-    private var dataSource = [
-        [
-            ("Язык","🇷🇺"),
-            ("Звуки","🔊"),
-            ("Тема","🌕")
-        ],
-        [
-            ("True","W"),
-            ("False","W")
-        ],
-        [
-            ("Восстановить покупки","🛍")
-        ]
-    ]
+    typealias Spair = (String, String)
+    
+    private var dataSource: [[Any]] = []
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: generateLayout())
         collectionView.register(SettingsCollectionViewCell.self, forCellWithReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier)
@@ -38,8 +27,30 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
+        constructDataSource()
         setupNavBar()
         setupView()
+    }
+    
+    private func constructDataSource() {
+        let settings = UserSettings.shared
+        let volume = settings.volume
+        let theme = settings.appearance
+        let lang = settings.language
+        
+        let sectionF = [lang, volume, theme] as [Any]
+        
+        var sectionS: [Spair] = []
+        var sectionT: [Spair] = []
+        if(settings.isPremium) {
+            sectionS.append(("True",""))
+        } else {
+            sectionS.append(("True",""))
+            sectionS.append(("False",""))
+            sectionT.append(("Восстановить покупки","🛍"))
+        }
+        let dataSource = [sectionF, sectionS, sectionT]
+        self.dataSource = dataSource
     }
     
     // MARK: - setupView
@@ -86,8 +97,8 @@ final class SettingsViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
                 let groupSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.82),
-                    heightDimension: .absolute(160)
+                    widthDimension: .fractionalWidth(0.7),
+                    heightDimension: .absolute(280)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
@@ -119,6 +130,9 @@ extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(indexPath.section == 0) {
             let options = OptionsViewController()
+            if let option  = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
+                options.type = option
+            }
             self.navigationController?.pushViewController(options, animated: true)
         }
     }
@@ -139,13 +153,15 @@ extension SettingsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
-        case 0,2:
+        case 0:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
                 for: indexPath
             ) as! SettingsCollectionViewCell
-            let item = dataSource[indexPath.section][indexPath.row]
-            cell.configure(item.0, item.1)
+            if let option = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
+                let item = (option.optionName, option.associatedIcon())
+                cell.configure(item.0, item.1)
+            }
             
             return cell
         case 1:
@@ -155,6 +171,15 @@ extension SettingsViewController: UICollectionViewDataSource {
             ) as! VersionCollectionViewCell
             cell.configure(false)
             
+            return cell
+        case 2:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
+                for: indexPath
+            ) as! SettingsCollectionViewCell
+            if let item = dataSource[indexPath.section][indexPath.row] as? Spair {
+                cell.configure(item.0, item.1)
+            }
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(
