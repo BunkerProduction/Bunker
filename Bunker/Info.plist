@@ -9,38 +9,38 @@
 			<key>darkIcon</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
-                <array>
-                    <string>Darkc</string>
-                </array>
+				<array>
+					<string>Dark</string>
+				</array>
 			</dict>
-            <key>holoIcon</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>Holo</string>
-                </array>
-            </dict>
-            <key>alianIcon</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>Alian</string>
-                </array>
-            </dict>
-            <key>monoIcon</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>Mono</string>
-                </array>
-            </dict>
-            <key>toxicIcon</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>Toxic</string>
-                </array>
-            </dict>
+			<key>holoIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Holo</string>
+				</array>
+			</dict>
+			<key>alianIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Alian</string>
+				</array>
+			</dict>
+			<key>monoIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Mono</string>
+				</array>
+			</dict>
+			<key>toxicIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Toxic</string>
+				</array>
+			</dict>
 		</dict>
 	</dict>
 	<key>UIAppFonts</key>

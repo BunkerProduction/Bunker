@@ -104,11 +104,11 @@ public enum Sound: String, SettingsOption, CaseIterable {
 // MARK: - App Icon
 public enum AppIcon: String, CaseIterable {
     case light = "Standart60_3x.png"
-    case dark = "darkc@2x.png"
-    case holo = "holo@2x.png"
+    case dark = "Dark@2x.png"
+    case holo = "Holo@2x.png"
     case alian = "Alian@2x.png"
-    case mono = "mono@2x.png"
-    case toxic = "toxic@2x.png"
+    case mono = "Mono@2x.png"
+    case toxic = "Toxic@2x.png"
     
     
     static func applyAppIcon(icon: AppIcon) {
