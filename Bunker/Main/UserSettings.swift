@@ -13,6 +13,7 @@ final class UserSettings {
         static let sound = "SoundIsOn"
         static let appearence = "Appearence"
         static let language = "Language"
+        static let appIcon = "AppIcon"
     }
     
     static let shared = UserSettings()
@@ -42,6 +43,13 @@ final class UserSettings {
         }
     }
     
+    public var appIcon: AppIcon = .light {
+        didSet {
+            AppIcon.applyAppIcon(icon: appIcon)
+            storage.set(appIcon.rawValue, forKey: CodingKeys.appIcon)
+        }
+    }
+    
     public var isPremium: Bool = false {
         didSet {
             
@@ -58,6 +66,9 @@ final class UserSettings {
         }
         if let langauge = storage.object(forKey: CodingKeys.language) as? String {
             self.language = Language(rawValue: langauge) ?? .ru
+        }
+        if let icon = storage.object(forKey: CodingKeys.appIcon) as? String {
+            self.appIcon = AppIcon(rawValue: icon) ?? .light
         }
     }
     

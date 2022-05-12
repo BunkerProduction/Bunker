@@ -2,6 +2,47 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>darkIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+                <array>
+                    <string>Darkc</string>
+                </array>
+			</dict>
+            <key>holoIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>Holo</string>
+                </array>
+            </dict>
+            <key>alianIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>Alian</string>
+                </array>
+            </dict>
+            <key>monoIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>Mono</string>
+                </array>
+            </dict>
+            <key>toxicIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>Toxic</string>
+                </array>
+            </dict>
+		</dict>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-Pro-Display-Regular.otf</string>

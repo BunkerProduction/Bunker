@@ -22,6 +22,7 @@ final class SettingsViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsVerticalScrollIndicator = false
         
         return collectionView
     }()

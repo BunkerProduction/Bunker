@@ -26,13 +26,15 @@ class IconCollectionViewCell: UICollectionViewCell {
     
     // MARK: - SetupUI
     private func setupView() {
-        self.layer.cornerRadius = 12
+        layer.cornerRadius = 12
+        layer.masksToBounds = true
         
-        self.contentView.addSubview(imageView)
-        imageView.pin(to: contentView)
+        addSubview(imageView)
+        imageView.pin(to: self)
     }
     
-    public func configure(iconName: String) {
-        self.backgroundColor = .yellow
+    public func configure(_ iconName: AppIcon) {
+        self.imageView.image = UIImage(named: iconName.rawValue)
+        self.imageView.contentMode = .scaleAspectFit
     }
 }

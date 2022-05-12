@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import CoreImage
+import UIKit
 
+// MARK: - Option Protocol
 protocol SettingsOption {
     func associatedIcon() -> String
     var allCases: [Self] { get }
@@ -14,6 +17,7 @@ protocol SettingsOption {
     var optionName: String { get }
 }
 
+// MARK: - Language
 public enum Language: String, SettingsOption, CaseIterable {
     case ru = "Русский"
     case eng = "Английский"
@@ -43,6 +47,7 @@ public enum Language: String, SettingsOption, CaseIterable {
     }
 }
 
+// MARK: - Appearence
 public enum Appearence: String, SettingsOption, CaseIterable {
     case light = "Cветлая", dark = "Темная", system = "Система"
     
@@ -70,6 +75,7 @@ public enum Appearence: String, SettingsOption, CaseIterable {
     }
 }
 
+// MARK: - Sound
 public enum Sound: String, SettingsOption, CaseIterable {
     case on = "Вкл", off = "Выкл"
     
@@ -91,6 +97,36 @@ public enum Sound: String, SettingsOption, CaseIterable {
             return "🔊"
         case .off:
             return "🔇"
+        }
+    }
+}
+
+// MARK: - App Icon
+public enum AppIcon: String, CaseIterable {
+    case light = "Standart60_3x.png"
+    case dark = "darkc@2x.png"
+    case holo = "holo@2x.png"
+    case alian = "Alian@2x.png"
+    case mono = "mono@2x.png"
+    case toxic = "toxic@2x.png"
+    
+    
+    static func applyAppIcon(icon: AppIcon) {
+        let app = UIApplication.shared
+        
+        switch icon {
+        case .light:
+            app.setAlternateIconName(nil)
+        case .dark:
+            app.setAlternateIconName("darkIcon")
+        case .holo:
+            app.setAlternateIconName("holoIcon")
+        case .alian:
+            app.setAlternateIconName("alianIcon")
+        case .mono:
+            app.setAlternateIconName("monoIcon")
+        case .toxic:
+            app.setAlternateIconName("toxicIcon")
         }
     }
 }
