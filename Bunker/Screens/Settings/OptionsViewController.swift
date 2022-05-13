@@ -23,7 +23,7 @@ final class OptionsViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = true
         
         return collectionView
     }()
@@ -112,7 +112,7 @@ final class OptionsViewController: UIViewController {
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 40, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 80, trailing: 20)
                 
                 return section
             default:
@@ -136,8 +136,17 @@ extension OptionsViewController: UIGestureRecognizerDelegate { }
 // MARK: - CollectionViewDelegate
 extension OptionsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let selected = collectionView.indexPathsForSelectedItems ?? []
+        
         if(indexPath.section == 0) {
             self.option = settings.setOption(dataSource[indexPath.row])
+//            selected.lazy.filter {$0.section == 0}.forEach {
+//                collectionView.deselectItem(at: $0, animated: false)
+//            }
+        } else {
+            selected.lazy.filter {$0.section == 1}.forEach {
+                collectionView.deselectItem(at: $0, animated: false)
+            }
         }
         return true
     }
@@ -179,7 +188,12 @@ extension OptionsViewController: UICollectionViewDataSource {
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconCollectionViewCell.reuseIdentifier, for: indexPath)
             if let cell = cell as? IconCollectionViewCell {
-                cell.configure(icons[indexPath.row])
+                let icon = icons[indexPath.row]
+                cell.configure(icon)
+                cell.setTheme(settings.appearance)
+                if icon == settings.appIcon {
+                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+                }
             }
             
             return cell
