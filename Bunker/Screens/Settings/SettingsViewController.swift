@@ -52,10 +52,10 @@ final class SettingsViewController: UIViewController {
         var sectionS: [Spair] = []
         var sectionT: [Spair] = []
         if(settings.isPremium) {
-            sectionS.append(("True",""))
+            sectionS.append(("true",""))
         } else {
-            sectionS.append(("True",""))
-            sectionS.append(("False",""))
+            sectionS.append(("false",""))
+            sectionS.append(("true",""))
             sectionT.append(("Восстановить покупки","🛍"))
         }
         let dataSource = [sectionF, sectionS, sectionT]
@@ -167,6 +167,7 @@ extension SettingsViewController: UICollectionViewDataSource {
                 withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
                 for: indexPath
             ) as! SettingsCollectionViewCell
+            cell.setTheme(settings.appearance)
             if let option = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
                 let item = (option.optionType, option.associatedIcon())
                 cell.configure(item.0, item.1)
@@ -178,7 +179,10 @@ extension SettingsViewController: UICollectionViewDataSource {
                 withReuseIdentifier: VersionCollectionViewCell.reuseIdentifier,
                 for: indexPath
             ) as! VersionCollectionViewCell
-            cell.configure(false)
+            let isPremium = dataSource[indexPath.section][indexPath.row] as? Spair
+            let bol = isPremium?.0 == "true" ? true : false
+            cell.configure(bol)
+            cell.setTheme(settings.appearance)
             
             return cell
         case 2:
@@ -186,6 +190,7 @@ extension SettingsViewController: UICollectionViewDataSource {
                 withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
                 for: indexPath
             ) as! SettingsCollectionViewCell
+            cell.setTheme(settings.appearance)
             if let item = dataSource[indexPath.section][indexPath.row] as? Spair {
                 cell.configure(item.0, item.1)
             }

@@ -17,7 +17,6 @@ final class RoomCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
@@ -45,6 +44,8 @@ final class RoomCodeViewController: UIViewController {
         connectButton.setTheme(theme)
         logo.setTheme(theme)
         codeInput.setTheme(theme)
+        
+        self.view.backgroundColor = .white
     }
     
     // MARK: - UI setup

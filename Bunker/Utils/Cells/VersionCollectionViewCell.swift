@@ -13,6 +13,7 @@ class VersionCollectionViewCell: UICollectionViewCell {
     private let titleLabel = UILabel()
     private let textView = UITextView()
     private let buyButton = UIButton()
+    private var isPremium: Bool = false
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -40,7 +41,8 @@ class VersionCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(_ premium: Bool) {
-        if(premium) {
+        self.isPremium = premium
+        if(isPremium) {
             titleLabel.text = "Премиум Версия"
             textView.text = "— 18 аппокалипсисов \n — новые характеристики \n — увеличенные комнаты \n — 4 цветовые темы \n— выбор сложности \n 159₽"
             buyButton.isHidden = false
@@ -51,5 +53,9 @@ class VersionCollectionViewCell: UICollectionViewCell {
             buyButton.isHidden = true
             self.backgroundColor = .Background.accent
         }
+    }
+    
+    public func setTheme(_ theme: Appearence) {
+        self.backgroundColor = isPremium ? .Main.Primary.colorFor(theme) : .BackGround.Accent.colorFor(theme)
     }
 }

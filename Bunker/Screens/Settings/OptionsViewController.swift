@@ -50,6 +50,18 @@ final class OptionsViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUI()
+    }
+    
+    private func updateUI() {
+        self.collectionView.reloadData()
+        
+        self.view.backgroundColor = .white
+    }
+    
     // MARK: - setup UI
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
@@ -64,7 +76,6 @@ final class OptionsViewController: UIViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = .white
         self.view.addSubview(collectionView)
         
         collectionView.pin(to: view, [.left, .right, .bottom])
@@ -124,11 +135,18 @@ extension OptionsViewController: UIGestureRecognizerDelegate { }
 
 // MARK: - CollectionViewDelegate
 extension OptionsViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if(indexPath.section == 0) {
-            settings.setOption(dataSource[indexPath.row])
-        } else {
+            self.option = settings.setOption(dataSource[indexPath.row])
+        }
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if(indexPath.section == 1) {
             settings.appIcon = icons[indexPath.row]
+        } else {
+            self.updateUI()
         }
     }
 }
@@ -154,6 +172,7 @@ extension OptionsViewController: UICollectionViewDataSource {
             }
             if let cell = cell as? SettingsCollectionViewCell {
                 cell.configure(item.optionName, item.associatedIcon())
+                cell.setTheme(settings.appearance)
             }
             
             return cell

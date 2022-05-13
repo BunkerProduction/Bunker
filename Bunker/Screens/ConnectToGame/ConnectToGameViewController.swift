@@ -17,7 +17,6 @@ final class ConnectToGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
@@ -39,13 +38,17 @@ final class ConnectToGameViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - update UI
     private func updateUI() {
         let theme = settings.appearance
         nextButton.setTheme(theme)
         logo.setTheme(theme)
         nameTextField.setTheme(theme)
+        
+        self.view.backgroundColor = .white
     }
     
+    // MARK: - UI setup
     private func setup() {
         if let username = UserSettings.shared.username {
             nameTextField.text = username
@@ -57,7 +60,6 @@ final class ConnectToGameViewController: UIViewController {
         setupView()
     }
     
-    // MARK: - UI setup
     private func setupView() {
         view.addSubview(logo)
         logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 60)

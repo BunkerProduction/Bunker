@@ -36,11 +36,12 @@ final class WelcomeController: UIViewController {
         logo.setTheme(theme)
         settingsButton.backgroundColor = .BackGround.Accent.colorFor(theme)
         instructionView.backgroundColor = .BackGround.Accent.colorFor(theme)
+        
+        self.view.backgroundColor = .white
     }
     
     // MARK: - SetupView
     private func setupView() {
-        self.view.backgroundColor = .white
         createGameButton.setTitle("Создать игру", for: .normal)
         joinGameButton.setTitle("Присоединиться к игре", for: .normal)
         

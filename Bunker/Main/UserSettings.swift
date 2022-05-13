@@ -72,13 +72,17 @@ final class UserSettings {
         }
     }
     
-    public func setOption(_ option: SettingsOption) {
+    public func setOption(_ option: SettingsOption) -> SettingsOption? {
         if let lang = option as? Language {
             self.language = lang
+            return self.language
         } else if let sound = option as? Sound {
             self.volume = sound
+            return self.volume
         } else if let theme = option as? Appearence {
             self.appearance = theme
+            return self.appearance
         }
+        return nil
     }
 }

@@ -29,7 +29,6 @@ final class CreateGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
@@ -59,6 +58,8 @@ final class CreateGameViewController: UIViewController {
         voteTimeTextField.setTheme(theme)
         packView.setTheme(theme)
         difficultyView.setTheme(theme)
+        
+        self.view.backgroundColor = .white
     }
     
     private func setup() {

@@ -61,4 +61,8 @@ class SettingsCollectionViewCell: UICollectionViewCell {
         self.nameLabel.text = name
         self.iconLabel.text = icon
     }
+    
+    public func setTheme(_ theme: Appearence) {
+        self.backgroundColor = .BackGround.Accent.colorFor(theme)
+    }
 }
