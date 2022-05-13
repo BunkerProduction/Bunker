@@ -10,7 +10,7 @@ import UIKit
 final class RoomCodeViewController: UIViewController {
     private let logo = BunkerLogo()
     private let codeInput = SplittedDigitInput()
-    private let connectButton = YellowButton()
+    private let connectButton = PrimaryButton()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

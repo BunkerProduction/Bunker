@@ -11,8 +11,8 @@ final class WelcomeController: UIViewController {
     private let settingsButton = UIButton()
     private let logo = BunkerLogo()
     private let instructionView = UIView()
-    private let createGameButton = YellowButton(frame: .zero)
-    private let joinGameButton = YellowButton(frame: .zero)
+    private let createGameButton = PrimaryButton(frame: .zero)
+    private let joinGameButton = PrimaryButton(frame: .zero)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

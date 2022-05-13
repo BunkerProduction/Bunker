@@ -23,7 +23,7 @@ final class BunkerLogo: UIView {
     
     // MARK: - Setup
     private func setup() {
-        self.backgroundColor = .Primary.primary
+        self.backgroundColor = .Main.Primary.colorFor(.poisonous)
         
         bunkerLabel.text = "Бункер"
         bunkerLabel.textAlignment = .center
