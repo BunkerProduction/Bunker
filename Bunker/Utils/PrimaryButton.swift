@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class YellowButton: UIButton {
+final class PrimaryButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.layer.cornerRadius = 12
         self.layer.applyFigmaShadow()
-        self.backgroundColor = .Primary.primary
+        self.backgroundColor = .Main.Primary.colorFor(.poisonous)
         self.setTitleColor(.black, for: .normal)
         self.setHeight(to: 48)
     }

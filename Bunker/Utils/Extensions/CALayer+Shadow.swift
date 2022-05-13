@@ -9,7 +9,7 @@ import UIKit
 
 extension CALayer {
     func applyFigmaShadow(
-        color: UIColor = .Primary.primary ?? .black,
+        color: UIColor = .Main.Primary.colorFor(.poisonous) ?? .black,
         alpha: Float = 0.4,
         x: CGFloat = 0,
         y: CGFloat = 12,

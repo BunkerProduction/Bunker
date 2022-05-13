@@ -12,7 +12,7 @@ final class CreateGameViewController: UIViewController {
     private let voteTimeTextField = BunkerTextField()
     private let packView = GameOptionView()
     private let difficultyView = GameOptionView()
-    private let createButton = YellowButton()
+    private let createButton = PrimaryButton()
     private let logo = BunkerLogo()
     
     private let scrollView: UIScrollView = {

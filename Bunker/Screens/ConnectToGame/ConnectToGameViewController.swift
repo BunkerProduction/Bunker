@@ -10,7 +10,7 @@ import UIKit
 final class ConnectToGameViewController: UIViewController {
     private let nameTextField = BunkerTextField()
     private let logo = BunkerLogo()
-    private let nextButton = YellowButton()
+    private let nextButton = PrimaryButton()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
