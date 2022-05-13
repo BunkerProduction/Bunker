@@ -33,6 +33,7 @@
 		C003F2F6282DB942006F3FE9 /* Alian@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2EC282DB942006F3FE9 /* Alian@3x.png */; };
 		C003F2F8282DB993006F3FE9 /* Standart60_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2F7282DB993006F3FE9 /* Standart60_3x.png */; };
 		C003F2FB282DBD8B006F3FE9 /* Label+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */; };
+		C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F30F282EF25A006F3FE9 /* ScreenSize.swift */; };
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
 		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
@@ -103,6 +104,7 @@
 		C003F2EC282DB942006F3FE9 /* Alian@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alian@3x.png"; sourceTree = "<group>"; };
 		C003F2F7282DB993006F3FE9 /* Standart60_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Standart60_3x.png; sourceTree = "<group>"; };
 		C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Font.swift"; sourceTree = "<group>"; };
+		C003F30F282EF25A006F3FE9 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				C0455E7F2825805000990351 /* View+Pin.swift */,
 				C0455E7728257C4400990351 /* Colors.swift */,
 				C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */,
+				C003F30F282EF25A006F3FE9 /* ScreenSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */,
 				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,

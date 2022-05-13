@@ -41,7 +41,7 @@ class IconCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         layer.borderWidth = 2
-        layer.cornerRadius = 12
+        layer.cornerRadius = 16
         layer.masksToBounds = true
         imageView.layer.cornerRadius = 12
         imageView.layer.masksToBounds = true

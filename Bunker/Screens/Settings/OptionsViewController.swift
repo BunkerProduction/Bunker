@@ -95,7 +95,7 @@ final class OptionsViewController: UIViewController {
                     heightDimension: .absolute(56)
                 )
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(10), trailing: .none, bottom: .fixed(10))
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(6), trailing: .none, bottom: .fixed(6))
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
                 
@@ -140,15 +140,22 @@ extension OptionsViewController: UICollectionViewDelegate {
         
         if(indexPath.section == 0) {
             self.option = settings.setOption(dataSource[indexPath.row])
-//            selected.lazy.filter {$0.section == 0}.forEach {
-//                collectionView.deselectItem(at: $0, animated: false)
-//            }
+            selected.lazy.filter {$0.section == 0}.forEach {
+                collectionView.deselectItem(at: $0, animated: false)
+            }
         } else {
             selected.lazy.filter {$0.section == 1}.forEach {
                 collectionView.deselectItem(at: $0, animated: false)
             }
         }
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.impactOccurred(intensity: 0.5)
+        
         return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

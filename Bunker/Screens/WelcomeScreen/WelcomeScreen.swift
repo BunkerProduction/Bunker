@@ -81,6 +81,7 @@ final class WelcomeController: UIViewController {
     private func setupSettingsButton() {
         settingsButton.setHeight(to: 48)
         settingsButton.pinWidth(to: settingsButton.heightAnchor, 1)
+        settingsButton.setTitle("⚙️", for: .normal)
         settingsButton.layer.cornerRadius = 12
         
         settingsButton.addTarget(self, action: #selector(settingsPressed), for: .touchUpInside)
@@ -88,6 +89,19 @@ final class WelcomeController: UIViewController {
     
     private func setupInstructionView() {
         instructionView.layer.cornerRadius = 12
+        let label = UILabel()
+        label.text = "Правила игры"
+        label.textAlignment = .center
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "bookIcon")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        imageView.contentMode = .scaleAspectFit
+        let sV = UIStackView(arrangedSubviews: [label, imageView])
+        sV.distribution = .equalCentering
+        sV.alignment = .fill
+        sV.axis = .vertical
+        
+        instructionView.addSubview(sV)
+        sV.pin(to: instructionView, [.top: 50, .bottom: 50, .left: 0, .right: 0])
         instructionView.setHeight(to: 281)
         instructionView.setWidth(to: 215)
     }

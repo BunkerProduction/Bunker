@@ -39,7 +39,15 @@ final class SettingsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         constructDataSource()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     private func constructDataSource() {
@@ -95,7 +103,7 @@ final class SettingsViewController: UIViewController {
                     heightDimension: .absolute(56)
                 )
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(10), trailing: .none, bottom: .fixed(10))
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(6), trailing: .none, bottom: .fixed(6))
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
                 
@@ -103,16 +111,31 @@ final class SettingsViewController: UIViewController {
             case 1:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
                 let groupSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.7),
+                    widthDimension: .absolute(215),
                     heightDimension: .absolute(280)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .fixed(8), top: .none, trailing: .fixed(16), bottom: .none)
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPaging
-                section.contentInsets = NSDirectionalEdgeInsets(top: 40, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 47, leading: 20, bottom: 47, trailing: 20)
+                
+                // card size animation when scrolling
+                section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in
+                    let centerX = point.x + ScreenSize.Width / 2
+                    visibleItems.forEach { item in
+                        guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? VersionCollectionViewCell
+                        else { return }
+                        
+                        if(cell.frame.minX <= centerX && cell.frame.maxX >= centerX) {
+                            cell.transformToLarge()
+                        } else {
+                            cell.transformBack()
+                        }
+                    }
+                }
                 
                 return section
             default:
