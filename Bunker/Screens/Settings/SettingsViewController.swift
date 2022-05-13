@@ -10,6 +10,7 @@ import UIKit
 final class SettingsViewController: UIViewController {
     typealias Spair = (String, String)
     
+    private let settings = UserSettings.shared
     private var dataSource: [[Any]] = [] {
         didSet {
             self.collectionView.reloadData()
@@ -42,7 +43,6 @@ final class SettingsViewController: UIViewController {
     }
     
     private func constructDataSource() {
-        let settings = UserSettings.shared
         let volume = settings.volume
         let theme = settings.appearance
         let lang = settings.language

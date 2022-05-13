@@ -19,10 +19,13 @@ final class BunkerTextField: UITextField {
     }
     
     private func setupView() {
-        self.backgroundColor = .Background.accent
         self.layer.cornerRadius = 12
         self.setLeftPaddingPoints(16)
         self.setHeight(to: 48)
+    }
+    
+    public func setTheme(_ theme: Appearence) {
+        self.backgroundColor = .BackGround.Accent.colorFor(theme)
     }
 }
 

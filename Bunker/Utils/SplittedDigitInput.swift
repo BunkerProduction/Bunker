@@ -28,7 +28,6 @@ final class SplittedDigitInput: UIView {
     
     // MARK: - UI setup
     private func setupView() {
-        self.backgroundColor = .Background.accent
         self.layer.cornerRadius = 12
         
         titleLabel.text = "Введите номер комнаты"
@@ -101,6 +100,13 @@ final class SplittedDigitInput: UIView {
     
     public func showKeyboard() {
         self.backTextField.becomeFirstResponder()
+    }
+    
+    public func setTheme(_ theme: Appearence) {
+        self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        for label in labels {
+            label.backgroundColor = .white 
+        }
     }
 }
 

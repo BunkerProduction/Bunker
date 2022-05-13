@@ -13,6 +13,7 @@ final class WelcomeController: UIViewController {
     private let instructionView = UIView()
     private let createGameButton = PrimaryButton(frame: .zero)
     private let joinGameButton = PrimaryButton(frame: .zero)
+    private let settings = UserSettings.shared
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -24,6 +25,17 @@ final class WelcomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        updateUI()
+    }
+    
+    private func updateUI() {
+        let theme = settings.appearance
+        createGameButton.setTheme(theme)
+        joinGameButton.setTheme(theme)
+        logo.setTheme(theme)
+        settingsButton.backgroundColor = .BackGround.Accent.colorFor(theme)
+        instructionView.backgroundColor = .BackGround.Accent.colorFor(theme)
     }
     
     // MARK: - SetupView
@@ -66,7 +78,6 @@ final class WelcomeController: UIViewController {
     }
     
     private func setupSettingsButton() {
-        settingsButton.backgroundColor = .Background.accent
         settingsButton.setHeight(to: 48)
         settingsButton.pinWidth(to: settingsButton.heightAnchor, 1)
         settingsButton.layer.cornerRadius = 12
@@ -75,7 +86,6 @@ final class WelcomeController: UIViewController {
     }
     
     private func setupInstructionView() {
-        instructionView.backgroundColor = .Background.accent
         instructionView.layer.cornerRadius = 12
         instructionView.setHeight(to: 281)
         instructionView.setWidth(to: 215)

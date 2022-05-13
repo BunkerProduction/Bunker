@@ -14,6 +14,7 @@ final class CreateGameViewController: UIViewController {
     private let difficultyView = GameOptionView()
     private let createButton = PrimaryButton()
     private let logo = BunkerLogo()
+    private let settings = UserSettings.shared
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -42,6 +43,22 @@ final class CreateGameViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUI()
+    }
+    
+    private func updateUI() {
+        let theme = settings.appearance
+        createButton.setTheme(theme)
+        logo.setTheme(theme)
+        nameTextField.setTheme(theme)
+        voteTimeTextField.setTheme(theme)
+        packView.setTheme(theme)
+        difficultyView.setTheme(theme)
     }
     
     private func setup() {

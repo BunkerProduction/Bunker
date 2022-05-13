@@ -11,6 +11,7 @@ final class RoomCodeViewController: UIViewController {
     private let logo = BunkerLogo()
     private let codeInput = SplittedDigitInput()
     private let connectButton = PrimaryButton()
+    private let settings = UserSettings.shared
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -33,15 +34,17 @@ final class RoomCodeViewController: UIViewController {
         setupView()
     }
     
-    @objc
-    private func handleTap(tap: UITapGestureRecognizer) {
-        let location = tap.location(in: view)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if(codeInput.frame.contains(location)) {
-            codeInput.showKeyboard()
-        } else {
-            codeInput.DismissKeyboard()
-        }
+        updateUI()
+    }
+    
+    private func updateUI() {
+        let theme = settings.appearance
+        connectButton.setTheme(theme)
+        logo.setTheme(theme)
+        codeInput.setTheme(theme)
     }
     
     // MARK: - UI setup
@@ -73,6 +76,16 @@ final class RoomCodeViewController: UIViewController {
     @objc
     private func goBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func handleTap(tap: UITapGestureRecognizer) {
+        let location = tap.location(in: view)
+        if(codeInput.frame.contains(location)) {
+            codeInput.showKeyboard()
+        } else {
+            codeInput.DismissKeyboard()
+        }
     }
 }
 

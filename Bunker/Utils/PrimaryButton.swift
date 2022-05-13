@@ -12,13 +12,16 @@ final class PrimaryButton: UIButton {
         super.init(frame: frame)
         
         self.layer.cornerRadius = 12
-        self.layer.applyFigmaShadow()
-        self.backgroundColor = .Main.Primary.colorFor(.poisonous)
         self.setTitleColor(.black, for: .normal)
         self.setHeight(to: 48)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setTheme(_ theme: Appearence) {
+        self.backgroundColor = .Main.Primary.colorFor(theme)
+        self.layer.applyFigmaShadow(color: .Main.Primary.colorFor(theme) ?? .white)
     }
 }

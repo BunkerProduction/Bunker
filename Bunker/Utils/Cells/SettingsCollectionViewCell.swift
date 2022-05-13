@@ -19,7 +19,7 @@ class SettingsCollectionViewCell: UICollectionViewCell {
               UIView.animate(withDuration: 0.1, animations: {
                     self.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
                     self.layer.borderWidth = 2
-                  self.layer.borderColor = UIColor.Primary.primary?.cgColor
+                  self.layer.borderColor = UIColor.Main.Primary.colorFor(UserSettings.shared.appearance)?.cgColor
             }) {_ in self.transform = CGAffineTransform.identity}
             } else {
                 self.layer.borderWidth = 0
@@ -41,7 +41,7 @@ class SettingsCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         self.layer.cornerRadius = 12
-        self.backgroundColor = .Background.accent
+        self.backgroundColor = .BackGround.Accent.colorFor(UserSettings.shared.appearance)
         
         nameLabel.textAlignment = .left
         iconLabel.textAlignment = .right

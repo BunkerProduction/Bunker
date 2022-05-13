@@ -11,6 +11,7 @@ final class ConnectToGameViewController: UIViewController {
     private let nameTextField = BunkerTextField()
     private let logo = BunkerLogo()
     private let nextButton = PrimaryButton()
+    private let settings = UserSettings.shared
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -30,6 +31,19 @@ final class ConnectToGameViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUI()
+    }
+    
+    private func updateUI() {
+        let theme = settings.appearance
+        nextButton.setTheme(theme)
+        logo.setTheme(theme)
+        nameTextField.setTheme(theme)
     }
     
     private func setup() {
