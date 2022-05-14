@@ -58,8 +58,8 @@ final class OptionsViewController: UIViewController {
     
     private func updateUI() {
         self.collectionView.reloadData()
-        
-        self.view.backgroundColor = .white
+        let theme = settings.appearance
+        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
     // MARK: - setup UI

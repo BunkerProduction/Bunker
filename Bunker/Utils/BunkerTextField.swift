@@ -26,6 +26,10 @@ final class BunkerTextField: UITextField {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.tintColor = .Main.Primary.colorFor(theme)
+        self.font = .customFont.body
+//        set "descrption" text color to .TextAndIcons.Secondsary.colorFor(theme)
+        self.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 }
 

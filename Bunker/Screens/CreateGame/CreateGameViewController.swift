@@ -59,7 +59,7 @@ final class CreateGameViewController: UIViewController {
         packView.setTheme(theme)
         difficultyView.setTheme(theme)
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
     private func setup() {

@@ -45,7 +45,7 @@ final class RoomCodeViewController: UIViewController {
         logo.setTheme(theme)
         codeInput.setTheme(theme)
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
     // MARK: - UI setup

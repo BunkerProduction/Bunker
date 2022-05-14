@@ -37,7 +37,7 @@ final class WelcomeController: UIViewController {
         settingsButton.backgroundColor = .BackGround.Accent.colorFor(theme)
         instructionView.backgroundColor = .BackGround.Accent.colorFor(theme)
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
     // MARK: - SetupView
