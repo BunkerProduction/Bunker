@@ -1,0 +1,47 @@
+[
+   {
+      "id":0,
+      "name":"Flooding",
+      "description":"Water seeps into the bunker and you may just be flooded! \n\nWe need to reconfigure the computer control system of the bunker or come up with some kind of engineering solution for pumping water."
+   },
+   {
+      "id":1,
+      "name":"Stress virus",
+      "description":"An outbreak of a deadly virus that develops only under stress. \n\nHealth skills\/equipment will be helpful, as well as any stress management techniques. We are not nervous, everything is fine, we will all die anyway..."
+   },
+   {
+      "id":2,
+      "name":"Earthquake",
+      "description":"A small localized earthquake threatens to crush your bunker and damage life support systems. It is necessary to urgently carry out work to strengthen the weak points - doors and ventilation. Or stop an earthquake with some kind of magic."
+   },
+   {
+      "id":3,
+      "name":"AI",
+      "description":"The AI control of the bunker «stuck out» and blocks life support - it is necessary to prove the soulless computer that there are breathing living people in the bunker. \n\nThe test is based on checking the unique difference between humans and robots - the ability to create. You need to go through it."
+   },
+   {
+      "id":4,
+      "name":"Kitchen explosion",
+      "description":"A collapse in the kitchen and storage block. \n\nYou will be helped by characters with knowledge of the terrain for forays and searching for food, or those who are able to get food in the basements of the bunker - by setting up a farm or hunting rats."
+   },
+   {
+      "id":5,
+      "name":"Outside attack",
+      "description":"Some wild people are breaking into the bunker, something must be done urgently. \n\nYou will be helped by characters with military skills, hunting, alarm and surveillance equipment, stocks of weapons and electronics."
+   },
+   {
+      "id":6,
+      "name":"Rat invasion",
+      "description":"The rats have made it to your food supply and are doing irreparable damage. \n\nYou will be helped by characters capable of exterminating rodents or additional food resources."
+   },
+   {
+      "id":7,
+      "name":"Poisoning water",
+      "description":"Some kind of malfunction with the water purification system. \n\nChemical filtration will help. Or it is necessary to somehow get clean water on outlets in the vicinity. Otherwise, you will need medical attention."
+   },
+   {
+      "id":8,
+      "name":"Ghosts",
+      "description":"Paranormal activity can disrupt the bunker's life support system. \n\nYou will be helped by characters who can convince the ghosts (or whatever it was) to leave the bunker or drive them out."
+   }
+]

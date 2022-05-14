@@ -14,7 +14,6 @@ final class CreateGameViewController: UIViewController {
     private let difficultyView = GameOptionView()
     private let createButton = PrimaryButton()
     private let logo = BunkerLogo()
-    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.contentInsetAdjustmentBehavior = .never
@@ -23,6 +22,7 @@ final class CreateGameViewController: UIViewController {
 
         return scrollView
     }()
+    
     private var gamePref = GamePreferences()
     private let settings = UserSettings.shared
     
@@ -84,7 +84,8 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setOptions() {
-        packView.setLabels("Набор", "Случайный", "🎲")
+        let catastrophe = gamePref.catastrophe
+        packView.setLabels("Набор", catastrophe?.name ?? "рандом", catastrophe?.icon ?? "🎲")
         packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
         difficultyView.setLabels("Набор", "Случайный", "🎲")
     }
@@ -116,7 +117,6 @@ final class CreateGameViewController: UIViewController {
         mainSV.distribution = .equalSpacing
         mainSV.alignment = .fill
         mainSV.axis = .vertical
-//        mainSV.spacing = 189
         
         self.view.addSubview(logo)
         logo.pinCenter(to: view.centerXAnchor)
@@ -143,6 +143,10 @@ final class CreateGameViewController: UIViewController {
     @objc
     private func choosePack() {
         let packVC = PackViewController()
+        if let pack = gamePref.catastrophe {
+            packVC.chosenPack = pack
+        }
+        packVC.delegate = self
         self.navigationController?.pushViewController(packVC, animated: true)
     }
     
@@ -184,3 +188,11 @@ extension CreateGameViewController: UITextFieldDelegate {
 
 // MARK: - GestureDelegate
 extension CreateGameViewController: UIGestureRecognizerDelegate { }
+
+// MARK: - PackDelegate
+extension CreateGameViewController: PackViewControllerDelegate {
+    func packSet(_ pack: Catastrophe) {
+        self.gamePref.catastrophe = pack
+        setOptions()
+    }
+}

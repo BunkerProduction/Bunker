@@ -57,7 +57,7 @@ final class SettingsViewController: UIViewController {
         let theme = settings.appearance
         self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
     }
     

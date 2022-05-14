@@ -37,9 +37,15 @@
 		C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F313282FE01A006F3FE9 /* GamePreferences.swift */; };
 		C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F315282FE026006F3FE9 /* Catastrophe.swift */; };
 		C003F318282FE030006F3FE9 /* Shelter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F317282FE030006F3FE9 /* Shelter.swift */; };
-		C003F31A282FECED006F3FE9 /* PackCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F319282FECED006F3FE9 /* PackCollectionView.swift */; };
+		C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F319282FECED006F3FE9 /* PackViewController.swift */; };
 		C003F31C282FEFE7006F3FE9 /* PackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F31B282FEFE7006F3FE9 /* PackCollectionViewCell.swift */; };
 		C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F31D282FF22D006F3FE9 /* DynamicLayout.swift */; };
+		C003F32728302B11006F3FE9 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F32628302B11006F3FE9 /* JsonManager.swift */; };
+		C003F32928303CFF006F3FE9 /* catastrophe.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32828303CFF006F3FE9 /* catastrophe.json */; };
+		C003F32B28303D1A006F3FE9 /* shelter.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32A28303D1A006F3FE9 /* shelter.json */; };
+		C003F32D28303D2F006F3FE9 /* threat.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32C28303D2F006F3FE9 /* threat.json */; };
+		C003F32F28303D4A006F3FE9 /* condition.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32E28303D4A006F3FE9 /* condition.json */; };
+		C003F33128304971006F3FE9 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F33028304971006F3FE9 /* String+Height.swift */; };
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
 		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
@@ -114,9 +120,15 @@
 		C003F313282FE01A006F3FE9 /* GamePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePreferences.swift; sourceTree = "<group>"; };
 		C003F315282FE026006F3FE9 /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
 		C003F317282FE030006F3FE9 /* Shelter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelter.swift; sourceTree = "<group>"; };
-		C003F319282FECED006F3FE9 /* PackCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackCollectionView.swift; sourceTree = "<group>"; };
+		C003F319282FECED006F3FE9 /* PackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackViewController.swift; sourceTree = "<group>"; };
 		C003F31B282FEFE7006F3FE9 /* PackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackCollectionViewCell.swift; sourceTree = "<group>"; };
 		C003F31D282FF22D006F3FE9 /* DynamicLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLayout.swift; sourceTree = "<group>"; };
+		C003F32628302B11006F3FE9 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
+		C003F32828303CFF006F3FE9 /* catastrophe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = catastrophe.json; sourceTree = "<group>"; };
+		C003F32A28303D1A006F3FE9 /* shelter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shelter.json; sourceTree = "<group>"; };
+		C003F32C28303D2F006F3FE9 /* threat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = threat.json; sourceTree = "<group>"; };
+		C003F32E28303D4A006F3FE9 /* condition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = condition.json; sourceTree = "<group>"; };
+		C003F33028304971006F3FE9 /* String+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +237,7 @@
 				C0455E7728257C4400990351 /* Colors.swift */,
 				C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */,
 				C003F30F282EF25A006F3FE9 /* ScreenSize.swift */,
+				C003F33028304971006F3FE9 /* String+Height.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -265,6 +278,25 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		C003F322283028A3006F3FE9 /* GameData */ = {
+			isa = PBXGroup;
+			children = (
+				C003F32E28303D4A006F3FE9 /* condition.json */,
+				C003F32C28303D2F006F3FE9 /* threat.json */,
+				C003F32A28303D1A006F3FE9 /* shelter.json */,
+				C003F32828303CFF006F3FE9 /* catastrophe.json */,
+			);
+			path = GameData;
+			sourceTree = "<group>";
+		};
+		C003F32528302B04006F3FE9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C003F32628302B11006F3FE9 /* JsonManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C0455E3B28257A0B00990351 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +329,7 @@
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
 				C0455E5028257A0B00990351 /* Assets.xcassets */,
 				C0455E5528257A0B00990351 /* Info.plist */,
+				C003F322283028A3006F3FE9 /* GameData */,
 				4ED4C609282D90730062D0AD /* Fonts */,
 			);
 			path = Bunker;
@@ -334,6 +367,7 @@
 		C0455E7A28257E5500990351 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C003F32528302B04006F3FE9 /* Helpers */,
 				C003F321282FF275006F3FE9 /* Input */,
 				C003F320282FF26B006F3FE9 /* Buttons */,
 				C003F31F282FF25E006F3FE9 /* Layout */,
@@ -377,7 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				C0455E8B2825923200990351 /* CreateGameViewController.swift */,
-				C003F319282FECED006F3FE9 /* PackCollectionView.swift */,
+				C003F319282FECED006F3FE9 /* PackViewController.swift */,
 			);
 			path = CreateGame;
 			sourceTree = "<group>";
@@ -511,16 +545,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C003F32D28303D2F006F3FE9 /* threat.json in Resources */,
 				C003F2EF282DB942006F3FE9 /* Toxic@2x.png in Resources */,
 				C003F2F5282DB942006F3FE9 /* Toxic@3x.png in Resources */,
 				4ED4C61B282E4EB40062D0AD /* LightPreview.png in Resources */,
 				C003F2F4282DB942006F3FE9 /* Holo@3x.png in Resources */,
 				4ED4C61A282E4EB40062D0AD /* DarkPreview.png in Resources */,
 				4ED4C61F282E4EB40062D0AD /* ToxicPreview.png in Resources */,
+				C003F32928303CFF006F3FE9 /* catastrophe.json in Resources */,
 				C003F2F2282DB942006F3FE9 /* Alian@2x.png in Resources */,
 				C003F2F6282DB942006F3FE9 /* Alian@3x.png in Resources */,
 				C003F2F8282DB993006F3FE9 /* Standart60_3x.png in Resources */,
 				C003F2EE282DB942006F3FE9 /* Mono@2x.png in Resources */,
+				C003F32B28303D1A006F3FE9 /* shelter.json in Resources */,
 				C003F2F1282DB942006F3FE9 /* Holo@2x.png in Resources */,
 				4ED4C60B282D90BB0062D0AD /* SF-Pro-Display-Medium.otf in Resources */,
 				C0455E5428257A0B00990351 /* LaunchScreen.storyboard in Resources */,
@@ -531,6 +568,7 @@
 				4ED4C60F282D90DD0062D0AD /* SF-Pro-Display-Regular.otf in Resources */,
 				4ED4C61C282E4EB40062D0AD /* HoloPreview.png in Resources */,
 				C0455E5128257A0B00990351 /* Assets.xcassets in Resources */,
+				C003F32F28303D4A006F3FE9 /* condition.json in Resources */,
 				C003F2F0282DB942006F3FE9 /* Dark@2x.png in Resources */,
 				C003F2ED282DB942006F3FE9 /* Mono3x.png in Resources */,
 			);
@@ -562,7 +600,7 @@
 				C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
-				C003F31A282FECED006F3FE9 /* PackCollectionView.swift in Sources */,
+				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
 				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
 				C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */,
 				C003F31C282FEFE7006F3FE9 /* PackCollectionViewCell.swift in Sources */,
@@ -570,6 +608,7 @@
 				C003F318282FE030006F3FE9 /* Shelter.swift in Sources */,
 				C003F2C7282D74F9006F3FE9 /* SettingsOptions.swift in Sources */,
 				C0455E7828257C4400990351 /* Colors.swift in Sources */,
+				C003F33128304971006F3FE9 /* String+Height.swift in Sources */,
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
@@ -587,6 +626,7 @@
 				C0455E802825805000990351 /* View+Pin.swift in Sources */,
 				C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */,
 				C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */,
+				C003F32728302B11006F3FE9 /* JsonManager.swift in Sources */,
 				C0455E912825968C00990351 /* GameOptionView.swift in Sources */,
 				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
 			);

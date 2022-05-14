@@ -8,13 +8,13 @@
 import Foundation
 
 struct GamePreferences {
-    let votingTime: Int = 0
-    let catastrophe: Catastrophe?
-    let shelter: Shelter?
-    let difficulty: GameDifficulty?
+    var votingTime: Int = 0
+    var catastrophe: Catastrophe?
+    var shelter: Shelter?
+    var difficulty: GameDifficulty?
     
     init() {
-        catastrophe = nil
+        catastrophe = Catastrophe.getAll()[0]
         shelter = nil
         difficulty = nil
     }

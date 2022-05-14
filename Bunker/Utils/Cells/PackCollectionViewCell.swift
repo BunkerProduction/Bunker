@@ -18,12 +18,14 @@ class PackCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if(isSelected) {
-              UIView.animate(withDuration: 0.1, animations: {
+                UIView.animate(withDuration: 0.1, animations: {
                     self.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-                  self.layer.borderColor = UIColor.Main.Primary.colorFor(UserSettings.shared.appearance)?.cgColor
-            }) {_ in self.transform = CGAffineTransform.identity}
+                    self.layer.borderWidth = 2
+                    self.layer.borderColor = UIColor.Main.Primary.colorFor(UserSettings.shared.appearance)?.cgColor
+                }) {_ in self.transform = CGAffineTransform.identity}
             } else {
                 self.layer.borderColor = borderColorNormal ?? UIColor.systemGray5.cgColor
+                self.layer.borderWidth = 0
             }
         }
     }
@@ -43,6 +45,10 @@ class PackCollectionViewCell: UICollectionViewCell {
     private func setupView() {
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
+        titleLabel.font = .customFont.body
+        descriptionLabel.font = .customFont.body
+        iconLabel.font = .customFont.icon
+        self.layer.cornerRadius = 12
         
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
         stackView.distribution = .equalSpacing
@@ -63,5 +69,7 @@ class PackCollectionViewCell: UICollectionViewCell {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+        descriptionLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 }

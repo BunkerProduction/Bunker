@@ -1,0 +1,152 @@
+[
+   {
+      "id":0,
+      "name":"First aid kit",
+      "description":"There is a first aid kit, rubber gloves, masks and a defibrillator at the entrance."
+   },
+   {
+      "id":1,
+      "name":"R2D2",
+      "description":"A robot psychologist. Silently listens and nods, sometimes screeches something - it will morally help in difficult times. It will come in handy for spare parts, if anything..."
+   },
+   {
+      "id":2,
+      "name":"Satellite video",
+      "description":"A relaxing video of filming from a satellite is projected onto the walls. Nice and peaceful. Wait a minute... But this is the vicinity of the bunker! Excellent detailization."
+   },
+   {
+      "id":3,
+      "name":"Altar",
+      "description":"There are exactly as many sleeping bags as number of people. One of them stands apart and looks like an altar for sacrifices..."
+   },
+   {
+      "id":4,
+      "name":"Buckwheat",
+      "description":"There is only buckwheat and pickles from food reserves. But there is a lot, it seems like two reserves."
+   },
+   {
+      "id":5,
+      "name":"Dynamo",
+      "description":"A backup electric generator with a bike drive and a bunch of spare parts."
+   },
+   {
+      "id":6,
+      "name":"Voice control",
+      "description":"The bunker is controlled by an AI with a voice interface. Unfortunately, as a result of the catastrophe, it was partially out of order. He only understands the commands after the third attempt."
+   },
+   {
+      "id":7,
+      "name":"Happy Together",
+      "description":"This bunker will open and release you only after 15 years. There is enough food supply. But during this time, more than one nasty thing will surely happen..."
+   },
+   {
+      "id":8,
+      "name":"Hypnomodule",
+      "description":"A module for hypno-telepathic communication and a paranormal detector with protection functions for the wearer."
+   },
+   {
+      "id":9,
+      "name":"Mysterious Journal",
+      "description":"A strange old magazine, in which the names of everyone on your team who are standing at the bunker. Near the date 40 years ago... and an exact description of everything that happens to you. Suspicious almanac..."
+   },
+   {
+      "id":10,
+      "name":"Smuggler's Entries",
+      "description":"The smuggler's library. Who just hid in this bunker... All valuable items that are in the area are described in detail, with bypass secret routes."
+   },
+   {
+      "id":11,
+      "name":"Instructions for the microwave",
+      "description":"There is not a single piece of toilet paper in the bunker. But you did find instructions for reprogramming the microwave in 8124 languages. You can use it as you see fit."
+   },
+   {
+      "id":12,
+      "name":"Workshop",
+      "description":"Huge workshop with carpenter's tools."
+   },
+   {
+      "id":13,
+      "name":"Coffee",
+      "description":"The grinder and stock of aromatic roasted coffee beans seem to be from Ethiopia! A slice of normal life in the midst of all this madness..."
+   },
+   {
+      "id":14,
+      "name":"Rats",
+      "description":"It looks like the bunker is inhabited by hordes of mutated rats or some kind of rodents. In a critical situation, either they are food for us, or we are for them..."
+   },
+   {
+      "id":15,
+      "name":"Book about food",
+      "description":"The book “On tasty and healthy food as an art object.“ With additional chapters on how to get and prepare delicious food in the most extreme conditions from scrap materials."
+   },
+   {
+      "id":16,
+      "name":"Catacombs",
+      "description":"From the basement there is an exit to a natural grotto with an underground river. Judging by the smell, it leads to the collapsed city sewerage system, from where you can enter the city through underground passages."
+   },
+   {
+      "id":17,
+      "name":"Kerosene lamps",
+      "description":"Electric lighting works intermittently. But there are kerosene lamps and a supply of fuel. Molotov cocktails are useful for protection from monsters..."
+   },
+   {
+      "id":18,
+      "name":"Medical laboratory",
+      "description":"A medical laboratory with an operating room."
+   },
+   {
+      "id":19,
+      "name":"Media Library",
+      "description":"There is a standalone media library, but it only contains retro porn films with a total duration of 700 hours."
+   },
+   {
+      "id":20,
+      "name":"Garbage",
+      "description":"Old mattresses and rags, abandoned construction waste, rusty cans. Among the rubbish are old newspapers from 2021."
+   },
+   {
+      "id":21,
+      "name":"Force field",
+      "description":"Self-contained transportable protective force field generator."
+   },
+   {
+      "id":22,
+      "name":"Basement",
+      "description":"The bunker was built by prisoners. An eerie smell led you to the basement, where you found their remains. As well as their tools and the weapons of the orans."
+   },
+   {
+      "id":23,
+      "name":"Radio",
+      "description":"On the internal radio, classical music is constantly being replaced by K-pop. You can practice stress resistance."
+   },
+   {
+      "id":24,
+      "name":"Slope 52°",
+      "description":"As a result of tectonic shifts, the bunker is slightly tilted. About 52 degrees."
+   },
+   {
+      "id":25,
+      "name":"Necronomicon",
+      "description":"A large artifact in the form of a book in an unknown language with mystical illustrations. It looks like an alchemist's manual or an anatomical encyclopedia."
+   },
+   {
+      "id":26,
+      "name":"Polygraph Robot",
+      "description":"An autonomous robot-translator with a polygraph function. Useful for checking information during negotiations."
+   },
+   {
+      "id":27,
+      "name":"Wardrobe with board games",
+      "description":"A wardrobe with board games. Wait a minute, but there is only chess and checkers... It's good that there is a lot of time."
+   },
+   {
+      "id":28,
+      "name":"Study guide",
+      "description":"Study guide “How to convince a zombie not to eat your brain in 10 minutes."
+   },
+   {
+      "id":29,
+      "name":"Chemical laboratory",
+      "description":"Chemical laboratory and reagents. You can set up a hydroponic farm to grow plants and mushrooms."
+   }
+]

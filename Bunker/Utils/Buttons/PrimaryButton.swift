@@ -14,7 +14,7 @@ final class PrimaryButton: UIButton {
         self.layer.cornerRadius = 12
         self.setTitleColor(.black, for: .normal)
         self.setHeight(to: 48)
-        self.setWidth(to: 327)
+        self.setWidth(to: ScreenSize.Width-48)
         self.titleLabel?.font = .customFont.body
     }
     
