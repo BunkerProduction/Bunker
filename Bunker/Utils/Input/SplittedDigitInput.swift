@@ -56,7 +56,7 @@ final class SplittedDigitInput: UIView {
         mainSV.spacing = 12
         
         self.addSubview(mainSV)
-        mainSV.pin(to: self, [.left: 47, .right: 47, .bottom: 16, .top: 16])
+        mainSV.pin(to: self, [.left: 47, .right: 47, .bottom: 24, .top: 16])
     }
     
     private func setupTextField() {
@@ -105,10 +105,10 @@ final class SplittedDigitInput: UIView {
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.backgroundColor = .Background.Accent.colorFor(theme)
         self.titleLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
         for label in labels {
-            label.backgroundColor = .BackGround.LayerTwo.colorFor(theme)
+            label.backgroundColor = .Background.LayerTwo.colorFor(theme)
             label.textColor = .TextAndIcons.Primary.colorFor(theme)
         }
     }
@@ -151,8 +151,8 @@ final class DigitLabel: UILabel {
         isRed.toggle()
         
         if(isRed) {
-            self.layer.borderColor = UIColor.red.cgColor
-            self.layer.borderWidth = 2
+            self.layer.borderColor = UIColor.Main.Warning.colorFor(.toxic)?.cgColor
+            self.layer.borderWidth = 1.5
         } else {
             self.layer.borderWidth = 0
         }

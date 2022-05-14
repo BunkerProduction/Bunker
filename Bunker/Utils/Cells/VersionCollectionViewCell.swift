@@ -65,19 +65,19 @@ class VersionCollectionViewCell: UICollectionViewCell {
             textLabel.text = "— 18 аппокалипсисов\n— новые характеристики\n— увеличенные комнаты\n— 4 цветовые темы\n— выбор сложности"
             priceLabel.text = "159₽"
             buyButton.isHidden = false
-            self.backgroundColor = .Primary.primary
+            self.backgroundColor = .clear
         } else {
             titleLabel.text = "Базовая Версия"
             textLabel.text = "— 5 аппокалипсисов \n— игры до 12 человек \n— карты особых условий \n— темная тема"
             priceLabel.text = ""
             buyButton.isHidden = true
-            self.backgroundColor = .Background.accent
+            self.backgroundColor = .clear
         }
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = isPremium ? .Main.Primary.colorFor(theme) : .BackGround.Accent.colorFor(theme)
-        buyButton.backgroundColor = .BackGround.LayerTwo.colorFor(theme)
+        self.backgroundColor = isPremium ? .Main.Primary.colorFor(theme) : .Background.Accent.colorFor(theme)
+        buyButton.backgroundColor = .Background.LayerTwo.colorFor(theme)
         buyButton.setTitleColor(.TextAndIcons.Primary.colorFor(theme), for: .normal)
         titleLabel.textColor = isPremium ? .Main.onPrimary.colorFor(theme) : .TextAndIcons.Primary.colorFor(theme)
         textLabel.textColor = isPremium ? .Main.onPrimary.colorFor(theme) : .TextAndIcons.Secondary.colorFor(theme)

@@ -47,7 +47,7 @@ class IconCollectionViewCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
         
         addSubview(imageView)
-        imageView.pin(to: self, [.left: 6, .right: 6, .top: 6, .bottom: 6])
+        imageView.pin(to: self, [.left: 4, .right: 4, .top: 4, .bottom: 4])
     }
     
     public func configure(_ iconName: AppIcon) {
@@ -56,7 +56,7 @@ class IconCollectionViewCell: UICollectionViewCell {
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        self.backgroundColor = .Background.LayerOne.colorFor(theme)
         let borderColor = UIColor.Outline.Strong.colorFor(theme)?.cgColor ?? UIColor.clear.cgColor
         self.layer.borderColor = borderColor
         self.borderColorNormal = borderColor

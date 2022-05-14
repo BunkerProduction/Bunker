@@ -24,7 +24,7 @@ final class GameOptionView: UIButton {
     
     private func setupView() {
         self.layer.cornerRadius = 12
-        self.setHeight(to: 150)
+        self.setHeight(to: 154)
         self.pinWidth(to: self.heightAnchor, 1)
         
         let stackView = UIStackView(arrangedSubviews: [typeLabel, chosenLabel, emoji])
@@ -34,7 +34,7 @@ final class GameOptionView: UIButton {
         stackView.isUserInteractionEnabled = false
         
         self.addSubview(stackView)
-        stackView.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])
+        stackView.pin(to: self, [.left: 16, .right: 16, .top: 16, .bottom: 16])
     }
     
     public func setLabels(_ type: String,_ chosen: String,_ emoji: String) {
@@ -45,7 +45,7 @@ final class GameOptionView: UIButton {
     
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.backgroundColor = .Background.Accent.colorFor(theme)
         self.typeLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
         self.typeLabel.font = .customFont.caption
         self.chosenLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
