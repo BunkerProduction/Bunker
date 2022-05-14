@@ -32,11 +32,13 @@ final class SplittedDigitInput: UIView {
         
         titleLabel.text = "Введите номер комнаты"
         titleLabel.textAlignment = .center
+        titleLabel.font = .customFont.body
         
         for _ in 0...numberOfDigits-1 {
             let label = DigitLabel()
             label.backgroundColor = .white
             label.textColor = .black
+            label.font = .customFont.headline
             labels.append(label)
         }
         
@@ -104,8 +106,10 @@ final class SplittedDigitInput: UIView {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.titleLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
         for label in labels {
-            label.backgroundColor = .white 
+            label.backgroundColor = .BackGround.LayerTwo.colorFor(theme)
+            label.textColor = .TextAndIcons.Primary.colorFor(theme)
         }
     }
 }

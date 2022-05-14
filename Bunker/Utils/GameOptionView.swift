@@ -45,5 +45,10 @@ final class GameOptionView: UIView {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.typeLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
+        self.typeLabel.font = .customFont.caption
+        self.chosenLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+        self.chosenLabel.font = .customFont.body
+        self.emoji.font = .customFont.icon
     }
 }

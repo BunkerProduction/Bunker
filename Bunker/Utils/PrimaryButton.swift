@@ -22,6 +22,7 @@ final class PrimaryButton: UIButton {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Main.Primary.colorFor(theme)
-        self.layer.applyFigmaShadow(color: .Main.Primary.colorFor(theme) ?? .white)
+        self.layer.applyFigmaShadow(color: .Main.Primary.colorFor(theme) ?? .black)
+        self.setTitleColor(.Main.onPrimary.colorFor(theme), for: .normal)
     }
 }
