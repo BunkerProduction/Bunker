@@ -128,11 +128,11 @@ final class SettingsViewController: UIViewController {
                     heightDimension: .absolute(280)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .fixed(8), top: .none, trailing: .fixed(16), bottom: .none)
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .none, trailing: .fixed(16), bottom: .none)
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPaging
-                section.contentInsets = NSDirectionalEdgeInsets(top: 47, leading: 20, bottom: 47, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 46, leading: 80, bottom: 46, trailing: 80)
                 
                 // card size animation when scrolling
                 section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in

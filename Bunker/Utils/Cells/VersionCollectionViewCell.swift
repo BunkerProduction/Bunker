@@ -12,6 +12,7 @@ class VersionCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel = UILabel()
     private let textLabel = UILabel()
+    private let priceLabel = UILabel()
     private let buyButton = UIButton()
     private var isPremium: Bool = false
     
@@ -30,19 +31,26 @@ class VersionCollectionViewCell: UICollectionViewCell {
     private func setupView() {
         self.layer.cornerRadius = 12
         buyButton.setTitle("Купить", for: .normal)
-        buyButton.backgroundColor = .BackGround.LayerOne.colorFor(.light)
+        buyButton.backgroundColor = .red
+        buyButton.titleLabel?.font = .customFont.body
         buyButton.layer.cornerRadius = 8
         buyButton.setTitleColor(.black, for: .normal)
         buyButton.setHeight(to: 36)
         
         titleLabel.textAlignment = .left
-        textLabel.backgroundColor = .clear
-        textLabel.numberOfLines = 0
-        textLabel.textAlignment = .justified
+        titleLabel.font = .customFont.body
         
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, buyButton])
-        stackView.distribution = .fill
-        stackView.alignment = .fill
+        textLabel.textAlignment = .left
+        textLabel.font = .customFont.footnote
+//        textLabel.backgroundColor = .clear
+        textLabel.numberOfLines = 0
+        
+        priceLabel.textAlignment = .left
+        priceLabel.font = .customFont.body
+        
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, priceLabel, buyButton])
+        stackView.distribution = .equalSpacing
+//        stackView.alignment = .fill
         stackView.axis = .vertical
         stackView.spacing = 24
         
@@ -54,12 +62,14 @@ class VersionCollectionViewCell: UICollectionViewCell {
         self.isPremium = premium
         if(isPremium) {
             titleLabel.text = "Премиум Версия"
-            textLabel.text = "— 18 аппокалипсисов \n— новые характеристики \n— увеличенные комнаты \n— 4 цветовые темы \n— выбор сложности \n159₽"
+            textLabel.text = "— 18 аппокалипсисов\n— новые характеристики\n— увеличенные комнаты\n— 4 цветовые темы\n— выбор сложности"
+            priceLabel.text = "159₽"
             buyButton.isHidden = false
             self.backgroundColor = .Primary.primary
         } else {
             titleLabel.text = "Базовая Версия"
             textLabel.text = "— 5 аппокалипсисов \n— игры до 12 человек \n— карты особых условий \n— темная тема"
+            priceLabel.text = ""
             buyButton.isHidden = true
             self.backgroundColor = .Background.accent
         }
@@ -67,8 +77,11 @@ class VersionCollectionViewCell: UICollectionViewCell {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = isPremium ? .Main.Primary.colorFor(theme) : .BackGround.Accent.colorFor(theme)
-        buyButton.backgroundColor = .BackGround.LayerOne.colorFor(theme)
-        buyButton.setTitleColor(.black, for: .normal)
+        buyButton.backgroundColor = .BackGround.LayerTwo.colorFor(theme)
+        buyButton.setTitleColor(.TextAndIcons.Primary.colorFor(theme), for: .normal)
+        titleLabel.textColor = isPremium ? .Main.onPrimary.colorFor(theme) : .TextAndIcons.Primary.colorFor(theme)
+        textLabel.textColor = isPremium ? .Main.onPrimary.colorFor(theme) : .TextAndIcons.Secondary.colorFor(theme)
+        priceLabel.textColor = isPremium ? .Main.onPrimary.colorFor(theme) : .TextAndIcons.Primary.colorFor(theme)
     }
 }
 
