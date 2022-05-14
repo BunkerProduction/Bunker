@@ -14,7 +14,6 @@ final class CreateGameViewController: UIViewController {
     private let difficultyView = GameOptionView()
     private let createButton = PrimaryButton()
     private let logo = BunkerLogo()
-    private let settings = UserSettings.shared
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -24,6 +23,8 @@ final class CreateGameViewController: UIViewController {
 
         return scrollView
     }()
+    private var gamePref = GamePreferences()
+    private let settings = UserSettings.shared
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ final class CreateGameViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - UpdateUI
     private func updateUI() {
         let theme = settings.appearance
         createButton.setTheme(theme)
@@ -59,6 +61,9 @@ final class CreateGameViewController: UIViewController {
         packView.setTheme(theme)
         difficultyView.setTheme(theme)
         
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
         self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
@@ -80,6 +85,7 @@ final class CreateGameViewController: UIViewController {
     
     private func setOptions() {
         packView.setLabels("Набор", "Случайный", "🎲")
+        packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
         difficultyView.setLabels("Набор", "Случайный", "🎲")
     }
     
@@ -114,11 +120,12 @@ final class CreateGameViewController: UIViewController {
         
         self.view.addSubview(logo)
         logo.pinCenter(to: view.centerXAnchor)
-        logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 60)
+        logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 48)
         
         self.view.addSubview(mainSV)
-        mainSV.pin(to: view, [.left: 24, .right: 24, .bottom: 58])
+        mainSV.pin(to: view, [.left: 24, .right: 24])
         mainSV.pinTop(to: logo.bottomAnchor, 50)
+        mainSV.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
     }
     
     private func setButton() {
@@ -134,6 +141,12 @@ final class CreateGameViewController: UIViewController {
     }
     
     @objc
+    private func choosePack() {
+        let packVC = PackViewController()
+        self.navigationController?.pushViewController(packVC, animated: true)
+    }
+    
+    @objc
     private func createGame() {
         
     }
@@ -143,10 +156,6 @@ final class CreateGameViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
-
-// MARK: - GestureDelegate
-extension CreateGameViewController: UIGestureRecognizerDelegate { }
-
 
 // MARK: - TextFieldDelegate
 extension CreateGameViewController: UITextFieldDelegate {
@@ -172,3 +181,6 @@ extension CreateGameViewController: UITextFieldDelegate {
         return false
     }
 }
+
+// MARK: - GestureDelegate
+extension CreateGameViewController: UIGestureRecognizerDelegate { }

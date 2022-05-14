@@ -34,6 +34,12 @@
 		C003F2F8282DB993006F3FE9 /* Standart60_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2F7282DB993006F3FE9 /* Standart60_3x.png */; };
 		C003F2FB282DBD8B006F3FE9 /* Label+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */; };
 		C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F30F282EF25A006F3FE9 /* ScreenSize.swift */; };
+		C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F313282FE01A006F3FE9 /* GamePreferences.swift */; };
+		C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F315282FE026006F3FE9 /* Catastrophe.swift */; };
+		C003F318282FE030006F3FE9 /* Shelter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F317282FE030006F3FE9 /* Shelter.swift */; };
+		C003F31A282FECED006F3FE9 /* PackCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F319282FECED006F3FE9 /* PackCollectionView.swift */; };
+		C003F31C282FEFE7006F3FE9 /* PackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F31B282FEFE7006F3FE9 /* PackCollectionViewCell.swift */; };
+		C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F31D282FF22D006F3FE9 /* DynamicLayout.swift */; };
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
 		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
@@ -105,6 +111,12 @@
 		C003F2F7282DB993006F3FE9 /* Standart60_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Standart60_3x.png; sourceTree = "<group>"; };
 		C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Font.swift"; sourceTree = "<group>"; };
 		C003F30F282EF25A006F3FE9 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		C003F313282FE01A006F3FE9 /* GamePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePreferences.swift; sourceTree = "<group>"; };
+		C003F315282FE026006F3FE9 /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
+		C003F317282FE030006F3FE9 /* Shelter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelter.swift; sourceTree = "<group>"; };
+		C003F319282FECED006F3FE9 /* PackCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackCollectionView.swift; sourceTree = "<group>"; };
+		C003F31B282FEFE7006F3FE9 /* PackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackCollectionViewCell.swift; sourceTree = "<group>"; };
+		C003F31D282FF22D006F3FE9 /* DynamicLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLayout.swift; sourceTree = "<group>"; };
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +188,7 @@
 				C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */,
 				C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */,
 				C003F2C4282D4320006F3FE9 /* IconCollectionViewCell.swift */,
+				C003F31B282FEFE7006F3FE9 /* PackCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -216,6 +229,42 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C003F311282FE000006F3FE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C003F313282FE01A006F3FE9 /* GamePreferences.swift */,
+				C003F315282FE026006F3FE9 /* Catastrophe.swift */,
+				C003F317282FE030006F3FE9 /* Shelter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C003F31F282FF25E006F3FE9 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C003F31D282FF22D006F3FE9 /* DynamicLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C003F320282FF26B006F3FE9 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E7B28257E8E00990351 /* PrimaryButton.swift */,
+				C0455E902825968C00990351 /* GameOptionView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		C003F321282FF275006F3FE9 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E8E282592C400990351 /* BunkerTextField.swift */,
+				C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		C0455E3B28257A0B00990351 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +291,7 @@
 				C003F2E2282DB925006F3FE9 /* Icons */,
 				C0455E812825825500990351 /* Main */,
 				C0455E7928257D7E00990351 /* Screens */,
+				C003F311282FE000006F3FE9 /* Model */,
 				C0455E932825A11200990351 /* Networking */,
 				C0455E7A28257E5500990351 /* Utils */,
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
@@ -284,13 +334,12 @@
 		C0455E7A28257E5500990351 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C003F321282FF275006F3FE9 /* Input */,
+				C003F320282FF26B006F3FE9 /* Buttons */,
+				C003F31F282FF25E006F3FE9 /* Layout */,
 				C003F2F9282DBD76006F3FE9 /* Extensions */,
 				C003F2C8282D7611006F3FE9 /* Cells */,
-				C0455E7B28257E8E00990351 /* PrimaryButton.swift */,
 				C0455E842825856500990351 /* BunkerLogo.swift */,
-				C0455E8E282592C400990351 /* BunkerTextField.swift */,
-				C0455E902825968C00990351 /* GameOptionView.swift */,
-				C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -328,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				C0455E8B2825923200990351 /* CreateGameViewController.swift */,
+				C003F319282FECED006F3FE9 /* PackCollectionView.swift */,
 			);
 			path = CreateGame;
 			sourceTree = "<group>";
@@ -509,16 +559,22 @@
 			files = (
 				C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */,
 				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
+				C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
+				C003F31A282FECED006F3FE9 /* PackCollectionView.swift in Sources */,
+				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
 				C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */,
+				C003F31C282FEFE7006F3FE9 /* PackCollectionViewCell.swift in Sources */,
 				C003F2C1282C7615006F3FE9 /* OptionsViewController.swift in Sources */,
+				C003F318282FE030006F3FE9 /* Shelter.swift in Sources */,
 				C003F2C7282D74F9006F3FE9 /* SettingsOptions.swift in Sources */,
 				C0455E7828257C4400990351 /* Colors.swift in Sources */,
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
 				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
+				C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
 				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* PrimaryButton.swift in Sources */,

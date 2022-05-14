@@ -21,6 +21,7 @@ final class OptionsViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
         
         collectionView.showsVerticalScrollIndicator = false
         collectionView.allowsMultipleSelection = true
@@ -56,10 +57,15 @@ final class OptionsViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - update UI
     private func updateUI() {
         self.collectionView.reloadData()
         let theme = settings.appearance
         self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        navigationController?.navigationBar.barTintColor = .BackGround.LayerOne.colorFor(theme)
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
     }
     
     // MARK: - setup UI

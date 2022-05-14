@@ -45,6 +45,9 @@ final class ConnectToGameViewController: UIViewController {
         logo.setTheme(theme)
         nameTextField.setTheme(theme)
         
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
         self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
@@ -62,7 +65,7 @@ final class ConnectToGameViewController: UIViewController {
     
     private func setupView() {
         view.addSubview(logo)
-        logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 60)
+        logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 48)
         logo.pinCenter(to: view.centerXAnchor)
         
         view.addSubview(nameTextField)
@@ -73,7 +76,8 @@ final class ConnectToGameViewController: UIViewController {
     private func setButton() {
         view.addSubview(nextButton)
         
-        nextButton.pin(to: view, [.left: 24, .right: 24, .bottom: 58])
+        nextButton.pin(to: view, [.left: 24, .right: 24])
+        nextButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
         nextButton.setTitle("Далее", for: .normal)
         nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
     }

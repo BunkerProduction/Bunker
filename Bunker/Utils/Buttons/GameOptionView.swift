@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GameOptionView: UIView {
+final class GameOptionView: UIButton {
     private let typeLabel = UILabel()
     private let chosenLabel = UILabel()
     private let emoji = UILabel()
@@ -31,6 +31,7 @@ final class GameOptionView: UIView {
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
         stackView.axis = .vertical
+        stackView.isUserInteractionEnabled = false
         
         self.addSubview(stackView)
         stackView.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])

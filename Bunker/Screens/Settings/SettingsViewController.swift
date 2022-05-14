@@ -23,6 +23,7 @@ final class SettingsViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         
         return collectionView
@@ -40,8 +41,8 @@ final class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateUI()
         
-        constructDataSource()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +51,17 @@ final class SettingsViewController: UIViewController {
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
+    // MARK: - Update UI
+    private func updateUI() {
+        constructDataSource()
+        let theme = settings.appearance
+        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
+    }
+    
+    // MARK: - DataSource
     private func constructDataSource() {
         let volume = settings.volume
         let theme = settings.appearance
@@ -105,7 +117,7 @@ final class SettingsViewController: UIViewController {
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
                 group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(6), trailing: .none, bottom: .fixed(6))
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
                 
                 return section
             case 1:

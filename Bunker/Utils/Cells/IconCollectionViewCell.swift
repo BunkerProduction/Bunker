@@ -56,8 +56,9 @@ class IconCollectionViewCell: UICollectionViewCell {
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .systemGray5
-        self.layer.borderColor = UIColor.systemGray2.cgColor
-        self.borderColorNormal = UIColor.systemGray2.cgColor
+        self.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        let borderColor = UIColor.Outline.Strong.colorFor(theme)?.cgColor ?? UIColor.clear.cgColor
+        self.layer.borderColor = borderColor
+        self.borderColorNormal = borderColor
     }
 }

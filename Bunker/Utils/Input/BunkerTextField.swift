@@ -28,7 +28,7 @@ final class BunkerTextField: UITextField {
         self.backgroundColor = .BackGround.Accent.colorFor(theme)
         self.tintColor = .Main.Primary.colorFor(theme)
         self.font = .customFont.body
-//        set "descrption" text color to .TextAndIcons.Secondsary.colorFor(theme)
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? " ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Secondary.colorFor(theme) ?? .white])
         self.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 }

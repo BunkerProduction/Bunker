@@ -45,13 +45,16 @@ final class RoomCodeViewController: UIViewController {
         logo.setTheme(theme)
         codeInput.setTheme(theme)
         
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
         self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
     }
     
     // MARK: - UI setup
     private func setupView() {
         view.addSubview(logo)
-        logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 60)
+        logo.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 48)
         logo.pinCenter(to: view.centerXAnchor)
         
         view.addSubview(codeInput)
@@ -63,7 +66,8 @@ final class RoomCodeViewController: UIViewController {
     private func setButton() {
         view.addSubview(connectButton)
         
-        connectButton.pin(to: view, [.left: 24, .right: 24, .bottom: 58])
+        connectButton.pin(to: view, [.left: 24, .right: 24])
+        connectButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
         connectButton.setTitle("Присоединиться", for: .normal)
         connectButton.addTarget(self, action: #selector(joinGame), for: .touchUpInside)
     }

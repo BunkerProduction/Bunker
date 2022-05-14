@@ -45,6 +45,8 @@ class SettingsCollectionViewCell: UICollectionViewCell {
         
         nameLabel.textAlignment = .left
         iconLabel.textAlignment = .right
+        nameLabel.font = .customFont.body
+        iconLabel.font = .customFont.icon
         
         let stackView = UIStackView(arrangedSubviews: [nameLabel, iconLabel])
         stackView.distribution = .equalCentering
@@ -64,5 +66,6 @@ class SettingsCollectionViewCell: UICollectionViewCell {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        nameLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 }

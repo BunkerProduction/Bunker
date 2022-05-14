@@ -14,6 +14,14 @@ final class WelcomeController: UIViewController {
     private let createGameButton = PrimaryButton(frame: .zero)
     private let joinGameButton = PrimaryButton(frame: .zero)
     private let settings = UserSettings.shared
+    private let instructionLabel = UILabel()
+    private let instructionIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "bookIcon")
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -29,6 +37,7 @@ final class WelcomeController: UIViewController {
         updateUI()
     }
     
+    // MARK: - Update UI
     private func updateUI() {
         let theme = settings.appearance
         createGameButton.setTheme(theme)
@@ -36,8 +45,11 @@ final class WelcomeController: UIViewController {
         logo.setTheme(theme)
         settingsButton.backgroundColor = .BackGround.Accent.colorFor(theme)
         instructionView.backgroundColor = .BackGround.Accent.colorFor(theme)
+        instructionLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+        instructionIcon.tintColor = .TextAndIcons.Primary.colorFor(theme)
         
         self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        navigationController?.navigationBar.barTintColor = .BackGround.LayerOne.colorFor(theme)
     }
     
     // MARK: - SetupView
@@ -59,22 +71,17 @@ final class WelcomeController: UIViewController {
         topSV.distribution = .fill
         topSV.alignment = .center
         topSV.axis = .vertical
-        topSV.spacing = 50
+        topSV.spacing = 48
         
-        let middleSV = UIStackView(arrangedSubviews: [topSV, instructionView])
-        middleSV.distribution = .fill
-        middleSV.alignment = .center
-        middleSV.axis = .vertical
-        middleSV.spacing = 70
-        
-        let mainSV = UIStackView(arrangedSubviews: [middleSV, buttonSV])
+        let mainSV = UIStackView(arrangedSubviews: [topSV, instructionView, buttonSV])
         mainSV.distribution = .equalSpacing
-        mainSV.alignment = .fill
+        mainSV.alignment = .center
         mainSV.axis = .vertical
-        mainSV.spacing = 80
+//        mainSV.spacing = 80
         
         self.view.addSubview(mainSV)
-        mainSV.pin(to: view, [.left: 24, .right: 24, .bottom: 58])
+        mainSV.pin(to: view, [.left: 24, .right: 24])
+        mainSV.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
         mainSV.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
     }
     
@@ -83,19 +90,18 @@ final class WelcomeController: UIViewController {
         settingsButton.pinWidth(to: settingsButton.heightAnchor, 1)
         settingsButton.setTitle("⚙️", for: .normal)
         settingsButton.layer.cornerRadius = 12
+        settingsButton.setHeight(to: 48)
+        settingsButton.pinWidth(to: settingsButton.heightAnchor, 1)
         
         settingsButton.addTarget(self, action: #selector(settingsPressed), for: .touchUpInside)
     }
     
     private func setupInstructionView() {
         instructionView.layer.cornerRadius = 12
-        let label = UILabel()
-        label.text = "Правила игры"
-        label.textAlignment = .center
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "bookIcon")?.withTintColor(.black, renderingMode: .alwaysOriginal)
-        imageView.contentMode = .scaleAspectFit
-        let sV = UIStackView(arrangedSubviews: [label, imageView])
+        instructionLabel.text = "Правила игры"
+        instructionLabel.font = .customFont.title
+        instructionLabel.textAlignment = .center
+        let sV = UIStackView(arrangedSubviews: [instructionLabel, instructionIcon])
         sV.distribution = .equalCentering
         sV.alignment = .fill
         sV.axis = .vertical
