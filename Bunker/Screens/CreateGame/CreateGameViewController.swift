@@ -64,7 +64,7 @@ final class CreateGameViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
-        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
     }
     
     private func setup() {

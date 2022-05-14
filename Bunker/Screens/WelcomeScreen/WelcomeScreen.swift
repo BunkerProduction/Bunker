@@ -43,13 +43,13 @@ final class WelcomeController: UIViewController {
         createGameButton.setTheme(theme)
         joinGameButton.setTheme(theme)
         logo.setTheme(theme)
-        settingsButton.backgroundColor = .BackGround.Accent.colorFor(theme)
-        instructionView.backgroundColor = .BackGround.Accent.colorFor(theme)
+        settingsButton.backgroundColor = .Background.Accent.colorFor(theme)
+        instructionView.backgroundColor = .Background.Accent.colorFor(theme)
         instructionLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
         instructionIcon.tintColor = .TextAndIcons.Primary.colorFor(theme)
         
-        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
-        navigationController?.navigationBar.barTintColor = .BackGround.LayerOne.colorFor(theme)
+        self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
+        navigationController?.navigationBar.barTintColor = .Background.LayerOne.colorFor(theme)
     }
     
     // MARK: - SetupView

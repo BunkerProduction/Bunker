@@ -8,15 +8,6 @@
 import UIKit
 
 public extension UIColor {
-    enum Primary {
-        static let primary = UIColor(named: "Primary")
-    }
-    
-    enum Background {
-//        static let accent = UIColor(named: "Accent")
-        static let accent = UIColor(hex: "#f5f5f5", opacity: 1)
-    }
-    
     // вариант был но так то херня полная
 //    вызывалось так UIColor.Background.accent.colorFor(.light)
     
@@ -26,9 +17,10 @@ public extension UIColor {
         static let Primary = PrimaryColors.self
         static let onPrimary = OnPrimaryColors.self
         static let Warning = WarningColors.self
+        static let Shadow = ShadowColors.self
     }
 
-    enum BackGround {
+    enum Background {
         static let Accent = AccentColors.self
         static let LayerOne = LayerOneColors.self
         static let LayerTwo = LayerTwoColors.self
@@ -112,6 +104,29 @@ public extension UIColor {
                 return UIColor(hex: "#D95D5D", opacity: 1)
             case .holo:
                 return UIColor(hex: "#D95D5D", opacity: 1)
+            }
+        }
+    }
+    
+    struct ShadowColors {
+        static func colorFor(_ theme: Appearence) -> UIColor? {
+            switch theme {
+            case .light:
+                return UIColor(named: "Shadow")
+            case .dark:
+                return UIColor(named: "Shadow")
+            case .system:
+                return UIColor(named: "Shadow")
+            case .toxic:
+                return UIColor(hex: "#B4F21F", opacity: 0.2)
+            case .poisonous:
+                return UIColor(hex: "#F21F6B", opacity: 0.2)
+            case .mono:
+                return UIColor(hex: "#787878", opacity: 0.2)
+            case .alian:
+                return UIColor(hex: "#231FF2", opacity: 0.2)
+            case .holo:
+                return UIColor(hex: "#B0DCF5", opacity: 0.2)
             }
         }
     }

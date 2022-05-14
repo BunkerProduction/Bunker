@@ -25,10 +25,10 @@ final class BunkerTextField: UITextField {
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.backgroundColor = .Background.Accent.colorFor(theme)
         self.tintColor = .Main.Primary.colorFor(theme)
         self.font = .customFont.body
-        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? " ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Secondary.colorFor(theme) ?? .white])
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? " ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Tertiary.colorFor(theme) ?? .white])
         self.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 }

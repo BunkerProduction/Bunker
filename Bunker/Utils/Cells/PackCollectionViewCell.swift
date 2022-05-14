@@ -46,7 +46,7 @@ class PackCollectionViewCell: UICollectionViewCell {
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
-        descriptionLabel.font = .customFont.body
+        descriptionLabel.font = .customFont.footnote
         iconLabel.font = .customFont.icon
         self.layer.cornerRadius = 12
         
@@ -57,7 +57,7 @@ class PackCollectionViewCell: UICollectionViewCell {
         
         self.addSubview(stackView)
         
-        stackView.pin(to: self, [.left: 12, .right: 12, .bottom: 12, .top: 12])
+        stackView.pin(to: self, [.left: 16, .right: 16, .bottom: 16, .top: 16])
     }
     
     // MARK: - Configure
@@ -68,8 +68,8 @@ class PackCollectionViewCell: UICollectionViewCell {
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .BackGround.Accent.colorFor(theme)
+        self.backgroundColor = .Background.Accent.colorFor(theme)
         titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
-        descriptionLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+        descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }
 }

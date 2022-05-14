@@ -48,7 +48,7 @@ final class RoomCodeViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
-        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
+        self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
     }
     
     // MARK: - UI setup
@@ -60,7 +60,7 @@ final class RoomCodeViewController: UIViewController {
         view.addSubview(codeInput)
         codeInput.pin(to: view, [.left: 24, .right: 24])
         codeInput.pinTop(to: logo.bottomAnchor, 46)
-        codeInput.setHeight(to: 105)
+        codeInput.setHeight(to: 116)
     }
     
     private func setButton() {

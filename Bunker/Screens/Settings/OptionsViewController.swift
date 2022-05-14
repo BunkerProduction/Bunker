@@ -61,8 +61,8 @@ final class OptionsViewController: UIViewController {
     private func updateUI() {
         self.collectionView.reloadData()
         let theme = settings.appearance
-        self.view.backgroundColor = .BackGround.LayerOne.colorFor(theme)
-        navigationController?.navigationBar.barTintColor = .BackGround.LayerOne.colorFor(theme)
+        self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
+        navigationController?.navigationBar.barTintColor = .Background.LayerOne.colorFor(theme)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
