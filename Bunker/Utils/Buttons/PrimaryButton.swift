@@ -25,6 +25,9 @@ final class PrimaryButton: UIButton {
     
     @objc
     private func playSound() {
+        if(UserSettings.shared.volume == .off) {
+            return
+        }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: PrimaryButton.sound1)
             audioPlayer.play()
@@ -32,7 +35,6 @@ final class PrimaryButton: UIButton {
             
         }
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

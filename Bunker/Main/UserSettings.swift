@@ -5,6 +5,7 @@
 //  Created by Дмитрий Соколов on 06.05.2022.
 //
 import Foundation
+import UIKit
 
 // MARK: - Settings Manager
 final class UserSettings {
@@ -16,6 +17,7 @@ final class UserSettings {
         static let appIcon = "AppIcon"
     }
     
+    static private let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
     static let shared = UserSettings()
     private let storage = UserDefaults.standard
     
@@ -39,6 +41,16 @@ final class UserSettings {
                 
     public var appearance: Appearence = .system {
         didSet {
+            switch appearance {
+            case .light:
+                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .light
+            case .dark:
+                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .dark
+            case .system:
+                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .unspecified
+            default:
+                break
+            }
             storage.set(appearance.rawValue, forKey: CodingKeys.appearence)
         }
     }
