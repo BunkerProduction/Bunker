@@ -129,9 +129,9 @@ extension PackViewController: DynamicLayoutDelegate {
         textForItemAtIndexPath indexPath: IndexPath
     ) -> CGFloat {
         let catastropy = dataSource[indexPath.row]
-        let heightForDescription = catastropy.shortDescription.height(constraintedWidth: widthForCell, font: UIFont.systemFont(ofSize: 14))
-        let heightForName = catastropy.name.height(constraintedWidth: widthForCell, font: UIFont.systemFont(ofSize: 16, weight: .medium) )
-        let height = 21 + heightForName + heightForDescription + 61
+        let heightForDescription = catastropy.shortDescription.lineHeight(constraintedWidth: widthForCell, font: .customFont.footnote ?? .systemFont(ofSize: 14), fontSize: 14, multiplicator: 1.25)
+        let heightForName = catastropy.name.lineHeight(constraintedWidth: widthForCell, font: .customFont.body ?? .systemFont(ofSize: 16), fontSize: 16, multiplicator: 1)
+        let height = 16 + 20 + 12 + heightForName + 12 + heightForDescription + 16
         
         return height
     }

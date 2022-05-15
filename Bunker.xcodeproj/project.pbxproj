@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E45DA9228318B0100F5BF7A /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E45DA9128318B0100F5BF7A /* Label.swift */; };
 		4ED4C60B282D90BB0062D0AD /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */; };
 		4ED4C60D282D90C60062D0AD /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */; };
 		4ED4C60F282D90DD0062D0AD /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */; };
@@ -32,7 +33,7 @@
 		C003F2F5282DB942006F3FE9 /* Toxic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2EB282DB942006F3FE9 /* Toxic@3x.png */; };
 		C003F2F6282DB942006F3FE9 /* Alian@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2EC282DB942006F3FE9 /* Alian@3x.png */; };
 		C003F2F8282DB993006F3FE9 /* Standart60_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2F7282DB993006F3FE9 /* Standart60_3x.png */; };
-		C003F2FB282DBD8B006F3FE9 /* Label+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */; };
+		C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2FA282DBD8A006F3FE9 /* Font.swift */; };
 		C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F30F282EF25A006F3FE9 /* ScreenSize.swift */; };
 		C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F313282FE01A006F3FE9 /* GamePreferences.swift */; };
 		C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F315282FE026006F3FE9 /* Catastrophe.swift */; };
@@ -94,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E45DA9128318B0100F5BF7A /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 		C003F2EB282DB942006F3FE9 /* Toxic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toxic@3x.png"; sourceTree = "<group>"; };
 		C003F2EC282DB942006F3FE9 /* Alian@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alian@3x.png"; sourceTree = "<group>"; };
 		C003F2F7282DB993006F3FE9 /* Standart60_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Standart60_3x.png; sourceTree = "<group>"; };
-		C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Font.swift"; sourceTree = "<group>"; };
+		C003F2FA282DBD8A006F3FE9 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		C003F30F282EF25A006F3FE9 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		C003F313282FE01A006F3FE9 /* GamePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePreferences.swift; sourceTree = "<group>"; };
 		C003F315282FE026006F3FE9 /* Catastrophe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catastrophe.swift; sourceTree = "<group>"; };
@@ -243,7 +245,8 @@
 				C0455E7D28257ECD00990351 /* CALayer+Shadow.swift */,
 				C0455E7F2825805000990351 /* View+Pin.swift */,
 				C0455E7728257C4400990351 /* Colors.swift */,
-				C003F2FA282DBD8A006F3FE9 /* Label+Font.swift */,
+				C003F2FA282DBD8A006F3FE9 /* Font.swift */,
+				4E45DA9128318B0100F5BF7A /* Label.swift */,
 				C003F30F282EF25A006F3FE9 /* ScreenSize.swift */,
 				C003F33028304971006F3FE9 /* String+Height.swift */,
 			);
@@ -634,8 +637,9 @@
 				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* PrimaryButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
-				C003F2FB282DBD8B006F3FE9 /* Label+Font.swift in Sources */,
+				C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */,
 				C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */,
+				4E45DA9228318B0100F5BF7A /* Label.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
 				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,
 				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,

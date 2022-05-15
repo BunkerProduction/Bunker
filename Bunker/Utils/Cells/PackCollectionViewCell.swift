@@ -46,8 +46,11 @@ class PackCollectionViewCell: UICollectionViewCell {
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
+//        titleLabel.backgroundColor = .green //delete after bugfix
         descriptionLabel.font = .customFont.footnote
+//        descriptionLabel.backgroundColor = .red //delete after bugfix
         iconLabel.font = .customFont.icon
+//        iconLabel.backgroundColor = .black //delete after bugfix
         self.layer.cornerRadius = 12
         
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
@@ -62,9 +65,10 @@ class PackCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configure
     public func configure(_ pack: Catastrophe) {
-        iconLabel.text = pack.icon
+        iconLabel.setCustomAttributedText(string: pack.icon, fontSize: 20, 1)
         titleLabel.text = pack.name
-        descriptionLabel.text = pack.shortDescription
+        descriptionLabel.setCustomAttributedText(string: pack.shortDescription, fontSize: 14, 1.25)
+        //надо заставить стеквью пересчитать дистрибьюшн
     }
     
     public func setTheme(_ theme: Appearence) {
