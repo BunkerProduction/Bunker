@@ -62,13 +62,15 @@ class VersionCollectionViewCell: UICollectionViewCell {
         self.isPremium = premium
         if(isPremium) {
             titleLabel.text = "Премиум Версия"
-            textLabel.text = "— 18 аппокалипсисов\n— новые характеристики\n— увеличенные комнаты\n— 4 цветовые темы\n— выбор сложности"
+            let text = "— 18 аппокалипсисов\n— новые характеристики\n— увеличенные комнаты\n— 4 цветовые темы\n— выбор сложности"
+            textLabel.setCustomAttributedText(string: text, fontSize: 14, 1.25)
             priceLabel.text = "159₽"
             buyButton.isHidden = false
             self.backgroundColor = .clear
         } else {
             titleLabel.text = "Базовая Версия"
-            textLabel.text = "— 5 аппокалипсисов \n— игры до 12 человек \n— карты особых условий \n— темная тема"
+            let text = "— 5 аппокалипсисов \n— игры до 12 человек \n— карты особых условий \n— темная тема"
+            textLabel.setCustomAttributedText(string: text, fontSize: 14, 1.25)
             priceLabel.text = ""
             buyButton.isHidden = true
             self.backgroundColor = .clear
