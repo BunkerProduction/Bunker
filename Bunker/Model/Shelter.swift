@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Shelter: Codable {
+struct Shelter {
     let id: Int
     let icon: String
     let name: String
     let description: String
-    let shelterConditions: [String] = []
+    var shelterConditions: [String] = []
     
     public static func getAll() -> [Shelter] {
         let decoder = JSONDecoder()
@@ -27,3 +27,5 @@ struct Shelter: Codable {
         return []
     }
 }
+
+extension Shelter: Codable { }

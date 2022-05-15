@@ -13,12 +13,22 @@ final class SplittedDigitInput: UIView {
     private var labels: [DigitLabel] = []
     private let numberOfDigits = 6
     private var isInputWrong: Bool = false
-    
+    private var isPresenting: Bool = false
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupTextField()
+        setupView()
+    }
+    
+    init(isPresenting: Bool) {
+        super.init(frame: .zero)
+        self.isPresenting = isPresenting
+        
+        if(!isPresenting) {
+            setupTextField()
+        }
         setupView()
     }
     
@@ -111,6 +121,10 @@ final class SplittedDigitInput: UIView {
             label.backgroundColor = .Background.LayerTwo.colorFor(theme)
             label.textColor = .TextAndIcons.Primary.colorFor(theme)
         }
+    }
+    
+    public func setValues(_ str: String) {
+        backTextField.text = str
     }
 }
 

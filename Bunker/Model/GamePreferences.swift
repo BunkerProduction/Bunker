@@ -30,8 +30,10 @@ struct GamePreferences {
     }
 }
 
+extension GamePreferences: Codable { }
+
 
 // MARK: - Difficulty
-struct GameDifficulty {
+struct GameDifficulty: Codable {
     
 }

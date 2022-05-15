@@ -62,7 +62,7 @@ final class CreateGameViewController: UIViewController {
         difficultyView.setTheme(theme)
         
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
         self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
     }
@@ -152,7 +152,8 @@ final class CreateGameViewController: UIViewController {
     
     @objc
     private func createGame() {
-        
+        let waitingRoomVC = WaitingRoomViewController()
+        self.navigationController?.pushViewController(waitingRoomVC, animated: true)
     }
     
     @objc

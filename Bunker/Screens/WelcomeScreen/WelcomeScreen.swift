@@ -29,6 +29,7 @@ final class WelcomeController: UIViewController {
         
         setupView()
         setupGameButtons()
+        let cvv = WebSocketController.shared
     }
     
     override func viewWillAppear(_ animated: Bool) {

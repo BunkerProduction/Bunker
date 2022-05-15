@@ -46,6 +46,9 @@
 		C003F32D28303D2F006F3FE9 /* threat.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32C28303D2F006F3FE9 /* threat.json */; };
 		C003F32F28303D4A006F3FE9 /* condition.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32E28303D4A006F3FE9 /* condition.json */; };
 		C003F33128304971006F3FE9 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F33028304971006F3FE9 /* String+Height.swift */; };
+		C033A5072831512A006B7A6C /* WebSocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033A5062831512A006B7A6C /* WebSocketController.swift */; };
+		C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033A5082831671E006B7A6C /* WaitingRoomViewController.swift */; };
+		C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033A50A283169AB006B7A6C /* WaitingViewModel.swift */; };
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
 		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
@@ -129,6 +132,9 @@
 		C003F32C28303D2F006F3FE9 /* threat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = threat.json; sourceTree = "<group>"; };
 		C003F32E28303D4A006F3FE9 /* condition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = condition.json; sourceTree = "<group>"; };
 		C003F33028304971006F3FE9 /* String+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
+		C033A5062831512A006B7A6C /* WebSocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketController.swift; sourceTree = "<group>"; };
+		C033A5082831671E006B7A6C /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
+		C033A50A283169AB006B7A6C /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -429,6 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				C0455E9A2825A1DF00990351 /* TabGameViewController.swift */,
+				C033A5082831671E006B7A6C /* WaitingRoomViewController.swift */,
+				C033A50A283169AB006B7A6C /* WaitingViewModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -437,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				C0455E942825A14300990351 /* WebSocketTypes.swift */,
+				C033A5062831512A006B7A6C /* WebSocketController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -599,6 +608,7 @@
 				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
 				C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
+				C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
 				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
 				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
@@ -611,10 +621,12 @@
 				C003F33128304971006F3FE9 /* String+Height.swift in Sources */,
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
+				C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
 				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
 				C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
+				C033A5072831512A006B7A6C /* WebSocketController.swift in Sources */,
 				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* PrimaryButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
