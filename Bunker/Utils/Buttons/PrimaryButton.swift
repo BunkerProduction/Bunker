@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class PrimaryButton: UIButton {
+    private var audioPlayer = AVAudioPlayer()
+    static let sound1 = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound1", ofType: "wav")!)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -16,7 +20,19 @@ final class PrimaryButton: UIButton {
         self.setHeight(to: 48)
         self.setWidth(to: ScreenSize.Width-48)
         self.titleLabel?.font = .customFont.body
+        self.addTarget(self, action: #selector(playSound), for: .touchUpInside)
     }
+    
+    @objc
+    private func playSound() {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: PrimaryButton.sound1)
+            audioPlayer.play()
+        } catch {
+            
+        }
+    }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

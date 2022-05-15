@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class WaitingRoomViewController: UIViewController {
     private let roomCodeView = SplittedDigitInput(isPresenting: true)
     private let startGameButton = PrimaryButton()
@@ -91,12 +90,13 @@ final class WaitingRoomViewController: UIViewController {
     private func setButtons() {
         shareButton.setTitle("Поделиться комнатой", for: .normal)
         startGameButton.setTitle("Начать игру", for: .normal)
+        shareButton.addTarget(self, action: #selector(shareRoom), for: .touchUpInside)
         let sV = UIStackView(arrangedSubviews: [shareButton, startGameButton])
         sV.distribution = .fill
         sV.alignment = .fill
         sV.axis = .vertical
         sV.spacing = 16
-        
+        startGameButton.isHidden = true
         view.addSubview(sV)
         sV.pin(to: view, [.left: 24, .right: 24])
         sV.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
@@ -106,6 +106,11 @@ final class WaitingRoomViewController: UIViewController {
     @objc
     private func goBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func shareRoom() {
+        startGameButton.isHidden.toggle()
     }
 }
 

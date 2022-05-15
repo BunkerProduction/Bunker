@@ -49,6 +49,7 @@
 		C033A5072831512A006B7A6C /* WebSocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033A5062831512A006B7A6C /* WebSocketController.swift */; };
 		C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033A5082831671E006B7A6C /* WaitingRoomViewController.swift */; };
 		C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033A50A283169AB006B7A6C /* WaitingViewModel.swift */; };
+		C033A50D28318677006B7A6C /* buttonSound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C033A50C28318677006B7A6C /* buttonSound1.wav */; };
 		C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4728257A0B00990351 /* AppDelegate.swift */; };
 		C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4928257A0B00990351 /* SceneDelegate.swift */; };
 		C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E4B28257A0B00990351 /* WelcomeScreen.swift */; };
@@ -135,6 +136,7 @@
 		C033A5062831512A006B7A6C /* WebSocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketController.swift; sourceTree = "<group>"; };
 		C033A5082831671E006B7A6C /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
 		C033A50A283169AB006B7A6C /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
+		C033A50C28318677006B7A6C /* buttonSound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound1.wav; sourceTree = "<group>"; };
 		C0455E4428257A0B00990351 /* Bunker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0455E4728257A0B00990351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0455E4928257A0B00990351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
 				C0455E5028257A0B00990351 /* Assets.xcassets */,
 				C0455E5528257A0B00990351 /* Info.plist */,
+				C033A50C28318677006B7A6C /* buttonSound1.wav */,
 				C003F322283028A3006F3FE9 /* GameData */,
 				4ED4C609282D90730062D0AD /* Fonts */,
 			);
@@ -564,6 +567,7 @@
 				C003F32928303CFF006F3FE9 /* catastrophe.json in Resources */,
 				C003F2F2282DB942006F3FE9 /* Alian@2x.png in Resources */,
 				C003F2F6282DB942006F3FE9 /* Alian@3x.png in Resources */,
+				C033A50D28318677006B7A6C /* buttonSound1.wav in Resources */,
 				C003F2F8282DB993006F3FE9 /* Standart60_3x.png in Resources */,
 				C003F2EE282DB942006F3FE9 /* Mono@2x.png in Resources */,
 				C003F32B28303D1A006F3FE9 /* shelter.json in Resources */,
