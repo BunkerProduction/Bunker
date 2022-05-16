@@ -12,14 +12,18 @@ final class WaitingRoomViewController: UIViewController {
     private let startGameButton = PrimaryButton()
     private let shareButton = PrimaryButton()
     private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: ScreenSize.Width - 48, height: 48)
+        
         let collectionView = UICollectionView(
             frame: .zero,
-            collectionViewLayout: UICollectionViewFlowLayout()
+            collectionViewLayout: layout
         )
         collectionView.register(
             WaitingCollectionViewCell.self,
             forCellWithReuseIdentifier: WaitingCollectionViewCell.reuseIdentifier
         )
+        collectionView.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 24, right: 0)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .clear
         
@@ -86,6 +90,8 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     private func setCodeView() {
+        roomCodeView.setValues("162069") // temp
+        roomCodeView.setTitleLabel("Номер комнаты")
         view.addSubview(roomCodeView)
         roomCodeView.pin(to: view, [.left: 24, .right: 24])
         roomCodeView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 46)

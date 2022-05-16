@@ -18,7 +18,7 @@ final class PackViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: layout
         )
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 24, right: 16)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 24, right: 10)
         collectionView.register(
             PackCollectionViewCell.self,
             forCellWithReuseIdentifier: PackCollectionViewCell.reuseIdentifier
@@ -129,8 +129,16 @@ extension PackViewController: DynamicLayoutDelegate {
         textForItemAtIndexPath indexPath: IndexPath
     ) -> CGFloat {
         let catastropy = dataSource[indexPath.row]
-        let heightForDescription = catastropy.shortDescription.lineHeight(constraintedWidth: widthForCell, font: .customFont.footnote ?? .systemFont(ofSize: 14), fontSize: 14, multiplicator: 1.25)
-        let heightForName = catastropy.name.lineHeight(constraintedWidth: widthForCell, font: .customFont.body ?? .systemFont(ofSize: 16), fontSize: 16, multiplicator: 1)
+        let heightForDescription = catastropy.shortDescription.lineHeight(
+            constraintedWidth: widthForCell - 32,
+            font: .customFont.footnote ?? .systemFont(ofSize: 14),
+            multiplicator: 1.25
+        )
+        let heightForName = catastropy.name.lineHeight(
+            constraintedWidth: widthForCell - 32,
+            font: .customFont.body ?? .systemFont(ofSize: 16),
+            multiplicator: 1
+        )
         let height = 16 + 20 + 12 + heightForName + 12 + heightForDescription + 16
         
         return height

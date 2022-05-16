@@ -54,9 +54,10 @@ class PackCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 12
         
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
-        stackView.distribution = .equalSpacing
+//        stackView.distribution = .equalSpacing
         stackView.alignment = .leading
         stackView.axis = .vertical
+        stackView.spacing = 8
         
         self.addSubview(stackView)
         

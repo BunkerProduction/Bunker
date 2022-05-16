@@ -125,6 +125,11 @@ final class SplittedDigitInput: UIView {
     
     public func setValues(_ str: String) {
         backTextField.text = str
+        setLabels()
+    }
+    
+    public func setTitleLabel(_ str: String) {
+        self.titleLabel.text = str
     }
 }
 

@@ -14,8 +14,6 @@ final class BaseNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
     }
-    
-
     /*
     // MARK: - Navigation
 

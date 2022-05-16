@@ -44,12 +44,10 @@ final class UserSettings {
             switch appearance {
             case .light:
                 Self.sceneDelegate.window!.overrideUserInterfaceStyle = .light
-            case .dark:
-                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .dark
             case .system:
                 Self.sceneDelegate.window!.overrideUserInterfaceStyle = .unspecified
             default:
-                break
+                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .dark
             }
             storage.set(appearance.rawValue, forKey: CodingKeys.appearence)
         }

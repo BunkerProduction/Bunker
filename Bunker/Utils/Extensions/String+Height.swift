@@ -18,12 +18,17 @@ extension String {
         return label.frame.height
     }
     
-    func lineHeight(constraintedWidth width: CGFloat, font: UIFont, fontSize: CGFloat, multiplicator: CGFloat) -> CGFloat {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+    func lineHeight(constraintedWidth width: CGFloat, font: UIFont, multiplicator: CGFloat) -> CGFloat {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 0))
+        label.setWidth(to: width)
         label.numberOfLines = 0
+        label.text = self
         label.font = font
-        label.setCustomAttributedText(string: self, fontSize: fontSize, multiplicator)
+//            .layoutFittingExpandedSize
+//        let size = label.systemLayoutSizeFitting(UILabel.layoutFittingExpandedSize)
         label.sizeToFit()
-        return label.frame.height
+        let height = label.frame.height
+        let mHeight = height * multiplicator
+        return mHeight
     }
 }

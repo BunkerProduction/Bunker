@@ -34,9 +34,10 @@ class WaitingCollectionViewCell: UICollectionViewCell {
         numberLabel.font = .customFont.icon
         
         let stackView = UIStackView(arrangedSubviews: [numberLabel, nameLabel])
-        stackView.distribution = .equalCentering
+        stackView.distribution = .fillProportionally
         stackView.alignment = .fill
         stackView.axis = .horizontal
+        stackView.spacing = 8
         
         self.contentView.addSubview(stackView)
         

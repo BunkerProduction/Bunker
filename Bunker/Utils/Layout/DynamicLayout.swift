@@ -52,9 +52,9 @@ class DynamicLayout: UICollectionViewLayout {
                 let indexPath = IndexPath(item: item, section: section)
                 
                 
-                let photoHeight = delegate?.textForItem(collectionView, widthForCell: (columnWidth-36), textForItemAtIndexPath: indexPath) ?? 180
+                let textHeight = delegate?.textForItem(collectionView, widthForCell: (columnWidth-12), textForItemAtIndexPath: indexPath) ?? 180
                 
-                let height = cellPadding * 2 + photoHeight
+                let height = cellPadding * 2 + textHeight
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
                 let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
                 
