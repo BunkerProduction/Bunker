@@ -9,10 +9,10 @@ import UIKit
 
 extension UILabel {
     
-    func setCustomAttributedText(string: String, fontSize: CGFloat, _ lineHeightMultiplicator: CGFloat) {
+    func setCustomAttributedText(string: String, font: UIFont, _ lineHeightMultiplicator: CGFloat) {
         let attributedString = NSMutableAttributedString(string: string)
         self.numberOfLines = 0
-        self.font = .systemFont(ofSize: fontSize)
+        self.font = font
         let style = NSMutableParagraphStyle()
         style.lineHeightMultiple = lineHeightMultiplicator
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSRange(location: 0, length: attributedString.length))

@@ -68,7 +68,7 @@ final class RoomCodeViewController: UIViewController {
         
         connectButton.pin(to: view, [.left: 24, .right: 24])
         connectButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
-        connectButton.setTitle("Присоединиться", for: .normal)
+        connectButton.setTitle("Join", for: .normal)
         connectButton.addTarget(self, action: #selector(joinGame), for: .touchUpInside)
     }
     

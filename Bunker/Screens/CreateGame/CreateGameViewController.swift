@@ -71,10 +71,9 @@ final class CreateGameViewController: UIViewController {
         if let username = UserSettings.shared.username {
             nameTextField.text = username
         }
-        nameTextField.placeholder = "Введите имя"
+        nameTextField.placeholder = "Enter name"
         nameTextField.delegate = self
-        
-        voteTimeTextField.placeholder = "Введите время голосования (мин)"
+        voteTimeTextField.placeholder = "Enter voting time (1-20 min)"
         voteTimeTextField.delegate = self
         voteTimeTextField.keyboardType = .numberPad
         
@@ -85,9 +84,9 @@ final class CreateGameViewController: UIViewController {
     
     private func setOptions() {
         let catastrophe = gamePref.catastrophe
-        packView.setLabels("Набор", catastrophe?.name ?? "рандом", catastrophe?.icon ?? "🎲")
+        packView.setLabels("Pack", catastrophe?.name ?? "Random", catastrophe?.icon ?? "🎲")
         packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
-        difficultyView.setLabels("Набор", "Случайный", "🎲")
+        difficultyView.setLabels("Pack", "Random", "🎲")
     }
     
     // MARK: - View setup

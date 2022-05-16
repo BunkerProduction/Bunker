@@ -22,13 +22,13 @@ extension String {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 0))
         label.setWidth(to: width)
         label.numberOfLines = 0
-        label.text = self
-        label.font = font
-//            .layoutFittingExpandedSize
-//        let size = label.systemLayoutSizeFitting(UILabel.layoutFittingExpandedSize)
+        label.setCustomAttributedText(
+            string: self,
+            font: .customFont.footnote ?? .systemFont(ofSize: 0),
+            1.25
+        )
         label.sizeToFit()
         let height = label.frame.height
-        let mHeight = height * multiplicator
-        return mHeight
+        return height
     }
 }

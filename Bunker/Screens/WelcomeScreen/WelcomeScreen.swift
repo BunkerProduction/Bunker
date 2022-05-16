@@ -56,8 +56,8 @@ final class WelcomeController: UIViewController {
     
     // MARK: - SetupView
     private func setupView() {
-        createGameButton.setTitle("Создать игру", for: .normal)
-        joinGameButton.setTitle("Присоединиться к игре", for: .normal)
+        createGameButton.setTitle("Create room", for: .normal)
+        joinGameButton.setTitle("Join", for: .normal)
         
         let buttonSV = UIStackView(arrangedSubviews: [joinGameButton, createGameButton])
         buttonSV.distribution = .fillEqually
@@ -100,7 +100,7 @@ final class WelcomeController: UIViewController {
     
     private func setupInstructionView() {
         instructionView.layer.cornerRadius = 12
-        instructionLabel.text = "Правила игры"
+        instructionLabel.text = "Rules"
         instructionLabel.font = .customFont.title
         instructionLabel.textAlignment = .center
         let sV = UIStackView(arrangedSubviews: [instructionLabel, instructionIcon])
