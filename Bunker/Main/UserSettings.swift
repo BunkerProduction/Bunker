@@ -41,14 +41,7 @@ final class UserSettings {
                 
     public var appearance: Appearence = .system {
         didSet {
-            switch appearance {
-            case .light:
-                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .light
-            case .system:
-                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .unspecified
-            default:
-                Self.sceneDelegate.window!.overrideUserInterfaceStyle = .dark
-            }
+            setTheme()
             storage.set(appearance.rawValue, forKey: CodingKeys.appearence)
         }
     }
@@ -73,12 +66,24 @@ final class UserSettings {
         }
         if let theme = storage.object(forKey: CodingKeys.appearence) as? String {
             self.appearance = Appearence(rawValue: theme) ?? .system
+            self.setTheme()
         }
         if let langauge = storage.object(forKey: CodingKeys.language) as? String {
             self.language = Language(rawValue: langauge) ?? .ru
         }
         if let icon = storage.object(forKey: CodingKeys.appIcon) as? String {
             self.appIcon = AppIcon(rawValue: icon) ?? .light
+        }
+    }
+    
+    private func setTheme() {
+        switch appearance {
+        case .light:
+            Self.sceneDelegate.window?.overrideUserInterfaceStyle = .light
+        case .system:
+            Self.sceneDelegate.window?.overrideUserInterfaceStyle = .unspecified
+        default:
+            Self.sceneDelegate.window?.overrideUserInterfaceStyle = .dark
         }
     }
     

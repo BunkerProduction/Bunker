@@ -13,7 +13,7 @@ final class WelcomeController: UIViewController {
     private let instructionView = UIView()
     private let createGameButton = PrimaryButton(frame: .zero)
     private let joinGameButton = PrimaryButton(frame: .zero)
-    private let settings = UserSettings.shared
+    private var settings: UserSettings?
     private let instructionLabel = UILabel()
     private let instructionIcon: UIImageView = {
         let imageView = UIImageView()
@@ -27,6 +27,7 @@ final class WelcomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.settings = UserSettings.shared
         setupView()
         setupGameButtons()
         let cvv = WebSocketController.shared
@@ -40,7 +41,7 @@ final class WelcomeController: UIViewController {
     
     // MARK: - Update UI
     private func updateUI() {
-        let theme = settings.appearance
+        guard let theme = settings?.appearance else { return }
         createGameButton.setTheme(theme)
         joinGameButton.setTheme(theme)
         logo.setTheme(theme)
