@@ -11,7 +11,7 @@ extension UIFont {
     enum customFont {
         static let headline = UIFont(name: "SFProDisplay-Bold", size: 28)
         static let title = UIFont(name: "SFProDisplay-Bold", size: 20)
-        static let icon = UIFont(name: "SFProDisplay-Medium", size: 20)
+        static let icon = UIFont.systemFont(ofSize: 20)
         static let body = UIFont(name: "SFProDisplay-Medium", size: 16)
         static let footnote = UIFont(name: "SFProDisplay-Regular", size: 14)
         static let caption = UIFont(name: "SFProDisplay-Medium", size: 12)

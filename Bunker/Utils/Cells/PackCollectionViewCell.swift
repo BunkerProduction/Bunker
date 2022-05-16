@@ -66,10 +66,21 @@ class PackCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configure
     public func configure(_ pack: Catastrophe) {
-        iconLabel.setCustomAttributedText(string: pack.icon, fontSize: 20, 1)
-        titleLabel.text = pack.name
-        descriptionLabel.setCustomAttributedText(string: pack.shortDescription, fontSize: 14, 1.25)
-        //надо заставить стеквью пересчитать дистрибьюшн
+        iconLabel.setCustomAttributedText(
+            string: pack.icon,
+            font: .customFont.icon,
+            1
+        )
+        titleLabel.setCustomAttributedText(
+            string: pack.name,
+            font: .customFont.body ?? .systemFont(ofSize: 0),
+            1
+        )
+        descriptionLabel.setCustomAttributedText(
+            string: pack.shortDescription,
+            font: .customFont.footnote ?? .systemFont(ofSize: 0),
+            1.25
+        )
     }
     
     public func setTheme(_ theme: Appearence) {

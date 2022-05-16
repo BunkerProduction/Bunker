@@ -30,7 +30,7 @@ class VersionCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         self.layer.cornerRadius = 12
-        buyButton.setTitle("Купить", for: .normal)
+        buyButton.setTitle("Buy", for: .normal)
         buyButton.backgroundColor = .red
         buyButton.titleLabel?.font = .customFont.body
         buyButton.layer.cornerRadius = 8
@@ -63,14 +63,22 @@ class VersionCollectionViewCell: UICollectionViewCell {
         if(isPremium) {
             titleLabel.text = "Премиум Версия"
             let text = "— 18 аппокалипсисов\n— новые характеристики\n— увеличенные комнаты\n— 4 цветовые темы\n— выбор сложности"
-            textLabel.setCustomAttributedText(string: text, fontSize: 14, 1.25)
+            textLabel.setCustomAttributedText(
+                string: text,
+                font: .customFont.footnote ?? .systemFont(ofSize: 0),
+                1.25
+            )
             priceLabel.text = "159₽"
             buyButton.isHidden = false
             self.backgroundColor = .clear
         } else {
             titleLabel.text = "Базовая Версия"
             let text = "— 5 аппокалипсисов \n— игры до 12 человек \n— карты особых условий \n— темная тема"
-            textLabel.setCustomAttributedText(string: text, fontSize: 14, 1.25)
+            textLabel.setCustomAttributedText(
+                string: text,
+                font: .customFont.footnote ?? .systemFont(ofSize: 0),
+                1.25
+            )
             priceLabel.text = ""
             buyButton.isHidden = true
             self.backgroundColor = .clear

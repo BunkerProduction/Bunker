@@ -40,7 +40,7 @@ final class SplittedDigitInput: UIView {
     private func setupView() {
         self.layer.cornerRadius = 12
         
-        titleLabel.text = "Введите номер комнаты"
+        titleLabel.text = "Enter room number"
         titleLabel.textAlignment = .center
         titleLabel.font = .customFont.body
         
