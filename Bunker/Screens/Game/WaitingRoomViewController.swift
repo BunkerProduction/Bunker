@@ -16,17 +16,22 @@ final class WaitingRoomViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: UICollectionViewFlowLayout()
         )
-        
-        
+        collectionView.register(
+            WaitingCollectionViewCell.self,
+            forCellWithReuseIdentifier: WaitingCollectionViewCell.reuseIdentifier
+        )
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        
         return collectionView
     }()
+    
     private var viewModel: WaitingViewModel
     private var settings = UserSettings.shared
     
     // MARK:  - Init
     init() {
-        viewModel = WaitingViewModel()
+        viewModel = WaitingViewModel(collectionView)
         super.init(nibName: nil, bundle: nil)
     }
     
