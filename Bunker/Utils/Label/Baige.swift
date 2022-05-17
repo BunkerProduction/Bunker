@@ -8,20 +8,19 @@
 import Foundation
 import UIKit
 
-final class Baige: UILabel {
+final class BaigeLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.layer.cornerRadius = 12
-        self.setHeight(to: 20)
-        self.setWidth(to: 74)
-        self.text = "PREMIUM"
-        self.font = .customFont.caption
+        self.text = "ПРЕМИУМ"
+        self.font = .customFont.baige
         self.layer.cornerRadius = 10
         self.layer.borderWidth = 2
+        self.textAlignment = .center
         
-    }
+        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -29,7 +28,7 @@ final class Baige: UILabel {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.LayerOne.colorFor(theme)
-        self.layer.borderColor = UIColor.Outline.Strong.colorFor(theme) as! CGColor
+        self.layer.borderColor = UIColor.Outline.Strong.colorFor(theme)?.cgColor
         self.textColor = UIColor.Outline.Strong.colorFor(theme)
     }
 }

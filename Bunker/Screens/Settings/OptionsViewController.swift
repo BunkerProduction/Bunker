@@ -114,11 +114,11 @@ final class OptionsViewController: UIViewController {
                     heightDimension: .absolute(80)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .none, trailing: .fixed(16), bottom: .none)
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .none, trailing: .fixed(12), bottom: .none)
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 80, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 50, trailing: 20)
                 
                 return section
             default:
