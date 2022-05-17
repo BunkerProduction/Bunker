@@ -205,6 +205,7 @@ extension OptionsViewController: UICollectionViewDataSource {
                 cell.configure(icon)
                 cell.setTheme(settings.appearance)
                 if icon == settings.appIcon {
+                    cell.isSelected = true
                     collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
                 }
             }
