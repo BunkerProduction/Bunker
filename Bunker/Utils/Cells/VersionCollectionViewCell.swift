@@ -14,6 +14,7 @@ class VersionCollectionViewCell: UICollectionViewCell {
     private let textLabel = UILabel()
     private let priceLabel = UILabel()
     private let buyButton = UIButton()
+    private let baigeLabel = Baige()
     private var isPremium: Bool = false
     
     // MARK: - Initialization
@@ -48,7 +49,7 @@ class VersionCollectionViewCell: UICollectionViewCell {
         priceLabel.textAlignment = .left
         priceLabel.font = .customFont.body
         
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, priceLabel, buyButton])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, baigeLabel, priceLabel, buyButton])
         stackView.distribution = .equalSpacing
 //        stackView.alignment = .fill
         stackView.axis = .vertical

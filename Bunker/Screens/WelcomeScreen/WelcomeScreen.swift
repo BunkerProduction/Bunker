@@ -56,8 +56,8 @@ final class WelcomeController: UIViewController {
     
     // MARK: - SetupView
     private func setupView() {
-        createGameButton.setTitle("Create room", for: .normal)
-        joinGameButton.setTitle("Join", for: .normal)
+        createGameButton.setTitle("Create game", for: .normal)
+        joinGameButton.setTitle("Join game", for: .normal)
         
         let buttonSV = UIStackView(arrangedSubviews: [joinGameButton, createGameButton])
         buttonSV.distribution = .fillEqually

@@ -10,7 +10,7 @@ import AVFoundation
 
 final class PrimaryButton: UIButton {
     private var audioPlayer = AVAudioPlayer()
-    static let sound1 = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound1", ofType: "wav")!)
+    static let sound1 = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound3", ofType: "wav")!)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +30,7 @@ final class PrimaryButton: UIButton {
         }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: PrimaryButton.sound1)
+            audioPlayer.setVolume(0.1, fadeDuration: 1)
             audioPlayer.play()
         } catch {
             
@@ -42,7 +43,7 @@ final class PrimaryButton: UIButton {
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Main.Primary.colorFor(theme)
-        self.layer.applyFigmaShadow(color: .Main.Shadow.colorFor(theme) ?? .black)
+        self.layer.applyFigmaShadow(color: .Main.Shadow.colorFor(theme) ?? .clear)
         self.setTitleColor(.Main.onPrimary.colorFor(theme), for: .normal)
     }
 }
