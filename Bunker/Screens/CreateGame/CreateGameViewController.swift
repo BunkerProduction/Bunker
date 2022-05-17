@@ -128,7 +128,7 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setButton() {
-        createButton.setTitle("Создать игру", for: .normal)
+        createButton.setTitle("Create game", for: .normal)
         createButton.addTarget(self, action: #selector(createGame), for: .touchUpInside)
     }
     

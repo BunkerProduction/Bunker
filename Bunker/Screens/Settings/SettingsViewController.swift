@@ -76,7 +76,7 @@ final class SettingsViewController: UIViewController {
         } else {
             sectionS.append(("false",""))
             sectionS.append(("true",""))
-            sectionT.append(("Восстановить покупки","🛍"))
+            sectionT.append(("Restore purchase","🛍"))
         }
         let dataSource = [sectionF, sectionS, sectionT]
         self.dataSource = dataSource
@@ -85,7 +85,7 @@ final class SettingsViewController: UIViewController {
     // MARK: - setupView
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Настройки"
+        self.navigationItem.title = "Settings"
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,
