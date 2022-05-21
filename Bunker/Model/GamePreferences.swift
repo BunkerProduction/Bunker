@@ -16,17 +16,7 @@ struct GamePreferences {
     init() {
         catastrophe = Catastrophe.getAll()[0]
         shelter = nil
-        difficulty = nil
-    }
-    
-    func winRatio(numberOfPlayers: Int) -> Int {
-        /*
-         cколько человек должно выиграть в зависимости от выбранной сложности
-          Легко - 60%
-         Средне - 50
-         и тд
-         */
-        return 0
+        difficulty = GameDifficulty(rate: 1)
     }
 }
 
@@ -34,6 +24,8 @@ extension GamePreferences: Codable { }
 
 
 // MARK: - Difficulty
-struct GameDifficulty: Codable {
-    
+struct GameDifficulty {
+    let rate: Int
 }
+
+extension GameDifficulty: Codable { }

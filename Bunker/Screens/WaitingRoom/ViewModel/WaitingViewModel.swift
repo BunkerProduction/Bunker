@@ -6,65 +6,68 @@
 //
 
 import UIKit
+import Combine
 
 final class WaitingViewModel {
     typealias collectionDataSource = UICollectionViewDiffableDataSource<AnyHashable, AnyHashable>
     typealias collectionSnapshot = NSDiffableDataSourceSnapshot<AnyHashable, AnyHashable>
+    
     private enum Const {
         static let sectionId = "Players"
     }
     
+    private let socketController = WebSocketController.shared
     private unowned var collectionView: UICollectionView
+    private weak var codeView: SplittedDigitInput?
+    private var roomModel: WaitingRoom? {
+        didSet {
+            codeView?.setValues(roomModel?.roomCode ?? "")
+            updateDataSource()
+        }
+    }
+    private var roomModelSubscriber: AnyCancellable?
     
     private lazy var dataSource: collectionDataSource = {
-        let dataSource: collectionDataSource = .init(collectionView: collectionView) { [self]
+        let dataSource: collectionDataSource = .init(collectionView: collectionView) { [weak self]
             collectionView, indexPath, item in
-            
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: WaitingCollectionViewCell.reuseIdentifier,
                 for: indexPath
             )
-            
             if let cell = cell as? WaitingCollectionViewCell,
-               let item = item as? Participant {
+               let item = item as? User {
                 cell.configure("1", item.username)
                 cell.setTheme(UserSettings.shared.appearance)
             }
-            
             return cell
         }
         return dataSource
     }()
     
     // MARK: - Init
-    init(_ collectionView: UICollectionView) {
+    init(_ collectionView: UICollectionView,_ roomCode: SplittedDigitInput, _ model: WaitingRoom) {
+        self.codeView = roomCode
         self.collectionView = collectionView
         self.collectionView.dataSource = dataSource
+        self.roomModel = model
         
-        updateDataSource()
+        binding()
     }
     
+    // MARK: - Binding
+    private func binding() {
+        roomModelSubscriber = socketController.waitingRoomRecieved
+            .receive(on: RunLoop.main)
+            .assign(to: \.roomModel, on: self)
+    }
+    
+    // MARK: - DataSource update
     private func updateDataSource() {
         var snapshot = collectionSnapshot()
         
         snapshot.appendSections([Const.sectionId])
-        snapshot.appendItems(users, toSection: Const.sectionId)
+        snapshot.appendItems(roomModel!.users, toSection: Const.sectionId)
         
         dataSource.apply(snapshot)
     }
-    
-    // temp for checking layout
-    private var users = [
-        Participant(username: "Dan", isCreator: true),
-        Participant(username: "Dima", isCreator: false),
-        Participant(username: "Tima", isCreator: false),
-        Participant(username: "Steve", isCreator: false),
-        Participant(username: "Clown", isCreator: false)
-    ]
-}
-
-        
-struct Participant: Hashable {
-    let username: String
-    let isCreator: Bool
 }

@@ -128,6 +128,10 @@ final class SplittedDigitInput: UIView {
         setLabels()
     }
     
+    public func getValue() -> String {
+        return backTextField.text ?? ""
+    }
+    
     public func setTitleLabel(_ str: String) {
         self.titleLabel.text = str
     }

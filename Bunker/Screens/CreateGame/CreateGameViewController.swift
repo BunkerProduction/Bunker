@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class CreateGameViewController: UIViewController {
     private let nameTextField = BunkerTextField()
@@ -22,9 +23,18 @@ final class CreateGameViewController: UIViewController {
 
         return scrollView
     }()
-    
-    private var gamePref = GamePreferences()
+    private var viewModel: CreateGameViewModel?
     private let settings = UserSettings.shared
+    
+    // MARK: - Init
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        viewModel = CreateGameViewModel(self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -41,7 +51,6 @@ final class CreateGameViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
-        
         setup()
     }
     
@@ -68,9 +77,6 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setup() {
-        if let username = UserSettings.shared.username {
-            nameTextField.text = username
-        }
         nameTextField.placeholder = "Enter name"
         nameTextField.delegate = self
         voteTimeTextField.placeholder = "Enter voting time (1-20 min)"
@@ -83,8 +89,6 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setOptions() {
-        let catastrophe = gamePref.catastrophe
-        packView.setLabels("Pack", catastrophe?.name ?? "Random", catastrophe?.icon ?? "🎲")
         packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
         difficultyView.setLabels("Pack", "Random", "🎲")
     }
@@ -128,6 +132,7 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setButton() {
+        createButton.isEnabled = false
         createButton.setTitle("Create game", for: .normal)
         createButton.addTarget(self, action: #selector(createGame), for: .touchUpInside)
     }
@@ -141,23 +146,28 @@ final class CreateGameViewController: UIViewController {
     
     @objc
     private func choosePack() {
-        let packVC = PackViewController()
-        if let pack = gamePref.catastrophe {
-            packVC.chosenPack = pack
-        }
-        packVC.delegate = self
-        self.navigationController?.pushViewController(packVC, animated: true)
+        self.viewModel?.choosePack()
     }
     
     @objc
     private func createGame() {
-        let waitingRoomVC = WaitingRoomViewController()
-        self.navigationController?.pushViewController(waitingRoomVC, animated: true)
+        viewModel?.createGame()
     }
     
     @objc
     private func goBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    public func setScreenData(username: String, prefs: GamePreferences, _ buttonEnabled: Bool) {
+        nameTextField.text = username
+        if let catastrophy = prefs.catastrophe {
+            packView.setLabels("Набор", catastrophy.name, catastrophy.icon)
+        }
+        if let difficulty = prefs.difficulty {
+            difficultyView.setLabels("Сложность", "", "")
+        }
+        createButton.isEnabled = buttonEnabled
     }
 }
 
@@ -166,11 +176,13 @@ extension CreateGameViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag {
         case 1:
-            if let string = textField.text, string != "" {
-                UserSettings.shared.username = string
+            if let string = textField.text {
+                viewModel?.username = string
             }
         case 2:
-            return
+            if let string = textField.text {
+                viewModel?.votingTime = Int(string) ?? 0
+            }
         default:
             return
         }
@@ -189,10 +201,3 @@ extension CreateGameViewController: UITextFieldDelegate {
 // MARK: - GestureDelegate
 extension CreateGameViewController: UIGestureRecognizerDelegate { }
 
-// MARK: - PackDelegate
-extension CreateGameViewController: PackViewControllerDelegate {
-    func packSet(_ pack: Catastrophe) {
-        self.gamePref.catastrophe = pack
-        setOptions()
-    }
-}

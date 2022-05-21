@@ -30,13 +30,14 @@ final class WaitingRoomViewController: UIViewController {
         return collectionView
     }()
     
-    private var viewModel: WaitingViewModel
+    private var viewModel: WaitingViewModel?
     private var settings = UserSettings.shared
     
     // MARK:  - Init
-    init() {
-        viewModel = WaitingViewModel(collectionView)
+    init(data roomModel: WaitingRoom) {
         super.init(nibName: nil, bundle: nil)
+        
+        viewModel = WaitingViewModel(collectionView, roomCodeView, roomModel)
     }
     
     required init?(coder: NSCoder) {
@@ -90,7 +91,6 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     private func setCodeView() {
-        roomCodeView.setValues("162069") // temp
         roomCodeView.setTitleLabel("Номер комнаты")
         view.addSubview(roomCodeView)
         roomCodeView.pin(to: view, [.left: 24, .right: 24])

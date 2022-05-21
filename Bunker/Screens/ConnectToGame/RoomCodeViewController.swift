@@ -12,6 +12,7 @@ final class RoomCodeViewController: UIViewController {
     private let codeInput = SplittedDigitInput()
     private let connectButton = PrimaryButton()
     private let settings = UserSettings.shared
+    private lazy var viewModel = ConnectViewModel(self)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -75,7 +76,9 @@ final class RoomCodeViewController: UIViewController {
     // MARK: - Interactions
     @objc
     private func joinGame() {
-        codeInput.toggleInput(true)
+        let value = codeInput.getValue()
+        viewModel.joinGame(code: value)
+//        codeInput.toggleInput(true)
     }
     
     @objc
