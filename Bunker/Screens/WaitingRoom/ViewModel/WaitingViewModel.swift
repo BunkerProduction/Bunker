@@ -18,6 +18,7 @@ final class WaitingViewModel {
     
     private let socketController = WebSocketController.shared
     private unowned var collectionView: UICollectionView
+    private weak var viewController: WaitingRoomViewController?
     private weak var codeView: SplittedDigitInput?
     private var roomModel: WaitingRoom? {
         didSet {
@@ -36,7 +37,7 @@ final class WaitingViewModel {
             )
             if let cell = cell as? WaitingCollectionViewCell,
                let item = item as? User {
-                cell.configure("1", item.username)
+                cell.configure(indexPath.row + 1, item)
                 cell.setTheme(UserSettings.shared.appearance)
             }
             return cell
@@ -45,13 +46,22 @@ final class WaitingViewModel {
     }()
     
     // MARK: - Init
-    init(_ collectionView: UICollectionView,_ roomCode: SplittedDigitInput, _ model: WaitingRoom) {
+    init(_ collectionView: UICollectionView,
+         _ roomCode: SplittedDigitInput,
+         _ model: WaitingRoom,
+         viewController: WaitingRoomViewController
+    ) {
+        self.viewController = viewController
         self.codeView = roomCode
         self.collectionView = collectionView
         self.collectionView.dataSource = dataSource
         self.roomModel = model
         
         binding()
+    }
+    
+    deinit {
+        print("WaitingViewModel deinit called")
     }
     
     // MARK: - Binding
@@ -66,8 +76,18 @@ final class WaitingViewModel {
         var snapshot = collectionSnapshot()
         
         snapshot.appendSections([Const.sectionId])
-        snapshot.appendItems(roomModel!.users, toSection: Const.sectionId)
+        snapshot.appendItems(roomModel!.players, toSection: Const.sectionId)
         
         dataSource.apply(snapshot)
+    }
+    
+    // MARK: - Navigation
+    public func disconnect() {
+        // cancel subscribtion
+        roomModelSubscriber?.cancel()
+        // disconnect from room
+        socketController.disconnect()
+        
+        self.viewController?.navigationController?.popViewController(animated: true)
     }
 }

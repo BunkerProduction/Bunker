@@ -37,7 +37,11 @@ final class WaitingRoomViewController: UIViewController {
     init(data roomModel: WaitingRoom) {
         super.init(nibName: nil, bundle: nil)
         
-        viewModel = WaitingViewModel(collectionView, roomCodeView, roomModel)
+        viewModel = WaitingViewModel(collectionView, roomCodeView, roomModel, viewController: self)
+    }
+    
+    deinit {
+        print("____Waiting Controller was deinitialized_______")
     }
     
     required init?(coder: NSCoder) {
@@ -116,7 +120,7 @@ final class WaitingRoomViewController: UIViewController {
     // MARK: - Interactions
     @objc
     private func goBack() {
-        self.navigationController?.popViewController(animated: true)
+        viewModel?.disconnect()
     }
     
     @objc

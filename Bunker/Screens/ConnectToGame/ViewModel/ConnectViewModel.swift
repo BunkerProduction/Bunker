@@ -39,7 +39,7 @@ final class ConnectViewModel {
     
     // MARK: - Interactions
     public func joinGame(code: String) {
-        socketController.connectToGame(id: code)
+        socketController.connectToGame(username: settings.username ?? "name", roomCode: code, isCreator: false)
     }
     
     // MARK: - Navigation
@@ -48,6 +48,14 @@ final class ConnectViewModel {
             return
         }
         let waitingRoomVC = WaitingRoomViewController(data: roomModel)
+        // cancel subscribtion to network results
+        connectionSubscriber?.cancel()
+        roomModelSubscriber?.cancel()
+        
         viewController?.navigationController?.pushViewController(waitingRoomVC, animated: true)
+    }
+    
+    public func navigatedBack() {
+        self.binding()
     }
 }

@@ -37,6 +37,7 @@ final class RoomCodeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        viewModel.navigatedBack()
         updateUI()
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 final class WebSocketController {
     enum Endpoint: String {
+        case base = "wss://ktor-bunker.herokuapp.com/game?username="
         case game = "wss://ktor-bunker.herokuapp.com/game?username=name&isCreator=true"
         case connectToGame = "wss://ktor-bunker.herokuapp.com//game?usename=name&isCreator=false&sessionID="
     }
@@ -29,13 +30,7 @@ final class WebSocketController {
     // MARK: - Init
     init() {
         session = URLSession(configuration: .default)
-        connect(Endpoint.game.rawValue)
-    }
-    
-    public func connectToGame(id: String) {
-        var base = Endpoint.connectToGame.rawValue
-        base += id
-        connect(base)
+//        connect(Endpoint.game.rawValue)
     }
     
     // MARK: - Connetion
@@ -44,6 +39,22 @@ final class WebSocketController {
         self.listen()
         self.socket?.resume()
         self.schedulePing()
+    }
+    
+    public func connectToGame(username: String, roomCode: String? , isCreator: Bool) {
+        var base = Endpoint.base.rawValue
+        base += username
+        base += "&isCreator=\(isCreator)"
+        if let code = roomCode {
+            base += "&sessionID=\(code)"
+        }
+        connect(base)
+    }
+    
+    public func disconnect() {
+        socket?.cancel(with: .goingAway, reason: nil)
+        waitingRoom = nil
+        connectionStatus = false
     }
     
     // MARK: - Ping-Pong
@@ -74,24 +85,11 @@ final class WebSocketController {
             return
         }
         do {
-            let decodedShit = try JSONDecoder().decode([Player].self, from: data)
-            let players: [User] = decodedShit.map {
-                User(username: $0.username, isCreator: false)
-            }
-            let waitingRoom = WaitingRoom(users: players, roomCode: decodedShit[0].sessionID)
-            self.waitingRoom = waitingRoom
+            let roomModel = try JSONDecoder().decode(WaitingRoom.self, from: data)
+            self.waitingRoom = roomModel
         } catch {
             print(error)
         }
-        // temp for test
-        self.waitingRoom = WaitingRoom(
-            users: [
-                User(username: "someName", isCreator: true),
-                User(username: "someName2", isCreator: false),
-                User(username: "someName3", isCreator: false)
-            ],
-            roomCode: "196207"
-        )
     }
     
     private func listen() {
@@ -119,14 +117,21 @@ final class WebSocketController {
     }
     
     // MARK: - Post
-    public func sendGamePref() {
-        let gamePref = GamePreferencesMessage(voitingTime: 1, catastropheId: 1, shelterId: 1, difficultyId: 1)
+    public func sendGamePref(_ creatorsPrefs: GamePreferences) {
+        guard let catastropheId = creatorsPrefs.catastrophe?.id,
+           let shelterId = creatorsPrefs.shelter?.id,
+           let difficultyId = creatorsPrefs.difficulty?.rate
+        else { return }
+        
+        let gamePref = GamePreferencesMessage(
+            votingTime: creatorsPrefs.votingTime,
+            catastropheId: catastropheId,
+            shelterId: shelterId,
+            difficultyId: difficultyId
+        )
         // костыль ебаный
         let correctString = workAround(model: gamePref)
         do {
-//            let encoder = JSONEncoder()
-////            encoder.outputFormatting = [.sortedKeys]
-//            let data = try encoder.encode(correctString)
             let data = correctString.data(using: .utf8)!
             print(String(data: data, encoding: .utf8)!)
             self.socket?.send(.string(correctString)) { (error) in
@@ -141,13 +146,12 @@ final class WebSocketController {
     
     private func workAround(model: GamePreferencesMessage) -> String {
         let keyValuePairs = [
-            ("voitingTime", model.voitingTime),
+            ("votingTime", model.votingTime),
             ("catastropheId", model.catastropheId),
             ("shelterId", model.shelterId),
             ("difficultyId", model.difficultyId)
         ]
-
-
+        
         let dict = Dictionary(uniqueKeysWithValues: keyValuePairs)
         let orderedKeys = keyValuePairs.map { $0.0 }
         
@@ -161,12 +165,4 @@ final class WebSocketController {
         
         return result
     }
-}
-
-
-
-// костыльные структуры для обработки ответов бэка
-struct Player: Codable {
-    let username: String
-    let sessionID: String
 }

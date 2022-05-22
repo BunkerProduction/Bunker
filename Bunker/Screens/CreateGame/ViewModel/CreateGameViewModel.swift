@@ -26,6 +26,9 @@ final class CreateGameViewModel {
     public var username: String = ""{
         didSet {
             settings.username = username
+            if(!username.isEmpty) {
+                socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
+            }
             validateData()
         }
     }
@@ -53,6 +56,7 @@ final class CreateGameViewModel {
         self.viewController = vc
         if let name = settings.username {
             self.username = name
+            socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
         }
         
         binding()
@@ -93,7 +97,7 @@ final class CreateGameViewModel {
     }
     
     public func createGame() {
-        socketController.sendGamePref()
+        socketController.sendGamePref(gamePref)
     }
     
     // MARK: - Navigation
@@ -102,6 +106,10 @@ final class CreateGameViewModel {
             return
         }
         let waitingRoomVC = WaitingRoomViewController(data: roomModel)
+        // cancel subscribtion to network results
+        connectionSubscriber?.cancel()
+        roomModelSubscriber?.cancel()
+        
         viewController?.navigationController?.pushViewController(waitingRoomVC, animated: true)
     }
 }

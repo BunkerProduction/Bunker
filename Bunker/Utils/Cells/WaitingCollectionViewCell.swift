@@ -44,9 +44,11 @@ class WaitingCollectionViewCell: UICollectionViewCell {
         stackView.pin(to: self.contentView, [.left: 12, .right: 12, .top: 16, .bottom: 16])
     }
     
-    public func configure(_ number: String, _ name: String) {
+    public func configure(_ number: Int, _ player: User) {
         self.numberLabel.text = "# \(number)"
-        self.nameLabel.text = name
+        var text = player.username
+        text += player.isCreator ? " 👑" : ""
+        self.nameLabel.text = text
     }
     
     public func setTheme(_ theme: Appearence) {

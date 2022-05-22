@@ -26,6 +26,12 @@ struct Shelter {
         }
         return []
     }
+    
+    public static func random() -> Shelter {
+//        let shelters = getAll()
+//        return shelters[0]
+        return Shelter(id: 1, icon: "s", name: "s", description: "s")
+    }
 }
 
 extension Shelter: Codable { }

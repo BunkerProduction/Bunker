@@ -15,7 +15,7 @@ struct GamePreferences {
     
     init() {
         catastrophe = Catastrophe.getAll()[0]
-        shelter = nil
+        shelter = Shelter.random()
         difficulty = GameDifficulty(rate: 1)
     }
 }

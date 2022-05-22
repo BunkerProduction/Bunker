@@ -8,11 +8,22 @@
 import Foundation
 
 struct WaitingRoom {
-    var users: [User] = []
+    var players: [User] = []
     var roomCode: String = ""
 }
 
-struct User: Hashable {
+extension WaitingRoom: Codable {
+    enum CodingKeys: String, CodingKey {
+        case roomCode = "sessionID"
+        case players = "players"
+    }
+}
+
+struct User {
     let username: String
     let isCreator: Bool
 }
+
+extension User: Codable { }
+
+extension User: Hashable { }
