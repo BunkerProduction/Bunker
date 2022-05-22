@@ -84,7 +84,7 @@ final class WaitingRoomViewController: UIViewController {
     
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Настройки"
+        self.navigationItem.title = "Комната Ожидания"
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,

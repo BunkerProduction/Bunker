@@ -86,7 +86,8 @@ final class WebSocketController {
         }
         do {
             let roomModel = try JSONDecoder().decode(WaitingRoom.self, from: data)
-            self.waitingRoom = roomModel
+            let waitRoom = WaitingRoom(players: roomModel.players.reversed(), roomCode: roomModel.roomCode)
+            self.waitingRoom = waitRoom
         } catch {
             print(error)
         }
