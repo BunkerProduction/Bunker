@@ -55,7 +55,7 @@ public extension UIColor {
             case .mono:
                 return UIColor(hex: "#787878", opacity: 1)
             case .alian:
-                return UIColor(hex: "#231FF2", opacity: 1)
+                return UIColor(hex: "#6285D8", opacity: 1)
             case .holo:
                 return UIColor(hex: "#B0DCF5", opacity: 1)
             }
@@ -124,7 +124,7 @@ public extension UIColor {
             case .mono:
                 return UIColor(hex: "#787878", opacity: 0.2)
             case .alian:
-                return UIColor(hex: "#231FF2", opacity: 0.2)
+                return UIColor(hex: "#6285D8", opacity: 0.2)
             case .holo:
                 return UIColor(hex: "#B0DCF5", opacity: 0.2)
             }
@@ -147,7 +147,7 @@ public extension UIColor {
             case .mono:
                 return UIColor(hex: "#333333", opacity: 1)
             case .alian:
-                return UIColor(hex: "#333333", opacity: 1)
+                return UIColor(hex: "#18253E", opacity: 1)
             case .holo:
                 return UIColor(hex: "#333333", opacity: 1)
             }
@@ -170,7 +170,7 @@ public extension UIColor {
             case .mono:
                 return UIColor(hex: "#121212", opacity: 1)
             case .alian:
-                return UIColor(hex: "#121212", opacity: 1)
+                return UIColor(hex: "#141923", opacity: 1)
             case .holo:
                 return UIColor(hex: "#121212", opacity: 1)
             }
@@ -193,7 +193,7 @@ public extension UIColor {
             case .mono:
                 return UIColor(hex: "#212121", opacity: 1)
             case .alian:
-                return UIColor(hex: "#212121", opacity: 1)
+                return UIColor(hex: "#0F1624", opacity: 1)
             case .holo:
                 return UIColor(hex: "#212121", opacity: 1)
             }

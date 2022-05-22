@@ -14,6 +14,7 @@ extension UIFont {
         static let icon = UIFont.systemFont(ofSize: 20)
         static let body = UIFont(name: "SFProDisplay-Medium", size: 16)
         static let footnote = UIFont(name: "SFProDisplay-Regular", size: 14)
+        static let baige = UIFont(name: "SFProDisplay-Bold", size: 12)
         static let caption = UIFont(name: "SFProDisplay-Medium", size: 12)
     }
 }

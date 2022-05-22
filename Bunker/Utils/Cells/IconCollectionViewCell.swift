@@ -47,7 +47,7 @@ class IconCollectionViewCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
         
         addSubview(imageView)
-        imageView.pin(to: self, [.left: 4, .right: 4, .top: 4, .bottom: 4])
+        imageView.pin(to: self, [.left: 6, .right: 6, .top: 6, .bottom: 6])
     }
     
     public func configure(_ iconName: AppIcon) {
