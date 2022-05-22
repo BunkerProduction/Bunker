@@ -26,7 +26,7 @@ final class CreateGameViewModel {
     public var username: String = ""{
         didSet {
             settings.username = username
-            if(!username.isEmpty) {
+            if(username != "") {
                 socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
             }
             validateData()
@@ -56,7 +56,7 @@ final class CreateGameViewModel {
         self.viewController = vc
         if let name = settings.username {
             self.username = name
-            if(!username.isEmpty) {
+            if(username != "") {
                 socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
             }
         }
