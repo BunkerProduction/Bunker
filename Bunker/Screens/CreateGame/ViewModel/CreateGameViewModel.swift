@@ -56,7 +56,9 @@ final class CreateGameViewModel {
         self.viewController = vc
         if let name = settings.username {
             self.username = name
-            socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
+            if(!username.isEmpty) {
+                socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
+            }
         }
         
         binding()
