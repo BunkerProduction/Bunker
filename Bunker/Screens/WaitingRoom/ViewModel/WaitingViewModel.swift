@@ -26,7 +26,15 @@ final class WaitingViewModel {
             updateDataSource()
         }
     }
+    private var gameModel: Game? {
+        didSet {
+            if(gameModel != nil) {
+                proceedToGame()
+            }
+        }
+    }
     private var roomModelSubscriber: AnyCancellable?
+    private var gameModelSubscriber: AnyCancellable?
     
     private lazy var dataSource: collectionDataSource = {
         let dataSource: collectionDataSource = .init(collectionView: collectionView) { [weak self]
@@ -69,6 +77,15 @@ final class WaitingViewModel {
         roomModelSubscriber = socketController.waitingRoomRecieved
             .receive(on: RunLoop.main)
             .assign(to: \.roomModel, on: self)
+        gameModelSubscriber = socketController.gameModelRecieved
+            .receive(on: RunLoop.main)
+            .assign(to: \.gameModel, on: self)
+    }
+    
+    private func unbind() {
+        // cancel subscribtion
+        roomModelSubscriber?.cancel()
+        gameModelSubscriber?.cancel()
     }
     
     // MARK: - DataSource update
@@ -83,12 +100,23 @@ final class WaitingViewModel {
     }
     
     // MARK: - Navigation
+    private func proceedToGame() {
+        unbind()
+        
+        let gameController = TabGameViewController()
+        self.viewController?.navigationController?.pushViewController(gameController, animated: true)
+    }
+    
     public func disconnect() {
-        // cancel subscribtion
-        roomModelSubscriber?.cancel()
+        unbind()
         // disconnect from room
         socketController.disconnect()
         
         self.viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    public func startGame() {
+        socketController.startGame()
     }
 }

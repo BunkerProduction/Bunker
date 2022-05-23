@@ -91,6 +91,7 @@ final class WaitingRoomViewController: UIViewController {
             target: self,
             action: #selector(goBack)
         )
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
@@ -105,13 +106,18 @@ final class WaitingRoomViewController: UIViewController {
     private func setButtons() {
         shareButton.setTitle("Поделиться комнатой", for: .normal)
         startGameButton.setTitle("Начать игру", for: .normal)
+        
+        startGameButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareRoom), for: .touchUpInside)
+        
         let sV = UIStackView(arrangedSubviews: [shareButton, startGameButton])
         sV.distribution = .fill
         sV.alignment = .fill
         sV.axis = .vertical
         sV.spacing = 16
+        
         startGameButton.isHidden = true
+        
         view.addSubview(sV)
         sV.pin(to: view, [.left: 24, .right: 24])
         sV.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
@@ -126,6 +132,11 @@ final class WaitingRoomViewController: UIViewController {
     @objc
     private func shareRoom() {
         startGameButton.isHidden.toggle()
+    }
+    
+    @objc
+    private func startGame() {
+        viewModel?.startGame()
     }
 }
 

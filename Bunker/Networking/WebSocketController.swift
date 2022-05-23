@@ -11,26 +11,29 @@ import UIKit
 final class WebSocketController {
     enum Endpoint: String {
         case base = "wss://ktor-bunker.herokuapp.com/game?username="
-        case game = "wss://ktor-bunker.herokuapp.com/game?username=name&isCreator=true"
-        case connectToGame = "wss://ktor-bunker.herokuapp.com//game?usename=name&isCreator=false&sessionID="
     }
     
     public static var shared = WebSocketController()
     private let session: URLSession
     private var socket: URLSessionWebSocketTask?
+    
     @Published var waitingRoom: WaitingRoom?
     @Published var connectionStatus: Bool = false
+    @Published var gameModel: Game?
+    
     var waitingRoomRecieved: AnyPublisher<WaitingRoom?, Never> {
         return $waitingRoom.eraseToAnyPublisher()
     }
     var connectionStatusSub: AnyPublisher<Bool, Never> {
         return $connectionStatus.eraseToAnyPublisher()
     }
+    var gameModelRecieved: AnyPublisher<Game?, Never> {
+        return $gameModel.eraseToAnyPublisher()
+    }
     
     // MARK: - Init
     init() {
         session = URLSession(configuration: .default)
-//        connect(Endpoint.game.rawValue)
     }
     
     // MARK: - Connetion
@@ -51,6 +54,7 @@ final class WebSocketController {
         connect(base)
     }
     
+    // MARK: - Disconnect
     public func disconnect() {
         socket?.cancel(with: .goingAway, reason: nil)
         waitingRoom = nil
@@ -95,7 +99,15 @@ final class WebSocketController {
             )
             self.waitingRoom = waitRoom
         } catch {
-            print(error)
+            do {
+                let gameModelMessage = try JSONDecoder().decode([GameMessage].self, from: data)
+                print(gameModelMessage)
+                let gameModel = Game(gamePreferences: GamePreferences(), players: [], turn: 0, round: 0, gameState: .normal)
+                self.gameModel = gameModel
+            } catch {
+                print(error)
+            }
+            
         }
     }
     
@@ -148,6 +160,14 @@ final class WebSocketController {
             }
         } catch {
             print(error)
+        }
+    }
+    
+    public func startGame() {
+        self.socket?.send(.string("game")) { (error) in
+            if error != nil {
+                print(error.debugDescription)
+            }
         }
     }
     

@@ -10,7 +10,7 @@ import Foundation
 let baseURL = "https://ktor-bunker.herokuapp.com/game"
 let baseWSS = "ws://ktor-bunker.herokuapp.com/game"
 
-
+// MARK: - GamePrefs Message
 struct GamePreferencesMessage {
     let votingTime: Int
     let catastropheId: Int
@@ -20,7 +20,7 @@ struct GamePreferencesMessage {
 
 extension GamePreferencesMessage: Codable { }
 
-
+// MARK: - WaitingRoom Message
 struct WaitingRoomMessage {
     var players: [UserMessage] = []
     var roomCode: String = ""
@@ -33,6 +33,7 @@ extension WaitingRoomMessage: Codable {
     }
 }
 
+// MARK: - UserMessage
 struct UserMessage {
     let username: String
     let isCreator: Bool
@@ -40,3 +41,16 @@ struct UserMessage {
 
 extension UserMessage: Codable { }
 
+
+// MARK: - GameMessage
+struct GameMessage {
+    let sessionID: String
+    let preferences: GamePreferencesMessage
+    let players: [UserMessage]
+    let gameState: GameState
+    let initialNumberOfPlayers: Int
+    let turn: Int
+    let round: Int
+}
+
+extension GameMessage: Codable { }

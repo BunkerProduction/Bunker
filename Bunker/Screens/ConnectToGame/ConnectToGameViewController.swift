@@ -88,6 +88,7 @@ final class ConnectToGameViewController: UIViewController {
         nameTextField.resignFirstResponder()
     }
     
+    // MARK: - Navigation
     @objc
     private func goNext() {
         let enterRoomController = RoomCodeViewController()
@@ -103,6 +104,7 @@ final class ConnectToGameViewController: UIViewController {
 // MARK: - GestureDelegate
 extension ConnectToGameViewController: UIGestureRecognizerDelegate { }
 
+// MARK: - TextField Delegate
 extension ConnectToGameViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let string = textField.text, string != "" {

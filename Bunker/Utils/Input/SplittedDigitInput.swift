@@ -14,6 +14,7 @@ final class SplittedDigitInput: UIView {
     private let numberOfDigits = 6
     private var isInputWrong: Bool = false
     private var isPresenting: Bool = false
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,6 +83,9 @@ final class SplittedDigitInput: UIView {
     @objc
     private func setLabels() {
         var i = 0
+        if(backTextField.text?.count == numberOfDigits) {
+            backTextField.resignFirstResponder()
+        }
         guard let localdigits = backTextField.text else { return }
         for number in localdigits {
             labels[i].text = String(number)
