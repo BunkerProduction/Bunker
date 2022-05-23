@@ -12,18 +12,12 @@ struct WaitingRoom {
     var roomCode: String = ""
 }
 
-extension WaitingRoom: Codable {
-    enum CodingKeys: String, CodingKey {
-        case roomCode = "sessionID"
-        case players = "players"
-    }
-}
+extension WaitingRoom: Hashable { }
 
 struct User {
+    let orderNumber: Int
     let username: String
     let isCreator: Bool
 }
-
-extension User: Codable { }
 
 extension User: Hashable { }

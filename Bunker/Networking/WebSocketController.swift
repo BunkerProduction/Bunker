@@ -85,8 +85,14 @@ final class WebSocketController {
             return
         }
         do {
-            let roomModel = try JSONDecoder().decode(WaitingRoom.self, from: data)
-            let waitRoom = WaitingRoom(players: roomModel.players.reversed(), roomCode: roomModel.roomCode)
+            let roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
+            let waitRoom = WaitingRoom(
+                players: roomModel.players.enumerated().map { (index, element) in
+                    User(orderNumber: index + 1, username: element.username, isCreator: element.isCreator)
+                    
+                },
+                roomCode: roomModel.roomCode
+            )
             self.waitingRoom = waitRoom
         } catch {
             print(error)

@@ -37,7 +37,7 @@ final class WaitingViewModel {
             )
             if let cell = cell as? WaitingCollectionViewCell,
                let item = item as? User {
-                cell.configure(indexPath.row + 1, item)
+                cell.configure(item)
                 cell.setTheme(UserSettings.shared.appearance)
             }
             return cell
@@ -73,10 +73,11 @@ final class WaitingViewModel {
     
     // MARK: - DataSource update
     private func updateDataSource() {
+        guard let model = roomModel else { return }
         var snapshot = collectionSnapshot()
         
         snapshot.appendSections([Const.sectionId])
-        snapshot.appendItems(roomModel!.players, toSection: Const.sectionId)
+        snapshot.appendItems(model.players, toSection: Const.sectionId)
         
         dataSource.apply(snapshot)
     }

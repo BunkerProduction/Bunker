@@ -60,6 +60,12 @@ final class CreateGameViewController: UIViewController {
         updateUI()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        handleTap()
+    }
+    
     // MARK: - UpdateUI
     private func updateUI() {
         let theme = settings.appearance
