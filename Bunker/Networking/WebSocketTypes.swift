@@ -7,9 +7,6 @@
 
 import Foundation
 
-let baseURL = "https://ktor-bunker.herokuapp.com/game"
-let baseWSS = "ws://ktor-bunker.herokuapp.com/game"
-
 // MARK: - GamePrefs Message
 struct GamePreferencesMessage {
     let votingTime: Int
