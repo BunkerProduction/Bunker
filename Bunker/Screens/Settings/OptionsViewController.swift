@@ -57,6 +57,18 @@ final class OptionsViewController: UIViewController {
         updateUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
+        let screenHeight =  ScreenSize.Height - view.safeAreaInsets.top
+        if(height <= screenHeight) {
+            collectionView.isScrollEnabled = false
+        } else {
+            collectionView.isScrollEnabled = true
+        }
+    }
+    
     // MARK: - update UI
     private func updateUI() {
         self.collectionView.reloadData()
@@ -98,12 +110,12 @@ final class OptionsViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(56)
+                    heightDimension: .absolute(52)
                 )
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(6), trailing: .none, bottom: .fixed(6))
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .none, trailing: .none, bottom: .fixed(12))
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 8, trailing: 20)
                 
                 return section
             case 1:

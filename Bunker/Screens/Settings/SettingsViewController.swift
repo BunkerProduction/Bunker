@@ -49,6 +49,13 @@ final class SettingsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         collectionView.collectionViewLayout.invalidateLayout()
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
+        let screenHeight =  ScreenSize.Height - view.safeAreaInsets.top
+        if(height <= screenHeight) {
+            collectionView.isScrollEnabled = false
+        } else {
+            collectionView.isScrollEnabled = true
+        }
     }
     
     // MARK: - Update UI
@@ -112,23 +119,30 @@ final class SettingsViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(56)
+                    heightDimension: .absolute(52)
                 )
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
                 group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(6), trailing: .none, bottom: .fixed(6))
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 20, trailing: 20)
                 
                 return section
             case 1:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(
-                    widthDimension: .absolute(215),
-                    heightDimension: .absolute(280)
+                    widthDimension: .fractionalWidth(0.59),
+                    heightDimension: .fractionalWidth(0.77)
+//                    widthDimension: .absolute(215),
+//                    heightDimension: .absolute(280)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .none, trailing: .fixed(16), bottom: .none)
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+                    leading: .none,
+                    top: .none,
+                    trailing: .fixed(ScreenSize.Width * 0.04),
+                    bottom: .none
+                )
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPaging

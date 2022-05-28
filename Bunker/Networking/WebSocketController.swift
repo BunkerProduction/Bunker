@@ -16,6 +16,7 @@ final class WebSocketController {
     public static var shared = WebSocketController()
     private let session: URLSession
     private var socket: URLSessionWebSocketTask?
+    private var clientID: String?
     
     @Published var waitingRoom: WaitingRoom?
     @Published var connectionStatus: Bool = false
@@ -69,9 +70,12 @@ final class WebSocketController {
     }
     
     private func ping() {
-        socket?.sendPing { (error) in
+        socket?.sendPing { [self] (error) in
             if let error = error {
                 print("Ping failed: \(error)")
+                if let failReason = socket?.closeReason {
+                    print(String(decoding: failReason, as: UTF8.self))
+                }
             } else {
                 print("Ping is fine")
             }
@@ -81,36 +85,26 @@ final class WebSocketController {
     
     // MARK: - Get
     private func handle(_ data: Data) {
-        // generic.неБудет
-        let str = String(decoding: data, as: UTF8.self)
-        print(str)
-        if(str == "You are connected!") {
-            connectionStatus = true
-            return
-        }
+        print(data)
         do {
-            let roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
-            let waitRoom = WaitingRoom(
-                players: roomModel.players.enumerated().map { (index, element) in
-                    User(orderNumber: index + 1, username: element.username, isCreator: element.isCreator)
-                    
-                },
-                roomCode: roomModel.roomCode
-            )
-            self.waitingRoom = waitRoom
-        } catch {
-            do {
-                let gameModelMessage = try JSONDecoder().decode([GameMessage].self, from: data)
-                print(gameModelMessage)
-                let gameModel = Game(gamePreferences: GamePreferences(), players: [], turn: 0, round: 0, gameState: .normal)
-                self.gameModel = gameModel
-            } catch {
-                print(error)
+            let sinData = try JSONDecoder().decode(MessageSinData.self, from: data)
+            print(sinData)
+            switch sinData.type {
+            case .handshake:
+                let id = try JSONDecoder().decode(Handshake.self, from: data)
+                self.clientID = id.id
+                connectionStatus = true
+            case .waiting_room:
+                try self.handleWaitingRoom(data)
+            case .game_model:
+                try self.handleGameModel(data)
             }
+        } catch {
             
         }
     }
     
+    // MARK: - Listen
     private func listen() {
         self.socket?.receive { [weak self] (result) in
             guard let self = self else { return }
@@ -171,6 +165,32 @@ final class WebSocketController {
         }
     }
     
+    private func handleGameModel(_ data: Data) throws {
+        let gameModelMessage = try JSONDecoder().decode([GameMessage].self, from: data)
+        print(gameModelMessage)
+        let gameModel = Game(gamePreferences: GamePreferences(), players: [], turn: 0, round: 0, gameState: .normal)
+        self.gameModel = gameModel
+    }
+    
+    private func handleWaitingRoom(_ data: Data) throws {
+        let roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
+        var isCreator: Bool = false
+        let players: [User] = roomModel.players.enumerated().map { (index, element) in
+            if(element.id == self.clientID && element.isCreator) {
+                isCreator = true
+            }
+            return User(orderNumber: index + 1, username: element.username, isCreator: element.isCreator)
+        }
+        let waitRoom = WaitingRoom(
+            isCreator: isCreator,
+            players: players,
+            roomCode: roomModel.roomCode
+        )
+        self.waitingRoom = waitRoom
+    }
+}
+
+extension WebSocketController {
     private func workAround(model: GamePreferencesMessage) -> String {
         let keyValuePairs = [
             ("votingTime", model.votingTime),
@@ -187,7 +207,7 @@ final class WebSocketController {
             let value = dict[key]!
             result += ("\"\(key)\": \(value),")
         }
-        result.popLast()
+        _ = result.popLast()
         result += "}"
         
         return result

@@ -24,6 +24,7 @@ final class WaitingViewModel {
         didSet {
             codeView?.setValues(roomModel?.roomCode ?? "")
             updateDataSource()
+            updateUI()
         }
     }
     private var gameModel: Game? {
@@ -64,6 +65,7 @@ final class WaitingViewModel {
         self.collectionView = collectionView
         self.collectionView.dataSource = dataSource
         self.roomModel = model
+        updateUI()
         
         binding()
     }
@@ -105,6 +107,10 @@ final class WaitingViewModel {
         
         let gameController = TabGameViewController()
         self.viewController?.navigationController?.pushViewController(gameController, animated: true)
+    }
+    
+    private func updateUI() {
+        viewController?.isStartGameVisible(roomModel?.isCreator ?? false)
     }
     
     public func disconnect() {

@@ -8,6 +8,7 @@
 import Foundation
 
 struct WaitingRoom {
+    var isCreator: Bool
     var players: [User] = []
     var roomCode: String = ""
 }

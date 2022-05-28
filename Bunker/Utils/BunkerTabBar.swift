@@ -29,13 +29,13 @@ final class BunkerTabBar: UIControl {
     private func setupView() {
         self.layer.cornerRadius = 8
         
-        firstTabButton.setImage(UIImage(named: "bookIcon"), for: .normal)
+        firstTabButton.setImage(UIImage(named: "earthIcon"), for: .normal)
         firstTabButton.tag = 0
         firstTabButton.addTarget(self, action: #selector(tabChanged(_:)), for: .touchUpInside)
-        secondTabButton.setImage(UIImage(named: "closeIcon"), for: .normal)
+        secondTabButton.setImage(UIImage(named: "statsIcon"), for: .normal)
         secondTabButton.tag = 1
         secondTabButton.addTarget(self, action: #selector(tabChanged(_:)), for: .touchUpInside)
-        thirdTabButton.setImage(UIImage(named: "returnIcon"), for: .normal)
+        thirdTabButton.setImage(UIImage(named: "profileIcon"), for: .normal)
         thirdTabButton.tag = 2
         thirdTabButton.addTarget(self, action: #selector(tabChanged(_:)), for: .touchUpInside)
         

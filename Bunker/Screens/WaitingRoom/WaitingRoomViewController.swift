@@ -116,8 +116,6 @@ final class WaitingRoomViewController: UIViewController {
         sV.axis = .vertical
         sV.spacing = 16
         
-        startGameButton.isHidden = true
-        
         view.addSubview(sV)
         sV.pin(to: view, [.left: 24, .right: 24])
         sV.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
@@ -130,13 +128,15 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     @objc
-    private func shareRoom() {
-        startGameButton.isHidden.toggle()
-    }
+    private func shareRoom() { }
     
     @objc
     private func startGame() {
         viewModel?.startGame()
+    }
+    
+    public func isStartGameVisible(_ isVisible: Bool) {
+        startGameButton.isHidden = !isVisible
     }
 }
 
