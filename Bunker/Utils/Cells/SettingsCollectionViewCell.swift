@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsCollectionViewCell: UICollectionViewCell {
+final class SettingsCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "SettingsCollectionViewCell"
     
     private let nameLabel = UILabel()

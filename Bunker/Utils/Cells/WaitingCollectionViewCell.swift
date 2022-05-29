@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WaitingCollectionViewCell: UICollectionViewCell {
+final class WaitingCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "WaitingCollectionViewCell"
     
     private let nameLabel = UILabel()

@@ -88,6 +88,7 @@ final class CreateGameViewController: UIViewController {
         voteTimeTextField.placeholder = "Enter voting time (1-20 min)"
         voteTimeTextField.delegate = self
         voteTimeTextField.keyboardType = .numberPad
+        voteTimeTextField.addDoneButtonOnKeyboard()
         
         setOptions()
         setButton()

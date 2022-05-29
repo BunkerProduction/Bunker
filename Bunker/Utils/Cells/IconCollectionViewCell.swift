@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IconCollectionViewCell: UICollectionViewCell {
+final class IconCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "IconCollectionViewCell"
     
     private var iconName: String?

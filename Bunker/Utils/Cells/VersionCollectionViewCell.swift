@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VersionCollectionViewCell: UICollectionViewCell {
+final class VersionCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "VersionCollectionViewCell"
     
     private let titleLabel = UILabel()

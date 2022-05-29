@@ -83,7 +83,7 @@ final class WebSocketController {
         }
     }
     
-    // MARK: - Get
+    // MARK: - Handle data
     private func handle(_ data: Data) {
         print(data)
         do {
@@ -118,7 +118,13 @@ final class WebSocketController {
                 switch message {
                 case .data(let data):
                     self.handle(data)
-                case .string(let str):
+                case .string(var str):
+                    print(str)
+                    // temperary bug
+                    if(str[str.startIndex] == "[") {
+                        str.remove(at: str.startIndex)
+                        str.remove(at: str.index(before: str.endIndex))
+                    }
                     guard let data = str.data(using: .utf8) else { return }
                     self.handle(data)
                 default:
@@ -165,8 +171,9 @@ final class WebSocketController {
         }
     }
     
+    // MARK: - Model setters
     private func handleGameModel(_ data: Data) throws {
-        let gameModelMessage = try JSONDecoder().decode([GameMessage].self, from: data)
+        let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
         print(gameModelMessage)
         let gameModel = Game(gamePreferences: GamePreferences(), players: [], turn: 0, round: 0, gameState: .normal)
         self.gameModel = gameModel

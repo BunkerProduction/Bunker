@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PackCollectionViewCell: UICollectionViewCell {
+final class PackCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "PackCollectionViewCell"
     
     private let iconLabel = UILabel()
