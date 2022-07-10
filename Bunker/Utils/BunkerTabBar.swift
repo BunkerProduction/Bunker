@@ -63,5 +63,8 @@ final class BunkerTabBar: UIControl {
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Main.Primary.colorFor(theme)
         self.layer.applyFigmaShadow(color: .Main.Shadow.colorFor(theme) ?? .clear)
+        firstTabButton.imageView?.tintColor = UIColor.Main.onPrimary.colorFor(theme)
+        secondTabButton.imageView?.tintColor = UIColor.Main.onPrimary.colorFor(theme)
+        thirdTabButton.imageView?.tintColor = UIColor.Main.onPrimary.colorFor(theme)
     }
 }

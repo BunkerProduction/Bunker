@@ -8,25 +8,38 @@
 import UIKit
 
 final class ThreatsViewController: UIViewController {
+    private let settings = UserSettings.shared
 
+    private var collectionView: UICollectionView?
+
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
     }
-    
+
+    // MARK: - UpdateUI
+    private func updateUI() {
+        let theme = settings.appearance
+        self.navigationController?.navigationBar.backgroundColor = .Background.LayerOne.colorFor(theme)
+        self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
+    }
+
+    // MARK: - UIsetup
     private func setupView() {
-        self.view.backgroundColor = .green
+        setupNavBar()
+        setupCollectionView()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupCollectionView() {
+        
     }
-    */
 
+    // MARK: - Setup NavBar
+    private func setupNavBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.title = "Appocalypse"
+    }
 }

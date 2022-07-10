@@ -21,10 +21,10 @@ final class TabGameViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewControllers.append(TabGameViewController.firstVC)
-        viewControllers.append(TabGameViewController.secondVC)
-        viewControllers.append(TabGameViewController.thirdVC)
+
+        viewControllers.append(self.WrappeControllerInNav(TabGameViewController.firstVC))
+        viewControllers.append(self.WrappeControllerInNav(TabGameViewController.secondVC))
+        viewControllers.append(self.WrappeControllerInNav(TabGameViewController.thirdVC))
         
         setupView()
         updateUI()
@@ -69,5 +69,12 @@ final class TabGameViewController: UIViewController {
         self.view.addSubview(vc.view)
         
         self.view.bringSubviewToFront(tabView)
+    }
+}
+
+
+extension UIViewController {
+    func WrappeControllerInNav(_ vc: UIViewController) -> UINavigationController {
+        return UINavigationController(rootViewController: vc)
     }
 }
