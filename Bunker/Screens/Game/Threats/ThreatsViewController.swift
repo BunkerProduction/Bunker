@@ -10,7 +10,15 @@ import UIKit
 final class ThreatsViewController: UIViewController {
     private let settings = UserSettings.shared
 
-    private var collectionView: UICollectionView?
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.register(
+            ConditionCollectionViewCell.self,
+            forCellWithReuseIdentifier: ConditionCollectionViewCell.reuseIdentifier
+        )
+
+        return collectionView
+    }()
 
     // MARK: - Init
     override func viewDidLoad() {
@@ -33,7 +41,10 @@ final class ThreatsViewController: UIViewController {
     }
 
     private func setupCollectionView() {
-        
+        view.addSubview(collectionView)
+
+        collectionView.pin(to: view, [.left, .right, .bottom])
+        collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
     }
 
     // MARK: - Setup NavBar

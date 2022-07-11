@@ -70,6 +70,10 @@ final class TabGameViewController: UIViewController {
         
         self.view.bringSubviewToFront(tabView)
     }
+
+    private func exitGame() {
+        self.dismiss(animated: true)
+    }
 }
 
 

@@ -44,7 +44,10 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
         mainSV.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])
     }
 
-    public func configure() {
+    public func configure(icon: String, type: String, description: String) {
+        self.iconLabel.text = icon
+        self.typeLabel.text = type
+        self.descriptionLabel.text = description
     }
 
     public func setTheme(_ theme: Appearence) {

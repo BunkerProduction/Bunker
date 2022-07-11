@@ -9,6 +9,7 @@ import UIKit
 
 final class MainGameViewController: UIViewController {
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
