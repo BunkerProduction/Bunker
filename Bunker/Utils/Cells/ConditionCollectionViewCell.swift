@@ -27,6 +27,9 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
 
     // MARK: - SetupUI
     private func setupView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: ScreenSize.Width - 48).isActive = true
+        
         self.layer.cornerRadius = 12
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, typeLabel])

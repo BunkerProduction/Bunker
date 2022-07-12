@@ -10,6 +10,12 @@ import UIKit
 final class ButtonCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "ButtonCollectionViewCell"
 
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+
+        return label
+    }()
+
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +28,10 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupView() {
-        
+        contentView.addSubview(titleLabel)
+    }
+
+    public func configure(_ title: String) {
+        titleLabel.text = title
     }
 }

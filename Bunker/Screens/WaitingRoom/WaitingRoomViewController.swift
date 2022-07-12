@@ -97,6 +97,7 @@ final class WaitingRoomViewController: UIViewController {
     
     private func setCodeView() {
         roomCodeView.setTitleLabel("Номер комнаты")
+
         view.addSubview(roomCodeView)
         roomCodeView.pin(to: view, [.left: 24, .right: 24])
         roomCodeView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 46)

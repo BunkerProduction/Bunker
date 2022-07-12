@@ -419,9 +419,8 @@
 				C003F311282FE000006F3FE9 /* Model */,
 				C0455E932825A11200990351 /* Networking */,
 				C0455E7A28257E5500990351 /* Utils */,
-				C0455E5028257A0B00990351 /* Assets.xcassets */,
-				C0455E5528257A0B00990351 /* Info.plist */,
 				C06D638228394CA800253B24 /* Assets */,
+				C0455E5528257A0B00990351 /* Info.plist */,
 			);
 			path = Bunker;
 			sourceTree = "<group>";
@@ -562,6 +561,7 @@
 		C06642D5287CDF1900DD7C28 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				C06642D9287E27CB00DD7C28 /* View */,
 				C06642D6287CDF2500DD7C28 /* ViewModel */,
 				C02D10A1283BE33A0053BFD8 /* PlayerViewController.swift */,
 			);
@@ -593,6 +593,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C06642D9287E27CB00DD7C28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C06D637F2839248E00253B24 /* WaitingRoom */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +628,7 @@
 		C06D638228394CA800253B24 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C0455E5028257A0B00990351 /* Assets.xcassets */,
 				C003F2E2282DB925006F3FE9 /* Icons */,
 				4E81D4F52832EDF900829361 /* Sounds */,
 				4ED4C609282D90730062D0AD /* Fonts */,

@@ -11,20 +11,37 @@ final class ThreatsViewController: UIViewController {
     private let settings = UserSettings.shared
 
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(
             ConditionCollectionViewCell.self,
             forCellWithReuseIdentifier: ConditionCollectionViewCell.reuseIdentifier
         )
+        collectionView.backgroundColor = .clear
 
         return collectionView
     }()
 
+    private var viewModel: ThreatViewModel?
+
     // MARK: - Init
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = ThreatViewModel(collectionView: collectionView)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
+        updateUI()
     }
 
     // MARK: - UpdateUI

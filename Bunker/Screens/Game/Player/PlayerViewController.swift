@@ -10,6 +10,14 @@ import UIKit
 final class PlayerViewController: UIViewController {
     private let settings = UserSettings.shared
 
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+
+
+        return collectionView
+    }()
+
     // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
