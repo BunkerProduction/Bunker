@@ -9,6 +9,9 @@ import UIKit
 
 final class PlayerViewModel {
 
+    private let settings = UserSettings.shared
+    private let networkService = WebSocketController.shared
+    
     // MARK: - Init
     init(viewController: UIViewController) {}
 }

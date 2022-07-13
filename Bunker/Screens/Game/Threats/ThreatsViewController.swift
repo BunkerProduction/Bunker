@@ -10,14 +10,30 @@ import UIKit
 final class ThreatsViewController: UIViewController {
     private let settings = UserSettings.shared
 
+    private enum Consts {
+        static let itemSpacing: CGFloat = 20
+        static let sectionInsets: CGFloat = 10
+    }
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.sectionInset = UIEdgeInsets(
+            top: Consts.sectionInsets,
+            left: 0,
+            bottom: 10,
+            right: Consts.sectionInsets
+        )
+        layout.minimumInteritemSpacing = Consts.itemSpacing
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(
             ConditionCollectionViewCell.self,
             forCellWithReuseIdentifier: ConditionCollectionViewCell.reuseIdentifier
+        )
+        collectionView.register(
+            ButtonCollectionViewCell.self,
+            forCellWithReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier
         )
         collectionView.backgroundColor = .clear
 
@@ -69,5 +85,15 @@ final class ThreatsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.title = "Appocalypse"
+    }
+}
+
+// MARK: - CollectionViewDelegate
+extension ThreatsViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard viewModel?.sections[indexPath.section] == ThreatViewModel.Section.exit else { return }
+
+        // TODO: - exit game
     }
 }

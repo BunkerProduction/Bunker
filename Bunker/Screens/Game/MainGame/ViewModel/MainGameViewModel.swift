@@ -8,7 +8,10 @@
 import Foundation
 
 final class MainGameViewModel {
-    
+
+    private let settings = UserSettings.shared
+    private let networkService = WebSocketController.shared
+
     // MARK: - Init
     init() {}
 }
