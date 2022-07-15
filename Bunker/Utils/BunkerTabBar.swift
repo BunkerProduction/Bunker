@@ -50,17 +50,6 @@ final class BunkerTabBar: UIControl {
 
         changeTabOpacity()
     }
-    
-    // MARK: - Interactions
-    @objc
-    private func tabChanged(_ sender: UIButton) {
-        let generator = UIImpactFeedbackGenerator(style: .rigid)
-        generator.impactOccurred(intensity: 0.5)
-
-        self.chosenTab = sender.tag
-        changeTabOpacity()
-        sendActions(for: .valueChanged)
-    }
 
     private func changeTabOpacity() {
         for tab in [firstTabButton, secondTabButton, thirdTabButton] {
@@ -71,6 +60,17 @@ final class BunkerTabBar: UIControl {
                 tab.alpha = 1
             }
         }
+    }
+    
+    // MARK: - Interactions
+    @objc
+    private func tabChanged(_ sender: UIButton) {
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.impactOccurred(intensity: 0.5)
+
+        self.chosenTab = sender.tag
+        changeTabOpacity()
+        sendActions(for: .valueChanged)
     }
     
     // MARK: - Theme setup
