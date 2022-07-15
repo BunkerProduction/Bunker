@@ -1,0 +1,86 @@
+[
+   {
+      "id":0,
+      "icon":"🤢",
+      "name":"School Toilet",
+      "description":"The toilet is in the basement of your local high school. Even rats die from the smell."
+   },
+   {
+      "id":1,
+      "icon":"🥶",
+      "name":"Station",
+      "description":"The Arctic Station, the only living creatures you've met here are bears."
+   },
+   {
+      "id":2,
+      "icon":"🌊",
+      "name":"Oil platform",
+      "description":"100 km off the coast of Norway, in the cold ocean, there is a half-destroyed oil platform, oil reserves may be useful to you."
+   },
+   {
+      "id":3,
+      "icon":"🏝",
+      "name":"Island in the Maldives",
+      "description":"Once a very popular and expensive vacation spot. Now you are the only visitor here. Enjoy all the delights of a tropical climate from a luxury villa."
+   },
+   {
+      "id":4,
+      "icon":"🗽",
+      "name":"Statue of Liberty",
+      "description":"The statue's pedestal contains a spacious secret bunker built in case of a nuclear war. The functionality is impressive."
+   },
+   {
+      "id":5,
+      "icon":"🛳",
+      "name":"Cruise ship",
+      "description":"In the port there is a huge abandoned liner “Naomi“, which once carried out round-the-world cruises. Inside you can find a hotel, restaurants, bars and even a water park!"
+   },
+   {
+      "id":6,
+      "icon":"⛩",
+      "name":"Great Wall of China",
+      "description":"There is a sheltered shelter at the foot of the Great Wall of China. The date of its construction is written on the sign - February 18, 2010."
+   },
+   {
+      "id":7,
+      "icon":"🏔",
+      "name":"Austrian mountains",
+      "description":"High in the Alps lies the refuge of the Swiss billionaire. Stylish cottage!"
+   },
+   {
+      "id":8,
+      "icon":"🏥",
+      "name":"Hospital",
+      "description":"An abandoned private clinic at your disposal! All four floors ..."
+   },
+   {
+      "id":9,
+      "icon":"🏦",
+      "name":"Bank",
+      "description":"Mountains of money and gold, but they are unlikely to be useful."
+   },
+   {
+      "id":10,
+      "icon":"🗿",
+      "name":"Easter Island",
+      "description":"A secluded place in the Pacific Ocean. From time to time there are stone idols on the island. How did they appear here?"
+   },
+   {
+      "id":11,
+      "icon":"🎰",
+      "name":"Vegas Casino",
+      "description":"You can be sure of your safety if casino safes were found in the Middle Ages, they would have been the most unpleasant fortresses."
+   },
+   {
+      "id":12,
+      "icon":"🌔",
+      "name":"Station on the moon",
+      "description":"A mock-up of a lunar station built for astronaut training."
+   },
+   {
+      "id":13,
+      "icon":"🏰",
+      "name":"Royal Palace",
+      "description":"On the coast of the sea, in a cozy place, there is a huge secret palace. There is almost everything: a wine cellar, a hookah bar and even a garbage room!"
+   }
+]

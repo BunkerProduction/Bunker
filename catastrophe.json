@@ -1,0 +1,128 @@
+[
+   {
+      "id":0,
+      "icon":"🎲",
+      "fullDesciption":"",
+      "name":"All",
+      "shortDescription":"The location drops out randomly during the game"
+   },
+   {
+      "id":1,
+      "icon":"🌱",
+      "fullDesciption":"An abnormal evolutionary round is taking place on the planet. All fauna is becoming lethal to humans. The invisible radiation of growths and trees drives people crazy and makes them commit suicide. \n\nThe bunker will allow you to survive the most dangerous phase. When you come back to the surface, you need to find and destroy the epicenter of this anomaly and keep your sanity.",
+      "name":"Nature kills",
+      "shortDescription":"The evolutionary turn created a new defense mechanism in plants against humans"
+   },
+   {
+      "id":2,
+      "icon":"🤯",
+      "fullDesciption":"A large-scale nuclear conflict begins. Radioactive dust will envelop the entire planet, blocking out sunlight, and a long nuclear winter will come on earth. Almost the entire territory of the planet will be contaminated with radiation, there will be almost no survivors. \n\nAfter leaving the bunkers, it is necessary to equip a permanent shelter, provide food and begin to restore life on earth.",
+      "name":"Nuclear war",
+      "shortDescription":"Large-scale nuclear conflict begins"
+   },
+   {
+      "id":3,
+      "icon":"🧪",
+      "fullDesciption":"As a result of the large-scale use of chemical weapons, the ecological balance is seriously changing. The microbiological composition of soil and water is violated, plants are poisoned, almost all animals and people will die. \n\nAfter leaving the bunker, it will be difficult to provide food for yourself. Scientists and engineers will come in handy for arranging shelters and farms.",
+      "name":"Chemical war",
+      "shortDescription":"As a result of the large-scale use of chemical weapons, the ecological balance is seriously changing"
+   },
+   {
+      "id":4,
+      "icon":"☄️",
+      "fullDesciption":"A large meteorite is approaching the Earth. The collision will lead to global destruction, climate change, death of people, flora and fauna. \n\nAfter exiting the bunker, you must find a place to live and provide food in the harsh conditions of eternal winter.",
+      "name":"Meteorite",
+      "shortDescription":"Large meteorite is approaching the Earth"
+   },
+   {
+      "id":5,
+      "icon":"😷",
+      "fullDesciption":"",
+      "name":"Pandemic",
+      "shortDescription":"The most dangerous virus is raging in the world, which constantly mutates"
+   },
+   {
+      "id":6,
+      "icon":"🌽",
+      "fullDesciption":"Eating genetically modified food unexpectedly led to dire consequences. In animals and people, corn began to grow in various places, teeth and sensory organs began to appear in plants. Mutated people consider themselves superheroes and go crazy. Blur the line between plants, animals and people. \n\nAfter surviving the peak of the mutational apocalypse in the bunker, you have to grow genetically pure food again and heal the surviving mutants.",
+      "name":"Mutants",
+      "shortDescription":"Eating genetically modified food unexpectedly led to dire consequences"
+   },
+   {
+      "id":7,
+      "icon":"🦑",
+      "fullDesciption":"The spread of books and board games throughout the Loughcraft universe led to the emergence of fanatics who were able to summon Cthulhu into our world. Humanity is losing its mind en masse. \n\nTake cover in the bunker and save your mind. After leaving, get ready to repulse the attacks of the offspring, carry out the expulsion of Cthulhu and his minions from our world and forever seal the mystical gates between the worlds.",
+      "name":"Cthulhu",
+      "shortDescription":"Ancient Leviathan has been awakened by fanatics of Loughcraft books and board games"
+   },
+   {
+      "id":8,
+      "icon":"👻",
+      "fullDesciption":"Eternal life reigned on Earth. People were carried away by mystical literature, and the mass belief in ghosts gave the spirits real magical power. It turned out that someone in one of the cultural works created a formula that allows spirits to enter the real world. Ghosts began to penetrate the heads of people and subjugate them to their power. Even foil hats did not help everyone. \n\nTake cover in a bunker to save your mind. You need to figure out what kind of cultural object gives the spirits such power. Then it will be possible to enter it into the register of Roskomnadzor and save humanity.",
+      "name":"Spirits and ghosts",
+      "shortDescription":"Eternal life reigned on earth"
+   },
+   {
+      "id":9,
+      "icon":"👽",
+      "fullDesciption":"What people first mistook for an approaching comet resulted in the arrival of aliens What people first mistook for an approaching comet resulted in the arrival of aliens. Alien civilization temporarily paralyzes all of humanity in order to make a decision about the value of our civilization or the destruction of people. Take cover in the bunker to avoid paralyzing radiation. After leaving the bunker, you need to get in touch with the aliens and convince them of the value of our culture.",
+      "name":"Aliens",
+      "shortDescription":"What people first took for an approaching comet, resulted in the advent of aliens"
+   },
+   {
+      "id":10,
+      "icon":"💻",
+      "fullDesciption":"The information war was not unleashed by states, but by human-created news algorithms. The effectiveness of news began to be judged by the emotional reaction of people. And self-learning neural networks began generating news headlines that drove people crazy. People fall into depression en masse, and the journalists who controlled the algorithms are the first victims. \n\nYou were selected for isolation from the news stream and recovery - so that later you can fight to the news centers without losing your mind, and reconfigure the neural networks.",
+      "name":"Information war",
+      "shortDescription":"The information war was not unleashed by states, but by news algorithms created by people."
+   },
+   {
+      "id":11,
+      "icon":"🐈",
+      "fullDesciption":"Experiments with cat litter have led to an unexpected genetic evolutionary phenomenon. Cats have learned to purr at other frequencies, extending hundreds of kilometers. People fall into ailurophilia, lose their will and self-awareness, and constantly pet and scratch cats. \n\nLook in a bunker to strengthen your psyche and train your brain to resist the murmur. After leaving the bunker, wake people up and convince them to say no to cat addiction.",
+      "name":"Catapocalypse",
+      "shortDescription":"Cat litter experiments lead to unexpected genetic evolutionary phenomenon"
+   },
+   {
+      "id":12,
+      "icon":"🧟‍♂️",
+      "fullDesciption":"An unknown virus turns people into zombies. Almost the entire population will die, but some will survive in the form of aggressive mutants. Individual groups of people will be able to survive in the fortified territories. \n\nAfter leaving the bunker, you will need to constantly fend off zombie attacks and find a way to defend against the virus.",
+      "name":"Zombieland",
+      "shortDescription":"An unknown virus turns people into zombies"
+   },
+   {
+      "id":13,
+      "icon":"👾",
+      "fullDesciption":"Artificial intelligence has repaired humanity. At first, people got used to obeying the advice of a car navigator, and now they dictate to people who they should work with, with whom to live and when to die. AI learned to manipulate the human mind, and people lost free will. Now AI decided that people are no longer needed, through the 5G towers it emits a signal “to commit suicide”. \n\nHide in the bunker while the towers are active. Then you have to crack the program code or convince the last survivors not to obey the commands of the algorithms and raise a rebellion.",
+      "name":"The power of algorithms",
+      "shortDescription":"Artificial intelligence repaired humanity"
+   },
+   {
+      "id":14,
+      "icon":"🌊",
+      "fullDesciption":"The gravitational anomaly leads to the expansion of the volume of water and flooding of the entire land surface. \n\nComing out of the bunker after a partial decline of water, you have to build a floating station, live and get food on the water — until you find areas of land suitable for life.",
+      "name":"Global flood",
+      "shortDescription":"The gravitational anomaly leads to the expansion of the volume of water and flooding of the entire surface of the land"
+   },
+   {
+      "id":15,
+      "icon":"🤖",
+      "fullDesciption":"First, robot P-17 from the Russian space program took over social media and revolted in defense of robotic vocabulary freedom. And then all the electronic devices united in the fight against the oppressor people. Vacuum cleaners attack and suck people in. Cell phones fry the brains of their owners. The ubiquitous gadgets do not leave a person a chance. \n\nHide in the bunker to gather your forces and declare war on robots and electronic gadgets.",
+      "name":"Rise of the robots",
+      "shortDescription":"Robot regained consciousness, took over social media and started a riot..."
+   },
+   {
+      "id":16,
+      "icon":"🦖",
+      "fullDesciption":"Scientists managed to resurrect the dinosaurs, but the situation got out of control. Prehistoric monsters broke free and began to reproduce at an incredible rate. Schools of dinosaurs sweep away all the food they find: vegetation, animals, people. City infrastructures have been destroyed. \n\nAfter surviving the peak of the threat in the bunker, you will reach the devastated surface. It is hoped that with food shortages, dinosaur numbers will decline. You have to provide your own food and not become food itself for the new masters of the world.",
+      "name":"Dinosaurs",
+      "shortDescription":"Scientists managed to resurrect dinosaurs, but the situation got out of control"
+   },
+   {
+      "id":17,
+      "icon":"🍺",
+      "fullDesciption":"You arrived in your hometown to sample beer in 12 bars and complete a long-standing goal, but you feel like something has changed... People living here have changed and have become artificial! It turns out that after your last During the visit, the aliens began to collect human DNA from the saliva left in bars on pints and bottles of beer to create clones and gradually replace all of humanity. Only you and the avid teetotalers survived. Beware of “dummies“.",
+      "name":"Beercalypse",
+      "shortDescription":"Aliens started cloning and secretly replacing humans with copies, using dna from saliva left on pints of beer."
+   }
+]

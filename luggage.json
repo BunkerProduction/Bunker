@@ -1,0 +1,312 @@
+[
+   {
+      "id":0,
+      "category":"Luggage",
+      "description":"Sonic screwdriver"
+   },
+   {
+      "id":1,
+      "category":"Luggage",
+      "description":"Guitar"
+   },
+   {
+      "id":2,
+      "category":"Luggage",
+      "description":"Defibrillator"
+   },
+   {
+      "id":3,
+      "category":"Luggage",
+      "description":"Incubator with a set of eggs"
+   },
+   {
+      "id":4,
+      "category":"Luggage",
+      "description":"3 ingots of gold"
+   },
+   {
+      "id":5,
+      "category":"Luggage",
+      "description":"Antibiotics and Pain Relief"
+   },
+   {
+      "id":6,
+      "category":"Luggage",
+      "description":"Electrician Tools"
+   },
+   {
+      "id":7,
+      "category":"Luggage",
+      "description":"Traps and a set of poisons"
+   },
+   {
+      "id":8,
+      "category":"Luggage",
+      "description":"Isaac Asimov's Books"
+   },
+   {
+      "id":9,
+      "category":"Luggage",
+      "description":"A bag of potatoes"
+   },
+   {
+      "id":10,
+      "category":"Luggage",
+      "description":"A voodoo doll"
+   },
+   {
+      "id":11,
+      "category":"Luggage",
+      "description":"Sack of seeds"
+   },
+   {
+      "id":12,
+      "category":"Luggage",
+      "description":"Million dollars"
+   },
+   {
+      "id":13,
+      "category":"Luggage",
+      "description":"Compass and map"
+   },
+   {
+      "id":14,
+      "category":"Luggage",
+      "description":"Bow and arrows"
+   },
+   {
+      "id":15,
+      "category":"Luggage",
+      "description":"Set of master keys"
+   },
+   {
+      "id":16,
+      "category":"Luggage",
+      "description":"Inflatable doll"
+   },
+   {
+      "id":17,
+      "category":"Luggage",
+      "description":"Board games"
+   },
+   {
+      "id":18,
+      "category":"Luggage",
+      "description":"Fruit tree seedlings"
+   },
+   {
+      "id":19,
+      "category":"Luggage",
+      "description":"Pistol"
+   },
+   {
+      "id":20,
+      "category":"Luggage",
+      "description":"Night-vision device"
+   },
+   {
+      "id":21,
+      "category":"Luggage",
+      "description":"Portable Power Station"
+   },
+   {
+      "id":22,
+      "category":"Luggage",
+      "description":"Throwing knives"
+   },
+   {
+      "id":23,
+      "category":"Luggage",
+      "description":"Laptop and arduino boards"
+   },
+   {
+      "id":24,
+      "category":"Luggage",
+      "description":"Joiner's tools"
+   },
+   {
+      "id":25,
+      "category":"Luggage",
+      "description":"Sniper rifle"
+   },
+   {
+      "id":26,
+      "category":"Luggage",
+      "description":"Ouija board"
+   },
+   {
+      "id":27,
+      "category":"Luggage",
+      "description":"Paramedic's briefcase"
+   },
+   {
+      "id":28,
+      "category":"Luggage",
+      "description":"Foil hat"
+   },
+   {
+      "id":29,
+      "category":"Luggage",
+      "description":"Encyclopedia of the mushroom picker"
+   },
+   {
+      "id":30,
+      "category":"Luggage",
+      "description":"Sterile disposable syringes"
+   },
+   {
+      "id":31,
+      "category":"Luggage",
+      "description":"Bottle-opener"
+   },
+   {
+      "id":32,
+      "category":"Luggage",
+      "description":"Hammer and nails"
+   },
+   {
+      "id":33,
+      "category":"Luggage",
+      "description":"Walkie-talkies"
+   },
+   {
+      "id":34,
+      "category":"Luggage",
+      "description":"Book on Sociology"
+   },
+   {
+      "id":35,
+      "category":"Luggage",
+      "description":"Flashlight and spare batteries"
+   },
+   {
+      "id":36,
+      "category":"Luggage",
+      "description":"Laptop"
+   },
+   {
+      "id":37,
+      "category":"Luggage",
+      "description":"Sewing kit"
+   },
+   {
+      "id":38,
+      "category":"Luggage",
+      "description":"Carrot seeds"
+   },
+   {
+      "id":39,
+      "category":"Luggage",
+      "description":"Wrench"
+   },
+   {
+      "id":40,
+      "category":"Luggage",
+      "description":"First aid kit"
+   },
+   {
+      "id":41,
+      "category":"Luggage",
+      "description":"Music Box"
+   },
+   {
+      "id":42,
+      "category":"Luggage",
+      "description":"Lighter"
+   },
+   {
+      "id":43,
+      "category":"Luggage",
+      "description":"Harmonica"
+   },
+   {
+      "id":44,
+      "category":"Luggage",
+      "description":"Gas-burner"
+   },
+   {
+      "id":45,
+      "category":"Luggage",
+      "description":"Matchbox"
+   },
+   {
+      "id":46,
+      "category":"Luggage",
+      "description":"Wireless speaker"
+   },
+   {
+      "id":47,
+      "category":"Luggage",
+      "description":"Persian rug"
+   },
+   {
+      "id":48,
+      "category":"Luggage",
+      "description":"Condoms"
+   },
+   {
+      "id":49,
+      "category":"Luggage",
+      "description":"Compass"
+   },
+   {
+      "id":50,
+      "category":"Luggage",
+      "description":"A4 paper"
+   },
+   {
+      "id":51,
+      "category":"Luggage",
+      "description":"Alarm clock"
+   },
+   {
+      "id":52,
+      "category":"Luggage",
+      "description":"Toilet paper"
+   },
+   {
+      "id":53,
+      "category":"Luggage",
+      "description":"Indoor plant"
+   },
+   {
+      "id":54,
+      "category":"Luggage",
+      "description":"Warm clothes"
+   },
+   {
+      "id":55,
+      "category":"Luggage",
+      "description":"Inflatable boat"
+   },
+   {
+      "id":56,
+      "category":"Luggage",
+      "description":"Pillow"
+   },
+   {
+      "id":57,
+      "category":"Luggage",
+      "description":"Spinning"
+   },
+   {
+      "id":58,
+      "category":"Luggage",
+      "description":"AAA batteries"
+   },
+   {
+      "id":59,
+      "category":"Luggage",
+      "description":"Frying pan"
+   },
+   {
+      "id":60,
+      "category":"Luggage",
+      "description":"Biofuels"
+   },
+   {
+      "id":61,
+      "category":"Luggage",
+      "description":"Gold chain"
+   }
+]
