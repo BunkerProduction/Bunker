@@ -47,6 +47,19 @@ final class BunkerTabBar: UIControl {
         self.addSubview(stackView)
         stackView.pin(to: self)
         stackView.setHeight(to: 56)
+
+        changeTabOpacity()
+    }
+
+    private func changeTabOpacity() {
+        for tab in [firstTabButton, secondTabButton, thirdTabButton] {
+            if tab.tag == self.chosenTab {
+                tab.alpha = 1
+            }
+            else {
+                tab.alpha = 0.5
+            }
+        }
     }
     
     // MARK: - Interactions
@@ -56,6 +69,7 @@ final class BunkerTabBar: UIControl {
         generator.impactOccurred(intensity: 0.5)
         
         self.chosenTab = sender.tag
+        changeTabOpacity()
         sendActions(for: .valueChanged)
     }
     
