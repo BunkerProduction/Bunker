@@ -46,7 +46,7 @@ final class ThreatViewModel {
                     for: indexPath
                 )
                 if let cell = cell as? ConditionCollectionViewCell {
-                    cell.configure(icon: "f", type: "radnom", description: "some random")
+                    cell.configure(icon: "⚡️", type: "Условие", description: "The AI control of the bunker «stuck out» and blocks life support - it is necessary to prove the soulless computer that there are breathing living people in the bunker. \n\nThe test is based on checking the unique difference between humans and robots - the ability to create. You need to go through it.")
                     cell.setTheme(self.settings.appearance)
                 }
                 return cell
