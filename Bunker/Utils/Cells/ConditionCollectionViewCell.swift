@@ -32,6 +32,8 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
         
         self.layer.cornerRadius = 12
 
+        typeLabel.font = .customFont.caption
+
         let stackView = UIStackView(arrangedSubviews: [iconLabel, typeLabel])
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -50,10 +52,16 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
     public func configure(icon: String, type: String, description: String) {
         self.iconLabel.text = icon
         self.typeLabel.text = type
-        self.descriptionLabel.text = description
+        self.descriptionLabel.setCustomAttributedText(
+            string: description,
+            font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
+            1.5
+        )
     }
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
+        typeLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
+        descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }
 }
