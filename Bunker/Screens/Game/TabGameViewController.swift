@@ -16,7 +16,7 @@ final class TabGameViewController: UIViewController, GameCoordinator {
     private var previousIndex = 0
 
     private lazy var firstVC = ThreatsViewController(self)
-    private var secondVC = MainGameViewController()
+    private lazy var secondVC = MainGameViewController(self)
     private var thirdVC = PlayerViewController()
 
     // MARK: - LifeCycle
