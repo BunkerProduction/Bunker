@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThreatViewModel {
+final class ThreatViewModel: ThreatsLogic {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
     typealias DifSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
 
@@ -22,15 +22,18 @@ final class ThreatViewModel {
     private let networkService = WebSocketController.shared
 
     private var dataSource: DataSource?
+    private weak var coordinator: GameCoordinator?
     private weak var collectionView: UICollectionView?
 
     // MARK: - Init
-    init(collectionView: UICollectionView) {
+    init(collectionView: UICollectionView, gameCoordinator: GameCoordinator) {
+        self.coordinator = gameCoordinator
         self.collectionView = collectionView
 
         createDataSource()
     }
 
+    // MARK: - DataSource
     private func createDataSource() {
         guard let collectionView = collectionView else {
             return
@@ -74,5 +77,9 @@ final class ThreatViewModel {
         sections = [.threats, .exit]
 
         dataSource?.apply(snapshot)
+    }
+
+    public func exitGame() {
+        coordinator?.exitGame()
     }
 }

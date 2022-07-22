@@ -7,78 +7,83 @@
 
 import UIKit
 
-final class TabGameViewController: UIViewController {
+final class TabGameViewController: UIViewController, GameCoordinator {
     private var viewControllers = [UIViewController]()
     private var settings = UserSettings.shared
     private var tabView = BunkerTabBar()
+    private let networkService = WebSocketController.shared
     private var selectedIndex = 0
     private var previousIndex = 0
-    
-    static private let firstVC = ThreatsViewController()
-    static private let secondVC = MainGameViewController()
-    static private let thirdVC = PlayerViewController()
-    
+
+    private lazy var firstVC = ThreatsViewController(self)
+    private var secondVC = MainGameViewController()
+    private var thirdVC = PlayerViewController()
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewControllers.append(self.WrappeControllerInNav(TabGameViewController.firstVC))
-        viewControllers.append(self.WrappeControllerInNav(TabGameViewController.secondVC))
-        viewControllers.append(self.WrappeControllerInNav(TabGameViewController.thirdVC))
-        
+        setupControllers()
         setupView()
         updateUI()
-        
+
         tabBarChosen(tabView)
     }
-    
+
+    private func setupControllers() {
+        viewControllers.append(self.WrapperControllerInNav(firstVC))
+        viewControllers.append(self.WrapperControllerInNav(secondVC))
+        viewControllers.append(self.WrapperControllerInNav(thirdVC))
+    }
+
     // MARK: - UI setup
     private func setupView() {
         self.navigationController?.isNavigationBarHidden = true
         view.addSubview(tabView)
-        
+
         tabView.pin(to: view, [.left: 24, .right: 24])
         tabView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
         tabView.addTarget(self, action: #selector(tabBarChosen(_:)), for: .valueChanged)
     }
-    
+
     // MARK: - UpdateUI
     private func updateUI() {
         let theme = settings.appearance
         tabView.setTheme(theme)
-        
+
         self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
     }
-    
+
     // MARK: - Interactions
     @objc
     private func tabBarChosen(_ sender: BunkerTabBar) {
         previousIndex = selectedIndex
         selectedIndex = sender.chosenTab
-        
+
         let previosVC = viewControllers[previousIndex]
-        
+
         previosVC.willMove(toParent: nil)
         previosVC.view.removeFromSuperview()
         previosVC.removeFromParent()
-        
+
         let vc = viewControllers[selectedIndex]
         vc.view.frame = self.view.frame
         vc.didMove(toParent: self)
         self.addChild(vc)
         self.view.addSubview(vc.view)
-        
+
         self.view.bringSubviewToFront(tabView)
     }
 
-    private func exitGame() {
-        self.dismiss(animated: true)
+    public func exitGame() {
+        self.navigationController?.popToRootViewController(animated: true)
+        networkService.disconnect()
     }
 }
 
 
 extension UIViewController {
-    func WrappeControllerInNav(_ vc: UIViewController) -> UINavigationController {
+    func WrapperControllerInNav(_ vc: UIViewController) -> UINavigationController {
         return UINavigationController(rootViewController: vc)
     }
 }

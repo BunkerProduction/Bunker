@@ -95,6 +95,8 @@
 		C06642CE287B8A6300DD7C28 /* ConditionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */; };
 		C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642CF287CCDFE00DD7C28 /* ThreatsViewModel.swift */; };
 		C06642D2287CCE0800DD7C28 /* MainGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642D1287CCE0800DD7C28 /* MainGameViewModel.swift */; };
+		C06642DB288B298300DD7C28 /* ThreatsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642DA288B298300DD7C28 /* ThreatsProtocols.swift */; };
+		C06642DD288B2A5200DD7C28 /* GameCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642DC288B2A5200DD7C28 /* GameCoordinatorProtocol.swift */; };
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
@@ -210,6 +212,8 @@
 		C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C06642CF287CCDFE00DD7C28 /* ThreatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatsViewModel.swift; sourceTree = "<group>"; };
 		C06642D1287CCE0800DD7C28 /* MainGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameViewModel.swift; sourceTree = "<group>"; };
+		C06642DA288B298300DD7C28 /* ThreatsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatsProtocols.swift; sourceTree = "<group>"; };
+		C06642DC288B2A5200DD7C28 /* GameCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 				C06642D3287CDF0100DD7C28 /* Threats */,
 				C06642D7287CDF3600DD7C28 /* MainGame */,
 				C06642D5287CDF1900DD7C28 /* Player */,
+				C06642DC288B2A5200DD7C28 /* GameCoordinatorProtocol.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 			children = (
 				C06642D4287CDF0A00DD7C28 /* ViewModel */,
 				C02D10A9283C04800053BFD8 /* ThreatsViewController.swift */,
+				C06642DA288B298300DD7C28 /* ThreatsProtocols.swift */,
 			);
 			path = Threats;
 			sourceTree = "<group>";
@@ -811,6 +817,7 @@
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
 				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
+				C06642DB288B298300DD7C28 /* ThreatsProtocols.swift in Sources */,
 				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
 				C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */,
 				C003F31C282FEFE7006F3FE9 /* PackCollectionViewCell.swift in Sources */,
@@ -851,6 +858,7 @@
 				C003F32728302B11006F3FE9 /* JsonManager.swift in Sources */,
 				C02D10A6283BE44E0053BFD8 /* Game.swift in Sources */,
 				C0455E912825968C00990351 /* GameOptionView.swift in Sources */,
+				C06642DD288B2A5200DD7C28 /* GameCoordinatorProtocol.swift in Sources */,
 				4E81D504283383B900829361 /* Baige.swift in Sources */,
 				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
 			);

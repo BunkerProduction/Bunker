@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThreatsViewController: UIViewController {
+final class ThreatsViewController: UIViewController, ThreatsScreen {
     private let settings = UserSettings.shared
 
     private enum Consts {
@@ -43,9 +43,9 @@ final class ThreatsViewController: UIViewController {
     private var viewModel: ThreatViewModel?
 
     // MARK: - Init
-    init() {
+    init(_ coordinator: GameCoordinator) {
         super.init(nibName: nil, bundle: nil)
-        self.viewModel = ThreatViewModel(collectionView: collectionView)
+        self.viewModel = ThreatViewModel(collectionView: collectionView, gameCoordinator: coordinator)
     }
 
     required init?(coder: NSCoder) {
@@ -74,6 +74,7 @@ final class ThreatsViewController: UIViewController {
     }
 
     private func setupCollectionView() {
+        collectionView.delegate = self
         view.addSubview(collectionView)
 
         collectionView.pin(to: view, [.left, .right, .bottom])
@@ -90,10 +91,8 @@ final class ThreatsViewController: UIViewController {
 
 // MARK: - CollectionViewDelegate
 extension ThreatsViewController: UICollectionViewDelegate {
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard viewModel?.sections[indexPath.section] == ThreatViewModel.Section.exit else { return }
-
-        // TODO: - exit game
+        viewModel?.exitGame()
     }
 }
