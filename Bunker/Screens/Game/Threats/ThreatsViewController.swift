@@ -8,8 +8,6 @@
 import UIKit
 
 final class ThreatsViewController: UIViewController, ThreatsScreen {
-    private let settings = UserSettings.shared
-
     private enum Consts {
         static let itemSpacing: CGFloat = 20
         static let sectionInsets: CGFloat = 10
@@ -32,14 +30,21 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
             forCellWithReuseIdentifier: ConditionCollectionViewCell.reuseIdentifier
         )
         collectionView.register(
+            CatastrpoheCollectionViewCell.self,
+            forCellWithReuseIdentifier: CatastrpoheCollectionViewCell.reuseIdentifier
+        )
+        collectionView.register(
             ButtonCollectionViewCell.self,
             forCellWithReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier
         )
         collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        collectionView.showsVerticalScrollIndicator = false
 
         return collectionView
     }()
 
+    private let settings = UserSettings.shared
     private var viewModel: ThreatViewModel?
 
     // MARK: - Init
@@ -48,6 +53,7 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
         self.viewModel = ThreatViewModel(collectionView: collectionView, gameCoordinator: coordinator)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

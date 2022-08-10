@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol ThreatsScreen: UIViewController {
     init(_ coordinator: GameCoordinator)
 }

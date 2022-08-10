@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Catastrophe {
+struct Catastrophe: Hashable {
     let id: Int
     let name: String
     let shortDescription: String

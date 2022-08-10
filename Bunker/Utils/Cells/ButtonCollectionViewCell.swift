@@ -12,7 +12,8 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-
+        label.textAlignment = .center
+        
         return label
     }()
 

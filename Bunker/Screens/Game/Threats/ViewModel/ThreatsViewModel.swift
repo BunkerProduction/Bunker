@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import AVFoundation
 
 final class ThreatViewModel: ThreatsLogic {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
@@ -13,23 +15,32 @@ final class ThreatViewModel: ThreatsLogic {
 
     enum Section: String {
         case threats
+        case catastrophe
         case bunker
         case exit
     }
 
-    var sections = [Section]()
     private let settings = UserSettings.shared
     private let networkService = WebSocketController.shared
 
+    private var gameModelSubscriber: AnyCancellable?
+    private var gameModel: Game? {
+        didSet {
+            updateDataSource()
+        }
+    }
     private var dataSource: DataSource?
+
     private weak var coordinator: GameCoordinator?
     private weak var collectionView: UICollectionView?
+
+    var sections = [Section]()
 
     // MARK: - Init
     init(collectionView: UICollectionView, gameCoordinator: GameCoordinator) {
         self.coordinator = gameCoordinator
         self.collectionView = collectionView
-
+        binding()
         createDataSource()
     }
 
@@ -53,6 +64,22 @@ final class ThreatViewModel: ThreatsLogic {
                     cell.setTheme(self.settings.appearance)
                 }
                 return cell
+            case .catastrophe:
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: CatastrpoheCollectionViewCell.reuseIdentifier,
+                    for: indexPath
+                )
+                if let cell = cell as? CatastrpoheCollectionViewCell,
+                   let catastrophe = itemIdentifier as? Catastrophe {
+                    cell.configure(
+                        icon: catastrophe.icon,
+                        title: catastrophe.name,
+                        type: "Аппокалипсис",
+                        description: catastrophe.fullDesciption
+                    )
+                    cell.setTheme(self.settings.appearance)
+                }
+                return cell
             default:
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier,
@@ -70,15 +97,31 @@ final class ThreatViewModel: ThreatsLogic {
     }
 
     private func updateDataSource() {
+        guard let gameModel = gameModel else {
+            return
+        }
         var snapshot = DifSnapshot()
-        snapshot.appendSections([.threats, .exit])
-        snapshot.appendItems(["text"], toSection: .threats)
+        snapshot.appendSections([.threats, .catastrophe, .exit])
+        snapshot.appendItems(["text","1234"], toSection: .threats)
+        snapshot.appendItems([gameModel.gamePreferences.catastrophe], toSection: .catastrophe)
         snapshot.appendItems(["dummy"], toSection: .exit)
-        sections = [.threats, .exit]
+        sections = [.threats, .catastrophe, .exit]
 
         dataSource?.apply(snapshot)
     }
 
+    // MARK: - Binding
+    private func binding() {
+        gameModelSubscriber = networkService.gameModelRecieved
+            .receive(on: RunLoop.main)
+            .assign(to: \.gameModel, on: self)
+    }
+
+    private func unbind() {
+        gameModelSubscriber?.cancel()
+    }
+
+    // MARK: - External methods
     public func exitGame() {
         coordinator?.exitGame()
     }

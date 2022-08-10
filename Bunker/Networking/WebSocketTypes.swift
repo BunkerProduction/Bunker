@@ -64,7 +64,7 @@ extension UserMessage: Codable { }
 struct GameMessage {
     let sessionID: String
     let preferences: GamePreferencesMessage
-    let players: [UserMessage]
+    let players: [PlayerMessage]
     let gameState: GameState
     let initialNumberOfPlayers: Int
     let turn: String
@@ -73,7 +73,17 @@ struct GameMessage {
 
 extension GameMessage: Codable { }
 
-// gameMessage not decoding check fields
-/*
-[{"type":"game_model","sessionID":"279942","preferences":{"votingTime":2,"catastropheId":0,"shelterId":1,"difficultyId":1},"players":[{"id":"cef9f6e89c476ae9","isCreator":true,"username":"Man","attributes":[126,62,96,63,44,21]}],"gameState":"normal","initialNumberOfPlayers":1,"turn":"cef9f6e89c476ae9","round":0}]
-*/
+
+struct PlayerMessage {
+    let id: String
+    let username: String
+    let attributes: [AttributeMessage]
+}
+
+struct AttributeMessage {
+    let id: Int
+    let isExposed: Bool
+}
+
+extension PlayerMessage: Codable { }
+extension AttributeMessage: Codable { }

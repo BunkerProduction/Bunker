@@ -12,9 +12,15 @@ struct GamePreferences {
     var catastrophe: Catastrophe?
     var shelter: Shelter?
     var difficulty: GameDifficulty?
-    
+
     init() {
         catastrophe = Catastrophe.getAll()[0]
+        shelter = Shelter.random()
+        difficulty = GameDifficulty(rate: 1)
+    }
+
+    init(catastropheId: Int) {
+        catastrophe = Catastrophe.getAll()[catastropheId]
         shelter = Shelter.random()
         difficulty = GameDifficulty(rate: 1)
     }

@@ -11,9 +11,14 @@ final class MainGameViewController: UIViewController {
     private let settings = UserSettings.shared
 
     private var headerView = GameHeaderView()
+    private var firstSpecialView = GameSpecialCardView()
+    private var secondScecialView = GameSpecialCardView()
+
+    private var specialsStackView = UIStackView()
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: ScreenSize.Width - 48, height: 48)
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: layout
@@ -22,6 +27,7 @@ final class MainGameViewController: UIViewController {
             PlayerCollectionViewCell.self,
             forCellWithReuseIdentifier: PlayerCollectionViewCell.reuseIdentifier
         )
+        collectionView.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 24, right: 0)
 
         return collectionView
     }()
@@ -54,6 +60,8 @@ final class MainGameViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = .Background.LayerOne.colorFor(theme)
         self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
         headerView.setTheme(theme)
+        firstSpecialView.setTheme(theme)
+        secondScecialView.setTheme(theme)
     }
 
     // MARK: - Setup UI
@@ -68,6 +76,19 @@ final class MainGameViewController: UIViewController {
         headerView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         headerView.pin(to: view, [.left: 24, .right: 24])
         headerView.setHeight(to: 132)
+
+        [firstSpecialView, secondScecialView].forEach {
+            specialsStackView.addArrangedSubview($0)
+        }
+        specialsStackView.distribution = .fillEqually
+        specialsStackView.alignment = .fill
+        specialsStackView.axis = .horizontal
+        specialsStackView.spacing = 16
+
+        view.addSubview(specialsStackView)
+        specialsStackView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 150)
+        specialsStackView.pin(to: view, [.left: 24, .right: 24])
+        specialsStackView.setHeight(to: 130)
     }
 
     private func setupCollectionView() {
@@ -75,6 +96,7 @@ final class MainGameViewController: UIViewController {
 
         collectionView.pinTop(to: headerView.bottomAnchor, 0)
         collectionView.pin(to: view, [.left: 24, .right: 24, .bottom: 0])
+        collectionView.pinBottom(to: specialsStackView.topAnchor)
     }
 
     // MARK: - Setup NavBar
