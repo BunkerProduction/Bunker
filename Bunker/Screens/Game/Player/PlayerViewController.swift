@@ -13,12 +13,29 @@ final class PlayerViewController: UIViewController {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-
+        collectionView.register(
+            AttributeCollectionViewCell.self,
+            forCellWithReuseIdentifier: AttributeCollectionViewCell.reuseIdentifier
+        )
 
         return collectionView
     }()
+    
+    private var viewModel: PlayerViewModel?
 
     // MARK: - Init
+    init(_ coordinator: GameCoordinator) {
+        super.init(nibName: nil, bundle: nil)
+
+        self.viewModel = PlayerViewModel(collectionView: collectionView, gameCoordinator: coordinator)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

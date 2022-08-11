@@ -85,5 +85,28 @@ struct AttributeMessage {
     let isExposed: Bool
 }
 
+struct AttributeChoiceMessage {
+    let attributeID: Int
+    let playerID: String
+
+    var json: Data {
+        let dict: [String: Any] = [
+            "number_attribute": attributeID,
+            "playerID": playerID
+        ]
+        guard JSONSerialization.isValidJSONObject(dict) else { fatalError("Invalid JSON") }
+        guard let jsonObject = try? JSONSerialization.data(withJSONObject: dict) else {
+            fatalError("Couldn't Decode")
+        }
+        return jsonObject
+    }
+}
+
+//    {
+//    "number_attribute": 1,
+//    "playerID": "2f6936a2295be8b5",
+//    "sessionID": "698484"
+//    }
+
 extension PlayerMessage: Codable { }
 extension AttributeMessage: Codable { }

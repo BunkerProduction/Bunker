@@ -170,6 +170,14 @@ final class WebSocketController {
             }
         }
     }
+
+    public func sendChosenAttribute(attribute: AttributeChoiceMessage) {
+        self.socket?.send(.data(attribute.json)) { error in
+            if error != nil {
+                print(error.debugDescription)
+            }
+        }
+    }
     
     // MARK: - Model setters
     private func handleGameModel(_ data: Data) throws {

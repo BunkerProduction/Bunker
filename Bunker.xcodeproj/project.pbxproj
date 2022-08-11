@@ -103,6 +103,7 @@
 		C06642E2288B527800DD7C28 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642E1288B527800DD7C28 /* PlayerCollectionViewCell.swift */; };
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
+		C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +225,7 @@
 		C06642E1288B527800DD7C28 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
+		C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,6 +300,7 @@
 				C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */,
 				C06642E1288B527800DD7C28 /* PlayerCollectionViewCell.swift */,
 				C0070CDD289561D1007BDA0B /* CatastrpoheCollectionViewCell.swift */,
+				C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */,
 				4E45DA9228318B0100F5BF7A /* Label.swift in Sources */,
 				C06642CE287B8A6300DD7C28 /* ConditionCollectionViewCell.swift in Sources */,
+				C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */,
 				C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
 				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,

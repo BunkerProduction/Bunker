@@ -32,10 +32,12 @@ extension Player: Hashable {
 }
 
 struct Attribute {
+    let icon: String
     let type: String
     let description: String
 
     init(identifier: Int) {
+        icon = "🥶"
         type = "Biology"
         description = "some description"
     }

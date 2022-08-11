@@ -17,7 +17,7 @@ final class TabGameViewController: UIViewController, GameCoordinator {
 
     private lazy var firstVC = ThreatsViewController(self)
     private lazy var secondVC = MainGameViewController(self)
-    private var thirdVC = PlayerViewController()
+    private lazy var thirdVC = PlayerViewController(self)
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -80,7 +80,6 @@ final class TabGameViewController: UIViewController, GameCoordinator {
         networkService.disconnect()
     }
 }
-
 
 extension UIViewController {
     func WrapperControllerInNav(_ vc: UIViewController) -> UINavigationController {
