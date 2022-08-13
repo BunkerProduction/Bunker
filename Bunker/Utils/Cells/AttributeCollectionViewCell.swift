@@ -51,7 +51,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 12
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
-        stackView.alignment = .leading
+        stackView.alignment = .top
         stackView.axis = .vertical
         stackView.spacing = 8
 
@@ -68,7 +68,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
             1
         )
         titleLabel.setCustomAttributedText(
-            string: attribute.type,
+            string: attribute.type.rawValue,
             font: .customFont.body ?? .systemFont(ofSize: 0),
             1
         )
