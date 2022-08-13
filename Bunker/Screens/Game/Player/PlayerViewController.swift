@@ -27,6 +27,7 @@ final class PlayerViewController: UIViewController {
     init(_ coordinator: GameCoordinator) {
         super.init(nibName: nil, bundle: nil)
 
+        collectionView.setCollectionViewLayout(generateLayout(), animated: false)
         self.viewModel = PlayerViewModel(collectionView: collectionView, gameCoordinator: coordinator)
     }
 
@@ -40,6 +41,7 @@ final class PlayerViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        updateUI()
     }
 
     // MARK: - UpdateUI
@@ -52,11 +54,44 @@ final class PlayerViewController: UIViewController {
     // MARK: - UIsetup
     private func setupView() {
         setupNavBar()
+        view.addSubview(collectionView)
+        collectionView.pin(to: view, [.left, .right, .bottom])
+        collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
     }
 
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.title = "My Characteristics"
+    }
+
+    private func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
+            let itemSide = (ScreenSize.Width - 48 - 16) / 2
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .absolute(itemSide),
+                heightDimension: .absolute(itemSide)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .absolute(itemSide)
+            )
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+            group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+                leading: .none,
+                top: .fixed(10),
+                trailing: .none,
+                bottom: .none
+            )
+            group.interItemSpacing = .fixed(16)
+
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 24, bottom: 20, trailing: 24)
+
+            return section
+        }
+        return layout
     }
 }

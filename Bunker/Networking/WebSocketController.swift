@@ -182,6 +182,10 @@ final class WebSocketController {
     // MARK: - Model setters
     private func handleGameModel(_ data: Data) throws {
         let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
+        guard let myPlayerMessage = gameModelMessage.players.first(where: { $0.id == self.clientID })
+        else {
+            return
+        }
         let gameModel = Game(
             gamePreferences: GamePreferences(
                 catastropheId: gameModelMessage.preferences.catastropheId
@@ -195,7 +199,12 @@ final class WebSocketController {
             },
             turn: 0,
             round: 0,
-            gameState: .normal
+            gameState: .normal,
+            myPlayer: Player(
+                UID: myPlayerMessage.id,
+                username: myPlayerMessage.username,
+                attributes: myPlayerMessage.attributes.map { Attribute(identifier: $0.id)}
+            )
         )
         self.gameModel = gameModel
     }

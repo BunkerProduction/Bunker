@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class PlayerViewModel {
+final class PlayerViewModel: NSObject {
     private let settings = UserSettings.shared
     private let networkService = WebSocketController.shared
 
@@ -18,26 +18,29 @@ final class PlayerViewModel {
             updateDataSource()
         }
     }
+    private var dataSource: [Attribute] = []
 
     private weak var coordinator: GameCoordinator?
     private weak var collectionView: UICollectionView?
 
     // MARK: - Init
     init(collectionView: UICollectionView, gameCoordinator: GameCoordinator) {
+        super.init()
+        
         self.coordinator = gameCoordinator
         self.collectionView = collectionView
+        collectionView.dataSource = self
         binding()
-        createDataSource()
+        updateDataSource()
     }
 
     // MARK: - DataSource
-    private func createDataSource() {
-    }
-
     private func updateDataSource() {
         guard let gameModel = gameModel else {
             return
         }
+        dataSource = gameModel.myPlayer.attributes
+        collectionView?.reloadData()
     }
 
     // MARK: - Binding
@@ -49,5 +52,21 @@ final class PlayerViewModel {
 
     private func unbind() {
         gameModelSubscriber?.cancel()
+    }
+}
+
+extension PlayerViewModel: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttributeCollectionViewCell.reuseIdentifier, for: indexPath)
+        if let cell = cell as? AttributeCollectionViewCell {
+            cell.configure(dataSource[indexPath.row])
+            cell.setTheme(settings.appearance)
+        }
+
+        return cell
     }
 }

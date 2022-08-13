@@ -17,6 +17,7 @@ struct Game {
     let turn: Int
     let round: Int
     let gameState: GameState
+    let myPlayer: Player
 }
 
 struct Player {
