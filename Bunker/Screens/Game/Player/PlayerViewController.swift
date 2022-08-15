@@ -81,7 +81,7 @@ final class PlayerViewController: UIViewController {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
             group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
                 leading: .none,
-                top: .fixed(10),
+                top: .fixed(16),
                 trailing: .none,
                 bottom: .none
             )

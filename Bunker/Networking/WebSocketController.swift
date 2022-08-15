@@ -194,7 +194,7 @@ final class WebSocketController {
                 Player(
                     UID: $0.id,
                     username: $0.username,
-                    attributes: $0.attributes.map { Attribute(identifier: $0.id) }
+                    attributes: $0.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0) }
                 )
             },
             turn: 0,
@@ -203,7 +203,7 @@ final class WebSocketController {
             myPlayer: Player(
                 UID: myPlayerMessage.id,
                 username: myPlayerMessage.username,
-                attributes: myPlayerMessage.attributes.map { Attribute(identifier: $0.id)}
+                attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0) }
             )
         )
         self.gameModel = gameModel
