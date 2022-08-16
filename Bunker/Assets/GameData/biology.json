@@ -1,0 +1,517 @@
+[
+   {
+      "id":0,
+      "category":"Biology",
+      "description":"Android"
+   },
+   {
+      "id":1,
+      "category":"Biology",
+      "description":"Сatgender"
+   },
+   {
+      "id":2,
+      "category":"Biology",
+      "description":"Man 18 years"
+   },
+   {
+      "id":3,
+      "category":"Biology",
+      "description":"Man 19 years"
+   },
+   {
+      "id":4,
+      "category":"Biology",
+      "description":"Man 20 years"
+   },
+   {
+      "id":5,
+      "category":"Biology",
+      "description":"Man 21 years"
+   },
+   {
+      "id":6,
+      "category":"Biology",
+      "description":"Man 23 years"
+   },
+   {
+      "id":7,
+      "category":"Biology",
+      "description":"Man 25 years"
+   },
+   {
+      "id":8,
+      "category":"Biology",
+      "description":"Man 28 years"
+   },
+   {
+      "id":9,
+      "category":"Biology",
+      "description":"Man 29 years"
+   },
+   {
+      "id":10,
+      "category":"Biology",
+      "description":"Man 30 years"
+   },
+   {
+      "id":11,
+      "category":"Biology",
+      "description":"Man 31 years"
+   },
+   {
+      "id":12,
+      "category":"Biology",
+      "description":"Man 33 years"
+   },
+   {
+      "id":13,
+      "category":"Biology",
+      "description":"Man 35 years"
+   },
+   {
+      "id":14,
+      "category":"Biology",
+      "description":"Man 38 years"
+   },
+   {
+      "id":15,
+      "category":"Biology",
+      "description":"Man 40 years"
+   },
+   {
+      "id":16,
+      "category":"Biology",
+      "description":"Man 43 years"
+   },
+   {
+      "id":17,
+      "category":"Biology",
+      "description":"Man 44 years"
+   },
+   {
+      "id":18,
+      "category":"Biology",
+      "description":"Man 45 years"
+   },
+   {
+      "id":19,
+      "category":"Biology",
+      "description":"Man 46 years"
+   },
+   {
+      "id":20,
+      "category":"Biology",
+      "description":"Man 48 years"
+   },
+   {
+      "id":21,
+      "category":"Biology",
+      "description":"Man 50 years"
+   },
+   {
+      "id":22,
+      "category":"Biology",
+      "description":"Man 53 years"
+   },
+   {
+      "id":23,
+      "category":"Biology",
+      "description":"Man 54 years"
+   },
+   {
+      "id":24,
+      "category":"Biology",
+      "description":"Man 55 years"
+   },
+   {
+      "id":25,
+      "category":"Biology",
+      "description":"Man 56 years"
+   },
+   {
+      "id":26,
+      "category":"Biology",
+      "description":"Man 58 years"
+   },
+   {
+      "id":27,
+      "category":"Biology",
+      "description":"Man 59 years"
+   },
+   {
+      "id":28,
+      "category":"Biology",
+      "description":"Man 60 years"
+   },
+   {
+      "id":29,
+      "category":"Biology",
+      "description":"Man 61 years"
+   },
+   {
+      "id":30,
+      "category":"Biology",
+      "description":"Man 63 years"
+   },
+   {
+      "id":31,
+      "category":"Biology",
+      "description":"Man 64 years"
+   },
+   {
+      "id":32,
+      "category":"Biology",
+      "description":"Man 65 years"
+   },
+   {
+      "id":33,
+      "category":"Biology",
+      "description":"Man 66 years"
+   },
+   {
+      "id":34,
+      "category":"Biology",
+      "description":"Man 68 years"
+   },
+   {
+      "id":35,
+      "category":"Biology",
+      "description":"Man 70 years"
+   },
+   {
+      "id":36,
+      "category":"Biology",
+      "description":"Man 73 years"
+   },
+   {
+      "id":37,
+      "category":"Biology",
+      "description":"Man 75 years"
+   },
+   {
+      "id":38,
+      "category":"Biology",
+      "description":"Man 78 years"
+   },
+   {
+      "id":39,
+      "category":"Biology",
+      "description":"Man 79 years"
+   },
+   {
+      "id":40,
+      "category":"Biology",
+      "description":"Man 80 years"
+   },
+   {
+      "id":41,
+      "category":"Biology",
+      "description":"Man 81 years"
+   },
+   {
+      "id":42,
+      "category":"Biology",
+      "description":"Man 83 years"
+   },
+   {
+      "id":43,
+      "category":"Biology",
+      "description":"Man 84 years"
+   },
+   {
+      "id":44,
+      "category":"Biology",
+      "description":"Man 85 years"
+   },
+   {
+      "id":45,
+      "category":"Biology",
+      "description":"Man 86 years"
+   },
+   {
+      "id":46,
+      "category":"Biology",
+      "description":"Man 88 years"
+   },
+   {
+      "id":47,
+      "category":"Biology",
+      "description":"Man 89 years"
+   },
+   {
+      "id":48,
+      "category":"Biology",
+      "description":"Man 90 years"
+   },
+   {
+      "id":49,
+      "category":"Biology",
+      "description":"Man 91 years"
+   },
+   {
+      "id":50,
+      "category":"Biology",
+      "description":"Man 96 years"
+   },
+   {
+      "id":51,
+      "category":"Biology",
+      "description":"Man 98 years"
+   },
+   {
+      "id":52,
+      "category":"Biology",
+      "description":"Man 102 years"
+   },
+   {
+      "id":53,
+      "category":"Biology",
+      "description":"Woman 18 yearsа"
+   },
+   {
+      "id":54,
+      "category":"Biology",
+      "description":"Woman 19 years"
+   },
+   {
+      "id":55,
+      "category":"Biology",
+      "description":"Woman 20 years"
+   },
+   {
+      "id":56,
+      "category":"Biology",
+      "description":"Woman 21 years"
+   },
+   {
+      "id":57,
+      "category":"Biology",
+      "description":"Woman 23 years"
+   },
+   {
+      "id":58,
+      "category":"Biology",
+      "description":"Woman 25 years"
+   },
+   {
+      "id":59,
+      "category":"Biology",
+      "description":"Woman 28 yearsа"
+   },
+   {
+      "id":60,
+      "category":"Biology",
+      "description":"Woman 29 years"
+   },
+   {
+      "id":61,
+      "category":"Biology",
+      "description":"Woman 30 years"
+   },
+   {
+      "id":62,
+      "category":"Biology",
+      "description":"Woman 31 years"
+   },
+   {
+      "id":63,
+      "category":"Biology",
+      "description":"Woman 31 yearsа"
+   },
+   {
+      "id":64,
+      "category":"Biology",
+      "description":"Woman 35 yearsа"
+   },
+   {
+      "id":65,
+      "category":"Biology",
+      "description":"Woman 38 years"
+   },
+   {
+      "id":66,
+      "category":"Biology",
+      "description":"Woman 40 years"
+   },
+   {
+      "id":67,
+      "category":"Biology",
+      "description":"Woman 43 years"
+   },
+   {
+      "id":68,
+      "category":"Biology",
+      "description":"Woman 44 years"
+   },
+   {
+      "id":69,
+      "category":"Biology",
+      "description":"Woman 45 yearsа"
+   },
+   {
+      "id":70,
+      "category":"Biology",
+      "description":"Woman 46 yearsа"
+   },
+   {
+      "id":71,
+      "category":"Biology",
+      "description":"Woman 48 years"
+   },
+   {
+      "id":72,
+      "category":"Biology",
+      "description":"Woman 50 years"
+   },
+   {
+      "id":73,
+      "category":"Biology",
+      "description":"Woman 53 years"
+   },
+   {
+      "id":74,
+      "category":"Biology",
+      "description":"Woman 54 years"
+   },
+   {
+      "id":75,
+      "category":"Biology",
+      "description":"Woman 55 years"
+   },
+   {
+      "id":76,
+      "category":"Biology",
+      "description":"Woman 56 years"
+   },
+   {
+      "id":77,
+      "category":"Biology",
+      "description":"Woman 58 yearsа"
+   },
+   {
+      "id":78,
+      "category":"Biology",
+      "description":"Woman 59 yearsа"
+   },
+   {
+      "id":79,
+      "category":"Biology",
+      "description":"Woman 60 years"
+   },
+   {
+      "id":80,
+      "category":"Biology",
+      "description":"Woman 61 years"
+   },
+   {
+      "id":81,
+      "category":"Biology",
+      "description":"Woman 63 years"
+   },
+   {
+      "id":82,
+      "category":"Biology",
+      "description":"Woman 64 years"
+   },
+   {
+      "id":83,
+      "category":"Biology",
+      "description":"Woman 65 yearsа"
+   },
+   {
+      "id":84,
+      "category":"Biology",
+      "description":"Woman 66 years"
+   },
+   {
+      "id":85,
+      "category":"Biology",
+      "description":"Woman 68 years"
+   },
+   {
+      "id":86,
+      "category":"Biology",
+      "description":"Woman 70 years"
+   },
+   {
+      "id":87,
+      "category":"Biology",
+      "description":"Woman 73 years"
+   },
+   {
+      "id":88,
+      "category":"Biology",
+      "description":"Woman 75 years"
+   },
+   {
+      "id":89,
+      "category":"Biology",
+      "description":"Woman 78 years"
+   },
+   {
+      "id":90,
+      "category":"Biology",
+      "description":"Woman 79 years"
+   },
+   {
+      "id":91,
+      "category":"Biology",
+      "description":"Woman 80 years"
+   },
+   {
+      "id":92,
+      "category":"Biology",
+      "description":"Woman 81 years"
+   },
+   {
+      "id":93,
+      "category":"Biology",
+      "description":"Woman 83 years"
+   },
+   {
+      "id":94,
+      "category":"Biology",
+      "description":"Woman 84 years"
+   },
+   {
+      "id":95,
+      "category":"Biology",
+      "description":"Woman 85 years"
+   },
+   {
+      "id":96,
+      "category":"Biology",
+      "description":"Woman 86 years"
+   },
+   {
+      "id":97,
+      "category":"Biology",
+      "description":"Woman 88 years"
+   },
+   {
+      "id":98,
+      "category":"Biology",
+      "description":"Woman 89 years"
+   },
+   {
+      "id":99,
+      "category":"Biology",
+      "description":"Woman 90 years"
+   },
+   {
+      "id":100,
+      "category":"Biology",
+      "description":"Woman 91 years"
+   },
+   {
+      "id":101,
+      "category":"Biology",
+      "description":"Woman 96 years"
+   },
+   {
+      "id":102,
+      "category":"Biology",
+      "description":"Woman 101 years"
+   }
+]

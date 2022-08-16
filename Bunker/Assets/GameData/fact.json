@@ -1,0 +1,272 @@
+[
+   {
+      "id":0,
+      "category":"Fact",
+      "description":"Believes in psychics"
+   },
+   {
+      "id":1,
+      "category":"Fact",
+      "description":"Traveled arround the world"
+   },
+   {
+      "id":2,
+      "category":"Fact",
+      "description":"Speaks sign language"
+   },
+   {
+      "id":3,
+      "category":"Fact",
+      "description":"Read Harry Potter 5 times"
+   },
+   {
+      "id":4,
+      "category":"Fact",
+      "description":"Knows morse code"
+   },
+   {
+      "id":5,
+      "category":"Fact",
+      "description":"Grew up on farm"
+   },
+   {
+      "id":6,
+      "category":"Fact",
+      "description":"Read all the books about zombies"
+   },
+   {
+      "id":7,
+      "category":"Fact",
+      "description":"Parents were geologists"
+   },
+   {
+      "id":8,
+      "category":"Fact",
+      "description":"Master of Sports in Boxing"
+   },
+   {
+      "id":9,
+      "category":"Fact",
+      "description":"Knows how to navigate by the stars"
+   },
+   {
+      "id":10,
+      "category":"Fact",
+      "description":"Chemist by first education"
+   },
+   {
+      "id":11,
+      "category":"Fact",
+      "description":"has a part time job in theatre"
+   },
+   {
+      "id":12,
+      "category":"Fact",
+      "description":"Knew the president personally"
+   },
+   {
+      "id":13,
+      "category":"Fact",
+      "description":"Studied at the medical school for 4 years"
+   },
+   {
+      "id":14,
+      "category":"Fact",
+      "description":"Has psychic abilities"
+   },
+   {
+      "id":15,
+      "category":"Fact",
+      "description":"Biologist by first education"
+   },
+   {
+      "id":16,
+      "category":"Fact",
+      "description":"Studied water and its purification"
+   },
+   {
+      "id":17,
+      "category":"Fact",
+      "description":"Knows everything about computers"
+   },
+   {
+      "id":18,
+      "category":"Fact",
+      "description":"Knows where the armory is"
+   },
+   {
+      "id":19,
+      "category":"Fact",
+      "description":"Believes in aliens"
+   },
+   {
+      "id":20,
+      "category":"Fact",
+      "description":"Can Make Alcohol From Anything"
+   },
+   {
+      "id":21,
+      "category":"Fact",
+      "description":"Knows how to make bows and spears"
+   },
+   {
+      "id":22,
+      "category":"Fact",
+      "description":"Member of the “Survival Skills“ club"
+   },
+   {
+      "id":23,
+      "category":"Fact",
+      "description":"Knows 5 languages"
+   },
+   {
+      "id":24,
+      "category":"Fact",
+      "description":"Survived on a Desert Island"
+   },
+   {
+      "id":25,
+      "category":"Fact",
+      "description":"Won a million - eternal luck"
+   },
+   {
+      "id":26,
+      "category":"Fact",
+      "description":"Took psychology courses"
+   },
+   {
+      "id":27,
+      "category":"Fact",
+      "description":"Has QR code"
+   },
+   {
+      "id":28,
+      "category":"Fact",
+      "description":"Has Ablutophobia"
+   },
+   {
+      "id":29,
+      "category":"Fact",
+      "description":"Has Androphobia"
+   },
+   {
+      "id":30,
+      "category":"Fact",
+      "description":"Never says no"
+   },
+   {
+      "id":31,
+      "category":"Fact",
+      "description":"Gynophobia"
+   },
+   {
+      "id":32,
+      "category":"Fact",
+      "description":"Hacked the CIA database"
+   },
+   {
+      "id":33,
+      "category":"Fact",
+      "description":"A liar"
+   },
+   {
+      "id":34,
+      "category":"Fact",
+      "description":"Used to have 40 cats"
+   },
+   {
+      "id":35,
+      "category":"Fact",
+      "description":"Swears a lot"
+   },
+   {
+      "id":36,
+      "category":"Fact",
+      "description":"Launched an IT startup"
+   },
+   {
+      "id":37,
+      "category":"Fact",
+      "description":"People person"
+   },
+   {
+      "id":38,
+      "category":"Fact",
+      "description":"Nerd"
+   },
+   {
+      "id":39,
+      "category":"Fact",
+      "description":"Maniac killer"
+   },
+   {
+      "id":40,
+      "category":"Fact",
+      "description":"Can't enter casino"
+   },
+   {
+      "id":41,
+      "category":"Fact",
+      "description":"Drug dealer"
+   },
+   {
+      "id":42,
+      "category":"Fact",
+      "description":"Wets his\/her bed"
+   },
+   {
+      "id":43,
+      "category":"Fact",
+      "description":"Nobel laureate in bioengineering"
+   },
+   {
+      "id":44,
+      "category":"Fact",
+      "description":"Breathes in people's backs"
+   },
+   {
+      "id":45,
+      "category":"Fact",
+      "description":"Understands animals"
+   },
+   {
+      "id":46,
+      "category":"Fact",
+      "description":"Sold a kidney"
+   },
+   {
+      "id":47,
+      "category":"Fact",
+      "description":"Paralympic Winner"
+   },
+   {
+      "id":48,
+      "category":"Fact",
+      "description":"Worked in escort services"
+   },
+   {
+      "id":49,
+      "category":"Fact",
+      "description":"Sensitive"
+   },
+   {
+      "id":50,
+      "category":"Fact",
+      "description":"Was in a sect"
+   },
+   {
+      "id":51,
+      "category":"Fact",
+      "description":"Erotophobia"
+   },
+   {
+      "id":52,
+      "category":"Fact",
+      "description":"Read all Lovecraft books"
+   },
+   {
+      "id":53,
+      "category":"Fact",
+      "description":"Alcohol immune"
+   }
+]

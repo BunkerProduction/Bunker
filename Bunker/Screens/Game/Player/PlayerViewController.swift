@@ -17,6 +17,10 @@ final class PlayerViewController: UIViewController {
             AttributeCollectionViewCell.self,
             forCellWithReuseIdentifier: AttributeCollectionViewCell.reuseIdentifier
         )
+        collectionView.register(
+            ButtonCollectionViewCell.self,
+            forCellWithReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier
+        )
 
         return collectionView
     }()
@@ -28,6 +32,7 @@ final class PlayerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         collectionView.setCollectionViewLayout(generateLayout(), animated: false)
+        collectionView.delegate = self
         self.viewModel = PlayerViewModel(collectionView: collectionView, gameCoordinator: coordinator)
     }
 
@@ -67,31 +72,65 @@ final class PlayerViewController: UIViewController {
 
     private func generateLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
-            let itemSide = (ScreenSize.Width - 48 - 16) / 2
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(itemSide),
-                heightDimension: .absolute(itemSide)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            if case 0 = sectionIndex {
+                let itemSide = (ScreenSize.Width - 48 - 16) / 2
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .absolute(itemSide),
+                    heightDimension: .absolute(itemSide)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(itemSide)
-            )
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
-            group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
-                leading: .none,
-                top: .fixed(16),
-                trailing: .none,
-                bottom: .none
-            )
-            group.interItemSpacing = .fixed(16)
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(itemSide)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+                    leading: .none,
+                    top: .fixed(16),
+                    trailing: .none,
+                    bottom: .none
+                )
+                group.interItemSpacing = .fixed(16)
 
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 24, bottom: 20, trailing: 24)
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 24, bottom: 20, trailing: 24)
 
-            return section
+                return section
+            } else {
+                let itemSide = (ScreenSize.Width - 48)
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .absolute(itemSide),
+                    heightDimension: .absolute(48)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(48)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+                    leading: .none,
+                    top: .fixed(16),
+                    trailing: .none,
+                    bottom: .none
+                )
+                group.interItemSpacing = .fixed(16)
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 24, bottom: 110, trailing: 24)
+
+                return section
+            }
         }
         return layout
+    }
+}
+
+// MARK: - CollectionViewDelegate
+extension PlayerViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.cellSelected(indexPath: indexPath)
     }
 }

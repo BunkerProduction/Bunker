@@ -175,6 +175,8 @@ final class WebSocketController {
         self.socket?.send(.data(attribute.json)) { error in
             if error != nil {
                 print(error.debugDescription)
+            } else {
+                print("send successfully")
             }
         }
     }
@@ -194,7 +196,7 @@ final class WebSocketController {
                 Player(
                     UID: $0.id,
                     username: $0.username,
-                    attributes: $0.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0) }
+                    attributes: $0.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) }
                 )
             },
             turn: 0,
@@ -203,7 +205,7 @@ final class WebSocketController {
             myPlayer: Player(
                 UID: myPlayerMessage.id,
                 username: myPlayerMessage.username,
-                attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0) }
+                attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) }
             )
         )
         self.gameModel = gameModel

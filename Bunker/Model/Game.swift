@@ -36,6 +36,7 @@ struct Attribute {
     let id: Int
     var icon: String = "👩🏻‍🎓"
     let type: Category
+    var isExposed: Bool = false
     let description: String
 
     enum Category: String, Codable {
@@ -49,17 +50,17 @@ struct Attribute {
 
     enum CodingKeys: String, CodingKey {
         case id
-//        case icon
         case type = "category"
         case description
     }
 
-    init(identifier: Int, position: Int) {
+    init(identifier: Int, position: Int, isExposed: Bool) {
         let attribute = Self.allAttributes[position].first(where: { $0.id == identifier})!
         self.icon = Attribute.fileNames[position]!.1
         self.id = attribute.id
         self.type = attribute.type
         self.description = attribute.description
+        self.isExposed = isExposed
     }
 
     static var allAttributes: [[Attribute]] = []

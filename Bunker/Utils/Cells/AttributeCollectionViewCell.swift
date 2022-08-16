@@ -44,14 +44,16 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         titleLabel.numberOfLines = 0
-        descriptionLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
+
+        descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .customFont.footnote
         iconLabel.font = .customFont.icon
         self.layer.cornerRadius = 12
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
-        stackView.alignment = .top
+        stackView.distribution = .fill
+        stackView.alignment = .firstBaseline
         stackView.axis = .vertical
         stackView.spacing = 8
 
@@ -77,6 +79,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
             font: .customFont.footnote ?? .systemFont(ofSize: 0),
             1.25
         )
+        self.isUserInteractionEnabled = !attribute.isExposed
     }
 
     public func setTheme(_ theme: Appearence) {

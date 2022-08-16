@@ -1,0 +1,327 @@
+[
+   {
+      "id":0,
+      "category":"Hobby",
+      "description":"Homeopathy"
+   },
+   {
+      "id":1,
+      "category":"Hobby",
+      "description":"Card tricks"
+   },
+   {
+      "id":2,
+      "category":"Hobby",
+      "description":"Drawing"
+   },
+   {
+      "id":3,
+      "category":"Hobby",
+      "description":"Hunting"
+   },
+   {
+      "id":4,
+      "category":"Hobby",
+      "description":"Study of topographic maps"
+   },
+   {
+      "id":5,
+      "category":"Hobby",
+      "description":"Watch repair"
+   },
+   {
+      "id":6,
+      "category":"Hobby",
+      "description":"Meditation"
+   },
+   {
+      "id":7,
+      "category":"Hobby",
+      "description":"Sewing and knitting"
+   },
+   {
+      "id":8,
+      "category":"Hobby",
+      "description":"Brewing"
+   },
+   {
+      "id":9,
+      "category":"Hobby",
+      "description":"Zoology"
+   },
+   {
+      "id":10,
+      "category":"Hobby",
+      "description":"Shooting"
+   },
+   {
+      "id":11,
+      "category":"Hobby",
+      "description":"Growing Plants"
+   },
+   {
+      "id":12,
+      "category":"Hobby",
+      "description":"Carpentry"
+   },
+   {
+      "id":13,
+      "category":"Hobby",
+      "description":"Photography"
+   },
+   {
+      "id":14,
+      "category":"Hobby",
+      "description":"Radio communication"
+   },
+   {
+      "id":15,
+      "category":"Hobby",
+      "description":"Mountaineering"
+   },
+   {
+      "id":16,
+      "category":"Hobby",
+      "description":"Chess"
+   },
+   {
+      "id":17,
+      "category":"Hobby",
+      "description":"DotA"
+   },
+   {
+      "id":18,
+      "category":"Hobby",
+      "description":"Fishing"
+   },
+   {
+      "id":19,
+      "category":"Hobby",
+      "description":"Golf"
+   },
+   {
+      "id":20,
+      "category":"Hobby",
+      "description":"Archery"
+   },
+   {
+      "id":21,
+      "category":"Hobby",
+      "description":"Playing the harmonica"
+   },
+   {
+      "id":22,
+      "category":"Hobby",
+      "description":"Martial arts"
+   },
+   {
+      "id":23,
+      "category":"Hobby",
+      "description":"Mushroom hunting"
+   },
+   {
+      "id":24,
+      "category":"Hobby",
+      "description":"Sailing"
+   },
+   {
+      "id":25,
+      "category":"Hobby",
+      "description":"Dancing"
+   },
+   {
+      "id":26,
+      "category":"Hobby",
+      "description":"Football"
+   },
+   {
+      "id":27,
+      "category":"Hobby",
+      "description":"Singing"
+   },
+   {
+      "id":28,
+      "category":"Hobby",
+      "description":"Cooking"
+   },
+   {
+      "id":29,
+      "category":"Hobby",
+      "description":"Hydroponics"
+   },
+   {
+      "id":30,
+      "category":"Hobby",
+      "description":"Healthy lifestyle"
+   },
+   {
+      "id":31,
+      "category":"Hobby",
+      "description":"Movies and TV series"
+   },
+   {
+      "id":32,
+      "category":"Hobby",
+      "description":"Parkour"
+   },
+   {
+      "id":33,
+      "category":"Hobby",
+      "description":"Alternative medicine"
+   },
+   {
+      "id":34,
+      "category":"Hobby",
+      "description":"Swing parties"
+   },
+   {
+      "id":35,
+      "category":"Hobby",
+      "description":"Ufology and mysticism"
+   },
+   {
+      "id":36,
+      "category":"Hobby",
+      "description":"Striptease"
+   },
+   {
+      "id":37,
+      "category":"Hobby",
+      "description":"Crosswords"
+   },
+   {
+      "id":38,
+      "category":"Hobby",
+      "description":"Plays the piano"
+   },
+   {
+      "id":39,
+      "category":"Hobby",
+      "description":"Karaoke"
+   },
+   {
+      "id":40,
+      "category":"Hobby",
+      "description":"Leads podcasts"
+   },
+   {
+      "id":41,
+      "category":"Hobby",
+      "description":"Knows how to juggle"
+   },
+   {
+      "id":42,
+      "category":"Hobby",
+      "description":"Making jokes"
+   },
+   {
+      "id":43,
+      "category":"Hobby",
+      "description":"Pranks"
+   },
+   {
+      "id":44,
+      "category":"Hobby",
+      "description":"Horseback riding"
+   },
+   {
+      "id":45,
+      "category":"Hobby",
+      "description":"Plays the cello"
+   },
+   {
+      "id":46,
+      "category":"Hobby",
+      "description":"Clay crafting"
+   },
+   {
+      "id":47,
+      "category":"Hobby",
+      "description":"Robotics"
+   },
+   {
+      "id":48,
+      "category":"Hobby",
+      "description":"Writes fanfiction"
+   },
+   {
+      "id":49,
+      "category":"Hobby",
+      "description":"Wood carving"
+   },
+   {
+      "id":50,
+      "category":"Hobby",
+      "description":"Board games"
+   },
+   {
+      "id":51,
+      "category":"Hobby",
+      "description":"Treasure hunting"
+   },
+   {
+      "id":52,
+      "category":"Hobby",
+      "description":"Fond of archeology"
+   },
+   {
+      "id":53,
+      "category":"Hobby",
+      "description":"Watching melodramas"
+   },
+   {
+      "id":54,
+      "category":"Hobby",
+      "description":"Collect notepads"
+   },
+   {
+      "id":55,
+      "category":"Hobby",
+      "description":"Ice Skating"
+   },
+   {
+      "id":56,
+      "category":"Hobby",
+      "description":"Parachuting"
+   },
+   {
+      "id":57,
+      "category":"Hobby",
+      "description":"Jigsaw puzzles"
+   },
+   {
+      "id":58,
+      "category":"Hobby",
+      "description":"Weaves baskets"
+   },
+   {
+      "id":59,
+      "category":"Hobby",
+      "description":"Play tennis"
+   },
+   {
+      "id":60,
+      "category":"Hobby",
+      "description":"Collects herbarium"
+   },
+   {
+      "id":61,
+      "category":"Hobby",
+      "description":"Gambling"
+   },
+   {
+      "id":62,
+      "category":"Hobby",
+      "description":"Writes music"
+   },
+   {
+      "id":63,
+      "category":"Hobby",
+      "description":"Watches superstition show"
+   },
+   {
+      "id":64,
+      "category":"Hobby",
+      "description":"Plays bowling"
+   }
+]

@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4E45DA9228318B0100F5BF7A /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E45DA9128318B0100F5BF7A /* Label.swift */; };
-		4E8117E728A7DDA100DBF74C /* health.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E8117E128A7DDA000DBF74C /* health.json */; };
-		4E8117E828A7DDA100DBF74C /* profession.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E8117E228A7DDA000DBF74C /* profession.json */; };
-		4E8117E928A7DDA100DBF74C /* hobby.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E8117E328A7DDA000DBF74C /* hobby.json */; };
-		4E8117EA28A7DDA100DBF74C /* fact.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E8117E428A7DDA000DBF74C /* fact.json */; };
-		4E8117EB28A7DDA100DBF74C /* biology.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E8117E528A7DDA000DBF74C /* biology.json */; };
-		4E8117EC28A7DDA100DBF74C /* luggage.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E8117E628A7DDA100DBF74C /* luggage.json */; };
 		4E81D4F22832EDD400829361 /* buttonSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F12832EDD400829361 /* buttonSound2.wav */; };
 		4E81D4F42832EDE000829361 /* buttonSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F32832EDE000829361 /* buttonSound3.wav */; };
 		4E81D4F72833739800829361 /* buttonSound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F62833739800829361 /* buttonSound4.wav */; };
@@ -110,6 +104,12 @@
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
 		C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */; };
+		C08783E928AB12B8009DD819 /* profession.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783E828AB12B8009DD819 /* profession.json */; };
+		C08783EB28AB12CE009DD819 /* biology.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783EA28AB12CE009DD819 /* biology.json */; };
+		C08783ED28AB12DA009DD819 /* fact.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783EC28AB12DA009DD819 /* fact.json */; };
+		C08783EF28AB12E4009DD819 /* health.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783EE28AB12E4009DD819 /* health.json */; };
+		C08783F128AB1302009DD819 /* hobby.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783F028AB1302009DD819 /* hobby.json */; };
+		C08783F328AB130C009DD819 /* luggage.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783F228AB130C009DD819 /* luggage.json */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,12 +132,6 @@
 
 /* Begin PBXFileReference section */
 		4E45DA9128318B0100F5BF7A /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		4E8117E128A7DDA000DBF74C /* health.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = health.json; path = "../../../../JSON-main/health.json"; sourceTree = "<group>"; };
-		4E8117E228A7DDA000DBF74C /* profession.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = profession.json; path = "../../../../JSON-main/profession.json"; sourceTree = "<group>"; };
-		4E8117E328A7DDA000DBF74C /* hobby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = hobby.json; path = "../../../../JSON-main/hobby.json"; sourceTree = "<group>"; };
-		4E8117E428A7DDA000DBF74C /* fact.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = fact.json; path = "../../../../JSON-main/fact.json"; sourceTree = "<group>"; };
-		4E8117E528A7DDA000DBF74C /* biology.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = biology.json; path = "../../../../JSON-main/biology.json"; sourceTree = "<group>"; };
-		4E8117E628A7DDA100DBF74C /* luggage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = luggage.json; path = "../../../../JSON-main/luggage.json"; sourceTree = "<group>"; };
 		4E81D4F12832EDD400829361 /* buttonSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound2.wav; sourceTree = "<group>"; };
 		4E81D4F32832EDE000829361 /* buttonSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound3.wav; sourceTree = "<group>"; };
 		4E81D4F62833739800829361 /* buttonSound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound4.wav; sourceTree = "<group>"; };
@@ -238,6 +232,12 @@
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C08783E828AB12B8009DD819 /* profession.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = profession.json; sourceTree = "<group>"; };
+		C08783EA28AB12CE009DD819 /* biology.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = biology.json; sourceTree = "<group>"; };
+		C08783EC28AB12DA009DD819 /* fact.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fact.json; sourceTree = "<group>"; };
+		C08783EE28AB12E4009DD819 /* health.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = health.json; sourceTree = "<group>"; };
+		C08783F028AB1302009DD819 /* hobby.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hobby.json; sourceTree = "<group>"; };
+		C08783F228AB130C009DD819 /* luggage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luggage.json; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -400,12 +400,12 @@
 				C003F32C28303D2F006F3FE9 /* threat.json */,
 				C003F32A28303D1A006F3FE9 /* shelter.json */,
 				C003F32828303CFF006F3FE9 /* catastrophe.json */,
-				4E8117E528A7DDA000DBF74C /* biology.json */,
-				4E8117E428A7DDA000DBF74C /* fact.json */,
-				4E8117E128A7DDA000DBF74C /* health.json */,
-				4E8117E328A7DDA000DBF74C /* hobby.json */,
-				4E8117E628A7DDA100DBF74C /* luggage.json */,
-				4E8117E228A7DDA000DBF74C /* profession.json */,
+				C08783EA28AB12CE009DD819 /* biology.json */,
+				C08783E828AB12B8009DD819 /* profession.json */,
+				C08783EC28AB12DA009DD819 /* fact.json */,
+				C08783EE28AB12E4009DD819 /* health.json */,
+				C08783F028AB1302009DD819 /* hobby.json */,
+				C08783F228AB130C009DD819 /* luggage.json */,
 			);
 			path = GameData;
 			sourceTree = "<group>";
@@ -794,20 +794,18 @@
 				C003F2F5282DB942006F3FE9 /* Toxic@3x.png in Resources */,
 				4E81D4F72833739800829361 /* buttonSound4.wav in Resources */,
 				4ED4C61B282E4EB40062D0AD /* LightPreview.png in Resources */,
-				4E8117EA28A7DDA100DBF74C /* fact.json in Resources */,
 				C003F2F4282DB942006F3FE9 /* Holo@3x.png in Resources */,
 				4ED4C61A282E4EB40062D0AD /* DarkPreview.png in Resources */,
-				4E8117EB28A7DDA100DBF74C /* biology.json in Resources */,
+				C08783F128AB1302009DD819 /* hobby.json in Resources */,
+				C08783E928AB12B8009DD819 /* profession.json in Resources */,
 				4ED4C61F282E4EB40062D0AD /* ToxicPreview.png in Resources */,
 				C003F32928303CFF006F3FE9 /* catastrophe.json in Resources */,
+				C08783F328AB130C009DD819 /* luggage.json in Resources */,
 				C003F2F2282DB942006F3FE9 /* Alian@2x.png in Resources */,
 				C003F2F6282DB942006F3FE9 /* Alian@3x.png in Resources */,
-				4E8117E928A7DDA100DBF74C /* hobby.json in Resources */,
 				C033A50D28318677006B7A6C /* buttonSound1.wav in Resources */,
-				4E8117E728A7DDA100DBF74C /* health.json in Resources */,
 				C003F2F8282DB993006F3FE9 /* Standart60_3x.png in Resources */,
 				C003F2EE282DB942006F3FE9 /* Mono@2x.png in Resources */,
-				4E8117E828A7DDA100DBF74C /* profession.json in Resources */,
 				C003F32B28303D1A006F3FE9 /* shelter.json in Resources */,
 				C003F2F1282DB942006F3FE9 /* Holo@2x.png in Resources */,
 				4E81D4F42832EDE000829361 /* buttonSound3.wav in Resources */,
@@ -816,6 +814,7 @@
 				C0455E5428257A0B00990351 /* LaunchScreen.storyboard in Resources */,
 				4ED4C60D282D90C60062D0AD /* SF-Pro-Display-Bold.otf in Resources */,
 				4ED4C61E282E4EB40062D0AD /* AlianPreview.png in Resources */,
+				C08783ED28AB12DA009DD819 /* fact.json in Resources */,
 				4E81D4F22832EDD400829361 /* buttonSound2.wav in Resources */,
 				4E81D4FF2833771D00829361 /* buttonSound8.mp3 in Resources */,
 				C003F2F3282DB942006F3FE9 /* Dark@3x.png in Resources */,
@@ -823,11 +822,12 @@
 				4ED4C60F282D90DD0062D0AD /* SF-Pro-Display-Regular.otf in Resources */,
 				4ED4C61C282E4EB40062D0AD /* HoloPreview.png in Resources */,
 				C0455E5128257A0B00990351 /* Assets.xcassets in Resources */,
+				C08783EB28AB12CE009DD819 /* biology.json in Resources */,
 				4E81D4FB283374F000829361 /* buttonSound6.mp3 in Resources */,
 				C003F32F28303D4A006F3FE9 /* condition.json in Resources */,
+				C08783EF28AB12E4009DD819 /* health.json in Resources */,
 				C003F2F0282DB942006F3FE9 /* Dark@2x.png in Resources */,
 				4E81D5012833772800829361 /* buttonSound9.wav in Resources */,
-				4E8117EC28A7DDA100DBF74C /* luggage.json in Resources */,
 				C003F2ED282DB942006F3FE9 /* Mono3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

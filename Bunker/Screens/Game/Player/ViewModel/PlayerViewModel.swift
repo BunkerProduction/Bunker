@@ -53,20 +53,55 @@ final class PlayerViewModel: NSObject {
     private func unbind() {
         gameModelSubscriber?.cancel()
     }
+
+    public func cellSelected(indexPath: IndexPath) {
+        guard let gameModel = gameModel else {
+            return
+        }
+        if collectionView?.cellForItem(at: indexPath) is AttributeCollectionViewCell {
+            let attribute = dataSource[indexPath.row]
+            networkService.sendChosenAttribute(attribute: AttributeChoiceMessage(
+                attributeID: attribute.id,
+                playerID: gameModel.myPlayer.UID
+            ))
+        } else {
+
+        }
+    }
 }
 
 extension PlayerViewModel: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        if section == 0 {
+            return dataSource.count
+        } else {
+            return 1
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttributeCollectionViewCell.reuseIdentifier, for: indexPath)
-        if let cell = cell as? AttributeCollectionViewCell {
-            cell.configure(dataSource[indexPath.row])
-            cell.setTheme(settings.appearance)
-        }
+        if case 0 = indexPath.section {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttributeCollectionViewCell.reuseIdentifier, for: indexPath)
+            if let cell = cell as? AttributeCollectionViewCell {
+                cell.configure(dataSource[indexPath.row])
+                cell.setTheme(settings.appearance)
+            }
 
-        return cell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier,
+                for: indexPath
+            )
+            if let cell = cell as? ButtonCollectionViewCell {
+                cell.configure("Открыть карту")
+                cell.setTheme(settings.appearance)
+            }
+            return cell
+        }
     }
 }
