@@ -10,10 +10,15 @@ import UIKit
 final class PlayerCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "PlayerCollectionViewCell"
 
-    private let nameLabel = UILabel()
-    private let attributeLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+
+        return label
+    }()
+    private let attributeLabel: UILabel = {
+        let label = UILabel()
+        label.setWidth(to: 140)
 
         return label
     }()
@@ -40,16 +45,27 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
         stackView.alignment = .fill
         stackView.spacing = 10
         
-        addSubview(nameLabel)
-        nameLabel.pin(to: self, [.left: 12, .top: 12, .bottom: 12])
+        addSubview(stackView)
+        stackView.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])
     }
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
     }
 
-    public func configure(name: String) {
-        nameLabel.text = name
-        attributeLabel.text = "😡 😎"
+    public func configure(player: Player) {
+        nameLabel.text = player.username
+
+        var attributesString = ""
+        for attr in player.attributes {
+            if(attr.isExposed) {
+                attributesString += attr.icon
+            } else {
+                attributesString += " "
+            }
+            attributesString += " "
+        }
+        attributeLabel.text = attributesString
+        leftView.isHidden = true
     }
 }

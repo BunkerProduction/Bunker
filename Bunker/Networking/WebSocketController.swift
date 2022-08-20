@@ -57,7 +57,8 @@ final class WebSocketController {
     
     // MARK: - Disconnect
     public func disconnect() {
-        socket?.cancel(with: .goingAway, reason: nil)
+        socket?.cancel()
+        socket = nil
         waitingRoom = nil
         connectionStatus = false
     }
@@ -82,7 +83,7 @@ final class WebSocketController {
             self.schedulePing()
         }
     }
-    
+//    befc9b5fea3fc2b4
     // MARK: - Handle data
     private func handle(_ data: Data) {
         print(data)
@@ -172,7 +173,8 @@ final class WebSocketController {
     }
 
     public func sendChosenAttribute(attribute: AttributeChoiceMessage) {
-        self.socket?.send(.data(attribute.json)) { error in
+        let data = attribute.jsonString
+        self.socket?.send(.string(data)) { error in
             if error != nil {
                 print(error.debugDescription)
             } else {
@@ -199,7 +201,7 @@ final class WebSocketController {
                     attributes: $0.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) }
                 )
             },
-            turn: 0,
+            turn: gameModelMessage.turn,
             round: 0,
             gameState: .normal,
             myPlayer: Player(

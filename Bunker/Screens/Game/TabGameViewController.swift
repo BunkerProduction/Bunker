@@ -76,8 +76,12 @@ final class TabGameViewController: UIViewController, GameCoordinator {
     }
 
     public func exitGame() {
-        self.navigationController?.popToRootViewController(animated: true)
         networkService.disconnect()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+
+    public func presentViewController(_ vc: UIViewController) {
+        self.navigationController?.present(vc, animated: true)
     }
 }
 

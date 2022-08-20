@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CoreMIDI
 
 final class MainGameViewModel {
     typealias DataSource = UICollectionViewDiffableDataSource<AnyHashable, AnyHashable>
@@ -47,7 +48,7 @@ final class MainGameViewModel {
             )
             if let cell = cell as? PlayerCollectionViewCell,
                let item = itemIdentifier as? Player {
-                cell.configure(name: item.username)
+                cell.configure(player: item)
                 cell.setTheme(self.settings.appearance)
             }
 
@@ -63,13 +64,8 @@ final class MainGameViewModel {
         var snapshot = NSDiffableDataSourceSnapshot<AnyHashable, AnyHashable>()
         snapshot.appendSections(["players"])
         snapshot.appendItems(gameModel.players, toSection: "players")
-//        snapshot.appendSections([.threats, .catastrophe, .exit])
-//        snapshot.appendItems(["text","1234"], toSection: .threats)
-//        snapshot.appendItems([gameModel.gamePreferences.catastrophe], toSection: .catastrophe)
-//        snapshot.appendItems(["dummy"], toSection: .exit)
-//        sections = [.threats, .catastrophe, .exit]
 
-        dataSource?.apply(snapshot)
+        dataSource?.applySnapshotUsingReloadData(snapshot)
     }
 
     // MARK: - Binding
@@ -79,7 +75,17 @@ final class MainGameViewModel {
             .assign(to: \.gameModel, on: self)
     }
 
+    // MARK: - Public Methods
     private func unbind() {
         gameModelSubscriber?.cancel()
+    }
+
+    func cellSelected(indexPath: IndexPath) {
+        if let player = dataSource?.itemIdentifier(for: indexPath) as? Player {
+            let playerViewController = PlayerDetailsViewController(player: player)
+            let navVC = UINavigationController(rootViewController: playerViewController)
+            playerViewController.modalPresentationStyle = .pageSheet
+            coordinator?.presentViewController(navVC)
+        }
     }
 }

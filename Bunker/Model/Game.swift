@@ -14,7 +14,7 @@ enum GameState: String, Codable {
 struct Game {
     let gamePreferences: GamePreferences
     let players: [Player]
-    let turn: Int
+    let turn: String
     let round: Int
     let gameState: GameState
     let myPlayer: Player
@@ -29,6 +29,10 @@ struct Player {
 extension Player: Hashable {
     static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.UID == rhs.UID
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(UID)
     }
 }
 

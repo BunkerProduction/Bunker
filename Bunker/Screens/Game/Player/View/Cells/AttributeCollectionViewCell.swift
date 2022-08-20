@@ -13,7 +13,10 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
     private let iconLabel = UILabel()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
+    private var isBlured: Bool = false
+    private var isBlurable: Bool = true
     private var borderColorNormal: CGColor?
+    private var dimmingMask: CAShapeLayer?
 
     override var isSelected: Bool {
         didSet {
@@ -41,6 +44,36 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if(isBlured && isBlurable) {
+            let mutablePath = CGMutablePath()
+            mutablePath.addRect(self.bounds)
+            dimmingMask = CAShapeLayer()
+
+            guard let dimmingMask = dimmingMask else {
+                return
+            }
+            dimmingMask.path = mutablePath
+            dimmingMask.fillRule = .evenOdd
+            self.layer.mask = dimmingMask
+            dimmingMask.fillColor = UIColor.white.withAlphaComponent(0.5).cgColor
+//            let animation = CABasicAnimation(keyPath: "fillColor")
+//            animation.fromValue = dimmingMask.fillColor
+//            animation.toValue = UIColor.white.withAlphaComponent(0.5).cgColor
+//            animation.duration = 1.0
+//            dimmingMask.add(animation, forKey: nil)
+//
+//            CATransaction.begin()
+//            CATransaction.setDisableActions(true)
+//            dimmingMask.fillColor = UIColor.white.withAlphaComponent(0.5).cgColor
+//            CATransaction.commit()
+        } else {
+            self.layer.mask = nil
+        }
+    }
+
     // MARK: - SetupUI
     private func setupView() {
         titleLabel.numberOfLines = 0
@@ -57,13 +90,13 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.spacing = 8
 
-        self.addSubview(stackView)
+        self.contentView.addSubview(stackView)
 
-        stackView.pin(to: self, [.left: 16, .right: 16, .bottom: 16, .top: 16])
+        stackView.pin(to: contentView, [.left: 16, .right: 16, .bottom: 16, .top: 16])
     }
 
     // MARK: - Configure
-    public func configure(_ attribute: Attribute) {
+    public func configure(_ attribute: Attribute, isBlurable: Bool = true) {
         iconLabel.setCustomAttributedText(
             string: attribute.icon,
             font: .customFont.icon,
@@ -80,6 +113,8 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
             1.25
         )
         self.isUserInteractionEnabled = !attribute.isExposed
+        self.isBlured = attribute.isExposed
+        self.isBlurable = isBlurable
     }
 
     public func setTheme(_ theme: Appearence) {

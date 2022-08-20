@@ -100,17 +100,17 @@ final class WaitingViewModel {
         
         dataSource.apply(snapshot)
     }
-    
+
+    private func updateUI() {
+        viewController?.isStartGameVisible(roomModel?.isCreator ?? false)
+    }
+
     // MARK: - Navigation
     private func proceedToGame() {
         unbind()
         
         let gameController = TabGameViewController()
         self.viewController?.navigationController?.pushViewController(gameController, animated: true)
-    }
-    
-    private func updateUI() {
-        viewController?.isStartGameVisible(roomModel?.isCreator ?? false)
     }
     
     public func disconnect() {
@@ -120,8 +120,7 @@ final class WaitingViewModel {
         
         self.viewController?.navigationController?.popViewController(animated: true)
     }
-    
-    
+
     public func startGame() {
         socketController.startGame()
     }

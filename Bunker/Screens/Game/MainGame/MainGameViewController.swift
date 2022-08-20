@@ -27,6 +27,7 @@ final class MainGameViewController: UIViewController {
             PlayerCollectionViewCell.self,
             forCellWithReuseIdentifier: PlayerCollectionViewCell.reuseIdentifier
         )
+        collectionView.backgroundColor = .clear
         collectionView.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 24, right: 0)
 
         return collectionView
@@ -38,6 +39,7 @@ final class MainGameViewController: UIViewController {
     init(_ coordinator: GameCoordinator) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = MainGameViewModel(collectionView: collectionView, gameCoordinator: coordinator)
+        collectionView.delegate = self
     }
 
     @available(*, unavailable)
@@ -109,5 +111,7 @@ final class MainGameViewController: UIViewController {
 
 // MARK: - CollectionViewDelegate
 extension MainGameViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.cellSelected(indexPath: indexPath)
+    }
 }

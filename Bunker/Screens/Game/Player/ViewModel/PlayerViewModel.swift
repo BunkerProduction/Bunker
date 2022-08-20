@@ -13,6 +13,7 @@ final class PlayerViewModel: NSObject {
     private let networkService = WebSocketController.shared
 
     private var gameModelSubscriber: AnyCancellable?
+    private var choosenAttributeIndex: Int?
     private var gameModel: Game? {
         didSet {
             updateDataSource()
@@ -59,20 +60,26 @@ final class PlayerViewModel: NSObject {
             return
         }
         if collectionView?.cellForItem(at: indexPath) is AttributeCollectionViewCell {
-            let attribute = dataSource[indexPath.row]
+            self.choosenAttributeIndex = indexPath.row
+        } else {
+            guard let index = choosenAttributeIndex else {
+                return
+            }
             networkService.sendChosenAttribute(attribute: AttributeChoiceMessage(
-                attributeID: attribute.id,
+                attributePos: index,
                 playerID: gameModel.myPlayer.UID
             ))
-        } else {
-
         }
     }
 }
 
 extension PlayerViewModel: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        if let gameModel = gameModel, gameModel.myPlayer.UID == gameModel.turn {
+            return 2
+        } else {
+            return 1
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

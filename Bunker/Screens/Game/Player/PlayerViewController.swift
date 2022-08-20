@@ -21,6 +21,8 @@ final class PlayerViewController: UIViewController {
             ButtonCollectionViewCell.self,
             forCellWithReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier
         )
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
 
         return collectionView
     }()
