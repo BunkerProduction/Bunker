@@ -66,6 +66,7 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
             attributesString += " "
         }
         attributeLabel.text = attributesString
+        attributeLabel.font = .customFont.icon
         leftView.isHidden = true
     }
 }

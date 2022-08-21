@@ -112,6 +112,7 @@
 		C08783F328AB130C009DD819 /* luggage.json in Resources */ = {isa = PBXBuildFile; fileRef = C08783F228AB130C009DD819 /* luggage.json */; };
 		C08783FC28B10262009DD819 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783FB28B10262009DD819 /* PlayerDetailsViewController.swift */; };
 		C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783FE28B18577009DD819 /* PlayerDetailsViewModel.swift */; };
+		C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937AD528B2E5BE0027B48B /* SHLogger.swift */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +243,7 @@
 		C08783F228AB130C009DD819 /* luggage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = luggage.json; sourceTree = "<group>"; };
 		C08783FB28B10262009DD819 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		C08783FE28B18577009DD819 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
+		C0937AD528B2E5BE0027B48B /* SHLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLogger.swift; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -504,6 +506,7 @@
 				C003F2C8282D7611006F3FE9 /* Cells */,
 				C0455E842825856500990351 /* BunkerLogo.swift */,
 				C02D109E283BE1B90053BFD8 /* BunkerTabBar.swift */,
+				C0937AD528B2E5BE0027B48B /* SHLogger.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
 				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
+				C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */,
 				C06642DB288B298300DD7C28 /* ThreatsProtocols.swift in Sources */,
 				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
 				C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */,

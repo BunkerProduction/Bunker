@@ -12,7 +12,8 @@ final class WebSocketController {
     enum Endpoint: String {
         case base = "wss://ktor-bunker.herokuapp.com/game?username="
     }
-    
+
+    private let logger = SHLogger()
     public static var shared = WebSocketController()
     private let session: URLSession
     private var socket: URLSessionWebSocketTask?
@@ -57,7 +58,7 @@ final class WebSocketController {
     
     // MARK: - Disconnect
     public func disconnect() {
-        socket?.cancel()
+        socket?.cancel(with: .normalClosure, reason: nil)
         socket = nil
         waitingRoom = nil
         connectionStatus = false
@@ -73,11 +74,12 @@ final class WebSocketController {
     private func ping() {
         socket?.sendPing { [self] (error) in
             if let error = error {
-                print("Ping failed: \(error)")
+                logger.log(event: .pingError(error: error))
                 if let failReason = socket?.closeReason {
                     print(String(decoding: failReason, as: UTF8.self))
                 }
             } else {
+                logger.log(event: .pingSucceded())
                 print("Ping is fine")
             }
             self.schedulePing()
@@ -109,7 +111,7 @@ final class WebSocketController {
     private func listen() {
         self.socket?.receive { [weak self] (result) in
             guard let self = self else { return }
-            
+            self.logger.log(event: .socketRecieve())
             switch result {
             case .failure(let error):
                 print(error)
@@ -146,6 +148,7 @@ final class WebSocketController {
         let gamePref = GamePreferencesMessage(
             votingTime: creatorsPrefs.votingTime,
             catastropheId: catastropheId,
+            gameConditions: [],
             shelterId: shelterId,
             difficultyId: difficultyId
         )
@@ -153,10 +156,12 @@ final class WebSocketController {
         let correctString = workAround(model: gamePref)
         do {
             let data = correctString.data(using: .utf8)!
-            print(String(data: data, encoding: .utf8)!)
             self.socket?.send(.string(correctString)) { (error) in
-                if error != nil {
-                    print(error.debugDescription)
+                if let networkError = error {
+                    self.logger.log(event: .socketSendGamePrefFailed(gamePrefs: correctString, error: networkError))
+                    print(networkError.localizedDescription)
+                } else {
+                    self.logger.log(event: .socketSendGamePrefSucceded(gamePrefs: correctString))
                 }
             }
         } catch {
@@ -192,7 +197,11 @@ final class WebSocketController {
         }
         let gameModel = Game(
             gamePreferences: GamePreferences(
-                catastropheId: gameModelMessage.preferences.catastropheId
+                catastropheId: gameModelMessage.preferences.catastropheId,
+                conditions: gameModelMessage.preferences.gameConditions.map {
+                    ShelterCondition(id: $0.Condition, isExposed: $0.isExposed)
+                }
+
             ),
             players: gameModelMessage.players.map {
                 Player(
@@ -236,9 +245,10 @@ extension WebSocketController {
         let keyValuePairs = [
             ("votingTime", model.votingTime),
             ("catastropheId", model.catastropheId),
+            ("gameConditions", []),
             ("shelterId", model.shelterId),
             ("difficultyId", model.difficultyId)
-        ]
+        ] as [(String, Any)]
         
         let dict = Dictionary(uniqueKeysWithValues: keyValuePairs)
         let orderedKeys = keyValuePairs.map { $0.0 }

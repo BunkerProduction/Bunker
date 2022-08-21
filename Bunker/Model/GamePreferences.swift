@@ -11,6 +11,7 @@ struct GamePreferences {
     var votingTime: Int = 0
     var catastrophe: Catastrophe?
     var shelter: Shelter?
+    var conditions: [ShelterCondition]?
     var difficulty: GameDifficulty?
 
     init() {
@@ -19,15 +20,45 @@ struct GamePreferences {
         difficulty = GameDifficulty(rate: 1)
     }
 
-    init(catastropheId: Int) {
+    init(catastropheId: Int, conditions: [ShelterCondition]?) {
         catastrophe = Catastrophe.getAll()[catastropheId]
         shelter = Shelter.random()
         difficulty = GameDifficulty(rate: 1)
+        self.conditions = conditions
     }
 }
 
 extension GamePreferences: Codable { }
 
+struct ShelterCondition {
+    let id: Int
+    let name: String
+    let description: String
+    var isExposed: Bool = false
+
+    init(id: Int, isExposed: Bool = false) {
+        let condition = Self.getAll()[id]
+        self.id = condition.id
+        self.name = condition.name
+        self.description = condition.description
+        self.isExposed = isExposed
+    }
+
+    public static func getAll() -> [ShelterCondition] {
+        let decoder = JSONDecoder()
+        if let data = JsonManager.shared.readLocalFile(forName: "condition") {
+            do {
+                let allConditions = try decoder.decode([ShelterCondition].self, from: data)
+                return allConditions
+            } catch {
+                print("Failed to decode")
+            }
+        }
+        return []
+    }
+}
+
+extension ShelterCondition: Codable {}
 
 // MARK: - Difficulty
 struct GameDifficulty {
