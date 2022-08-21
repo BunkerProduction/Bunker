@@ -76,12 +76,15 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
 
     // MARK: - SetupUI
     private func setupView() {
+        iconLabel.font = .customFont.icon
+        iconLabel.setHeight(to: 24)
+
         titleLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
 
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .customFont.footnote
-        iconLabel.font = .customFont.icon
+
         self.layer.cornerRadius = 12
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
