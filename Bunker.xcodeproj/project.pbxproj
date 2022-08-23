@@ -113,6 +113,7 @@
 		C08783FC28B10262009DD819 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783FB28B10262009DD819 /* PlayerDetailsViewController.swift */; };
 		C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783FE28B18577009DD819 /* PlayerDetailsViewModel.swift */; };
 		C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937AD528B2E5BE0027B48B /* SHLogger.swift */; };
+		C0937AD928B576350027B48B /* MainGameProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937AD828B576350027B48B /* MainGameProtocols.swift */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -244,6 +245,7 @@
 		C08783FB28B10262009DD819 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		C08783FE28B18577009DD819 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		C0937AD528B2E5BE0027B48B /* SHLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLogger.swift; sourceTree = "<group>"; };
+		C0937AD828B576350027B48B /* MainGameProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameProtocols.swift; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -624,6 +626,7 @@
 				C06642DE288B4FA900DD7C28 /* View */,
 				C06642D8287CDF3D00DD7C28 /* ViewModel */,
 				C02D10A7283C046D0053BFD8 /* MainGameViewController.swift */,
+				C0937AD828B576350027B48B /* MainGameProtocols.swift */,
 			);
 			path = MainGame;
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,
 				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,
 				C0455E802825805000990351 /* View+Pin.swift in Sources */,
+				C0937AD928B576350027B48B /* MainGameProtocols.swift in Sources */,
 				C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */,
 				C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */,
 				C003F32728302B11006F3FE9 /* JsonManager.swift in Sources */,
