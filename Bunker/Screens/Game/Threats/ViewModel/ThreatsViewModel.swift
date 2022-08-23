@@ -14,9 +14,9 @@ final class ThreatViewModel: ThreatsLogic {
     typealias DifSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
 
     enum Section: String {
-        case threats
+        case conditions
+        case shelter
         case catastrophe
-        case bunker
         case exit
     }
 
@@ -54,22 +54,35 @@ final class ThreatViewModel: ThreatsLogic {
 
             let section = self.sections[indexPath.section]
             switch section {
-            case .threats:
+            case .conditions:
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ConditionCollectionViewCell.reuseIdentifier,
                     for: indexPath
                 )
-                if let cell = cell as? ConditionCollectionViewCell {
-                    cell.configure(icon: "⚡️", type: "Условие", description: "The AI control of the bunker «stuck out» and blocks life support - it is necessary to prove the soulless computer that there are breathing living people in the bunker. \n\nThe test is based on checking the unique difference between humans and robots - the ability to create. You need to go through it.")
+                if let cell = cell as? ConditionCollectionViewCell,
+                    let item  = itemIdentifier as? ShelterCondition {
+                    cell.configure(icon: "⚡️", type: "Условие", description: item.description)
                     cell.setTheme(self.settings.appearance)
                 }
                 return cell
-            case .catastrophe:
+            case .shelter:
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: CatastrpoheCollectionViewCell.reuseIdentifier,
+                    withReuseIdentifier: GameInfoCollectionViewCell.reuseIdentifier,
                     for: indexPath
                 )
-                if let cell = cell as? CatastrpoheCollectionViewCell,
+                if let cell = cell as? GameInfoCollectionViewCell,
+                   let item = itemIdentifier as? Shelter {
+                    cell.configure(icon: item.icon, title: item.name, type: "Бункер", description: item.description)
+                    cell.setTheme(self.settings.appearance)
+                }
+
+                return cell
+            case .catastrophe:
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: GameInfoCollectionViewCell.reuseIdentifier,
+                    for: indexPath
+                )
+                if let cell = cell as? GameInfoCollectionViewCell,
                    let catastrophe = itemIdentifier as? Catastrophe {
                     cell.configure(
                         icon: catastrophe.icon,
@@ -80,7 +93,7 @@ final class ThreatViewModel: ThreatsLogic {
                     cell.setTheme(self.settings.appearance)
                 }
                 return cell
-            default:
+            case .exit:
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier,
                     for: indexPath
@@ -101,11 +114,15 @@ final class ThreatViewModel: ThreatsLogic {
             return
         }
         var snapshot = DifSnapshot()
-        snapshot.appendSections([.threats, .catastrophe, .exit])
-        snapshot.appendItems(["text","1234"], toSection: .threats)
+
+        let conditions: [ShelterCondition] = gameModel.gamePreferences.conditions.filter { $0.isExposed }
+
+        snapshot.appendSections([.conditions, .shelter, .catastrophe, .exit])
+        snapshot.appendItems(conditions, toSection: .conditions)
+        snapshot.appendItems([gameModel.gamePreferences.shelter], toSection: .shelter)
         snapshot.appendItems([gameModel.gamePreferences.catastrophe], toSection: .catastrophe)
         snapshot.appendItems(["dummy"], toSection: .exit)
-        sections = [.threats, .catastrophe, .exit]
+        sections = [.conditions, .shelter, .catastrophe, .exit]
 
         dataSource?.apply(snapshot)
     }

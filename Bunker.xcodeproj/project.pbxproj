@@ -57,7 +57,7 @@
 		C003F32F28303D4A006F3FE9 /* condition.json in Resources */ = {isa = PBXBuildFile; fileRef = C003F32E28303D4A006F3FE9 /* condition.json */; };
 		C003F33128304971006F3FE9 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F33028304971006F3FE9 /* String+Height.swift */; };
 		C0070CDC28947B93007BDA0B /* GameSpecialCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0070CDB28947B93007BDA0B /* GameSpecialCardView.swift */; };
-		C0070CDE289561D1007BDA0B /* CatastrpoheCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0070CDD289561D1007BDA0B /* CatastrpoheCollectionViewCell.swift */; };
+		C0070CDE289561D1007BDA0B /* GameInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0070CDD289561D1007BDA0B /* GameInfoCollectionViewCell.swift */; };
 		C02D109D28399F050053BFD8 /* ConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D109C28399F050053BFD8 /* ConnectViewModel.swift */; };
 		C02D109F283BE1B90053BFD8 /* BunkerTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D109E283BE1B90053BFD8 /* BunkerTabBar.swift */; };
 		C02D10A2283BE33A0053BFD8 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D10A1283BE33A0053BFD8 /* PlayerViewController.swift */; };
@@ -184,7 +184,7 @@
 		C003F32E28303D4A006F3FE9 /* condition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = condition.json; sourceTree = "<group>"; };
 		C003F33028304971006F3FE9 /* String+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
 		C0070CDB28947B93007BDA0B /* GameSpecialCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSpecialCardView.swift; sourceTree = "<group>"; };
-		C0070CDD289561D1007BDA0B /* CatastrpoheCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatastrpoheCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0070CDD289561D1007BDA0B /* GameInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		C02D109C28399F050053BFD8 /* ConnectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewModel.swift; sourceTree = "<group>"; };
 		C02D109E283BE1B90053BFD8 /* BunkerTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunkerTabBar.swift; sourceTree = "<group>"; };
 		C02D10A1283BE33A0053BFD8 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -316,7 +316,6 @@
 				C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */,
 				C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */,
 				C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */,
-				C0070CDD289561D1007BDA0B /* CatastrpoheCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -585,6 +584,7 @@
 		C06642D3287CDF0100DD7C28 /* Threats */ = {
 			isa = PBXGroup;
 			children = (
+				C0937AD728B566130027B48B /* View */,
 				C06642D4287CDF0A00DD7C28 /* ViewModel */,
 				C02D10A9283C04800053BFD8 /* ThreatsViewController.swift */,
 				C06642DA288B298300DD7C28 /* ThreatsProtocols.swift */,
@@ -723,6 +723,14 @@
 				C06642DF288B4FB500DD7C28 /* GameHeaderView.swift */,
 			);
 			path = StaticViews;
+			sourceTree = "<group>";
+		};
+		C0937AD728B566130027B48B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0070CDD289561D1007BDA0B /* GameInfoCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -900,7 +908,7 @@
 				C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */,
-				C0070CDE289561D1007BDA0B /* CatastrpoheCollectionViewCell.swift in Sources */,
+				C0070CDE289561D1007BDA0B /* GameInfoCollectionViewCell.swift in Sources */,
 				C02D109D28399F050053BFD8 /* ConnectViewModel.swift in Sources */,
 				C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */,
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,

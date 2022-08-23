@@ -196,13 +196,7 @@ final class WebSocketController {
             return
         }
         let gameModel = Game(
-            gamePreferences: GamePreferences(
-                catastropheId: gameModelMessage.preferences.catastropheId,
-                conditions: gameModelMessage.preferences.gameConditions.map {
-                    ShelterCondition(id: $0.Condition, isExposed: $0.isExposed)
-                }
-
-            ),
+            gamePreferences: GamePreferences(message: gameModelMessage.preferences),
             players: gameModelMessage.players.map {
                 Player(
                     UID: $0.id,
