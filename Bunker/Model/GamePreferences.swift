@@ -40,7 +40,6 @@ struct GamePreferences {
 
 extension GamePreferences: Codable { }
 
-
 // MARK: - Difficulty
 struct GameDifficulty {
     let rate: Int

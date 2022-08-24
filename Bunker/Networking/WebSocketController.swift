@@ -79,8 +79,7 @@ final class WebSocketController {
                     print(String(decoding: failReason, as: UTF8.self))
                 }
             } else {
-                logger.log(event: .pingSucceded())
-                print("Ping is fine")
+                logger.log(event: .pingSucceeded())
             }
             self.schedulePing()
         }
@@ -115,7 +114,6 @@ final class WebSocketController {
             switch result {
             case .failure(let error):
                 print(error)
-                
                 return
             case .success(let message):
                 switch message {
@@ -161,7 +159,7 @@ final class WebSocketController {
                     self.logger.log(event: .socketSendGamePrefFailed(gamePrefs: correctString, error: networkError))
                     print(networkError.localizedDescription)
                 } else {
-                    self.logger.log(event: .socketSendGamePrefSucceded(gamePrefs: correctString))
+                    self.logger.log(event: .socketSendGamePrefSucceeded(gamePrefs: correctString))
                 }
             }
         } catch {
@@ -171,19 +169,23 @@ final class WebSocketController {
     
     public func startGame() {
         self.socket?.send(.string("game")) { (error) in
-            if error != nil {
-                print(error.debugDescription)
+            if let gameStartError = error {
+                self.logger.log(event: .gameStartFailed(error: gameStartError))
+                print(gameStartError.localizedDescription)
+            } else {
+                self.logger.log(event: .gameStartSucceeded())
             }
         }
     }
 
     public func sendChosenAttribute(attribute: AttributeChoiceMessage) {
         let data = attribute.jsonString
-        self.socket?.send(.string(data)) { error in
-            if error != nil {
-                print(error.debugDescription)
+        self.socket?.send(.string(data)) { (error) in
+            if let attributeError = error {
+                self.logger.log(event: .attributeChoiceFailed(attriute: data, error: attributeError))
+                print(attributeError.localizedDescription)
             } else {
-                print("send successfully")
+                self.logger.log(event: .attributeChoiceSucceeded(attriute: data))
             }
         }
     }
@@ -217,7 +219,14 @@ final class WebSocketController {
     }
     
     private func handleWaitingRoom(_ data: Data) throws {
-        let roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
+        var roomModel = WaitingRoomMessage()
+        do {
+            roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
+            self.logger.log(event: .waitingRoomDecodedSuccessfully(data: data.debugDescription))
+        } catch let error {
+            self.logger.log(event: .waitingRoomFailedToDecode(data: data.debugDescription, error: error))
+
+        }
         var isCreator: Bool = false
         let players: [User] = roomModel.players.enumerated().map { (index, element) in
             if(element.id == self.clientID && element.isCreator) {

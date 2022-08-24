@@ -23,7 +23,7 @@ public enum Event {
         case .info(let description):
             string += description
         case .error(let description, let error):
-            string += description + "Thrown error: \(error)"
+            string += description + "Thrown error: \(String(describing: error))"
         }
         return string
     }
@@ -32,22 +32,47 @@ public enum Event {
 
 extension Event {
     static func pingError(error: Error?) -> Event {
-        return .error(description: "ping failed", error: error)
+        return .error(description: "🔴 ping failed", error: error)
     }
 
-    static func pingSucceded() -> Event {
-        return .info(description: "ping succesfull")
+    static func pingSucceeded() -> Event {
+        return .info(description: "🟢 ping succesfull")
     }
 
     static func socketRecieve() -> Event {
-        return .info(description: "Socket recieve data")
+        return .info(description: "🟣 Socket recieve data")
     }
 
-    static func socketSendGamePrefSucceded(gamePrefs: String) -> Event {
-        return .info(description: "socketSendGamePrefs Succeeded \(gamePrefs)")
+    static func socketSendGamePrefSucceeded(gamePrefs: String) -> Event {
+        return .info(description: "🔹 socketSendGamePrefs Succeeded \(gamePrefs)")
     }
 
     static func socketSendGamePrefFailed(gamePrefs: String, error: Error?) -> Event {
-        return .error(description: "socketSendGamePrefs, gameprefs: \(gamePrefs)", error: error)
+        return .error(description: "🔻 socketSendGamePrefs, gameprefs: \(gamePrefs)", error: error)
+    }
+
+    static func attributeChoiceSucceeded(attriute: String) -> Event {
+        return .info(description: "🔹 send successfully \(attriute)")
+    }
+
+    static func attributeChoiceFailed(attriute: String, error: Error) -> Event {
+        return .error(description: "🔻 attribute: \(attriute)", error: error)
+    }
+
+    static func gameStartSucceeded() -> Event {
+        return .info(description: "🔹 Game started successfully")
+    }
+
+    static func gameStartFailed(error: Error?) -> Event {
+        return .error(description: "🔻 Game start failed", error: error)
+    }
+
+    static func waitingRoomDecodedSuccessfully(data: String) -> Event {
+        return .info(description: "🔸 Waiting room recieved data: \(data.debugDescription)")
+    }
+
+    static func waitingRoomFailedToDecode(data: String, error: Error) -> Event {
+        return .error(description: "🔻 Waiting room failed", error: error)
+
     }
 }
