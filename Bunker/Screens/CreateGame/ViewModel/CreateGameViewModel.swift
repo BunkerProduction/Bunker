@@ -99,7 +99,13 @@ final class CreateGameViewModel {
     }
     
     public func createGame() {
-        socketController.sendGamePref(gamePref)
+        if gamePref.catastrophe?.id == 0 {
+            let catastrophy = Catastrophe.random()
+            let prefs = GamePreferences(catastropheId: catastrophy.id, conditions: nil)
+            socketController.sendGamePref(prefs)
+        } else {
+            socketController.sendGamePref(gamePref)
+        }
     }
     
     // MARK: - Navigation

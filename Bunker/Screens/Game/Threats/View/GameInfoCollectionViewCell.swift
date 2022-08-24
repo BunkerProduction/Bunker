@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CatastrpoheCollectionViewCell: UICollectionViewCell {
+final class GameInfoCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "CatastrpoheCollectionViewCell"
 
     private let iconLabel = UILabel()

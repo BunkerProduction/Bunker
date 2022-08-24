@@ -24,12 +24,14 @@ final class MainGameViewModel {
     private var dataSource: DataSource?
 
     private weak var coordinator: GameCoordinator?
+    private weak var gameScreen: MainGameScreen?
     private weak var collectionView: UICollectionView?
 
     // MARK: - Init
-    init(collectionView: UICollectionView, gameCoordinator: GameCoordinator) {
+    init(collectionView: UICollectionView, gameCoordinator: GameCoordinator, gameScreen: MainGameScreen) {
         self.coordinator = gameCoordinator
         self.collectionView = collectionView
+        self.gameScreen = gameScreen
         binding()
         createDataSource()
     }
@@ -66,6 +68,9 @@ final class MainGameViewModel {
         snapshot.appendItems(gameModel.players, toSection: "players")
 
         dataSource?.applySnapshotUsingReloadData(snapshot)
+        if let playerWithTurn = gameModel.players.first(where: {$0.UID == gameModel.turn }) {
+            gameScreen?.setupHeaderView(model: .init(mode: .normal(text: "Ход игрока: \(playerWithTurn.username)")))
+        }
     }
 
     // MARK: - Binding

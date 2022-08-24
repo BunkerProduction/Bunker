@@ -30,8 +30,8 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
             forCellWithReuseIdentifier: ConditionCollectionViewCell.reuseIdentifier
         )
         collectionView.register(
-            CatastrpoheCollectionViewCell.self,
-            forCellWithReuseIdentifier: CatastrpoheCollectionViewCell.reuseIdentifier
+            GameInfoCollectionViewCell.self,
+            forCellWithReuseIdentifier: GameInfoCollectionViewCell.reuseIdentifier
         )
         collectionView.register(
             ButtonCollectionViewCell.self,
