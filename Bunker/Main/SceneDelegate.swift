@@ -10,15 +10,45 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let rootViewController = WelcomeController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let navControllerWelcome = BaseNavigationController(rootViewController: WelcomeController())
+        let navControllerWelcome = BaseNavigationController(rootViewController: rootViewController)
         window.rootViewController = navControllerWelcome
         self.window = window
+
+        if let url = connectionOptions.urlContexts.first?.url {
+            handleDeepLink(openURLContexts: connectionOptions.urlContexts)
+        }
+
         window.makeKeyAndVisible()
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        handleDeepLink(openURLContexts: URLContexts)
+    }
+
+    private func handleDeepLink(openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url,
+              let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
+              let host = components.host,
+              let deeplink = DeepLinkDTO(rawValue: host)
+        else {
+            return
+        }
+
+        switch deeplink {
+        case .join:
+            let code = components.queryItems?.first(where: { $0.name == "code"})?.value
+            let rootViewController = WelcomeController()
+            let link = DeepLink.join(code: code ?? "123333")
+            rootViewController.handleDeepLink(link: link)
+            let navControllerWelcome = BaseNavigationController(rootViewController: rootViewController)
+            window?.rootViewController = navControllerWelcome
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

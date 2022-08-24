@@ -22,6 +22,7 @@ final class WelcomeController: UIViewController {
         
         return imageView
     }()
+    private var deepLink: DeepLink?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -30,6 +31,11 @@ final class WelcomeController: UIViewController {
         self.settings = UserSettings.shared
         setupView()
         setupGameButtons()
+        if let link = deepLink {
+            let joinController = ConnectToGameViewController()
+            joinController.deepLink = link
+            self.navigationController?.pushViewController(joinController, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,5 +141,11 @@ final class WelcomeController: UIViewController {
     private func joinGameButtonTapped() {
         let joinController = ConnectToGameViewController()
         self.navigationController?.pushViewController(joinController, animated: true)
+    }
+}
+
+extension WelcomeController {
+    func handleDeepLink(link: DeepLink) {
+        deepLink = link
     }
 }

@@ -129,7 +129,9 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     @objc
-    private func shareRoom() { }
+    private func shareRoom() {
+        viewModel?.shareRoom()
+    }
     
     @objc
     private func startGame() {
@@ -138,6 +140,12 @@ final class WaitingRoomViewController: UIViewController {
     
     public func isStartGameVisible(_ isVisible: Bool) {
         startGameButton.isHidden = !isVisible
+    }
+
+    public func shareLink(link: URL) {
+        let activityController = UIActivityViewController(activityItems: [link], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = self.view
+        present(activityController, animated: true, completion: nil)
     }
 }
 
