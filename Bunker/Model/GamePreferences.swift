@@ -37,10 +37,11 @@ struct ShelterCondition {
     var isExposed: Bool = false
 
     init(id: Int, isExposed: Bool = false) {
-        let condition = Self.getAll()[id]
-        self.id = condition.id
-        self.name = condition.name
-        self.description = condition.description
+        let condition = Self.getAll().first { $0.id == id }
+
+        self.id = condition!.id
+        self.name = condition!.name
+        self.description = condition!.description
         self.isExposed = isExposed
     }
 
@@ -50,10 +51,11 @@ struct ShelterCondition {
             do {
                 let allConditions = try decoder.decode([ShelterCondition].self, from: data)
                 return allConditions
-            } catch {
-                print("Failed to decode")
+            } catch (let error)  {
+                print("Failed to decode: \(error)")
             }
         }
+        print("💬: No conditions")
         return []
     }
 }
