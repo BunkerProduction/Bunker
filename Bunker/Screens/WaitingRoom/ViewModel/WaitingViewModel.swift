@@ -124,4 +124,12 @@ final class WaitingViewModel {
     public func startGame() {
         socketController.startGame()
     }
+
+    public func shareRoom() {
+        guard let roomModel = roomModel else {
+            return
+        }
+        let link = URL(string: "shelterGame://join?code=\(roomModel.roomCode)")!
+        self.viewController?.shareLink(link: link)
+    }
 }

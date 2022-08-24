@@ -12,6 +12,8 @@ final class ConnectToGameViewController: UIViewController {
     private let logo = BunkerLogo()
     private let nextButton = PrimaryButton()
     private let settings = UserSettings.shared
+
+    public var deepLink: DeepLink?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -30,6 +32,15 @@ final class ConnectToGameViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         setup()
+
+        if let deepLink = deepLink {
+            switch deepLink {
+            case .join(let code):
+                // TODO: - Put it to viewModel and validate code?
+                let enterRoomController = RoomCodeViewController(code: code)
+                self.navigationController?.pushViewController(enterRoomController, animated: true)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

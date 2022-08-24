@@ -114,6 +114,7 @@
 		C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783FE28B18577009DD819 /* PlayerDetailsViewModel.swift */; };
 		C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937AD528B2E5BE0027B48B /* SHLogger.swift */; };
 		C0937AD928B576350027B48B /* MainGameProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937AD828B576350027B48B /* MainGameProtocols.swift */; };
+		C0937ADB28B58ABB0027B48B /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937ADA28B58ABB0027B48B /* DeepLink.swift */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +247,7 @@
 		C08783FE28B18577009DD819 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		C0937AD528B2E5BE0027B48B /* SHLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHLogger.swift; sourceTree = "<group>"; };
 		C0937AD828B576350027B48B /* MainGameProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameProtocols.swift; sourceTree = "<group>"; };
+		C0937ADA28B58ABB0027B48B /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -508,6 +510,7 @@
 				C0455E842825856500990351 /* BunkerLogo.swift */,
 				C02D109E283BE1B90053BFD8 /* BunkerTabBar.swift */,
 				C0937AD528B2E5BE0027B48B /* SHLogger.swift */,
+				C0937ADA28B58ABB0027B48B /* DeepLink.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				C0455E7C28257E8E00990351 /* PrimaryButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
 				C06642E0288B4FB500DD7C28 /* GameHeaderView.swift in Sources */,
+				C0937ADB28B58ABB0027B48B /* DeepLink.swift in Sources */,
 				C02D10A4283BE3430053BFD8 /* PlayerViewModel.swift in Sources */,
 				C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */,
 				C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */,
