@@ -32,7 +32,7 @@ final class WaitingCollectionViewCell: UICollectionViewCell {
         numberLabel.textAlignment = .left
 
         nameLabel.font = .customFont.body
-        numberLabel.font = .customFont.icon
+        numberLabel.font = .customFont.body
 
         numberLabel.setHeight(to: 24)
         numberLabel.setWidth(to: 32)
@@ -58,6 +58,6 @@ final class WaitingCollectionViewCell: UICollectionViewCell {
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
         nameLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
-        numberLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+        numberLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }
 }

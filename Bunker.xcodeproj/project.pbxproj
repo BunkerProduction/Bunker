@@ -320,6 +320,7 @@
 				C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */,
 				C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */,
 				C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */,
+				C0070CDD289561D1007BDA0B /* GameInfoCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -734,7 +735,6 @@
 		C0937AD728B566130027B48B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0070CDD289561D1007BDA0B /* GameInfoCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

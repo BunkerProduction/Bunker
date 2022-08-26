@@ -10,17 +10,17 @@ import UIKit
 final class ThreatsViewController: UIViewController, ThreatsScreen {
     private enum Consts {
         static let itemSpacing: CGFloat = 20
-        static let sectionInsets: CGFloat = 10
+        static let sectionInsets: CGFloat = 16
     }
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.sectionInset = UIEdgeInsets(
-            top: Consts.sectionInsets,
+            top: 0,
             left: 0,
-            bottom: 10,
-            right: Consts.sectionInsets
+            bottom: Consts.sectionInsets,
+            right: 0
         )
         layout.minimumInteritemSpacing = Consts.itemSpacing
 

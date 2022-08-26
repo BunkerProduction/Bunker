@@ -81,6 +81,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
 
         titleLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
+        titleLabel.setHeight(to: "string".size(withAttributes: [.font: UIFont.customFont.body as Any]).height)
 
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .customFont.footnote
@@ -91,7 +92,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
         stackView.distribution = .fill
         stackView.alignment = .firstBaseline
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 20
 
         self.contentView.addSubview(stackView)
 
@@ -110,11 +111,14 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
             font: .customFont.body ?? .systemFont(ofSize: 0),
             1
         )
+        descriptionLabel.numberOfLines = 0
         descriptionLabel.setCustomAttributedText(
             string: attribute.description,
             font: .customFont.footnote ?? .systemFont(ofSize: 0),
             1.25
         )
+        descriptionLabel.sizeToFit()
+
         self.isUserInteractionEnabled = !attribute.isExposed
         self.isBlured = attribute.isExposed
         self.isBlurable = isBlurable

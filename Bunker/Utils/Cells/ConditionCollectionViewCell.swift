@@ -32,6 +32,7 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
         
         self.layer.cornerRadius = 12
 
+        iconLabel.font = .customFont.icon
         typeLabel.font = .customFont.caption
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, typeLabel])
@@ -43,10 +44,10 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
         mainSV.distribution = .fill
         mainSV.alignment = .fill
         mainSV.axis = .vertical
-        mainSV.spacing = 8
+        mainSV.spacing = 12
 
         self.addSubview(mainSV)
-        mainSV.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])
+        mainSV.pin(to: self, [.left: 16, .right: 16, .top: 16, .bottom: 16])
     }
 
     public func configure(icon: String, type: String, description: String) {
@@ -57,6 +58,7 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
             font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
             1.5
         )
+        self.descriptionLabel.sizeToFit()
     }
 
     public func setTheme(_ theme: Appearence) {
