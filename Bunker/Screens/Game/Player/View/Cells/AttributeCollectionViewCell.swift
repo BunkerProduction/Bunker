@@ -125,7 +125,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
     }
 
     public func setTheme(_ theme: Appearence) {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.1) {
             self.backgroundColor = .Background.Accent.colorFor(theme)
         }
         titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
