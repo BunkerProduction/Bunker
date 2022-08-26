@@ -51,8 +51,7 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
         
         attributeStackView.setWidth(to: 180)
 
-        let stackView = UIStackView(arrangedSubviews: [leftView, nameLabel])
-        stackView.addArrangedSubview(attributeStackView)
+        let stackView = UIStackView(arrangedSubviews: [leftView, nameLabel, attributeStackView])
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -64,6 +63,7 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
+        nameLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 
     public func configure(player: Player) {

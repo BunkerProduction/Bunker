@@ -58,6 +58,7 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
             font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
             1.5
         )
+        self.descriptionLabel.lineBreakMode = .byClipping
         self.descriptionLabel.sizeToFit()
     }
 

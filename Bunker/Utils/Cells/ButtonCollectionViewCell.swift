@@ -47,5 +47,6 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
+        titleLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }
 }

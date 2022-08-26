@@ -77,11 +77,11 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         iconLabel.font = .customFont.icon
-        iconLabel.setHeight(to: 24)
+        iconLabel.setHeight(to: iconLabel.textHeight())
 
         titleLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
-        titleLabel.setHeight(to: "string".size(withAttributes: [.font: UIFont.customFont.body as Any]).height)
+        titleLabel.setHeight(to: titleLabel.textHeight())
 
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .customFont.footnote
@@ -125,7 +125,9 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
     }
 
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .Background.Accent.colorFor(theme)
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundColor = .Background.Accent.colorFor(theme)
+        }
         titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
         descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }

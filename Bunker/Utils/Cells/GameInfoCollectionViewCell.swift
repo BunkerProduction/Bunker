@@ -52,23 +52,20 @@ final class GameInfoCollectionViewCell: UICollectionViewCell {
 
     public func configure(icon: String, title: String, type: String, description: String) {
         self.iconLabel.text = icon
-//        iconLabel.backgroundColor = .red
         self.titleLabel.text = title
-//        titleLabel.backgroundColor = .blue
         self.typeLabel.text = type
         self.descriptionLabel.setCustomAttributedText(
             string: description,
             font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
             1.5
         )
-//        descriptionLabel.backgroundColor = .green
-//        self.descriptionLabel.numberOfLines = 0
-//        self.descriptionLabel.sizeToFit()
+        self.descriptionLabel.lineBreakMode = .byClipping
     }
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
         typeLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
+        titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
         descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }
 }
