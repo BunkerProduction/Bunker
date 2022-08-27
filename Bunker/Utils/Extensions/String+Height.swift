@@ -8,7 +8,7 @@
 import UIKit
 
 extension String {
-    func height(constraintedWidth width: CGFloat, font: UIFont) -> CGFloat {
+    func height(constraintedWidth width: CGFloat = 0, font: UIFont?) -> CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.text = self
@@ -17,7 +17,6 @@ extension String {
         
         return label.frame.height
     }
-    
     
     func lineHeight(constraintedWidth width: CGFloat, font: UIFont, multiplicator: CGFloat) -> CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 0))

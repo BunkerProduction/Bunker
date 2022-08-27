@@ -49,7 +49,7 @@ public enum Language: String, SettingsOption, CaseIterable {
 
 // MARK: - Appearence
 public enum Appearence: String, SettingsOption, CaseIterable {
-    case light = "Cветлая", dark = "Темная", system = "Система", toxic = "Токсичная", poisonous = "Ядовитая", mono = "Монохромная", alian = "Инопланетная", holo = "Голографическая"
+    case light = "Cветлая", dark = "Темная", system = "Система", toxic = "Токсичная", poisonous = "Ядовитая", mono = "Монохромная", alian = "Инопланетная", holo = "Голографическая", candy = "Конфети"
     
     var optionType: String {
         return "Тема"
@@ -81,6 +81,8 @@ public enum Appearence: String, SettingsOption, CaseIterable {
             return "🛸"
         case .holo:
             return "🪩"
+        case .candy:
+            return "🎉"
         }
     }
 }

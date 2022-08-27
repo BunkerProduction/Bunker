@@ -16,11 +16,15 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
 
         return label
     }()
-    private let attributeLabel: UILabel = {
-        let label = UILabel()
-        label.setWidth(to: 140)
+    private let attributeLabels: [UILabel] = {
+        let emojiLabel1 = UILabel()
+        let emojiLabel2 = UILabel()
+        let emojiLabel3 = UILabel()
+        let emojiLabel4 = UILabel()
+        let emojiLabel5 = UILabel()
+        let emojiLabel6 = UILabel()
 
-        return label
+        return [emojiLabel1, emojiLabel2, emojiLabel3, emojiLabel4, emojiLabel5, emojiLabel6]
     }()
     private let leftView = UIView()
 
@@ -39,7 +43,15 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
     private func setupView() {
         self.layer.cornerRadius = 12
 
-        let stackView = UIStackView(arrangedSubviews: [leftView, nameLabel, attributeLabel])
+        let attributeStackView = UIStackView(arrangedSubviews: attributeLabels)
+        attributeStackView.axis = .horizontal
+        attributeStackView.distribution = .equalSpacing
+        attributeStackView.spacing = 4
+        attributeStackView.alignment = .trailing
+        
+        attributeStackView.setWidth(to: 180)
+
+        let stackView = UIStackView(arrangedSubviews: [leftView, nameLabel, attributeStackView])
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -51,22 +63,22 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
+        nameLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
     }
 
     public func configure(player: Player) {
         nameLabel.text = player.username
 
-        var attributesString = ""
-        for attr in player.attributes {
-            if(attr.isExposed) {
-                attributesString += attr.icon
-            } else {
-                attributesString += " "
+        for attrIndex in player.attributes.indices {
+            attributeLabels[attrIndex].text = "\(player.attributes[attrIndex].icon)"
+            attributeLabels[attrIndex].font = .customFont.icon
+            attributeLabels[attrIndex].alpha = 1
+
+            if !player.attributes[attrIndex].isExposed {
+                attributeLabels[attrIndex].alpha = 0
             }
-            attributesString += " "
+
         }
-        attributeLabel.text = attributesString
-        attributeLabel.font = .customFont.icon
         leftView.isHidden = true
     }
 }

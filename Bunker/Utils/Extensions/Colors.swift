@@ -58,6 +58,12 @@ public extension UIColor {
                 return UIColor(hex: "#6285D8", opacity: 1)
             case .holo:
                 return UIColor(hex: "#B0DCF5", opacity: 1)
+            case .candy:
+                return UIColor(
+                    hue: 0.10,
+                    saturation: 0.8,
+                    brightness: 0.98,
+                    alpha: 1)
             }
         }
     }
@@ -80,6 +86,8 @@ public extension UIColor {
             case .alian:
                 return UIColor(hex: "#000000", opacity: 1)
             case .holo:
+                return UIColor(hex: "#000000", opacity: 1)
+            case .candy:
                 return UIColor(hex: "#000000", opacity: 1)
             }
         }
@@ -104,6 +112,12 @@ public extension UIColor {
                 return UIColor(hex: "#D95D5D", opacity: 1)
             case .holo:
                 return UIColor(hex: "#D95D5D", opacity: 1)
+            case .candy:
+                return UIColor(
+                    hue: .random(in: 0...1),
+                    saturation: 1,
+                    brightness: 1,
+                    alpha: 1)
             }
         }
     }
@@ -127,6 +141,8 @@ public extension UIColor {
                 return UIColor(hex: "#6285D8", opacity: 0.2)
             case .holo:
                 return UIColor(hex: "#B0DCF5", opacity: 0.2)
+            case .candy:
+                return .PrimaryColors.colorFor(.candy)?.withAlphaComponent(0.2)
             }
         }
     }
@@ -150,6 +166,12 @@ public extension UIColor {
                 return UIColor(hex: "#18253E", opacity: 1)
             case .holo:
                 return UIColor(hex: "#333333", opacity: 1)
+            case .candy:
+                return UIColor(
+                    hue: .random(in: 0...1),
+                    saturation: 0.06,
+                    brightness: 0.97,
+                    alpha: 1)
             }
         }
     }
@@ -173,6 +195,8 @@ public extension UIColor {
                 return UIColor(hex: "#141923", opacity: 1)
             case .holo:
                 return UIColor(hex: "#121212", opacity: 1)
+            case .candy:
+                return UIColor(hex: "#FFFFFF", opacity: 1)
             }
         }
     }
@@ -196,6 +220,8 @@ public extension UIColor {
                 return UIColor(hex: "#0F1624", opacity: 1)
             case .holo:
                 return UIColor(hex: "#212121", opacity: 1)
+            case .candy:
+                return UIColor(hex: "#FFFFFF", opacity: 1)
             }
         }
     }
@@ -219,6 +245,8 @@ public extension UIColor {
                 return UIColor(hex: "#FFFFFF", opacity: 1)
             case .holo:
                 return UIColor(hex: "#FFFFFF", opacity: 1)
+            case .candy:
+                return UIColor(hex: "#000000", opacity: 1)
             }
         }
     }
@@ -242,6 +270,8 @@ public extension UIColor {
                 return UIColor(hex: "#FFFFFF", opacity: 0.7)
             case .holo:
                 return UIColor(hex: "#FFFFFF", opacity: 0.7)
+            case .candy:
+                return UIColor(hex: "#000000", opacity: 0.5)
             }
         }
     }
@@ -265,6 +295,8 @@ public extension UIColor {
                 return UIColor(hex: "#FFFFFF", opacity: 0.4)
             case .holo:
                 return UIColor(hex: "#FFFFFF", opacity: 0.4)
+            case .candy:
+                return UIColor(hex: "#000000", opacity: 0.3)
             }
         }
     }
@@ -288,6 +320,8 @@ public extension UIColor {
                 return UIColor(hex: "#FFFFFF", opacity: 0.08)
             case .holo:
                 return UIColor(hex: "#FFFFFF", opacity: 0.08)
+            case .candy:
+                return UIColor(hex: "#000000", opacity: 0.08)
             }
         }
     }
@@ -311,6 +345,8 @@ public extension UIColor {
                 return UIColor(hex: "#FFFFFF", opacity: 0.04)
             case .holo:
                 return UIColor(hex: "#FFFFFF", opacity: 0.04)
+            case .candy:
+                return UIColor(hex: "#000000", opacity: 0.04)
             }
         }
     }

@@ -20,6 +20,7 @@ final class GameHeaderView: UIView {
     private let backgroundView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
+        view.layer.borderWidth = 2
 
         return view
     }()
@@ -30,7 +31,7 @@ final class GameHeaderView: UIView {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .customFont.footnote
+        label.font = .customFont.body
 
         return label
     }()
@@ -49,10 +50,11 @@ final class GameHeaderView: UIView {
 
     // MARK: - UI setup
     private func setupView() {
-        self.layer.cornerRadius = 12
+        self.layer.cornerRadius = 16
 
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(subtitleLabel)
-        subtitleLabel.pin(to: backgroundView, [.left: 6, .right: 6, .top: 6, .bottom: 6])
+        subtitleLabel.pin(to: backgroundView, [.left: 8, .right: 8, .top: 8, .bottom: 8])
 
 
         let stackView = UIStackView(arrangedSubviews: [title, backgroundView])
@@ -66,8 +68,10 @@ final class GameHeaderView: UIView {
 
     // MARK: - UpdateUI
     public func setTheme(_ theme: Appearence) {
+        title.textColor = .TextAndIcons.Primary.colorFor(theme)
+        subtitleLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
         backgroundColor = .Background.Accent.colorFor(theme)
-        backgroundView.backgroundColor = .Background.LayerTwo.colorFor(theme)
+        backgroundView.layer.borderColor = UIColor.PrimaryColors.colorFor(theme)?.cgColor
     }
 
     public func configure(_ viewModel: ViewModel) {

@@ -39,7 +39,7 @@ final class UserSettings {
         }
     }
                 
-    public var appearance: Appearence = .system {
+    public var appearance: Appearence = .candy {
         didSet {
             setTheme()
             storage.set(appearance.rawValue, forKey: CodingKeys.appearence)
