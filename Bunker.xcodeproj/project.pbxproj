@@ -17,6 +17,10 @@
 		4E81D4FF2833771D00829361 /* buttonSound8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4FE2833771D00829361 /* buttonSound8.mp3 */; };
 		4E81D5012833772800829361 /* buttonSound9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D5002833772800829361 /* buttonSound9.wav */; };
 		4E81D504283383B900829361 /* Baige.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81D503283383B900829361 /* Baige.swift */; };
+		4E92461928BA8D7900D9C864 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461828BA8D7900D9C864 /* LoadingView.swift */; };
+		4E92461B28BA8D9A00D9C864 /* LoadingShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461A28BA8D9A00D9C864 /* LoadingShapeLayer.swift */; };
+		4E92461D28BA923000D9C864 /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461C28BA923000D9C864 /* StrokeAnimation.swift */; };
+		4E92461F28BA95DB00D9C864 /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461E28BA95DB00D9C864 /* RotationAnimation.swift */; };
 		4ED4C60B282D90BB0062D0AD /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */; };
 		4ED4C60D282D90C60062D0AD /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */; };
 		4ED4C60F282D90DD0062D0AD /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */; };
@@ -146,6 +150,10 @@
 		4E81D4FE2833771D00829361 /* buttonSound8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonSound8.mp3; sourceTree = "<group>"; };
 		4E81D5002833772800829361 /* buttonSound9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound9.wav; sourceTree = "<group>"; };
 		4E81D503283383B900829361 /* Baige.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baige.swift; sourceTree = "<group>"; };
+		4E92461828BA8D7900D9C864 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		4E92461A28BA8D9A00D9C864 /* LoadingShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShapeLayer.swift; sourceTree = "<group>"; };
+		4E92461C28BA923000D9C864 /* StrokeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
+		4E92461E28BA95DB00D9C864 /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
 		4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -298,6 +306,17 @@
 				4E81D503283383B900829361 /* Baige.swift */,
 			);
 			path = Label;
+			sourceTree = "<group>";
+		};
+		4E92461728BA8D4E00D9C864 /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				4E92461828BA8D7900D9C864 /* LoadingView.swift */,
+				4E92461C28BA923000D9C864 /* StrokeAnimation.swift */,
+				4E92461A28BA8D9A00D9C864 /* LoadingShapeLayer.swift */,
+				4E92461E28BA95DB00D9C864 /* RotationAnimation.swift */,
+			);
+			path = LoadingIndicator;
 			sourceTree = "<group>";
 		};
 		4ED4C609282D90730062D0AD /* Fonts */ = {
@@ -501,6 +520,7 @@
 		C0455E7A28257E5500990351 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4E92461728BA8D4E00D9C864 /* LoadingIndicator */,
 				4E81D5022833839A00829361 /* Label */,
 				C003F32528302B04006F3FE9 /* Helpers */,
 				C003F321282FF275006F3FE9 /* Input */,
@@ -928,6 +948,7 @@
 				C003F2C1282C7615006F3FE9 /* OptionsViewController.swift in Sources */,
 				C02D10A2283BE33A0053BFD8 /* PlayerViewController.swift in Sources */,
 				C0070CDC28947B93007BDA0B /* GameSpecialCardView.swift in Sources */,
+				4E92461D28BA923000D9C864 /* StrokeAnimation.swift in Sources */,
 				C003F318282FE030006F3FE9 /* Shelter.swift in Sources */,
 				C003F2C7282D74F9006F3FE9 /* SettingsOptions.swift in Sources */,
 				C02D109F283BE1B90053BFD8 /* BunkerTabBar.swift in Sources */,
@@ -955,8 +976,11 @@
 				C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */,
 				C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */,
 				C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */,
+				4E92461928BA8D7900D9C864 /* LoadingView.swift in Sources */,
+				4E92461B28BA8D9A00D9C864 /* LoadingShapeLayer.swift in Sources */,
 				4E45DA9228318B0100F5BF7A /* Label.swift in Sources */,
 				C06642CE287B8A6300DD7C28 /* ConditionCollectionViewCell.swift in Sources */,
+				4E92461F28BA95DB00D9C864 /* RotationAnimation.swift in Sources */,
 				C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */,
 				C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,

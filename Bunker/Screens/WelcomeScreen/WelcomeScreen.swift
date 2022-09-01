@@ -108,6 +108,7 @@ final class WelcomeController: UIViewController {
         instructionLabel.text = "Rules"
         instructionLabel.font = .customFont.title
         instructionLabel.textAlignment = .center
+        
         let sV = UIStackView(arrangedSubviews: [instructionLabel, instructionIcon])
         sV.distribution = .equalCentering
         sV.alignment = .fill

@@ -56,7 +56,9 @@ final class CreateGameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        view.isUserInteractionEnabled = true
+        viewModel?.viewWillAppear()
         updateUI()
     }
     
@@ -158,6 +160,8 @@ final class CreateGameViewController: UIViewController {
     
     @objc
     private func createGame() {
+        view.isUserInteractionEnabled = false
+        createButton.isLoading = true
         viewModel?.createGame()
     }
     
@@ -175,6 +179,11 @@ final class CreateGameViewController: UIViewController {
             difficultyView.setLabels("Сложность", "", "")
         }
         createButton.isEnabled = buttonEnabled
+    }
+
+    public func navigate(vc: UIViewController) {
+        createButton.isLoading = false
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
