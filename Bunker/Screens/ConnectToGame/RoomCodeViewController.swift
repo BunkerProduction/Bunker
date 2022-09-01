@@ -111,6 +111,13 @@ final class RoomCodeViewController: UIViewController {
             codeInput.DismissKeyboard()
         }
     }
+
+    public func showError(errorString: String) {
+        let alert = UIAlertController(title: "Join Error", message: errorString, preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
 }
 
 // MARK: - GestureDelegate

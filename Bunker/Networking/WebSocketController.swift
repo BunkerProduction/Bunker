@@ -22,6 +22,7 @@ final class WebSocketController {
     @Published var waitingRoom: WaitingRoom?
     @Published var connectionStatus: Bool = false
     @Published var gameModel: Game?
+    @Published var connectionError: String?
     
     var waitingRoomRecieved: AnyPublisher<WaitingRoom?, Never> {
         return $waitingRoom.eraseToAnyPublisher()
@@ -31,6 +32,9 @@ final class WebSocketController {
     }
     var gameModelRecieved: AnyPublisher<Game?, Never> {
         return $gameModel.eraseToAnyPublisher()
+    }
+    var connectionErrorRecieved: AnyPublisher<String?, Never> {
+        return $connectionError.eraseToAnyPublisher()
     }
     
     // MARK: - Init
@@ -61,7 +65,9 @@ final class WebSocketController {
         socket?.cancel(with: .normalClosure, reason: nil)
         socket = nil
         waitingRoom = nil
+        gameModel = nil
         connectionStatus = false
+        connectionError = nil
     }
     
     // MARK: - Ping-Pong
@@ -84,13 +90,11 @@ final class WebSocketController {
             self.schedulePing()
         }
     }
-//    befc9b5fea3fc2b4
+
     // MARK: - Handle data
     private func handle(_ data: Data) {
-        print(data)
         do {
             let sinData = try JSONDecoder().decode(MessageSinData.self, from: data)
-            print(sinData)
             switch sinData.type {
             case .handshake:
                 let id = try JSONDecoder().decode(Handshake.self, from: data)
@@ -105,34 +109,43 @@ final class WebSocketController {
             
         }
     }
+
+    private func handleError(_ error: Error) {
+        var desciption: String?
+        if let data = self.socket?.closeReason {
+            desciption = String(data: data, encoding: .utf8)
+            self.connectionError = desciption
+            self.connectionError = nil
+        }
+        self.logger.log(event: .socketRecieveError(error: error, desciption: desciption))
+    }
     
     // MARK: - Listen
     private func listen() {
         self.socket?.receive { [weak self] (result) in
-            guard let self = self else { return }
-            self.logger.log(event: .socketRecieve())
+            guard let sSelf = self else { return }
+            sSelf.logger.log(event: .socketRecieve())
             switch result {
             case .failure(let error):
-                print(error)
+                sSelf.handleError(error)
                 return
             case .success(let message):
                 switch message {
                 case .data(let data):
-                    self.handle(data)
+                    sSelf.handle(data)
                 case .string(var str):
-                    print(str)
                     // temperary bug
                     if(str[str.startIndex] == "[") {
                         str.remove(at: str.startIndex)
                         str.remove(at: str.index(before: str.endIndex))
                     }
                     guard let data = str.data(using: .utf8) else { return }
-                    self.handle(data)
+                    sSelf.handle(data)
                 default:
                     break
                 }
             }
-            self.listen()
+            sSelf.listen()
         }
     }
     

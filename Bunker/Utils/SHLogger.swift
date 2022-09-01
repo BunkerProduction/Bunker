@@ -43,6 +43,10 @@ extension Event {
         return .info(description: "🟣 Socket recieve data")
     }
 
+    static func socketRecieveError(error: Error, desciption: String? ) -> Event {
+        return .error(description: "🔻 recieve error \(String(describing: desciption))", error: error)
+    }
+
     static func socketSendGamePrefSucceeded(gamePrefs: String) -> Event {
         return .info(description: "🔹 socketSendGamePrefs Succeeded \(gamePrefs)")
     }

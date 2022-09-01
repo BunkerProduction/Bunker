@@ -149,5 +149,4 @@ final class WaitingRoomViewController: UIViewController {
     }
 }
 
-// MARK: - GestureDelegate
 extension WaitingRoomViewController: UIGestureRecognizerDelegate { }
