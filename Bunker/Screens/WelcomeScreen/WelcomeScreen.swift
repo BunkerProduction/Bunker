@@ -106,6 +106,7 @@ final class WelcomeController: UIViewController {
         sV.distribution = .equalCentering
         sV.alignment = .fill
         sV.axis = .vertical
+        sV.isUserInteractionEnabled = false
         
         instructionView.addSubview(sV)
         sV.pin(to: instructionView, [.top: 50, .bottom: 50, .left: 0, .right: 0])

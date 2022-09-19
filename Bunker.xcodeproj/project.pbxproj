@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E036D6A28D6613F00AC2B9F /* InstructionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */; };
+		4E036D6C28D67B4800AC2B9F /* InstructionPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E036D6B28D67B4800AC2B9F /* InstructionPageModel.swift */; };
+		4E3C6FFF28D7B95F00263D3A /* InstructionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */; };
 		4E45DA9228318B0100F5BF7A /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E45DA9128318B0100F5BF7A /* Label.swift */; };
 		4E81D4F22832EDD400829361 /* buttonSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F12832EDD400829361 /* buttonSound2.wav */; };
 		4E81D4F42832EDE000829361 /* buttonSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F32832EDE000829361 /* buttonSound3.wav */; };
@@ -134,6 +137,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E036D6B28D67B4800AC2B9F /* InstructionPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageModel.swift; sourceTree = "<group>"; };
+		4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionSectionView.swift; sourceTree = "<group>"; };
 		4E45DA9128318B0100F5BF7A /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		4E81D4F12832EDD400829361 /* buttonSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound2.wav; sourceTree = "<group>"; };
 		4E81D4F32832EDE000829361 /* buttonSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound3.wav; sourceTree = "<group>"; };
@@ -272,6 +278,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E3C700028D8904000263D3A /* Instruction */ = {
+			isa = PBXGroup;
+			children = (
+				4E3C700128D8906D00263D3A /* Model */,
+				4EB4F45428B22555002375E4 /* InstructionsViewController.swift */,
+				4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */,
+				4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */,
+			);
+			path = Instruction;
+			sourceTree = "<group>";
+		};
+		4E3C700128D8906D00263D3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E036D6B28D67B4800AC2B9F /* InstructionPageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4E81D4F52832EDF900829361 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +509,7 @@
 		C0455E7928257D7E00990351 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4E3C700028D8904000263D3A /* Instruction */,
 				C0455E862825910C00990351 /* WelcomeScreen */,
 				C0455E872825911800990351 /* Settings */,
 				C0455E8A2825922200990351 /* CreateGame */,
@@ -527,7 +553,6 @@
 			isa = PBXGroup;
 			children = (
 				C0455E4B28257A0B00990351 /* WelcomeScreen.swift */,
-				4EB4F45428B22555002375E4 /* InstructionsViewController.swift */,
 			);
 			path = WelcomeScreen;
 			sourceTree = "<group>";
@@ -925,9 +950,11 @@
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C06642D2287CCE0800DD7C28 /* MainGameViewModel.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
+				4E036D6C28D67B4800AC2B9F /* InstructionPageModel.swift in Sources */,
 				C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
 				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
+				4E3C6FFF28D7B95F00263D3A /* InstructionSectionView.swift in Sources */,
 				C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
 				C02D10AA283C04800053BFD8 /* ThreatsViewController.swift in Sources */,
@@ -957,6 +984,7 @@
 				4E81D504283383B900829361 /* Baige.swift in Sources */,
 				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
 				C06642E2288B527800DD7C28 /* PlayerCollectionViewCell.swift in Sources */,
+				4E036D6A28D6613F00AC2B9F /* InstructionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
