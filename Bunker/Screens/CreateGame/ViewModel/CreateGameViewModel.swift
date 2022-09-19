@@ -41,6 +41,9 @@ final class CreateGameViewModel {
     private var connectionStatus: Bool = false {
         didSet {
             validateData()
+            if wantToCreateGame {
+                createGame()
+            }
         }
     }
     private var isDataValid: Bool = false {
@@ -48,6 +51,7 @@ final class CreateGameViewModel {
             setScreenData()
         }
     }
+    private var wantToCreateGame: Bool = false
     private var connectionSubscriber: AnyCancellable?
     private var roomModelSubscriber: AnyCancellable?
     
@@ -60,8 +64,6 @@ final class CreateGameViewModel {
                 socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
             }
         }
-        
-        binding()
     }
     
     // MARK: - Binding
@@ -80,7 +82,7 @@ final class CreateGameViewModel {
     }
     
     private func validateData() {
-        if(!username.isEmpty && gamePref.catastrophe != nil && connectionStatus &&
+        if(!username.isEmpty && gamePref.catastrophe != nil  &&
            gamePref.difficulty != nil && gamePref.votingTime != 0) {
             isDataValid = true
         } else {
@@ -99,7 +101,18 @@ final class CreateGameViewModel {
     }
     
     public func createGame() {
-        socketController.sendGamePref(gamePref)
+        if !connectionStatus {
+            socketController.connectToGame(username: username, roomCode: nil, isCreator: true)
+            wantToCreateGame = true
+            return
+        }
+        if gamePref.catastrophe?.id == 0 {
+            let catastrophy = Catastrophe.random()
+            let prefs = GamePreferences(catastropheId: catastrophy.id, conditions: nil)
+            socketController.sendGamePref(prefs)
+        } else {
+            socketController.sendGamePref(gamePref)
+        }
     }
     
     // MARK: - Navigation
@@ -112,7 +125,13 @@ final class CreateGameViewModel {
         connectionSubscriber?.cancel()
         roomModelSubscriber?.cancel()
         
-        viewController?.navigationController?.pushViewController(waitingRoomVC, animated: true)
+        viewController?.navigate(vc: waitingRoomVC)
+    }
+
+    public func viewWillAppear() {
+        wantToCreateGame = false
+        binding()
+        validateData()
     }
 }
 

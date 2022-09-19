@@ -12,7 +12,8 @@ final class WebSocketController {
     enum Endpoint: String {
         case base = "wss://ktor-bunker.herokuapp.com/game?username="
     }
-    
+
+    private let logger = SHLogger()
     public static var shared = WebSocketController()
     private let session: URLSession
     private var socket: URLSessionWebSocketTask?
@@ -21,6 +22,7 @@ final class WebSocketController {
     @Published var waitingRoom: WaitingRoom?
     @Published var connectionStatus: Bool = false
     @Published var gameModel: Game?
+    @Published var connectionError: String?
     
     var waitingRoomRecieved: AnyPublisher<WaitingRoom?, Never> {
         return $waitingRoom.eraseToAnyPublisher()
@@ -30,6 +32,9 @@ final class WebSocketController {
     }
     var gameModelRecieved: AnyPublisher<Game?, Never> {
         return $gameModel.eraseToAnyPublisher()
+    }
+    var connectionErrorRecieved: AnyPublisher<String?, Never> {
+        return $connectionError.eraseToAnyPublisher()
     }
     
     // MARK: - Init
@@ -57,10 +62,12 @@ final class WebSocketController {
     
     // MARK: - Disconnect
     public func disconnect() {
-        socket?.cancel()
+        socket?.cancel(with: .normalClosure, reason: nil)
         socket = nil
         waitingRoom = nil
+        gameModel = nil
         connectionStatus = false
+        connectionError = nil
     }
     
     // MARK: - Ping-Pong
@@ -73,23 +80,21 @@ final class WebSocketController {
     private func ping() {
         socket?.sendPing { [self] (error) in
             if let error = error {
-                print("Ping failed: \(error)")
+                logger.log(event: .pingError(error: error))
                 if let failReason = socket?.closeReason {
                     print(String(decoding: failReason, as: UTF8.self))
                 }
             } else {
-                print("Ping is fine")
+                logger.log(event: .pingSucceeded())
             }
             self.schedulePing()
         }
     }
-//    befc9b5fea3fc2b4
+
     // MARK: - Handle data
     private func handle(_ data: Data) {
-        print(data)
         do {
             let sinData = try JSONDecoder().decode(MessageSinData.self, from: data)
-            print(sinData)
             switch sinData.type {
             case .handshake:
                 let id = try JSONDecoder().decode(Handshake.self, from: data)
@@ -104,35 +109,43 @@ final class WebSocketController {
             
         }
     }
+
+    private func handleError(_ error: Error) {
+        var desciption: String?
+        if let data = self.socket?.closeReason {
+            desciption = String(data: data, encoding: .utf8)
+            self.connectionError = desciption
+            self.connectionError = nil
+        }
+        self.logger.log(event: .socketRecieveError(error: error, desciption: desciption))
+    }
     
     // MARK: - Listen
     private func listen() {
         self.socket?.receive { [weak self] (result) in
-            guard let self = self else { return }
-            
+            guard let sSelf = self else { return }
+            sSelf.logger.log(event: .socketRecieve())
             switch result {
             case .failure(let error):
-                print(error)
-                
+                sSelf.handleError(error)
                 return
             case .success(let message):
                 switch message {
                 case .data(let data):
-                    self.handle(data)
+                    sSelf.handle(data)
                 case .string(var str):
-                    print(str)
                     // temperary bug
                     if(str[str.startIndex] == "[") {
                         str.remove(at: str.startIndex)
                         str.remove(at: str.index(before: str.endIndex))
                     }
                     guard let data = str.data(using: .utf8) else { return }
-                    self.handle(data)
+                    sSelf.handle(data)
                 default:
                     break
                 }
             }
-            self.listen()
+            sSelf.listen()
         }
     }
     
@@ -146,6 +159,7 @@ final class WebSocketController {
         let gamePref = GamePreferencesMessage(
             votingTime: creatorsPrefs.votingTime,
             catastropheId: catastropheId,
+            gameConditions: [],
             shelterId: shelterId,
             difficultyId: difficultyId
         )
@@ -153,10 +167,12 @@ final class WebSocketController {
         let correctString = workAround(model: gamePref)
         do {
             let data = correctString.data(using: .utf8)!
-            print(String(data: data, encoding: .utf8)!)
             self.socket?.send(.string(correctString)) { (error) in
-                if error != nil {
-                    print(error.debugDescription)
+                if let networkError = error {
+                    self.logger.log(event: .socketSendGamePrefFailed(gamePrefs: correctString, error: networkError))
+                    print(networkError.localizedDescription)
+                } else {
+                    self.logger.log(event: .socketSendGamePrefSucceeded(gamePrefs: correctString))
                 }
             }
         } catch {
@@ -166,19 +182,23 @@ final class WebSocketController {
     
     public func startGame() {
         self.socket?.send(.string("game")) { (error) in
-            if error != nil {
-                print(error.debugDescription)
+            if let gameStartError = error {
+                self.logger.log(event: .gameStartFailed(error: gameStartError))
+                print(gameStartError.localizedDescription)
+            } else {
+                self.logger.log(event: .gameStartSucceeded())
             }
         }
     }
 
     public func sendChosenAttribute(attribute: AttributeChoiceMessage) {
         let data = attribute.jsonString
-        self.socket?.send(.string(data)) { error in
-            if error != nil {
-                print(error.debugDescription)
+        self.socket?.send(.string(data)) { (error) in
+            if let attributeError = error {
+                self.logger.log(event: .attributeChoiceFailed(attriute: data, error: attributeError))
+                print(attributeError.localizedDescription)
             } else {
-                print("send successfully")
+                self.logger.log(event: .attributeChoiceSucceeded(attriute: data))
             }
         }
     }
@@ -191,9 +211,7 @@ final class WebSocketController {
             return
         }
         let gameModel = Game(
-            gamePreferences: GamePreferences(
-                catastropheId: gameModelMessage.preferences.catastropheId
-            ),
+            gamePreferences: GamePreferences(message: gameModelMessage.preferences),
             players: gameModelMessage.players.map {
                 Player(
                     UID: $0.id,
@@ -214,7 +232,14 @@ final class WebSocketController {
     }
     
     private func handleWaitingRoom(_ data: Data) throws {
-        let roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
+        var roomModel = WaitingRoomMessage()
+        do {
+            roomModel = try JSONDecoder().decode(WaitingRoomMessage.self, from: data)
+            self.logger.log(event: .waitingRoomDecodedSuccessfully(data: data.debugDescription))
+        } catch let error {
+            self.logger.log(event: .waitingRoomFailedToDecode(data: data.debugDescription, error: error))
+
+        }
         var isCreator: Bool = false
         let players: [User] = roomModel.players.enumerated().map { (index, element) in
             if(element.id == self.clientID && element.isCreator) {
@@ -236,9 +261,10 @@ extension WebSocketController {
         let keyValuePairs = [
             ("votingTime", model.votingTime),
             ("catastropheId", model.catastropheId),
+            ("gameConditions", []),
             ("shelterId", model.shelterId),
             ("difficultyId", model.difficultyId)
-        ]
+        ] as [(String, Any)]
         
         let dict = Dictionary(uniqueKeysWithValues: keyValuePairs)
         let orderedKeys = keyValuePairs.map { $0.0 }

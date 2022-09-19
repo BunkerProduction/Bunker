@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CatastrpoheCollectionViewCell: UICollectionViewCell {
+final class GameInfoCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "CatastrpoheCollectionViewCell"
 
     private let iconLabel = UILabel()
@@ -44,10 +44,10 @@ final class CatastrpoheCollectionViewCell: UICollectionViewCell {
         mainSV.distribution = .fill
         mainSV.alignment = .fill
         mainSV.axis = .vertical
-        mainSV.spacing = 8
+        mainSV.spacing = 12
 
         self.addSubview(mainSV)
-        mainSV.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])
+        mainSV.pin(to: self, [.left: 16, .right: 16, .top: 16, .bottom: 16])
     }
 
     public func configure(icon: String, title: String, type: String, description: String) {
@@ -59,11 +59,13 @@ final class CatastrpoheCollectionViewCell: UICollectionViewCell {
             font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
             1.5
         )
+        self.descriptionLabel.lineBreakMode = .byClipping
     }
 
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
         typeLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
+        titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
         descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }
 }

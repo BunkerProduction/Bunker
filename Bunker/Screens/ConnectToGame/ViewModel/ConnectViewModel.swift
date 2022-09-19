@@ -13,6 +13,11 @@ final class ConnectViewModel {
     private let settings = UserSettings.shared
     private weak var viewController: RoomCodeViewController?
     private var connectionStatus: Bool = false
+    private var connectionError: String? {
+        didSet {
+            showError()
+        }
+    }
     private var roomModel: WaitingRoom? {
         didSet {
             navigateToWaitingRoom()
@@ -20,6 +25,7 @@ final class ConnectViewModel {
     }
     private var connectionSubscriber: AnyCancellable?
     private var roomModelSubscriber: AnyCancellable?
+    private var connectionErrorSubscriber: AnyCancellable?
     
     // MARK: - Init
     init(_ viewController: RoomCodeViewController) {
@@ -35,6 +41,15 @@ final class ConnectViewModel {
         roomModelSubscriber = socketController.waitingRoomRecieved
             .receive(on: RunLoop.main)
             .assign(to: \.roomModel, on: self)
+        connectionErrorSubscriber = socketController.connectionErrorRecieved
+            .receive(on: RunLoop.main)
+            .assign(to: \.connectionError, on: self)
+
+    }
+
+    private func showError() {
+        guard let error = connectionError else { return }
+        viewController?.showError(errorString: error)
     }
     
     // MARK: - Interactions

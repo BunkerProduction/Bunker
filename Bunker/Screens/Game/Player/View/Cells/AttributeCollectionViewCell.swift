@@ -76,19 +76,23 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
 
     // MARK: - SetupUI
     private func setupView() {
+        iconLabel.font = .customFont.icon
+        iconLabel.setHeight(to: iconLabel.textHeight())
+
         titleLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
+        titleLabel.setHeight(to: titleLabel.textHeight())
 
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .customFont.footnote
-        iconLabel.font = .customFont.icon
+
         self.layer.cornerRadius = 12
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
         stackView.distribution = .fill
         stackView.alignment = .firstBaseline
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 20
 
         self.contentView.addSubview(stackView)
 
@@ -107,18 +111,23 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
             font: .customFont.body ?? .systemFont(ofSize: 0),
             1
         )
+        descriptionLabel.numberOfLines = 0
         descriptionLabel.setCustomAttributedText(
             string: attribute.description,
             font: .customFont.footnote ?? .systemFont(ofSize: 0),
             1.25
         )
+        descriptionLabel.sizeToFit()
+
         self.isUserInteractionEnabled = !attribute.isExposed
         self.isBlured = attribute.isExposed
         self.isBlurable = isBlurable
     }
 
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .Background.Accent.colorFor(theme)
+        UIView.animate(withDuration: 0.1) {
+            self.backgroundColor = .Background.Accent.colorFor(theme)
+        }
         titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
         descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
     }

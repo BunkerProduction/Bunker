@@ -26,6 +26,12 @@ struct Catastrophe: Hashable {
         }
         return []
     }
+
+    public static func random() -> Catastrophe {
+        let all = Self.getAll()
+        let pos = Int.random(in: 0...all.count-1)
+        return all[pos]
+    }
 }
 
 extension Catastrophe: Codable { }

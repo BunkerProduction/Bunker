@@ -13,7 +13,22 @@ final class RoomCodeViewController: UIViewController {
     private let connectButton = PrimaryButton()
     private let settings = UserSettings.shared
     private lazy var viewModel = ConnectViewModel(self)
-    
+
+
+    // MARK: - Init
+    init(code: String? = nil) {
+        super.init(nibName: nil, bundle: nil)
+
+        if let code = code {
+            codeInput.setValues(code)
+        }
+    }
+
+    @available (*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +110,13 @@ final class RoomCodeViewController: UIViewController {
         } else {
             codeInput.DismissKeyboard()
         }
+    }
+
+    public func showError(errorString: String) {
+        let alert = UIAlertController(title: "Join Error", message: errorString, preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
 }
 

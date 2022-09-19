@@ -14,6 +14,8 @@ final class MainGameViewController: UIViewController {
     private var firstSpecialView = GameSpecialCardView()
     private var secondScecialView = GameSpecialCardView()
 
+    private var headerHeightConstraint: NSLayoutConstraint?
+
     private var specialsStackView = UIStackView()
 
     private lazy var collectionView: UICollectionView = {
@@ -38,7 +40,7 @@ final class MainGameViewController: UIViewController {
     // MARK: - Init
     init(_ coordinator: GameCoordinator) {
         super.init(nibName: nil, bundle: nil)
-        self.viewModel = MainGameViewModel(collectionView: collectionView, gameCoordinator: coordinator)
+        self.viewModel = MainGameViewModel(collectionView: collectionView, gameCoordinator: coordinator, gameScreen: self)
         collectionView.delegate = self
     }
 
@@ -77,7 +79,7 @@ final class MainGameViewController: UIViewController {
 
         headerView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         headerView.pin(to: view, [.left: 24, .right: 24])
-        headerView.setHeight(to: 132)
+        headerHeightConstraint = headerView.setHeight(to: 80)
 
         [firstSpecialView, secondScecialView].forEach {
             specialsStackView.addArrangedSubview($0)
@@ -113,5 +115,20 @@ final class MainGameViewController: UIViewController {
 extension MainGameViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel?.cellSelected(indexPath: indexPath)
+    }
+}
+
+extension MainGameViewController: MainGameScreen {
+    func setupHeaderView(model: GameHeaderView.ViewModel) {
+        headerView.configure(model)
+        switch model.mode {
+            case .normal:
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                    self?.headerHeightConstraint?.constant = 80
+                    self?.view.layoutIfNeeded()
+                }
+            case .voting:
+                headerHeightConstraint?.constant = 132
+        }
     }
 }

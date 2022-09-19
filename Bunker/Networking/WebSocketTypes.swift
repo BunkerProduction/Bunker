@@ -31,11 +31,20 @@ struct Handshake: Codable {
 struct GamePreferencesMessage {
     let votingTime: Int
     let catastropheId: Int
+    let gameConditions: [ShelterConditionsMessage]
     let shelterId: Int
     let difficultyId: Int
 }
 
 extension GamePreferencesMessage: Codable { }
+
+struct ShelterConditionsMessage {
+    let Condition: Int
+    let isExposed: Bool
+}
+
+extension ShelterConditionsMessage: Codable { }
+
 
 // MARK: - WaitingRoom Message
 struct WaitingRoomMessage {
