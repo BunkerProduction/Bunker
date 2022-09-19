@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E036D6A28D6613F00AC2B9F /* InstructionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */; };
+		4E036D6C28D67B4800AC2B9F /* InstructionPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E036D6B28D67B4800AC2B9F /* InstructionPageModel.swift */; };
+		4E3C6FFF28D7B95F00263D3A /* InstructionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */; };
 		4E45DA9228318B0100F5BF7A /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E45DA9128318B0100F5BF7A /* Label.swift */; };
 		4E81D4F22832EDD400829361 /* buttonSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F12832EDD400829361 /* buttonSound2.wav */; };
 		4E81D4F42832EDE000829361 /* buttonSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4F32832EDE000829361 /* buttonSound3.wav */; };
@@ -17,10 +20,14 @@
 		4E81D4FF2833771D00829361 /* buttonSound8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D4FE2833771D00829361 /* buttonSound8.mp3 */; };
 		4E81D5012833772800829361 /* buttonSound9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D5002833772800829361 /* buttonSound9.wav */; };
 		4E81D504283383B900829361 /* Baige.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81D503283383B900829361 /* Baige.swift */; };
+<<<<<<< HEAD
+		4EB4F45528B22555002375E4 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4F45428B22555002375E4 /* InstructionsViewController.swift */; };
+=======
 		4E92461928BA8D7900D9C864 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461828BA8D7900D9C864 /* LoadingView.swift */; };
 		4E92461B28BA8D9A00D9C864 /* LoadingShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461A28BA8D9A00D9C864 /* LoadingShapeLayer.swift */; };
 		4E92461D28BA923000D9C864 /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461C28BA923000D9C864 /* StrokeAnimation.swift */; };
 		4E92461F28BA95DB00D9C864 /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461E28BA95DB00D9C864 /* RotationAnimation.swift */; };
+>>>>>>> main
 		4ED4C60B282D90BB0062D0AD /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */; };
 		4ED4C60D282D90C60062D0AD /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */; };
 		4ED4C60F282D90DD0062D0AD /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */; };
@@ -140,6 +147,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E036D6B28D67B4800AC2B9F /* InstructionPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageModel.swift; sourceTree = "<group>"; };
+		4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionSectionView.swift; sourceTree = "<group>"; };
 		4E45DA9128318B0100F5BF7A /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		4E81D4F12832EDD400829361 /* buttonSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound2.wav; sourceTree = "<group>"; };
 		4E81D4F32832EDE000829361 /* buttonSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound3.wav; sourceTree = "<group>"; };
@@ -150,10 +160,14 @@
 		4E81D4FE2833771D00829361 /* buttonSound8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonSound8.mp3; sourceTree = "<group>"; };
 		4E81D5002833772800829361 /* buttonSound9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound9.wav; sourceTree = "<group>"; };
 		4E81D503283383B900829361 /* Baige.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baige.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		4EB4F45428B22555002375E4 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+=======
 		4E92461828BA8D7900D9C864 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4E92461A28BA8D9A00D9C864 /* LoadingShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShapeLayer.swift; sourceTree = "<group>"; };
 		4E92461C28BA923000D9C864 /* StrokeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
 		4E92461E28BA95DB00D9C864 /* RotationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -284,6 +298,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E3C700028D8904000263D3A /* Instruction */ = {
+			isa = PBXGroup;
+			children = (
+				4E3C700128D8906D00263D3A /* Model */,
+				4EB4F45428B22555002375E4 /* InstructionsViewController.swift */,
+				4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */,
+				4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */,
+			);
+			path = Instruction;
+			sourceTree = "<group>";
+		};
+		4E3C700128D8906D00263D3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E036D6B28D67B4800AC2B9F /* InstructionPageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4E81D4F52832EDF900829361 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +540,7 @@
 		C0455E7928257D7E00990351 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4E3C700028D8904000263D3A /* Instruction */,
 				C0455E862825910C00990351 /* WelcomeScreen */,
 				C0455E872825911800990351 /* Settings */,
 				C0455E8A2825922200990351 /* CreateGame */,
@@ -940,7 +974,11 @@
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
 				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
+<<<<<<< HEAD
+				4EB4F45528B22555002375E4 /* InstructionsViewController.swift in Sources */,
+=======
 				C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */,
+>>>>>>> main
 				C06642DB288B298300DD7C28 /* ThreatsProtocols.swift in Sources */,
 				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
 				C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */,
@@ -960,9 +998,11 @@
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C06642D2287CCE0800DD7C28 /* MainGameViewModel.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
+				4E036D6C28D67B4800AC2B9F /* InstructionPageModel.swift in Sources */,
 				C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
 				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
+				4E3C6FFF28D7B95F00263D3A /* InstructionSectionView.swift in Sources */,
 				C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
 				C02D10AA283C04800053BFD8 /* ThreatsViewController.swift in Sources */,
@@ -997,6 +1037,7 @@
 				4E81D504283383B900829361 /* Baige.swift in Sources */,
 				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
 				C06642E2288B527800DD7C28 /* PlayerCollectionViewCell.swift in Sources */,
+				4E036D6A28D6613F00AC2B9F /* InstructionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

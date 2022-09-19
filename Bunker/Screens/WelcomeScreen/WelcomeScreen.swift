@@ -10,7 +10,7 @@ import UIKit
 final class WelcomeController: UIViewController {
     private let settingsButton = UIButton()
     private let logo = BunkerLogo()
-    private let instructionView = UIView()
+    private let instructionView = UIControl()
     private let createGameButton = PrimaryButton(frame: .zero)
     private let joinGameButton = PrimaryButton(frame: .zero)
     private var settings: UserSettings?
@@ -113,11 +113,15 @@ final class WelcomeController: UIViewController {
         sV.distribution = .equalCentering
         sV.alignment = .fill
         sV.axis = .vertical
+        sV.isUserInteractionEnabled = false
         
         instructionView.addSubview(sV)
         sV.pin(to: instructionView, [.top: 50, .bottom: 50, .left: 0, .right: 0])
         instructionView.setHeight(to: 281)
         instructionView.setWidth(to: 215)
+
+        instructionView.addTarget(self, action: #selector(instructionPressed), for: .touchUpInside)
+
     }
     
     private func setupGameButtons() {
@@ -126,6 +130,12 @@ final class WelcomeController: UIViewController {
     }
     
     // MARK: - Interactions
+    @objc
+    private func instructionPressed() {
+        let instructions = InstructionsViewController()
+        self.navigationController?.pushViewController(instructions, animated: true)
+    }
+
     @objc
     private func settingsPressed() {
         let settings = SettingsViewController()
