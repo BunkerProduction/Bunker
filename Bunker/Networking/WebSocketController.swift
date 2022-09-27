@@ -206,6 +206,7 @@ final class WebSocketController {
     // MARK: - Model setters
     private func handleGameModel(_ data: Data) throws {
         let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
+        print(String(data: data, encoding: .utf8))
         guard let myPlayerMessage = gameModelMessage.players.first(where: { $0.id == self.clientID })
         else {
             return

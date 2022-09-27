@@ -94,6 +94,7 @@ final class RoomCodeViewController: UIViewController {
     private func joinGame() {
         let value = codeInput.getValue()
         viewModel.joinGame(code: value)
+        connectButton.isLoading = true
 //        codeInput.toggleInput(true)
     }
     
@@ -113,6 +114,7 @@ final class RoomCodeViewController: UIViewController {
     }
 
     public func showError(errorString: String) {
+        connectButton.isLoading = false
         let alert = UIAlertController(title: "Join Error", message: errorString, preferredStyle: .actionSheet)
         let ok = UIAlertAction(title: "OK", style: .default)
         alert.addAction(ok)

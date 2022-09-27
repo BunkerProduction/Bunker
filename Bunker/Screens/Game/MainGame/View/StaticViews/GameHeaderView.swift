@@ -80,6 +80,7 @@ final class GameHeaderView: UIView {
                 subtitleLabel.text = text
                 title.isHidden = true
             case .voting:
+                subtitleLabel.text = "Выберите кого исключить"
                 title.isHidden = false
         }
     }

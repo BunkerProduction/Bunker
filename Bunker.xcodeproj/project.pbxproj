@@ -109,6 +109,9 @@
 		C06642E0288B4FB500DD7C28 /* GameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642DF288B4FB500DD7C28 /* GameHeaderView.swift */; };
 		C06642E2288B527800DD7C28 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642E1288B527800DD7C28 /* PlayerCollectionViewCell.swift */; };
 		C068810728DFB3E800A6EE74 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810628DFB3E800A6EE74 /* InstructionsViewController.swift */; };
+		C068810928E09E6900A6EE74 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810828E09E6900A6EE74 /* OptionButton.swift */; };
+		C068810B28E277F300A6EE74 /* ProgressLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810A28E277F300A6EE74 /* ProgressLayerView.swift */; };
+		C068810D28E2820700A6EE74 /* ProgressCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810C28E2820700A6EE74 /* ProgressCache.swift */; };
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
 		C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */; };
@@ -250,6 +253,9 @@
 		C06642DF288B4FB500DD7C28 /* GameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeaderView.swift; sourceTree = "<group>"; };
 		C06642E1288B527800DD7C28 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		C068810628DFB3E800A6EE74 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstructionsViewController.swift; path = Bunker/Screens/Instruction/InstructionsViewController.swift; sourceTree = SOURCE_ROOT; };
+		C068810828E09E6900A6EE74 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
+		C068810A28E277F300A6EE74 /* ProgressLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressLayerView.swift; sourceTree = "<group>"; };
+		C068810C28E2820700A6EE74 /* ProgressCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCache.swift; sourceTree = "<group>"; };
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -679,6 +685,7 @@
 				C06642D8287CDF3D00DD7C28 /* ViewModel */,
 				C02D10A7283C046D0053BFD8 /* MainGameViewController.swift */,
 				C0937AD828B576350027B48B /* MainGameProtocols.swift */,
+				C068810C28E2820700A6EE74 /* ProgressCache.swift */,
 			);
 			path = MainGame;
 			sourceTree = "<group>";
@@ -774,8 +781,10 @@
 		C08783FA28B10244009DD819 /* StaticViews */ = {
 			isa = PBXGroup;
 			children = (
+				C068810828E09E6900A6EE74 /* OptionButton.swift */,
 				C0070CDB28947B93007BDA0B /* GameSpecialCardView.swift */,
 				C06642DF288B4FB500DD7C28 /* GameHeaderView.swift */,
+				C068810A28E277F300A6EE74 /* ProgressLayerView.swift */,
 			);
 			path = StaticViews;
 			sourceTree = "<group>";
@@ -963,6 +972,7 @@
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */,
 				C0070CDE289561D1007BDA0B /* GameInfoCollectionViewCell.swift in Sources */,
+				C068810D28E2820700A6EE74 /* ProgressCache.swift in Sources */,
 				C02D109D28399F050053BFD8 /* ConnectViewModel.swift in Sources */,
 				C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */,
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,
@@ -970,6 +980,7 @@
 				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
 				C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */,
 				C06642DB288B298300DD7C28 /* ThreatsProtocols.swift in Sources */,
+				C068810928E09E6900A6EE74 /* OptionButton.swift in Sources */,
 				C003F314282FE01A006F3FE9 /* GamePreferences.swift in Sources */,
 				C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */,
 				C003F31C282FEFE7006F3FE9 /* PackCollectionViewCell.swift in Sources */,
@@ -1003,6 +1014,7 @@
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
 				C06642E0288B4FB500DD7C28 /* GameHeaderView.swift in Sources */,
 				C0937ADB28B58ABB0027B48B /* DeepLink.swift in Sources */,
+				C068810B28E277F300A6EE74 /* ProgressLayerView.swift in Sources */,
 				C02D10A4283BE3430053BFD8 /* PlayerViewModel.swift in Sources */,
 				C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */,
 				C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */,

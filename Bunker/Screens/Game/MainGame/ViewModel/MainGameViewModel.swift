@@ -15,6 +15,7 @@ final class MainGameViewModel {
     private let settings = UserSettings.shared
     private let networkService = WebSocketController.shared
 
+    private let progressCache = ProgressCache()
     private var gameModelSubscriber: AnyCancellable?
     private var gameModel: Game? {
         didSet {
@@ -50,7 +51,8 @@ final class MainGameViewModel {
             )
             if let cell = cell as? PlayerCollectionViewCell,
                let item = itemIdentifier as? Player {
-                cell.configure(player: item)
+                cell.progressCache = self.progressCache
+                cell.configure(player: item, votingProgress: Double.random(in: 0..<1))
                 cell.setTheme(self.settings.appearance)
             }
 
@@ -67,10 +69,17 @@ final class MainGameViewModel {
         snapshot.appendSections(["players"])
         snapshot.appendItems(gameModel.players, toSection: "players")
 
-        dataSource?.applySnapshotUsingReloadData(snapshot)
-        if let playerWithTurn = gameModel.players.first(where: {$0.UID == gameModel.turn }) {
-            gameScreen?.setupHeaderView(model: .init(mode: .normal(text: "Ход игрока: \(playerWithTurn.username)")))
+        switch gameModel.gameState {
+            case .normal:
+                if let playerWithTurn = gameModel.players.first(where: {$0.UID == gameModel.turn }) {
+                    gameScreen?.setupHeaderView(model: .init(mode: .normal(text: "Ход игрока: \(playerWithTurn.username)")))
+                }
+                progressCache.clearProgress()
+            case .voting:
+                gameScreen?.setupHeaderView(model: .init(mode: .voting))
         }
+
+        dataSource?.applySnapshotUsingReloadData(snapshot)
     }
 
     // MARK: - Binding
