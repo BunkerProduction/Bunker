@@ -45,8 +45,8 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
         titleLabel.text = title
     }
 
-    public func setTheme(_ theme: Appearence) {
+    public func setTheme(_ theme: Appearence, _ warning: Bool) {
         self.backgroundColor = .Background.Accent.colorFor(theme)
-        titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+        titleLabel.textColor = warning ? .Main.Warning.colorFor(theme) : .TextAndIcons.Primary.colorFor(theme)
     }
 }

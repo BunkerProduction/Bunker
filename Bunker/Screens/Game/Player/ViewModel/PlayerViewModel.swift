@@ -106,7 +106,7 @@ extension PlayerViewModel: UICollectionViewDataSource {
             )
             if let cell = cell as? ButtonCollectionViewCell {
                 cell.configure("Открыть карту")
-                cell.setTheme(settings.appearance)
+                cell.setTheme(settings.appearance, false)
             }
             return cell
         }

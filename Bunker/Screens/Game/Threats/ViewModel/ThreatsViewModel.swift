@@ -100,7 +100,7 @@ final class ThreatViewModel: ThreatsLogic {
                 )
                 if let cell = cell as? ButtonCollectionViewCell {
                     cell.configure("Выйти из игры")
-                    cell.setTheme(self.settings.appearance)
+                    cell.setTheme(self.settings.appearance, true)
                 }
 
                 return cell
