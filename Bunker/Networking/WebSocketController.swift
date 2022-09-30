@@ -44,7 +44,9 @@ final class WebSocketController {
     
     // MARK: - Connetion
     private func connect(_ endPoint: String) {
-        socket = session.webSocketTask(with: URL(string: endPoint)!)
+        var request = URLRequest(url: URL(string: endPoint)!)
+        request.addValue(UserSettings.applicationVersion, forHTTPHeaderField: "version_client")
+        socket = session.webSocketTask(with: request)
         self.listen()
         self.socket?.resume()
         self.schedulePing()
@@ -179,6 +181,21 @@ final class WebSocketController {
             print(error)
         }
     }
+
+    public func sendVote(forPlayer: String) {
+        guard let clientID = clientID else {
+            return
+        }
+        let message = VoteChoiceMessage(player: clientID, votedFor: forPlayer)
+        let data = message.jsonString
+        self.socket?.send(.string(data)) { (error) in
+            if let error = error {
+                self.logger.log(event: .sendVoteChoiceFailed(data: data, error: error))
+            } else {
+                self.logger.log(event: .sendVoteChoiceSucceded(data: data))
+            }
+        }
+    }
     
     public func startGame() {
         self.socket?.send(.string("game")) { (error) in
@@ -205,8 +222,8 @@ final class WebSocketController {
     
     // MARK: - Model setters
     private func handleGameModel(_ data: Data) throws {
-        let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
         print(String(data: data, encoding: .utf8))
+        let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
         guard let myPlayerMessage = gameModelMessage.players.first(where: { $0.id == self.clientID })
         else {
             return
@@ -214,19 +231,27 @@ final class WebSocketController {
         let gameModel = Game(
             gamePreferences: GamePreferences(message: gameModelMessage.preferences),
             players: gameModelMessage.players.map {
-                Player(
+                var votesForPlayer: Double?
+                if let votes = gameModelMessage.votes?[$0.id] {
+                    votesForPlayer = Double(votes) / Double(gameModelMessage.players.count)
+                }
+                return Player(
                     UID: $0.id,
                     username: $0.username,
-                    attributes: $0.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) }
+                    attributes: $0.attributes.enumerated().map {
+                        Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed)
+                    },
+                    votesForHim: votesForPlayer ?? 0.0
                 )
             },
             turn: gameModelMessage.turn,
-            round: 0,
-            gameState: .normal,
+            round: gameModelMessage.round,
+            gameState: gameModelMessage.gameState,
             myPlayer: Player(
                 UID: myPlayerMessage.id,
                 username: myPlayerMessage.username,
-                attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) }
+                attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) },
+                votesForHim: 0.0
             )
         )
         self.gameModel = gameModel
@@ -279,5 +304,11 @@ extension WebSocketController {
         result += "}"
         
         return result
+    }
+}
+
+// MARK: - WebSocketServiceDelegate
+extension WebSocketController: WebSocketServiceDelegate {
+    func receivedData(data: Result<Data, Error>) {
     }
 }

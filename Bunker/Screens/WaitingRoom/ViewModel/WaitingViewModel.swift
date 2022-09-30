@@ -112,7 +112,8 @@ final class WaitingViewModel {
         let gameController = TabGameViewController()
         self.viewController?.navigationController?.pushViewController(gameController, animated: true)
     }
-    
+
+    // MARK: - Public
     public func disconnect() {
         unbind()
         // disconnect from room

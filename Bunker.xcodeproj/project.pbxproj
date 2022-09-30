@@ -112,6 +112,17 @@
 		C068810928E09E6900A6EE74 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810828E09E6900A6EE74 /* OptionButton.swift */; };
 		C068810B28E277F300A6EE74 /* ProgressLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810A28E277F300A6EE74 /* ProgressLayerView.swift */; };
 		C068810D28E2820700A6EE74 /* ProgressCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810C28E2820700A6EE74 /* ProgressCache.swift */; };
+		C068811028E78E6600A6EE74 /* WaitingRoomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068810F28E78E6600A6EE74 /* WaitingRoomMessage.swift */; };
+		C068811228E78EA100A6EE74 /* GamePreferencesMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811128E78EA100A6EE74 /* GamePreferencesMessage.swift */; };
+		C068811428E78EBC00A6EE74 /* GameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811328E78EBC00A6EE74 /* GameMessage.swift */; };
+		C068811628E78ED600A6EE74 /* VoteChoiceMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811528E78ED600A6EE74 /* VoteChoiceMessage.swift */; };
+		C068811828E78EF600A6EE74 /* AttributeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811728E78EF600A6EE74 /* AttributeMessage.swift */; };
+		C068811A28E78F2700A6EE74 /* PlayerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811928E78F2700A6EE74 /* PlayerMessage.swift */; };
+		C068811C28E78F4C00A6EE74 /* UserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811B28E78F4C00A6EE74 /* UserMessage.swift */; };
+		C068811E28E78F6500A6EE74 /* ShelterConditionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811D28E78F6500A6EE74 /* ShelterConditionMessage.swift */; };
+		C068812028E7901900A6EE74 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811F28E7901900A6EE74 /* WebSocketService.swift */; };
+		C068812228E7955D00A6EE74 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812128E7955D00A6EE74 /* Player.swift */; };
+		C068812428E7957200A6EE74 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812328E7957200A6EE74 /* Attribute.swift */; };
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
 		C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */; };
@@ -256,6 +267,17 @@
 		C068810828E09E6900A6EE74 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
 		C068810A28E277F300A6EE74 /* ProgressLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressLayerView.swift; sourceTree = "<group>"; };
 		C068810C28E2820700A6EE74 /* ProgressCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCache.swift; sourceTree = "<group>"; };
+		C068810F28E78E6600A6EE74 /* WaitingRoomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomMessage.swift; sourceTree = "<group>"; };
+		C068811128E78EA100A6EE74 /* GamePreferencesMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePreferencesMessage.swift; sourceTree = "<group>"; };
+		C068811328E78EBC00A6EE74 /* GameMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMessage.swift; sourceTree = "<group>"; };
+		C068811528E78ED600A6EE74 /* VoteChoiceMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteChoiceMessage.swift; sourceTree = "<group>"; };
+		C068811728E78EF600A6EE74 /* AttributeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeMessage.swift; sourceTree = "<group>"; };
+		C068811928E78F2700A6EE74 /* PlayerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMessage.swift; sourceTree = "<group>"; };
+		C068811B28E78F4C00A6EE74 /* UserMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessage.swift; sourceTree = "<group>"; };
+		C068811D28E78F6500A6EE74 /* ShelterConditionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterConditionMessage.swift; sourceTree = "<group>"; };
+		C068811F28E7901900A6EE74 /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		C068812128E7955D00A6EE74 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C068812328E7957200A6EE74 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -423,6 +445,8 @@
 				C003F317282FE030006F3FE9 /* Shelter.swift */,
 				C06D637B2836ED9C00253B24 /* WaitingRoom.swift */,
 				C02D10A5283BE44E0053BFD8 /* Game.swift */,
+				C068812128E7955D00A6EE74 /* Player.swift */,
+				C068812328E7957200A6EE74 /* Attribute.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -636,7 +660,9 @@
 			isa = PBXGroup;
 			children = (
 				C0455E942825A14300990351 /* WebSocketTypes.swift */,
+				C068810E28E78E4300A6EE74 /* Messages */,
 				C033A5062831512A006B7A6C /* WebSocketController.swift */,
+				C068811F28E7901900A6EE74 /* WebSocketService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -714,6 +740,21 @@
 				C08783F928B10239009DD819 /* PlayerDetailedView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C068810E28E78E4300A6EE74 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				C068810F28E78E6600A6EE74 /* WaitingRoomMessage.swift */,
+				C068811128E78EA100A6EE74 /* GamePreferencesMessage.swift */,
+				C068811328E78EBC00A6EE74 /* GameMessage.swift */,
+				C068811528E78ED600A6EE74 /* VoteChoiceMessage.swift */,
+				C068811728E78EF600A6EE74 /* AttributeMessage.swift */,
+				C068811928E78F2700A6EE74 /* PlayerMessage.swift */,
+				C068811B28E78F4C00A6EE74 /* UserMessage.swift */,
+				C068811D28E78F6500A6EE74 /* ShelterConditionMessage.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 		C06D637F2839248E00253B24 /* WaitingRoom */ = {
@@ -965,6 +1006,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C068812428E7957200A6EE74 /* Attribute.swift in Sources */,
 				C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */,
 				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
 				C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */,
@@ -972,7 +1014,10 @@
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */,
 				C0070CDE289561D1007BDA0B /* GameInfoCollectionViewCell.swift in Sources */,
+				C068811E28E78F6500A6EE74 /* ShelterConditionMessage.swift in Sources */,
 				C068810D28E2820700A6EE74 /* ProgressCache.swift in Sources */,
+				C068811828E78EF600A6EE74 /* AttributeMessage.swift in Sources */,
+				C068811C28E78F4C00A6EE74 /* UserMessage.swift in Sources */,
 				C02D109D28399F050053BFD8 /* ConnectViewModel.swift in Sources */,
 				C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */,
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,
@@ -1012,9 +1057,12 @@
 				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* PrimaryButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
+				C068811428E78EBC00A6EE74 /* GameMessage.swift in Sources */,
+				C068811628E78ED600A6EE74 /* VoteChoiceMessage.swift in Sources */,
 				C06642E0288B4FB500DD7C28 /* GameHeaderView.swift in Sources */,
 				C0937ADB28B58ABB0027B48B /* DeepLink.swift in Sources */,
 				C068810B28E277F300A6EE74 /* ProgressLayerView.swift in Sources */,
+				C068811228E78EA100A6EE74 /* GamePreferencesMessage.swift in Sources */,
 				C02D10A4283BE3430053BFD8 /* PlayerViewModel.swift in Sources */,
 				C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */,
 				C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */,
@@ -1023,6 +1071,7 @@
 				4E92461B28BA8D9A00D9C864 /* LoadingShapeLayer.swift in Sources */,
 				4E45DA9228318B0100F5BF7A /* Label.swift in Sources */,
 				C06642CE287B8A6300DD7C28 /* ConditionCollectionViewCell.swift in Sources */,
+				C068811028E78E6600A6EE74 /* WaitingRoomMessage.swift in Sources */,
 				4E92461F28BA95DB00D9C864 /* RotationAnimation.swift in Sources */,
 				C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */,
 				C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */,
@@ -1032,6 +1081,8 @@
 				C0455E802825805000990351 /* View+Pin.swift in Sources */,
 				C0937AD928B576350027B48B /* MainGameProtocols.swift in Sources */,
 				C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */,
+				C068811A28E78F2700A6EE74 /* PlayerMessage.swift in Sources */,
+				C068812028E7901900A6EE74 /* WebSocketService.swift in Sources */,
 				C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */,
 				C003F32728302B11006F3FE9 /* JsonManager.swift in Sources */,
 				C02D10A6283BE44E0053BFD8 /* Game.swift in Sources */,
@@ -1040,6 +1091,7 @@
 				4E81D504283383B900829361 /* Baige.swift in Sources */,
 				C0455E952825A14300990351 /* WebSocketTypes.swift in Sources */,
 				C06642E2288B527800DD7C28 /* PlayerCollectionViewCell.swift in Sources */,
+				C068812228E7955D00A6EE74 /* Player.swift in Sources */,
 				4E036D6A28D6613F00AC2B9F /* InstructionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1346,7 +1398,7 @@
 				C0455E6D28257A0B00990351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C0455E6E28257A0B00990351 /* Build configuration list for PBXNativeTarget "Bunker" */ = {
 			isa = XCConfigurationList;
@@ -1355,7 +1407,7 @@
 				C0455E7028257A0B00990351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C0455E7128257A0B00990351 /* Build configuration list for PBXNativeTarget "BunkerTests" */ = {
 			isa = XCConfigurationList;
@@ -1364,7 +1416,7 @@
 				C0455E7328257A0B00990351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C0455E7428257A0B00990351 /* Build configuration list for PBXNativeTarget "BunkerUITests" */ = {
 			isa = XCConfigurationList;
@@ -1373,7 +1425,7 @@
 				C0455E7628257A0B00990351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -77,6 +77,13 @@ extension Event {
 
     static func waitingRoomFailedToDecode(data: String, error: Error) -> Event {
         return .error(description: "🔻 Waiting room failed", error: error)
+    }
 
+    static func sendVoteChoiceFailed(data: String, error: Error) -> Event {
+        return .error(description: "🔻 Send Vote failed: \(data)", error: error)
+    }
+
+    static func sendVoteChoiceSucceded(data: String) -> Event {
+        return .info(description: "🔹 Sent vote successfully: \(data)")
     }
 }

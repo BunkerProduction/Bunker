@@ -11,6 +11,10 @@ enum GameState: String, Codable {
     case normal, voting
 }
 
+enum GameModelError: String, Error {
+    case failedToInitFromMessage
+}
+
 struct Game {
     let gamePreferences: GamePreferences
     let players: [Player]
@@ -18,75 +22,40 @@ struct Game {
     let round: Int
     let gameState: GameState
     let myPlayer: Player
+    let hasVoted: Bool = false
 }
 
-struct Player {
-    let UID: String
-    let username: String
-    let attributes: [Attribute]
-}
-
-extension Player: Hashable {
-    static func == (lhs: Player, rhs: Player) -> Bool {
-        return lhs.UID == rhs.UID
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(UID)
-    }
-}
-
-struct Attribute {
-    let id: Int
-    var icon: String = "👩🏻‍🎓"
-    let type: Category
-    var isExposed: Bool = false
-    let description: String
-
-    enum Category: String, Codable {
-        case profession = "Profession",
-             health = "Health",
-             biology = "Biology",
-             hobby = "Hobby",
-             luggage = "Luggage",
-             fact = "Fact"
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case type = "category"
-        case description
-    }
-
-    init(identifier: Int, position: Int, isExposed: Bool) {
-        let attribute = Self.allAttributes[position].first(where: { $0.id == identifier})!
-        self.icon = Attribute.fileNames[position]!.1
-        self.id = attribute.id
-        self.type = attribute.type
-        self.description = attribute.description
-        self.isExposed = isExposed
-    }
-
-    static var allAttributes: [[Attribute]] = []
-
-    static let fileNames = [
-        0: ("profession", "🧑🏼‍🎓"),
-        1: ("health", "🫀"),
-        2: ("biology", "👽"),
-        3: ("hobby", "🏓"),
-        4: ("luggage", "🎒"),
-        5: ("fact", "⚠️")
-    ]
-
-    static func load() {
-        for val in fileNames.sorted(by: { $0.0 < $1.0 }) {
-            let decoder = JSONDecoder()
-            let data = JsonManager.shared.readLocalFile(forName: val.value.0)!
-
-            let categoryAttributes = try! decoder.decode([Attribute].self, from: data)
-            allAttributes.append(categoryAttributes)
+extension Game {
+    init?(from message: GameMessage, clientID: String) {
+        guard let myPlayerMessage = message.players.first(where: { $0.id == clientID }) else {
+            return nil
         }
+
+        gamePreferences = GamePreferences(message: message.preferences)
+
+        players = message.players.map {
+            var votesForPlayer: Double?
+            if let votes = message.votes?[$0.id] {
+                votesForPlayer = Double(votes) / Double(message.players.count)
+            }
+            return Player(
+                UID: $0.id,
+                username: $0.username,
+                attributes: $0.attributes.enumerated().map {
+                    Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed)
+                },
+                votesForHim: votesForPlayer ?? 0.0
+            )
+        }
+
+        turn = message.turn
+        round = message.round
+        gameState = message.gameState
+        myPlayer = Player(
+            UID: myPlayerMessage.id,
+            username: myPlayerMessage.username,
+            attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) },
+            votesForHim: 0.0
+        )
     }
 }
-
-extension Attribute: Hashable, Codable { }

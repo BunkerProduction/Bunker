@@ -30,6 +30,9 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
     private let progressView = ProgressLayerView()
     public var progressCache: ProgressCache?
 
+    private var player: Player?
+    private var actionOnTap: ((String) -> Void)?
+
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,20 +67,25 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
         stackView.pin(to: self, [.left: 12, .right: 12, .top: 12, .bottom: 12])
         progressView.pin(to: self)
         progressView.isHidden = true
+
+        leftView.addTarget(self, action: #selector(leftViewTapped), for: .touchUpInside)
         self.clipsToBounds = true
     }
 
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = .Background.Accent.colorFor(theme)
+        backgroundColor = .Background.Accent.colorFor(theme)
+        layer.borderColor = UIColor.PrimaryColors.colorFor(theme)?.cgColor
         nameLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
         leftView.selectedColor = .PrimaryColors.colorFor(theme)
         leftView.backgroundColor = .Background.LayerTwo.colorFor(theme)
         progressView.setTheme(theme: theme)
-        self.layer.borderColor = UIColor.PrimaryColors.colorFor(theme)?.cgColor
     }
 
-    public func configure(player: Player, mode: GameState = .normal, votingProgress: Double) {
+    public func configure(player: Player, mode: GameState = .normal, action: ((String) -> Void)?) {
+        actionOnTap = nil
+        actionOnTap = action
         nameLabel.text = player.username
+        self.player = player
 
         for attrIndex in player.attributes.indices {
             attributeLabels[attrIndex].text = "\(player.attributes[attrIndex].icon)"
@@ -94,12 +102,11 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
                 leftView.isUserInteractionEnabled = true
                 leftView.isHidden = true
                 progressView.isHidden = true
-//                applayVotesProgress(progress: votingProgress, identifier: player.UID)
             case .voting:
                 leftView.isUserInteractionEnabled = true
                 leftView.isHidden = false
                 progressView.isHidden = false
-                applayVotesProgress(progress: votingProgress, identifier: player.UID)
+                applayVotesProgress(progress: player.votesForHim, identifier: player.UID)
         }
     }
 
@@ -109,5 +116,12 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
         let oldProgress = progressCache?.getProgress(for: identifier) ?? 0
         progressView.updateProgress(progress: oldProgress, withAnimation: false)
         progressView.updateProgress(progress: progress)
+    }
+
+    @objc private func leftViewTapped() {
+        guard let player = player else {
+            return
+        }
+        actionOnTap?(player.UID)
     }
 }

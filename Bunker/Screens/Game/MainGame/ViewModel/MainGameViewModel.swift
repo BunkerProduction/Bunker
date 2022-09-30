@@ -29,10 +29,15 @@ final class MainGameViewModel {
     private weak var collectionView: UICollectionView?
 
     // MARK: - Init
-    init(collectionView: UICollectionView, gameCoordinator: GameCoordinator, gameScreen: MainGameScreen) {
+    init(
+        collectionView: UICollectionView,
+        gameCoordinator: GameCoordinator,
+        gameScreen: MainGameScreen
+    ) {
         self.coordinator = gameCoordinator
         self.collectionView = collectionView
         self.gameScreen = gameScreen
+
         binding()
         createDataSource()
     }
@@ -42,6 +47,7 @@ final class MainGameViewModel {
         guard let collectionView = collectionView else {
             return
         }
+
         self.dataSource = DataSource(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
 
@@ -52,7 +58,13 @@ final class MainGameViewModel {
             if let cell = cell as? PlayerCollectionViewCell,
                let item = itemIdentifier as? Player {
                 cell.progressCache = self.progressCache
-                cell.configure(player: item, votingProgress: Double.random(in: 0..<1))
+                cell.configure(
+                    player: item,
+                    mode: self.gameModel?.gameState ?? .normal,
+                    action: { [weak self] (playerID) in
+                        self?.networkService.sendVote(forPlayer: playerID)
+                    }
+                )
                 cell.setTheme(self.settings.appearance)
             }
 
