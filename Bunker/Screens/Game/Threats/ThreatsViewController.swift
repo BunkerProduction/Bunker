@@ -87,6 +87,30 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
         collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
     }
 
+    private func showAlert() {
+        let alertView = UIAlertController(
+            title: "Выйти",
+            message: "Вы уверены что хотите выйти из игры?",
+            preferredStyle: .alert)
+        alertView.addAction(
+            UIAlertAction(
+                title: "Отменить",
+                style: .cancel,
+                handler: nil
+            )
+        )
+        alertView.addAction(
+            UIAlertAction(
+                title: "Выйти",
+                style: .destructive,
+                handler: {_ in
+                    self.viewModel?.exitGame()
+                }
+            )
+        )
+        self.present(alertView, animated: true)
+    }
+
     // MARK: - Setup NavBar
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -99,6 +123,6 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
 extension ThreatsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard viewModel?.sections[indexPath.section] == ThreatViewModel.Section.exit else { return }
-        viewModel?.exitGame()
+        showAlert()
     }
 }
