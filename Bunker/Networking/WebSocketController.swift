@@ -224,36 +224,11 @@ final class WebSocketController {
     private func handleGameModel(_ data: Data) throws {
         print(String(data: data, encoding: .utf8))
         let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
-        guard let myPlayerMessage = gameModelMessage.players.first(where: { $0.id == self.clientID })
-        else {
+        guard let clientID = clientID else {
             return
         }
-        let gameModel = Game(
-            gamePreferences: GamePreferences(message: gameModelMessage.preferences),
-            players: gameModelMessage.players.map {
-                var votesForPlayer: Double?
-                if let votes = gameModelMessage.votes?[$0.id] {
-                    votesForPlayer = Double(votes) / Double(gameModelMessage.players.count)
-                }
-                return Player(
-                    UID: $0.id,
-                    username: $0.username,
-                    attributes: $0.attributes.enumerated().map {
-                        Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed)
-                    },
-                    votesForHim: votesForPlayer ?? 0.0
-                )
-            },
-            turn: gameModelMessage.turn,
-            round: gameModelMessage.round,
-            gameState: gameModelMessage.gameState,
-            myPlayer: Player(
-                UID: myPlayerMessage.id,
-                username: myPlayerMessage.username,
-                attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) },
-                votesForHim: 0.0
-            )
-        )
+
+        let gameModel = Game(from: gameModelMessage, clientID: clientID)
         self.gameModel = gameModel
     }
     

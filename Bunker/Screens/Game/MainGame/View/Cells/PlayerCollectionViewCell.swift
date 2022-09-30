@@ -99,10 +99,12 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
 
         switch mode {
             case .normal:
+                self.layer.borderWidth = 0
                 leftView.isUserInteractionEnabled = true
                 leftView.isHidden = true
                 progressView.isHidden = true
             case .voting:
+                self.layer.borderWidth = 2
                 leftView.isUserInteractionEnabled = true
                 leftView.isHidden = false
                 progressView.isHidden = false
@@ -111,7 +113,6 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
     }
 
     private func applayVotesProgress(progress: Double, identifier: String) {
-        self.layer.borderWidth = 2
 
         let oldProgress = progressCache?.getProgress(for: identifier) ?? 0
         progressView.updateProgress(progress: oldProgress, withAnimation: false)
