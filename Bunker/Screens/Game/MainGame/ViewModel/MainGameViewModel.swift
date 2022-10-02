@@ -62,8 +62,11 @@ final class MainGameViewModel {
                     player: item,
                     mode: self.gameModel?.gameState ?? .normal,
                     action: { [weak self] (playerID) in
-                        self?.networkService.sendVote(forPlayer: playerID)
-                    }
+                        if self?.gameModel?.hasVoted == false {
+                            self?.networkService.sendVote(forPlayer: playerID)
+                        }
+                    },
+                    canVote: self.gameModel?.hasVoted == false ? true : false
                 )
                 cell.setTheme(self.settings.appearance)
             }

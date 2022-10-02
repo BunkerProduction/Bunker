@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreAudio
 
 final class PlayerCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "PlayerCollectionViewCell"
@@ -17,14 +18,11 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
         return label
     }()
     private let attributeLabels: [UILabel] = {
-        let emojiLabel1 = UILabel()
-        let emojiLabel2 = UILabel()
-        let emojiLabel3 = UILabel()
-        let emojiLabel4 = UILabel()
-        let emojiLabel5 = UILabel()
-        let emojiLabel6 = UILabel()
-
-        return [emojiLabel1, emojiLabel2, emojiLabel3, emojiLabel4, emojiLabel5, emojiLabel6]
+        var labels = [UILabel]()
+        for i in 0..<6 {
+            labels.append(UILabel())
+        }
+        return labels
     }()
     private let leftView = OptionButton()
     private let progressView = ProgressLayerView()
@@ -81,7 +79,7 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
         progressView.setTheme(theme: theme)
     }
 
-    public func configure(player: Player, mode: GameState = .normal, action: ((String) -> Void)?) {
+    public func configure(player: Player, mode: GameState = .normal, action: ((String) -> Void)?, canVote: Bool = false) {
         actionOnTap = nil
         actionOnTap = action
         nameLabel.text = player.username
@@ -97,12 +95,15 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
             }
         }
 
+        leftView.isUserInteractionEnabled = canVote
+
         switch mode {
             case .normal:
                 self.layer.borderWidth = 0
                 leftView.isUserInteractionEnabled = true
                 leftView.isHidden = true
                 progressView.isHidden = true
+                leftView.reset()
             case .voting:
                 self.layer.borderWidth = 2
                 leftView.isUserInteractionEnabled = true

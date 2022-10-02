@@ -58,4 +58,8 @@ final class OptionButton: UIControl {
             sendActions(for: .touchUpInside)
         }
     }
+
+    public func reset() {
+        self.circleView.backgroundColor = .clear
+    }
 }

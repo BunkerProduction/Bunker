@@ -17,6 +17,7 @@ struct GameMessage {
     let turn: String
     let round: Int
     let votes: [String: Int]?
+    let set_of_voters: [String]?
 }
 
 extension GameMessage: Codable { }

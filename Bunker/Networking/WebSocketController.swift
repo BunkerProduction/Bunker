@@ -96,6 +96,7 @@ final class WebSocketController {
     // MARK: - Handle data
     private func handle(_ data: Data) {
         do {
+            print(String(data: data, encoding: .utf8))
             let sinData = try JSONDecoder().decode(MessageSinData.self, from: data)
             switch sinData.type {
             case .handshake:
@@ -186,7 +187,7 @@ final class WebSocketController {
         guard let clientID = clientID else {
             return
         }
-        let message = VoteChoiceMessage(player: clientID, votedFor: forPlayer)
+        let message = VoteChoiceMessage(player: forPlayer, votedFor: clientID)
         let data = message.jsonString
         self.socket?.send(.string(data)) { (error) in
             if let error = error {
@@ -222,7 +223,6 @@ final class WebSocketController {
     
     // MARK: - Model setters
     private func handleGameModel(_ data: Data) throws {
-        print(String(data: data, encoding: .utf8))
         let gameModelMessage = try JSONDecoder().decode(GameMessage.self, from: data)
         guard let clientID = clientID else {
             return

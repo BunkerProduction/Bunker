@@ -22,7 +22,7 @@ struct Game {
     let round: Int
     let gameState: GameState
     let myPlayer: Player
-    let hasVoted: Bool = false
+    var hasVoted: Bool = false
 }
 
 extension Game {
@@ -57,5 +57,6 @@ extension Game {
             attributes: myPlayerMessage.attributes.enumerated().map { Attribute(identifier: $1.id, position: $0, isExposed: $1.isExposed) },
             votesForHim: 0.0
         )
+        hasVoted = message.set_of_voters?.contains(clientID) ?? false
     }
 }
