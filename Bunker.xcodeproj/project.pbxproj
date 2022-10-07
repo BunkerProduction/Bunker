@@ -123,6 +123,9 @@
 		C068812028E7901900A6EE74 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068811F28E7901900A6EE74 /* WebSocketService.swift */; };
 		C068812228E7955D00A6EE74 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812128E7955D00A6EE74 /* Player.swift */; };
 		C068812428E7957200A6EE74 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812328E7957200A6EE74 /* Attribute.swift */; };
+		C068812628EF9C4000A6EE74 /* KickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812528EF9C4000A6EE74 /* KickMessage.swift */; };
+		C068812828EFA36900A6EE74 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812728EFA36900A6EE74 /* InfoViewController.swift */; };
+		C068812A28F0D7AE00A6EE74 /* PlayerScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812928F0D7AE00A6EE74 /* PlayerScreenProtocols.swift */; };
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
 		C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */; };
@@ -278,6 +281,9 @@
 		C068811F28E7901900A6EE74 /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		C068812128E7955D00A6EE74 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C068812328E7957200A6EE74 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		C068812528EF9C4000A6EE74 /* KickMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickMessage.swift; sourceTree = "<group>"; };
+		C068812728EFA36900A6EE74 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		C068812928F0D7AE00A6EE74 /* PlayerScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreenProtocols.swift; sourceTree = "<group>"; };
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -692,6 +698,7 @@
 				C06642D9287E27CB00DD7C28 /* View */,
 				C06642D6287CDF2500DD7C28 /* ViewModel */,
 				C02D10A1283BE33A0053BFD8 /* PlayerViewController.swift */,
+				C068812928F0D7AE00A6EE74 /* PlayerScreenProtocols.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -707,11 +714,11 @@
 		C06642D7287CDF3600DD7C28 /* MainGame */ = {
 			isa = PBXGroup;
 			children = (
+				C068812B28F0D84200A6EE74 /* Helpers */,
 				C06642DE288B4FA900DD7C28 /* View */,
 				C06642D8287CDF3D00DD7C28 /* ViewModel */,
 				C02D10A7283C046D0053BFD8 /* MainGameViewController.swift */,
 				C0937AD828B576350027B48B /* MainGameProtocols.swift */,
-				C068810C28E2820700A6EE74 /* ProgressCache.swift */,
 			);
 			path = MainGame;
 			sourceTree = "<group>";
@@ -738,6 +745,7 @@
 				C08783FA28B10244009DD819 /* StaticViews */,
 				C08783F828B10233009DD819 /* Cells */,
 				C08783F928B10239009DD819 /* PlayerDetailedView */,
+				C068812728EFA36900A6EE74 /* InfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -753,8 +761,17 @@
 				C068811928E78F2700A6EE74 /* PlayerMessage.swift */,
 				C068811B28E78F4C00A6EE74 /* UserMessage.swift */,
 				C068811D28E78F6500A6EE74 /* ShelterConditionMessage.swift */,
+				C068812528EF9C4000A6EE74 /* KickMessage.swift */,
 			);
 			path = Messages;
+			sourceTree = "<group>";
+		};
+		C068812B28F0D84200A6EE74 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C068810C28E2820700A6EE74 /* ProgressCache.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C06D637F2839248E00253B24 /* WaitingRoom */ = {
@@ -1042,6 +1059,7 @@
 				C003F33128304971006F3FE9 /* String+Height.swift in Sources */,
 				C02D10A8283C046D0053BFD8 /* MainGameViewController.swift in Sources */,
 				C08783FC28B10262009DD819 /* PlayerDetailsViewController.swift in Sources */,
+				C068812A28F0D7AE00A6EE74 /* PlayerScreenProtocols.swift in Sources */,
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C06642D2287CCE0800DD7C28 /* MainGameViewModel.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
@@ -1049,6 +1067,7 @@
 				C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
 				C0455E9B2825A1DF00990351 /* TabGameViewController.swift in Sources */,
+				C068812628EF9C4000A6EE74 /* KickMessage.swift in Sources */,
 				4E3C6FFF28D7B95F00263D3A /* InstructionSectionView.swift in Sources */,
 				C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
@@ -1075,6 +1094,7 @@
 				4E92461F28BA95DB00D9C864 /* RotationAnimation.swift in Sources */,
 				C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */,
 				C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */,
+				C068812828EFA36900A6EE74 /* InfoViewController.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
 				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,
 				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,

@@ -10,15 +10,8 @@ import Combine
 import AVFoundation
 
 final class ThreatViewModel: ThreatsLogic {
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
-    typealias DifSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
-
-    enum Section: String {
-        case conditions
-        case shelter
-        case catastrophe
-        case exit
-    }
+    typealias DataSource = UICollectionViewDiffableDataSource<ThreatsSection, AnyHashable>
+    typealias DifSnapshot = NSDiffableDataSourceSnapshot<ThreatsSection, AnyHashable>
 
     private let settings = UserSettings.shared
     private let networkService = WebSocketController.shared
@@ -34,7 +27,7 @@ final class ThreatViewModel: ThreatsLogic {
     private weak var coordinator: GameCoordinator?
     private weak var collectionView: UICollectionView?
 
-    var sections = [Section]()
+    var sections = [ThreatsSection]()
 
     // MARK: - Init
     init(collectionView: UICollectionView, gameCoordinator: GameCoordinator) {
@@ -42,6 +35,10 @@ final class ThreatViewModel: ThreatsLogic {
         self.collectionView = collectionView
         binding()
         createDataSource()
+    }
+
+    deinit {
+        unbind()
     }
 
     // MARK: - DataSource

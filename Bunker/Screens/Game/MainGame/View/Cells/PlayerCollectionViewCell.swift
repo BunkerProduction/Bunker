@@ -110,11 +110,12 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
                 leftView.isHidden = false
                 progressView.isHidden = false
                 applayVotesProgress(progress: player.votesForHim, identifier: player.UID)
+            case .finished:
+                return
         }
     }
 
     private func applayVotesProgress(progress: Double, identifier: String) {
-
         let oldProgress = progressCache?.getProgress(for: identifier) ?? 0
         progressView.updateProgress(progress: oldProgress, withAnimation: false)
         progressView.updateProgress(progress: progress)

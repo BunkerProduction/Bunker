@@ -10,3 +10,7 @@ import UIKit
 protocol MainGameScreen: AnyObject {
     func setupHeaderView(model: GameHeaderView.ViewModel)
 }
+
+protocol MainScreenLogic {
+    func cellSelected(indexPath: IndexPath)
+}

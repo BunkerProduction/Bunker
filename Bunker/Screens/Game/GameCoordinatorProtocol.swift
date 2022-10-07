@@ -10,4 +10,5 @@ import UIKit
 protocol GameCoordinator: AnyObject {
     func exitGame()
     func presentViewController(_ vc: UIViewController)
+    func dismissCurrentController()
 }

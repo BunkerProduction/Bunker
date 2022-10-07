@@ -86,4 +86,12 @@ extension Event {
     static func sendVoteChoiceSucceded(data: String) -> Event {
         return .info(description: "🔹 Sent vote successfully: \(data)")
     }
+
+    static func kickPlayerRecieved(data: String) -> Event {
+        return .info(description: "🔹🔻🔹 Recieve kicked player successfully: \(data)")
+    }
+
+    static func failedToDecodeKickedPlayer(data: String, error: Error) -> Event {
+        return .error(description: "🔻 Decode Kicked player failed: \(data)", error: error)
+    }
 }

@@ -23,6 +23,7 @@ final class WebSocketController {
     @Published var connectionStatus: Bool = false
     @Published var gameModel: Game?
     @Published var connectionError: String?
+    @Published var kickedPlayer: PlayerKicked?
     
     var waitingRoomRecieved: AnyPublisher<WaitingRoom?, Never> {
         return $waitingRoom.eraseToAnyPublisher()
@@ -35,6 +36,10 @@ final class WebSocketController {
     }
     var connectionErrorRecieved: AnyPublisher<String?, Never> {
         return $connectionError.eraseToAnyPublisher()
+    }
+
+    var kickedPlayerRecieved: AnyPublisher<PlayerKicked?, Never> {
+        return $kickedPlayer.eraseToAnyPublisher()
     }
     
     // MARK: - Init
@@ -107,6 +112,8 @@ final class WebSocketController {
                 try self.handleWaitingRoom(data)
             case .game_model:
                 try self.handleGameModel(data)
+            case .kickedPlayer:
+                try self.handleKick(data)
             }
         } catch {
             
@@ -254,6 +261,16 @@ final class WebSocketController {
             roomCode: roomModel.roomCode
         )
         self.waitingRoom = waitRoom
+    }
+
+    private func handleKick(_ data: Data) throws {
+        do {
+            let kickedPlayer = try JSONDecoder().decode(PlayerKicked.self, from: data)
+            self.kickedPlayer = kickedPlayer
+            self.logger.log(event: .kickPlayerRecieved(data: data.debugDescription))
+        } catch let error {
+            self.logger.log(event: .failedToDecodeKickedPlayer(data: data.debugDescription, error: error))
+        }
     }
 }
 

@@ -45,7 +45,7 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
     }()
 
     private let settings = UserSettings.shared
-    private var viewModel: ThreatViewModel?
+    private var viewModel: ThreatsLogic?
 
     // MARK: - Init
     init(_ coordinator: GameCoordinator) {
@@ -122,7 +122,7 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
 // MARK: - CollectionViewDelegate
 extension ThreatsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard viewModel?.sections[indexPath.section] == ThreatViewModel.Section.exit else { return }
+        guard viewModel?.sections[indexPath.section] == ThreatsSection.exit else { return }
         showAlert()
     }
 }
