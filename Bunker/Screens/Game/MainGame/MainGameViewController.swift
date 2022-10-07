@@ -35,7 +35,7 @@ final class MainGameViewController: UIViewController {
         return collectionView
     }()
 
-    private var viewModel: MainGameViewModel?
+    private var viewModel: MainScreenLogic?
 
     // MARK: - Init
     init(_ coordinator: GameCoordinator) {

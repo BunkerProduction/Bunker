@@ -19,7 +19,7 @@ final class UserSettings {
     
     static private let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
     static let shared = UserSettings()
-    static let applicationVersion: String = "1.0.0"
+    static let applicationVersion: String = "1.0.1"
 
     private let storage = UserDefaults.standard
     

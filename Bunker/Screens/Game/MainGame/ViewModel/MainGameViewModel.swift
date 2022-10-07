@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import CoreMIDI
 
-final class MainGameViewModel {
+final class MainGameViewModel: MainScreenLogic {
     typealias DataSource = UICollectionViewDiffableDataSource<AnyHashable, AnyHashable>
 
     private let settings = UserSettings.shared
@@ -17,6 +17,15 @@ final class MainGameViewModel {
 
     private let progressCache = ProgressCache()
     private var gameModelSubscriber: AnyCancellable?
+    private var kickPlayerSubscriber: AnyCancellable?
+    private var isShowingKick: Bool = false
+    private var kickedPlayer: PlayerKicked? {
+        didSet {
+            processKick()
+        }
+    }
+
+    private var playersDictionary: [String: Player] = [:]
     private var gameModel: Game? {
         didSet {
             updateDataSource()
@@ -42,6 +51,10 @@ final class MainGameViewModel {
         createDataSource()
     }
 
+    deinit {
+        unbind()
+    }
+
     // MARK: - DataSource
     private func createDataSource() {
         guard let collectionView = collectionView else {
@@ -56,7 +69,8 @@ final class MainGameViewModel {
                 for: indexPath
             )
             if let cell = cell as? PlayerCollectionViewCell,
-               let item = itemIdentifier as? Player {
+               let key = itemIdentifier as? String,
+               let item = self.playersDictionary[key] {
                 cell.progressCache = self.progressCache
                 cell.configure(
                     player: item,
@@ -76,13 +90,38 @@ final class MainGameViewModel {
         updateDataSource()
     }
 
+    // MARK: - DataSource update
     private func updateDataSource() {
         guard let gameModel = gameModel else {
             return
         }
-        var snapshot = NSDiffableDataSourceSnapshot<AnyHashable, AnyHashable>()
-        snapshot.appendSections(["players"])
-        snapshot.appendItems(gameModel.players, toSection: "players")
+        
+        let playersIdItemTupleArray = gameModel.players.map { ($0.UID, $0) }
+        playersDictionary = Dictionary(uniqueKeysWithValues: playersIdItemTupleArray)
+
+        switch gameModel.gameState {
+        case .normal:
+            var snapshot = NSDiffableDataSourceSnapshot<AnyHashable, AnyHashable>()
+            snapshot.appendSections(["players"])
+            snapshot.appendItems(gameModel.players.map { $0.UID }, toSection: "players")
+            dataSource?.applySnapshotUsingReloadData(snapshot)
+            updateHeaderView()
+        case .voting:
+            guard var newSnapshot = dataSource?.snapshot() else { return }
+            newSnapshot.reconfigureItems(gameModel.players.map { $0.UID })
+
+            updateHeaderView()
+
+            dataSource?.apply(newSnapshot, animatingDifferences: true)
+        case .finished:
+            showKickController()
+        }
+    }
+
+    private func updateHeaderView() {
+        guard let gameModel = gameModel, !isShowingKick else {
+            return
+        }
 
         switch gameModel.gameState {
             case .normal:
@@ -92,9 +131,56 @@ final class MainGameViewModel {
                 progressCache.clearProgress()
             case .voting:
                 gameScreen?.setupHeaderView(model: .init(mode: .voting))
+            case .finished:
+                return
+        }
+    }
+
+    private func showNotificationInHeader() {
+        guard let kickedPlayer = kickedPlayer else {
+            return
+        }
+        guard let playerToKick = gameModel?.players.first(where: { $0.UID == kickedPlayer.id }) else { return }
+        isShowingKick = true
+        gameScreen?.setupHeaderView(model: .init(mode: .normal(text: "Исключен игрок: \(playerToKick.username)")))
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isShowingKick = false
+            self.updateHeaderView()
+        }
+    }
+
+    // MARK: - Player Kick
+    private func processKick() {
+        guard let kickedPlayer = kickedPlayer,
+              let gameModel = gameModel
+        else {
+            return
         }
 
-        dataSource?.applySnapshotUsingReloadData(snapshot)
+        if gameModel.myPlayer.UID != kickedPlayer.id {
+            showNotificationInHeader()
+        } else {
+            showKickController()
+        }
+    }
+
+    private func showKickController() {
+        // temp stub
+        let vc = InfoViewController()
+        vc.configure(.init(
+            title: "ДОМОЙ",
+            button1: .init(
+                action: { self.coordinator?.dismissCurrentController() },
+                title: "ПОСМОТРЕТЬ"
+            ),
+            button2: .init(
+                action: { self.coordinator?.exitGame() },
+                title: "ДОМОЙ"
+            ))
+        )
+        vc.modalPresentationStyle = .overFullScreen
+        coordinator?.presentViewController(vc)
     }
 
     // MARK: - Binding
@@ -102,15 +188,21 @@ final class MainGameViewModel {
         gameModelSubscriber = networkService.gameModelRecieved
             .receive(on: RunLoop.main)
             .assign(to: \.gameModel, on: self)
+
+        kickPlayerSubscriber = networkService.kickedPlayerRecieved
+            .receive(on: RunLoop.main)
+            .assign(to: \.kickedPlayer, on: self)
     }
 
     // MARK: - Public Methods
     private func unbind() {
         gameModelSubscriber?.cancel()
+        kickPlayerSubscriber?.cancel()
     }
 
     func cellSelected(indexPath: IndexPath) {
-        if let player = dataSource?.itemIdentifier(for: indexPath) as? Player {
+        if let id = dataSource?.itemIdentifier(for: indexPath) as? String,
+           let player = playersDictionary[id] {
             let playerViewController = PlayerDetailsViewController(player: player)
             let navVC = UINavigationController(rootViewController: playerViewController)
             playerViewController.modalPresentationStyle = .pageSheet

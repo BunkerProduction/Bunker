@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PlayerViewController: UIViewController {
+final class PlayerViewController: UIViewController, PlayerScreen {
     private let settings = UserSettings.shared
 
     private let collectionView: UICollectionView = {
@@ -27,7 +27,7 @@ final class PlayerViewController: UIViewController {
         return collectionView
     }()
     
-    private var viewModel: PlayerViewModel?
+    private var viewModel: PlayerScreenLogic?
 
     // MARK: - Init
     init(_ coordinator: GameCoordinator) {

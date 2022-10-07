@@ -83,6 +83,10 @@ final class TabGameViewController: UIViewController, GameCoordinator {
     public func presentViewController(_ vc: UIViewController) {
         self.navigationController?.present(vc, animated: true)
     }
+
+    public func dismissCurrentController() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension UIViewController {

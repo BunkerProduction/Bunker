@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class PlayerViewModel: NSObject {
+final class PlayerViewModel: NSObject, PlayerScreenLogic {
     private let settings = UserSettings.shared
     private let networkService = WebSocketController.shared
 
@@ -35,10 +35,19 @@ final class PlayerViewModel: NSObject {
         updateDataSource()
     }
 
+    deinit {
+        unbind()
+    }
+
     // MARK: - DataSource
     private func updateDataSource() {
         guard let gameModel = gameModel else {
             return
+        }
+        if gameModel.myPlayer.UID == gameModel.turn {
+            collectionView?.allowsSelection = true
+        } else {
+            collectionView?.allowsSelection = false
         }
         dataSource = gameModel.myPlayer.attributes
         collectionView?.reloadData()
@@ -73,6 +82,7 @@ final class PlayerViewModel: NSObject {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension PlayerViewModel: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if let gameModel = gameModel, gameModel.myPlayer.UID == gameModel.turn {
