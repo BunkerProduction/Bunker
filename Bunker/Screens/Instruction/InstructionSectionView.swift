@@ -8,13 +8,15 @@
 import UIKit
 
 final class InstructionSectionView: UIStackView {
+    private let settings: UserSettings
     private var section: InstructionSection
     private var titleLabel = UILabel()
     private var sectionSV = UIStackView()
 
     //MARK: Init
-    init(section: InstructionSection) {
+    init(section: InstructionSection, _ settings: UserSettings) {
         self.section = section
+        self.settings = settings
         super.init(frame: .zero)
 
         setupView()
@@ -36,8 +38,11 @@ final class InstructionSectionView: UIStackView {
 
     private func configureTitleLabel() {
         if section.title != nil {
+            let theme = settings.appearance
+
             titleLabel.text = section.title
             titleLabel.font = .customFont.title
+            titleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
 
             self.addArrangedSubview(titleLabel)
         }
@@ -48,20 +53,22 @@ final class InstructionSectionView: UIStackView {
         sectionSV.spacing = 10
         sectionSV.alignment = .leading
 
+        let theme = settings.appearance
+
         for block in section.blocks {
             let subtitleLabel = UILabel()
             let descriptionLabel = UILabel()
 
             subtitleLabel.text = block.subtitle
             subtitleLabel.font = .customFont.body
-            subtitleLabel.textColor = .TextAndIcons.Primary.colorFor(.alian)
+            subtitleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
 
             descriptionLabel.setCustomAttributedText(
                 string: block.text,
                 font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
                 1.25
             )
-            descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(.alian)
+            descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
             descriptionLabel.numberOfLines = 0
 
             let blockSV = UIStackView(arrangedSubviews: [subtitleLabel, descriptionLabel])

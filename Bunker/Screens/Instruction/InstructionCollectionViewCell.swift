@@ -13,6 +13,7 @@ final class InstructionCollectionViewCell: UICollectionViewCell {
     private var pageSV = UIStackView()
     private var headlineLabel = UILabel()
     private var sectionSV = UIStackView()
+    private let settings = UserSettings.shared
 
 
     // MARK: - Init
@@ -41,8 +42,11 @@ final class InstructionCollectionViewCell: UICollectionViewCell {
 
     private func configureHeadlineLabel(_ headline: String?) {
         if headline != nil {
+            let theme = settings.appearance
+
             headlineLabel.text = headline
             headlineLabel.font = .customFont.headline
+            headlineLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
 
             pageSV.addArrangedSubview(headlineLabel)
         }
@@ -50,11 +54,11 @@ final class InstructionCollectionViewCell: UICollectionViewCell {
 
     private func configureSectionsStackView(_ sections: [InstructionSection]) {
         sectionSV.axis = .vertical
-        sectionSV.spacing = 8
+        sectionSV.spacing = 16
         sectionSV.alignment = .leading
 
         for section in sections {
-            let section = InstructionSectionView(section: section)
+            let section = InstructionSectionView(section: section, settings)
 
             sectionSV.addArrangedSubview(section)
         }
