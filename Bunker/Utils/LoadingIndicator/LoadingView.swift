@@ -101,13 +101,4 @@ class LoadingView: UIView {
 
         self.layer.add(rotationAnimation, forKey: nil)
     }
-
-//    func animateGrow() {
-//        grownAnimation = CABasicAnimation(keyPath: #keyPath())
-//
-//    }
-//
-//    func animateShrink() {
-//
-//    }
 }

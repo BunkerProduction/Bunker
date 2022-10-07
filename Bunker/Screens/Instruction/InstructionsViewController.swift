@@ -9,6 +9,7 @@ import UIKit
 
 final class InstructionsViewController: UIViewController {
 
+    private let settings = UserSettings.shared
     private var instructionCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -28,8 +29,6 @@ final class InstructionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .black
 
         setupUI()
         instructionCollectionView.delegate = self
@@ -68,8 +67,9 @@ final class InstructionsViewController: UIViewController {
     private func setupUI() {
         setupNavbar()
         setupCollectionView()
-        
-        view.backgroundColor = .Background.Accent.colorFor(.alian)
+
+        let theme = settings.appearance
+        view.backgroundColor = .Background.Accent.colorFor(theme)
     }
 
     @objc
