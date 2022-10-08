@@ -13,10 +13,11 @@ final class WebSocketController {
         case base = "wss://ktor-bunker.herokuapp.com/game?username="
     }
 
-    private let logger = SHLogger()
     public static var shared = WebSocketController()
-    private let session: URLSession
-    private var socket: URLSessionWebSocketTask?
+
+    private let socketSerivce = WebSocketService()
+    private let logger = SHLogger()
+
     private var clientID: String?
     
     @Published var waitingRoom: WaitingRoom?
@@ -41,22 +42,7 @@ final class WebSocketController {
     var kickedPlayerRecieved: AnyPublisher<PlayerKicked?, Never> {
         return $kickedPlayer.eraseToAnyPublisher()
     }
-    
-    // MARK: - Init
-    init() {
-        session = URLSession(configuration: .default)
-    }
-    
-    // MARK: - Connetion
-    private func connect(_ endPoint: String) {
-        var request = URLRequest(url: URL(string: endPoint)!)
-        request.addValue(UserSettings.applicationVersion, forHTTPHeaderField: "version_client")
-        socket = session.webSocketTask(with: request)
-        self.listen()
-        self.socket?.resume()
-        self.schedulePing()
-    }
-    
+
     public func connectToGame(username: String, roomCode: String? , isCreator: Bool) {
         var base = Endpoint.base.rawValue
         base += username
@@ -64,38 +50,16 @@ final class WebSocketController {
         if let code = roomCode {
             base += "&sessionID=\(code)"
         }
-        connect(base)
+        socketSerivce.connect(base)
     }
     
     // MARK: - Disconnect
     public func disconnect() {
-        socket?.cancel(with: .normalClosure, reason: nil)
-        socket = nil
+        socketSerivce.disconnect()
         waitingRoom = nil
         gameModel = nil
         connectionStatus = false
         connectionError = nil
-    }
-    
-    // MARK: - Ping-Pong
-    private func schedulePing() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-            self?.ping()
-        }
-    }
-    
-    private func ping() {
-        socket?.sendPing { [self] (error) in
-            if let error = error {
-                logger.log(event: .pingError(error: error))
-                if let failReason = socket?.closeReason {
-                    print(String(decoding: failReason, as: UTF8.self))
-                }
-            } else {
-                logger.log(event: .pingSucceeded())
-            }
-            self.schedulePing()
-        }
     }
 
     // MARK: - Handle data
@@ -122,41 +86,12 @@ final class WebSocketController {
 
     private func handleError(_ error: Error) {
         var desciption: String?
-        if let data = self.socket?.closeReason {
+        if let data = self.socketSerivce.socket?.closeReason {
             desciption = String(data: data, encoding: .utf8)
             self.connectionError = desciption
             self.connectionError = nil
         }
         self.logger.log(event: .socketRecieveError(error: error, desciption: desciption))
-    }
-    
-    // MARK: - Listen
-    private func listen() {
-        self.socket?.receive { [weak self] (result) in
-            guard let sSelf = self else { return }
-            sSelf.logger.log(event: .socketRecieve())
-            switch result {
-            case .failure(let error):
-                sSelf.handleError(error)
-                return
-            case .success(let message):
-                switch message {
-                case .data(let data):
-                    sSelf.handle(data)
-                case .string(var str):
-                    // temperary bug
-                    if(str[str.startIndex] == "[") {
-                        str.remove(at: str.startIndex)
-                        str.remove(at: str.index(before: str.endIndex))
-                    }
-                    guard let data = str.data(using: .utf8) else { return }
-                    sSelf.handle(data)
-                default:
-                    break
-                }
-            }
-            sSelf.listen()
-        }
     }
     
     // MARK: - Post
@@ -177,7 +112,7 @@ final class WebSocketController {
         let correctString = workAround(model: gamePref)
         do {
             let data = correctString.data(using: .utf8)!
-            self.socket?.send(.string(correctString)) { (error) in
+            self.socketSerivce.socket?.send(.string(correctString)) { (error) in
                 if let networkError = error {
                     self.logger.log(event: .socketSendGamePrefFailed(gamePrefs: correctString, error: networkError))
                     print(networkError.localizedDescription)
@@ -196,7 +131,7 @@ final class WebSocketController {
         }
         let message = VoteChoiceMessage(player: forPlayer, votedFor: clientID)
         let data = message.jsonString
-        self.socket?.send(.string(data)) { (error) in
+        self.socketSerivce.socket?.send(.string(data)) { (error) in
             if let error = error {
                 self.logger.log(event: .sendVoteChoiceFailed(data: data, error: error))
             } else {
@@ -206,7 +141,7 @@ final class WebSocketController {
     }
     
     public func startGame() {
-        self.socket?.send(.string("game")) { (error) in
+        self.socketSerivce.socket?.send(.string("game")) { (error) in
             if let gameStartError = error {
                 self.logger.log(event: .gameStartFailed(error: gameStartError))
                 print(gameStartError.localizedDescription)
@@ -218,7 +153,7 @@ final class WebSocketController {
 
     public func sendChosenAttribute(attribute: AttributeChoiceMessage) {
         let data = attribute.jsonString
-        self.socket?.send(.string(data)) { (error) in
+        self.socketSerivce.socket?.send(.string(data)) { (error) in
             if let attributeError = error {
                 self.logger.log(event: .attributeChoiceFailed(attriute: data, error: attributeError))
                 print(attributeError.localizedDescription)
@@ -302,5 +237,11 @@ extension WebSocketController {
 // MARK: - WebSocketServiceDelegate
 extension WebSocketController: WebSocketServiceDelegate {
     func receivedData(data: Result<Data, Error>) {
+        switch data {
+        case .failure(let error):
+            self.handleError(error)
+        case .success(let data):
+            self.handle(data)
+        }
     }
 }
