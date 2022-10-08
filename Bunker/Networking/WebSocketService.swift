@@ -15,7 +15,7 @@ final class WebSocketService {
     private let logger = SHLogger()
     private let session: URLSession
 
-    private var socket: URLSessionWebSocketTask?
+    public var socket: URLSessionWebSocketTask?
 
     public var delegate: WebSocketServiceDelegate?
 
@@ -72,5 +72,21 @@ final class WebSocketService {
             }
             sSelf.listen()
         }
+    }
+
+    // MARK: - Public
+    public func connect(_ endPoint: String) {
+        var request = URLRequest(url: URL(string: endPoint)!)
+        request.addValue(UserSettings.applicationVersion, forHTTPHeaderField: "version_client")
+        socket = session.webSocketTask(with: request)
+        self.listen()
+        self.socket?.resume()
+        self.schedulePing()
+    }
+
+    // MARK: - Disconnect
+    public func disconnect() {
+        socket?.cancel(with: .normalClosure, reason: nil)
+        socket = nil
     }
 }

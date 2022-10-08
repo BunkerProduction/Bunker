@@ -149,9 +149,11 @@ final class OptionsViewController: UIViewController {
 }
 
 // MARK: - GestureDelegate
+
 extension OptionsViewController: UIGestureRecognizerDelegate { }
 
 // MARK: - CollectionViewDelegate
+
 extension OptionsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         let selected = collectionView.indexPathsForSelectedItems ?? []
