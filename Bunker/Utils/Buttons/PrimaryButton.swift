@@ -13,9 +13,7 @@ final class PrimaryButton: UIButton {
     static let sound1 = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound3", ofType: "wav")!)
 
     private var loadingView: LoadingView = {
-        let indicator = LoadingView(color: .clear, lineWidth: 4)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
+        return LoadingView(color: .black, lineWidth: 3)
     }()
 
     var isLoading = false {

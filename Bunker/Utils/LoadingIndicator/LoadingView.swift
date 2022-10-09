@@ -8,25 +8,20 @@
 import UIKit
 
 class LoadingView: UIView {
-    var color: UIColor {
-        didSet {
-            shapeLayer.strokeColor = color.cgColor
-        }
-    }
-    let lineWidth: CGFloat
+    public var color: UIColor
+    private var lineWidth: CGFloat
+    private let duration = 1.0
 
-    private lazy var shapeLayer: LoadingShapeLayer = {
-        return LoadingShapeLayer(strokeColor: color, lineWidth: lineWidth)
-    }()
+    private lazy var containerView = UIView()
+    private lazy var curveLayer = CAShapeLayer()
+    private weak var displayLink: CADisplayLink?
 
     var isAnimating: Bool = false {
         didSet {
             if isAnimating {
-                self.animateStroke()
-                self.animateRotation()
+                startDisplayLink()
             } else {
-                self.shapeLayer.removeFromSuperlayer()
-                self.layer.removeAllAnimations()
+                stopDisplayLink()
             }
         }
     }
@@ -37,68 +32,69 @@ class LoadingView: UIView {
         self.lineWidth = lineWidth
 
         super.init(frame: frame)
-
-        self.backgroundColor = .clear
     }
 
     convenience init(color: UIColor, lineWidth: CGFloat) {
         self.init(frame: .zero, color: color, lineWidth: lineWidth)
+
+        setupView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) is not supported")
     }
 
-    // MARK: - LifeCycle
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: - UI Setup
+    private func setupView() {
+        self.backgroundColor = .clear
 
-        self.layer.cornerRadius = self.frame.width / 2
-        let path = UIBezierPath(ovalIn:
-                                    CGRect(
-                                        x: 0,
-                                        y: 0,
-                                        width: self.bounds.width,
-                                        height: self.bounds.width
-                                    )
-        )
-        shapeLayer.path = path.cgPath
+        setupContainerView()
+        setupCurveLayer()
     }
 
-    // MARK: - Animations
-    func animateStroke() {
-        let startAnimation = StrokeAnimation(
-            type: .start,
-            beginTime: 0.25,
-            fromValue: 0.0,
-            toValue: 1.0,
-            duration: 0.75
-        )
-        let endAnimation = StrokeAnimation(
-            type: .end,
-            fromValue: 0.0,
-            toValue: 1.0,
-            duration: 0.75
-        )
-
-        let strokeAnimationGroup = CAAnimationGroup()
-        strokeAnimationGroup.duration = 1
-        strokeAnimationGroup.repeatDuration = .infinity
-        strokeAnimationGroup.animations = [startAnimation, endAnimation]
-
-        shapeLayer.add(strokeAnimationGroup, forKey: nil)
-        self.layer.addSublayer(shapeLayer)
+    private func setupContainerView() {
+        self.addSubview(containerView)
+        containerView.pin(to: self)
     }
 
-    func animateRotation() {
-        let rotationAnimation = RotationAnimation(
-            direction: .z,
-            fromValue: 0,
-            toValue: CGFloat.pi * 2,
-            duration: 2,
-            repeatCount: .greatestFiniteMagnitude
-        )
+    private func setupCurveLayer() {
+        curveLayer.lineCap = .round
+        curveLayer.strokeColor = color.cgColor
+        curveLayer.lineWidth = lineWidth
+        curveLayer.fillColor = UIColor.clear.cgColor
 
-        self.layer.add(rotationAnimation, forKey: nil)
+        containerView.layer.addSublayer(curveLayer)
+    }
+
+    // MARK: - Animation
+    private func animateCurve(center: CGPoint, startAngle: CGFloat) -> CGPath {
+        return UIBezierPath(
+            arcCenter: center,
+            radius: containerView.frame.midX,
+            startAngle: startAngle,
+            endAngle: startAngle + .pi,
+            clockwise: true
+        ).cgPath
+    }
+}
+
+extension LoadingView {
+    func startDisplayLink() {
+        stopDisplayLink()
+
+        let displayLink = CADisplayLink(target: self, selector: #selector(handleDisplayLink(_:)))
+        displayLink.add(to: .main, forMode: .default)
+        self.displayLink = displayLink
+    }
+
+    func stopDisplayLink() {
+        displayLink?.invalidate()
+    }
+
+    @objc func handleDisplayLink(_ displayLink: CADisplayLink) {
+        let percent = CGFloat(displayLink.timestamp).truncatingRemainder(dividingBy: duration) / duration
+        let center = self.bounds.center
+        let angle = percent * .pi * 2
+        curveLayer.path = animateCurve(center: center, startAngle: angle)
     }
 }
