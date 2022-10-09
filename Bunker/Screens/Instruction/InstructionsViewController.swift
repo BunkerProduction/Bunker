@@ -10,6 +10,7 @@ import UIKit
 final class InstructionsViewController: UIViewController {
 
     private let settings = UserSettings.shared
+    private let exitButton = UIButton()
     private var instructionCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -35,16 +36,32 @@ final class InstructionsViewController: UIViewController {
         instructionCollectionView.dataSource = self
     }
 
+    private func setupUI() {
+        setupNavbar()
+        setupCollectionView()
+        setupExitButton()
+
+        let theme = settings.appearance
+        view.backgroundColor = .Background.Accent.colorFor(theme)
+        exitButton.imageView?.tintColor = .TextAndIcons.Primary.colorFor(theme)
+    }
+
     private func setupNavbar() {
-        self.navigationController?.isNavigationBarHidden = false
-        navigationItem.leftBarButtonItem?.isEnabled = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: "closeIcon"),
-            style: .plain,
-            target: self,
-            action: #selector(goBack)
-        )
+        self.navigationController?.isNavigationBarHidden = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+
+    private func setupExitButton() {
+        view.addSubview(exitButton)
+        let icon = UIImage(named: "closeIcon")
+        exitButton.setImage(icon, for: .normal)
+
+        exitButton.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 12)
+        exitButton.pinRight(to: view, 12)
+        exitButton.setWidth(to: 36)
+        exitButton.setHeight(to: 36)
+
+        exitButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
     }
 
     private func setupCollectionView() {
@@ -64,21 +81,11 @@ final class InstructionsViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
 
-    private func setupUI() {
-        setupNavbar()
-        setupCollectionView()
-
-        let theme = settings.appearance
-        view.backgroundColor = .Background.Accent.colorFor(theme)
-    }
-
     @objc
     private func goBack() {
-        self.navigationController?.popViewController(animated: true)
+        print("press")
+        navigationController?.popViewController(animated: true)
     }
-
-    @objc
-    private func close() { }
 }
 
 extension InstructionsViewController: UIGestureRecognizerDelegate { }
