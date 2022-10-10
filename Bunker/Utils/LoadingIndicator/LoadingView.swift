@@ -59,7 +59,6 @@ class LoadingView: UIView {
 
     private func setupCurveLayer() {
         curveLayer.lineCap = .round
-        curveLayer.strokeColor = color.cgColor
         curveLayer.lineWidth = lineWidth
         curveLayer.fillColor = UIColor.clear.cgColor
 
@@ -67,14 +66,18 @@ class LoadingView: UIView {
     }
 
     // MARK: - Animation
-    private func animateCurve(center: CGPoint, startAngle: CGFloat) -> CGPath {
+    private func animateCurve(center: CGPoint, startAngle: CGFloat, endAngle: CGFloat) -> CGPath {
         return UIBezierPath(
             arcCenter: center,
             radius: containerView.frame.midX,
             startAngle: startAngle,
-            endAngle: startAngle + .pi,
+            endAngle: endAngle,
             clockwise: true
         ).cgPath
+    }
+
+    public func setStrokeColor(_ color: UIColor) {
+        curveLayer.strokeColor = color.cgColor
     }
 }
 
@@ -94,7 +97,8 @@ extension LoadingView {
     @objc func handleDisplayLink(_ displayLink: CADisplayLink) {
         let percent = CGFloat(displayLink.timestamp).truncatingRemainder(dividingBy: duration) / duration
         let center = self.bounds.center
-        let angle = percent * .pi * 2
-        curveLayer.path = animateCurve(center: center, startAngle: angle)
+        let startAngle = percent * .pi * 2
+        let endAngle = startAngle + .pi * 2 / 3
+        curveLayer.path = animateCurve(center: center, startAngle: startAngle, endAngle: endAngle)
     }
 }

@@ -90,6 +90,7 @@ final class CreateGameViewController: UIViewController {
         voteTimeTextField.placeholder = "Enter voting time (1-20 min)"
         voteTimeTextField.delegate = self
         voteTimeTextField.keyboardType = .numberPad
+        voteTimeTextField.isHidden = true
         voteTimeTextField.addDoneButtonOnKeyboard()
         
         setOptions()
@@ -100,6 +101,7 @@ final class CreateGameViewController: UIViewController {
     private func setOptions() {
         packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
         difficultyView.setLabels("Pack", "Random", "🎲")
+        viewModel?.votingTime = 1
     }
     
     // MARK: - View setup
