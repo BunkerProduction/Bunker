@@ -23,6 +23,8 @@
 		4E92461928BA8D7900D9C864 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461828BA8D7900D9C864 /* LoadingView.swift */; };
 		4EB3F87A28F185F40027DC71 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87928F185F40027DC71 /* FinishViewController.swift */; };
 		4EB3F87C28F32CA20027DC71 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87B28F32CA20027DC71 /* CGRect.swift */; };
+		4EB3F87E28F488F80027DC71 /* InstructionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87D28F488F80027DC71 /* InstructionTransition.swift */; };
+		4EB3F88028F54F160027DC71 /* NSObject+copyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87F28F54F160027DC71 /* NSObject+copyObject.swift */; };
 		4ED4C60B282D90BB0062D0AD /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */; };
 		4ED4C60D282D90C60062D0AD /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */; };
 		4ED4C60F282D90DD0062D0AD /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */; };
@@ -176,6 +178,8 @@
 		4E92461828BA8D7900D9C864 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4EB3F87928F185F40027DC71 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		4EB3F87B28F32CA20027DC71 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		4EB3F87D28F488F80027DC71 /* InstructionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionTransition.swift; sourceTree = "<group>"; };
+		4EB3F87F28F54F160027DC71 /* NSObject+copyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+copyObject.swift"; sourceTree = "<group>"; };
 		4ED4C60A282D90BB0062D0AD /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		4ED4C60C282D90C60062D0AD /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		4ED4C60E282D90DD0062D0AD /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				4E3C6FFE28D7B95F00263D3A /* InstructionSectionView.swift */,
 				4E036D6928D6613F00AC2B9F /* InstructionCollectionViewCell.swift */,
 				C068810628DFB3E800A6EE74 /* InstructionsViewController.swift */,
+				4EB3F87D28F488F80027DC71 /* InstructionTransition.swift */,
 			);
 			path = Instruction;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				C003F30F282EF25A006F3FE9 /* ScreenSize.swift */,
 				C003F33028304971006F3FE9 /* String+Height.swift */,
 				4EB3F87B28F32CA20027DC71 /* CGRect.swift */,
+				4EB3F87F28F54F160027DC71 /* NSObject+copyObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1031,6 +1037,7 @@
 				C068812428E7957200A6EE74 /* Attribute.swift in Sources */,
 				C003F310282EF25A006F3FE9 /* ScreenSize.swift in Sources */,
 				C0455E832825827A00990351 /* BaseNavigationController.swift in Sources */,
+				4EB3F87E28F488F80027DC71 /* InstructionTransition.swift in Sources */,
 				C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */,
 				C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
@@ -1046,6 +1053,7 @@
 				C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */,
 				C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */,
 				C003F31A282FECED006F3FE9 /* PackViewController.swift in Sources */,
+				4EB3F88028F54F160027DC71 /* NSObject+copyObject.swift in Sources */,
 				C0937AD628B2E5BE0027B48B /* SHLogger.swift in Sources */,
 				C06642DB288B298300DD7C28 /* ThreatsProtocols.swift in Sources */,
 				C068810928E09E6900A6EE74 /* OptionButton.swift in Sources */,

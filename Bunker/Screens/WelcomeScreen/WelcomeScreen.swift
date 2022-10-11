@@ -10,7 +10,7 @@ import UIKit
 final class WelcomeController: UIViewController {
     private let settingsButton = UIButton()
     private let logo = BunkerLogo()
-    private let instructionView = UIControl()
+    public let instructionView = UIView()
     private let createGameButton = PrimaryButton(frame: .zero)
     private let joinGameButton = PrimaryButton(frame: .zero)
     private var settings: UserSettings?
@@ -84,7 +84,6 @@ final class WelcomeController: UIViewController {
         mainSV.distribution = .equalSpacing
         mainSV.alignment = .center
         mainSV.axis = .vertical
-//        mainSV.spacing = 80
         
         self.view.addSubview(mainSV)
         mainSV.pin(to: view, [.left: 24, .right: 24])
@@ -117,11 +116,13 @@ final class WelcomeController: UIViewController {
         
         instructionView.addSubview(sV)
         sV.pin(to: instructionView, [.top: 50, .bottom: 50, .left: 0, .right: 0])
-        instructionView.setHeight(to: 281)
-        instructionView.setWidth(to: 215)
+        instructionView.setHeight(to: 280)
+        instructionView.setWidth(to: 216)
 
-        instructionView.addTarget(self, action: #selector(instructionPressed), for: .touchUpInside)
-
+        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(instructionPressed))
+        gesture.numberOfTapsRequired = 1
+        instructionView.isUserInteractionEnabled = true
+        instructionView.addGestureRecognizer(gesture)
     }
     
     private func setupGameButtons() {
@@ -132,8 +133,12 @@ final class WelcomeController: UIViewController {
     // MARK: - Interactions
     @objc
     private func instructionPressed() {
-        let instructions = InstructionsViewController()
-        self.navigationController?.pushViewController(instructions, animated: true)
+        UIView.animate(withDuration: 0.25) {
+            self.instructionView.transform = CGAffineTransform.identity
+        }
+        let instructionControler = InstructionsViewController()
+        instructionControler.modalPresentationStyle = .overCurrentContext
+        self.present(instructionControler, animated: true, completion: nil)
     }
 
     @objc

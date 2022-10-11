@@ -34,6 +34,7 @@ final class InstructionsViewController: UIViewController {
         setupUI()
         instructionCollectionView.delegate = self
         instructionCollectionView.dataSource = self
+//        transitioningDelegate = self
     }
 
     private func setupUI() {
@@ -83,8 +84,8 @@ final class InstructionsViewController: UIViewController {
 
     @objc
     private func goBack() {
-        print("press")
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
 }
 
@@ -126,3 +127,9 @@ extension InstructionsViewController: UICollectionViewDelegateFlowLayout {
         )
     }
 }
+
+//extension InstructionsViewController: UIViewControllerTransitioningDelegate {
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return AnimationController(animationDuration: 1, .present)
+//    }
+//}
