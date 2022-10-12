@@ -23,7 +23,7 @@ final class CreateGameViewModel {
             navigateToWaitingRoom()
         }
     }
-    public var username: String = ""{
+    public var username: String = "" {
         didSet {
             settings.username = username
             if(username != "") {
@@ -32,12 +32,13 @@ final class CreateGameViewModel {
             validateData()
         }
     }
-    public var votingTime: Int = 0 {
-        didSet{
-            self.gamePref.votingTime = votingTime
-            validateData()
-        }
-    }
+//    public var votingTime: Int = 1
+//    {
+//        didSet{
+//            self.gamePref.votingTime = votingTime
+//            validateData()
+//        }
+//    }
     private var connectionStatus: Bool = false {
         didSet {
             validateData()
@@ -58,6 +59,7 @@ final class CreateGameViewModel {
     // MARK: - Init
     init(_ vc: CreateGameViewController) {
         self.viewController = vc
+        self.gamePref.votingTime = 1
         if let name = settings.username {
             self.username = name
             if(username != "") {

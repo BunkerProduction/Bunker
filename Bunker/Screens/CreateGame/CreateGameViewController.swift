@@ -101,7 +101,6 @@ final class CreateGameViewController: UIViewController {
     private func setOptions() {
         packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
         difficultyView.setLabels("Pack", "Random", "🎲")
-        viewModel?.votingTime = 1
     }
     
     // MARK: - View setup
@@ -199,7 +198,7 @@ extension CreateGameViewController: UITextFieldDelegate {
             }
         case 2:
             if let string = textField.text {
-                viewModel?.votingTime = Int(string) ?? 0
+//                viewModel?.votingTime = 1
             }
         default:
             return
