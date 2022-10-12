@@ -10,7 +10,7 @@ import UIKit
 
 final class WebSocketController {
     enum Endpoint: String {
-        case base = "wss://ktor-bunker.herokuapp.com/game?username="
+        case base = "ws://rdiscount@94.250.251.166:8080/game?username="
     }
 
     public static var shared = WebSocketController()
@@ -41,6 +41,10 @@ final class WebSocketController {
 
     var kickedPlayerRecieved: AnyPublisher<PlayerKicked?, Never> {
         return $kickedPlayer.eraseToAnyPublisher()
+    }
+
+    private init() {
+        socketSerivce.delegate = self
     }
 
     public func connectToGame(username: String, roomCode: String? , isCreator: Bool) {
