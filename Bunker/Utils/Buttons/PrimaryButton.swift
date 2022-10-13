@@ -13,7 +13,7 @@ final class PrimaryButton: UIButton {
     static let sound1 = URL(fileURLWithPath: Bundle.main.path(forResource: "buttonSound3", ofType: "wav")!)
 
     private var loadingView: LoadingView = {
-        return LoadingView(color: .black, lineWidth: 3)
+        return LoadingView(color: .clear, lineWidth: 3)
     }()
 
     var isLoading = false {
@@ -30,7 +30,6 @@ final class PrimaryButton: UIButton {
         super.init(frame: frame)
         
         self.layer.cornerRadius = 12
-        self.setTitleColor(.clear, for: .normal)
         self.setHeight(to: 48)
         self.setWidth(to: ScreenSize.Width-48)
         self.titleLabel?.font = .customFont.body
@@ -87,6 +86,7 @@ final class PrimaryButton: UIButton {
         self.backgroundColor = .Main.Primary.colorFor(theme)
         self.layer.applyFigmaShadow(color: .Main.Shadow.colorFor(theme) ?? .clear)
         self.setTitleColor(.Main.onPrimary.colorFor(theme), for: .normal)
-        self.loadingView.color = .Main.onPrimary.colorFor(theme)!
+        self.setTitleColor(.Main.onPrimary.colorFor(theme)?.withAlphaComponent(0.5), for: .disabled)
+        self.loadingView.setStrokeColor(.Main.onPrimary.colorFor(theme) ?? .clear)
     }
 }

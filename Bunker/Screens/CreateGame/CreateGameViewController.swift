@@ -90,6 +90,7 @@ final class CreateGameViewController: UIViewController {
         voteTimeTextField.placeholder = "Enter voting time (1-20 min)"
         voteTimeTextField.delegate = self
         voteTimeTextField.keyboardType = .numberPad
+        voteTimeTextField.isHidden = true
         voteTimeTextField.addDoneButtonOnKeyboard()
         
         setOptions()
@@ -197,7 +198,7 @@ extension CreateGameViewController: UITextFieldDelegate {
             }
         case 2:
             if let string = textField.text {
-                viewModel?.votingTime = Int(string) ?? 0
+//                viewModel?.votingTime = 1
             }
         default:
             return
