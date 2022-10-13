@@ -8,6 +8,8 @@
 import UIKit
 
 final class FinishViewController: UIViewController {
+    private let coordinator: GameCoordinator?
+
     private enum Consts {
         static let spacing: Double = 8
         static let topInset: Double = 96
@@ -25,9 +27,15 @@ final class FinishViewController: UIViewController {
     private let stayButton = UIButton()
     private let menuButton = UIButton()
 
-    enum FinishMode {
-        case won
-        case lost
+    // MARK: - Init
+    init(_ coordinator: GameCoordinator?) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -106,12 +114,13 @@ final class FinishViewController: UIViewController {
 
     @objc
     func navigateToGame() {
-
+        self.dismiss(animated: true)
     }
 
     @objc
     func navigateToMenu() {
-
+        self.dismiss(animated: false)
+        coordinator?.exitGame()
     }
 
     public func configure(_ mode: FinishMode) {
@@ -126,4 +135,10 @@ final class FinishViewController: UIViewController {
             stayButton.isHidden = false
         }
     }
+}
+
+
+public enum FinishMode {
+    case won
+    case lost
 }

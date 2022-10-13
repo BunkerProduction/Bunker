@@ -114,7 +114,7 @@ final class MainGameViewModel: MainScreenLogic {
 
             dataSource?.apply(newSnapshot, animatingDifferences: true)
         case .finished:
-            showKickController()
+            showFinishController(true)
         }
     }
 
@@ -161,26 +161,23 @@ final class MainGameViewModel: MainScreenLogic {
         if gameModel.myPlayer.UID != kickedPlayer.id {
             showNotificationInHeader()
         } else {
-            showKickController()
+            showFinishController()
         }
     }
 
-    private func showKickController() {
-        // temp stub
-        let vc = InfoViewController()
-        vc.configure(.init(
-            title: "ДОМОЙ",
-            button1: .init(
-                action: { self.coordinator?.dismissCurrentController() },
-                title: "ПОСМОТРЕТЬ"
-            ),
-            button2: .init(
-                action: { self.coordinator?.exitGame() },
-                title: "ДОМОЙ"
-            ))
-        )
+    private func showFinishController(_ isFinish: Bool = false) {
+        guard let coordinator = coordinator else {
+            return
+        }
+
+        let vc = FinishViewController(coordinator)
+        if isFinish {
+            vc.configure(.won)
+        } else {
+            vc.configure(.lost)
+        }
         vc.modalPresentationStyle = .overFullScreen
-        coordinator?.presentViewController(vc)
+        coordinator.presentViewController(vc)
     }
 
     // MARK: - Binding
