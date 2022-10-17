@@ -82,6 +82,11 @@ final class MainGameViewModel: MainScreenLogic {
                     },
                     canVote: self.gameModel?.hasVoted == false ? true : false
                 )
+                if let voted = self.gameModel?.hasVoted {
+                    if voted {
+                        print("==========================Voted")
+                    }
+                }
                 cell.setTheme(self.settings.appearance)
             }
 
