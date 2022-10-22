@@ -9,12 +9,12 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
+    var window: MainWindow?
     let rootViewController = WelcomeController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
+        let window = MainWindow(windowScene: windowScene)
         let navControllerWelcome = BaseNavigationController(rootViewController: rootViewController)
         window.rootViewController = navControllerWelcome
         self.window = window
@@ -59,6 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        window?.debugView.frame = CGRect(x: 10, y: 200, width: 50, height: 50)
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }

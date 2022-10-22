@@ -147,6 +147,13 @@ final class WaitingRoomViewController: UIViewController {
         activityController.popoverPresentationController?.sourceView = self.view
         present(activityController, animated: true, completion: nil)
     }
+
+    public func showError(errorString: String) {
+        let alert = UIAlertController(title: "Start Error", message: errorString, preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
 }
 
 extension WaitingRoomViewController: UIGestureRecognizerDelegate { }

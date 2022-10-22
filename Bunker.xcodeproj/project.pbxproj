@@ -127,6 +127,10 @@
 		C068812628EF9C4000A6EE74 /* KickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812528EF9C4000A6EE74 /* KickMessage.swift */; };
 		C068812828EFA36900A6EE74 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812728EFA36900A6EE74 /* InfoViewController.swift */; };
 		C068812A28F0D7AE00A6EE74 /* PlayerScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068812928F0D7AE00A6EE74 /* PlayerScreenProtocols.swift */; };
+		C068817F29046BC200A6EE74 /* DebagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068817E29046BC200A6EE74 /* DebagViewController.swift */; };
+		C068818129046E9A00A6EE74 /* DebagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068818029046E9A00A6EE74 /* DebagView.swift */; };
+		C068818329046F7800A6EE74 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068818229046F7800A6EE74 /* MainWindow.swift */; };
+		C068818529047A1100A6EE74 /* DebugTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C068818429047A1100A6EE74 /* DebugTableViewCell.swift */; };
 		C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637B2836ED9C00253B24 /* WaitingRoom.swift */; };
 		C06D637E2838557F00253B24 /* CreateGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D637D2838557F00253B24 /* CreateGameViewModel.swift */; };
 		C08783E728A581D4009DD819 /* AttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */; };
@@ -286,6 +290,10 @@
 		C068812528EF9C4000A6EE74 /* KickMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickMessage.swift; sourceTree = "<group>"; };
 		C068812728EFA36900A6EE74 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C068812928F0D7AE00A6EE74 /* PlayerScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreenProtocols.swift; sourceTree = "<group>"; };
+		C068817E29046BC200A6EE74 /* DebagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebagViewController.swift; sourceTree = "<group>"; };
+		C068818029046E9A00A6EE74 /* DebagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebagView.swift; sourceTree = "<group>"; };
+		C068818229046F7800A6EE74 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		C068818429047A1100A6EE74 /* DebugTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewCell.swift; sourceTree = "<group>"; };
 		C06D637B2836ED9C00253B24 /* WaitingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoom.swift; sourceTree = "<group>"; };
 		C06D637D2838557F00253B24 /* CreateGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewModel.swift; sourceTree = "<group>"; };
 		C08783E628A581D4009DD819 /* AttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -580,6 +588,7 @@
 		C0455E7928257D7E00990351 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C068817D29046BB200A6EE74 /* DebagMenu */,
 				4E3C700028D8904000263D3A /* Instruction */,
 				C0455E862825910C00990351 /* WelcomeScreen */,
 				C0455E872825911800990351 /* Settings */,
@@ -619,6 +628,7 @@
 				C0455E962825A1A200990351 /* UserSettings.swift */,
 				C003F2C6282D74F9006F3FE9 /* SettingsOptions.swift */,
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
+				C068818229046F7800A6EE74 /* MainWindow.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -783,6 +793,16 @@
 				C068810C28E2820700A6EE74 /* ProgressCache.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C068817D29046BB200A6EE74 /* DebagMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C068817E29046BC200A6EE74 /* DebagViewController.swift */,
+				C068818029046E9A00A6EE74 /* DebagView.swift */,
+				C068818429047A1100A6EE74 /* DebugTableViewCell.swift */,
+			);
+			path = DebagMenu;
 			sourceTree = "<group>";
 		};
 		C06D637F2839248E00253B24 /* WaitingRoom */ = {
@@ -1042,11 +1062,13 @@
 				C003F316282FE026006F3FE9 /* Catastrophe.swift in Sources */,
 				C0455E4C28257A0B00990351 /* WelcomeScreen.swift in Sources */,
 				C033A50B283169AB006B7A6C /* WaitingViewModel.swift in Sources */,
+				C068818329046F7800A6EE74 /* MainWindow.swift in Sources */,
 				C0070CDE289561D1007BDA0B /* GameInfoCollectionViewCell.swift in Sources */,
 				4EB3F87A28F185F40027DC71 /* FinishViewController.swift in Sources */,
 				C068811E28E78F6500A6EE74 /* ShelterConditionMessage.swift in Sources */,
 				C068810D28E2820700A6EE74 /* ProgressCache.swift in Sources */,
 				C068811828E78EF600A6EE74 /* AttributeMessage.swift in Sources */,
+				C068818529047A1100A6EE74 /* DebugTableViewCell.swift in Sources */,
 				C068811C28E78F4C00A6EE74 /* UserMessage.swift in Sources */,
 				C02D109D28399F050053BFD8 /* ConnectViewModel.swift in Sources */,
 				C06D637C2836ED9C00253B24 /* WaitingRoom.swift in Sources */,
@@ -1076,6 +1098,7 @@
 				C0455E892825912F00990351 /* SettingsViewController.swift in Sources */,
 				C06642D2287CCE0800DD7C28 /* MainGameViewModel.swift in Sources */,
 				C0455E4828257A0B00990351 /* AppDelegate.swift in Sources */,
+				C068817F29046BC200A6EE74 /* DebagViewController.swift in Sources */,
 				4E036D6C28D67B4800AC2B9F /* InstructionPageModel.swift in Sources */,
 				C033A5092831671E006B7A6C /* WaitingRoomViewController.swift in Sources */,
 				C0455E852825856500990351 /* BunkerLogo.swift in Sources */,
@@ -1109,6 +1132,7 @@
 				C068812828EFA36900A6EE74 /* InfoViewController.swift in Sources */,
 				C0455E8F282592C400990351 /* BunkerTextField.swift in Sources */,
 				C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */,
+				C068818129046E9A00A6EE74 /* DebagView.swift in Sources */,
 				C0455E8C2825923200990351 /* CreateGameViewController.swift in Sources */,
 				C0455E802825805000990351 /* View+Pin.swift in Sources */,
 				C0937AD928B576350027B48B /* MainGameProtocols.swift in Sources */,

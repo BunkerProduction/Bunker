@@ -12,12 +12,14 @@ enum MessageType: String, Codable {
     case waiting_room
     case game_model
     case kickedPlayer
+    case error
     
     enum CodingKeys: String, CodingKey {
         case handshake = "handahske"
         case waiting_room = "waiting_room"
         case game_model = "game_model"
         case kickedPlayer = "kickedPlayer"
+        case error = "error"
     }
 }
 
@@ -27,4 +29,8 @@ struct MessageSinData: Codable {
 
 struct Handshake: Codable {
     let id: String
+}
+
+struct ErrorMessage: Codable {
+    let message: String
 }

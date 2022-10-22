@@ -16,7 +16,7 @@ final class WebSocketController {
     public static var shared = WebSocketController()
 
     private let socketSerivce = WebSocketService()
-    private let logger = SHLogger()
+    private let logger = SHLogger.shared
 
     private var clientID: String?
     
@@ -25,6 +25,7 @@ final class WebSocketController {
     @Published var gameModel: Game?
     @Published var connectionError: String?
     @Published var kickedPlayer: PlayerKicked?
+    @Published var flowError: ErrorMessage?
     
     var waitingRoomRecieved: AnyPublisher<WaitingRoom?, Never> {
         return $waitingRoom.eraseToAnyPublisher()
@@ -41,6 +42,10 @@ final class WebSocketController {
 
     var kickedPlayerRecieved: AnyPublisher<PlayerKicked?, Never> {
         return $kickedPlayer.eraseToAnyPublisher()
+    }
+
+    var florErrorRecieved: AnyPublisher<ErrorMessage?, Never> {
+        return $flowError.eraseToAnyPublisher()
     }
 
     private init() {
@@ -64,6 +69,7 @@ final class WebSocketController {
         gameModel = nil
         connectionStatus = false
         connectionError = nil
+        flowError = nil
     }
 
     // MARK: - Handle data
@@ -82,11 +88,23 @@ final class WebSocketController {
                 try self.handleGameModel(data)
             case .kickedPlayer:
                 try self.handleKick(data)
+            case .error:
+                try self.handleErrorData(data)
             }
         } catch {
             
         }
     }
+
+     private func handleErrorData(_ data: Data) throws {
+         let errorMessage: ErrorMessage
+         do {
+             errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
+             self.flowError = errorMessage
+             self.flowError = nil
+         }
+         self.logger.log(event: .userFlowError(description: errorMessage.message))
+     }
 
     private func handleError(_ error: Error) {
         var desciption: String?
@@ -150,7 +168,7 @@ final class WebSocketController {
                 self.logger.log(event: .gameStartFailed(error: gameStartError))
                 print(gameStartError.localizedDescription)
             } else {
-                self.logger.log(event: .gameStartSucceeded())
+                self.logger.log(event: .requestToStartGameSend())
             }
         }
     }

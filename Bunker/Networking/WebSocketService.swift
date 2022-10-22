@@ -12,7 +12,7 @@ protocol WebSocketServiceDelegate {
 }
 
 final class WebSocketService {
-    private let logger = SHLogger()
+    private let logger = SHLogger.shared
     private let session: URLSession
 
     public var socket: URLSessionWebSocketTask?

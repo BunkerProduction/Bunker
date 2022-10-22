@@ -23,6 +23,7 @@ final class TabGameViewController: UIViewController, GameCoordinator {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        SHLogger.shared.log(event: .gameStartSucceeded())
         setupControllers()
         setupView()
         updateUI()

@@ -7,9 +7,22 @@
 
 import UIKit
 
+protocol SHLoggerDelegate {
+    func newLogs()
+}
+
 final class SHLogger {
+    public var sessionLogs: [Event] = []
+
+    public var delegate: SHLoggerDelegate?
+    public static let shared = SHLogger()
+
+
     func log(event: Event) {
+        self.sessionLogs.append(event)
         print(event.debugString)
+
+        delegate?.newLogs()
     }
 }
 
@@ -47,6 +60,10 @@ extension Event {
         return .error(description: "🔻 recieve error \(String(describing: desciption))", error: error)
     }
 
+    static func userFlowError(description: String?) -> Event {
+        return .info(description: "🔻 recieve error \(String(describing: description))")
+    }
+
     static func socketSendGamePrefSucceeded(gamePrefs: String) -> Event {
         return .info(description: "🔹 socketSendGamePrefs Succeeded \(gamePrefs)")
     }
@@ -61,6 +78,10 @@ extension Event {
 
     static func attributeChoiceFailed(attriute: String, error: Error) -> Event {
         return .error(description: "🔻 attribute: \(attriute)", error: error)
+    }
+
+    static func requestToStartGameSend() -> Event {
+        return .info(description: "🔹 request to start game sent")
     }
 
     static func gameStartSucceeded() -> Event {

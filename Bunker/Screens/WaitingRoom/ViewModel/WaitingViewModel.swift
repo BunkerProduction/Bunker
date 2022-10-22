@@ -34,8 +34,18 @@ final class WaitingViewModel {
             }
         }
     }
+
+    private var flowError: ErrorMessage? {
+        didSet {
+            if let flowError = flowError {
+                viewController?.showError(errorString: flowError.message)
+            }
+        }
+    }
+
     private var roomModelSubscriber: AnyCancellable?
     private var gameModelSubscriber: AnyCancellable?
+    private var errorModelSubscriber: AnyCancellable?
     
     private lazy var dataSource: collectionDataSource = {
         let dataSource: collectionDataSource = .init(collectionView: collectionView) { [weak self]
@@ -82,12 +92,16 @@ final class WaitingViewModel {
         gameModelSubscriber = socketController.gameModelRecieved
             .receive(on: RunLoop.main)
             .assign(to: \.gameModel, on: self)
+        errorModelSubscriber = socketController.florErrorRecieved
+            .receive(on: RunLoop.main)
+            .assign(to: \.flowError, on: self)
     }
     
     private func unbind() {
         // cancel subscribtion
         roomModelSubscriber?.cancel()
         gameModelSubscriber?.cancel()
+        errorModelSubscriber?.cancel()
     }
     
     // MARK: - DataSource update
