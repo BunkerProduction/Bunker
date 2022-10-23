@@ -87,6 +87,7 @@ final class AttributeCollectionViewCell: UICollectionViewCell {
         descriptionLabel.font = .customFont.footnote
 
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
 
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
         stackView.distribution = .fill

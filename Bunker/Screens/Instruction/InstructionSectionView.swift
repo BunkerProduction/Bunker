@@ -29,11 +29,11 @@ final class InstructionSectionView: UIStackView {
 
     private func setupView() {
         self.axis = .vertical
-        self.spacing = 8
+        self.spacing = 4
         self.alignment = .leading
         
         configureTitleLabel()
-        configureSectionStackView()
+        configureSectionSV()
     }
 
     private func configureTitleLabel() {
@@ -48,34 +48,45 @@ final class InstructionSectionView: UIStackView {
         }
     }
 
-    private func configureSectionStackView() {
+    private func configureSectionSV() {
         sectionSV.axis = .vertical
-        sectionSV.spacing = 10
+        sectionSV.spacing = 8
         sectionSV.alignment = .leading
 
         let theme = settings.appearance
 
         for block in section.blocks {
-            let subtitleLabel = UILabel()
-            let descriptionLabel = UILabel()
-
-            subtitleLabel.text = block.subtitle
-            subtitleLabel.font = .customFont.body
-            subtitleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
-
-            descriptionLabel.setCustomAttributedText(
-                string: block.text,
-                font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
-                1.25
-            )
-            descriptionLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
-            descriptionLabel.numberOfLines = 0
-
-            let blockSV = UIStackView(arrangedSubviews: [subtitleLabel, descriptionLabel])
+            let blockSV = UIStackView()
             blockSV.axis = .vertical
-            blockSV.spacing = 2
             blockSV.alignment = .leading
 
+            if let subtitle = block.subtitle {
+                let subtitleLabel = UILabel()
+                subtitleLabel.text = subtitle
+                subtitleLabel.font = .customFont.body
+                subtitleLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
+
+                blockSV.addArrangedSubview(subtitleLabel)
+            }
+
+            let textSV = UIStackView()
+            textSV.axis = .vertical
+            textSV.spacing = 4
+            textSV.alignment = .leading
+
+            for text in block.text {
+                let textLabel = UILabel()
+                textLabel.numberOfLines = 0
+                textLabel.textColor = .TextAndIcons.Secondary.colorFor(theme)
+                textLabel.setCustomAttributedText(
+                    string: text,
+                    font: .customFont.footnote ?? .systemFont(ofSize: 14, weight: .regular),
+                    1.25
+                )
+                textSV.addArrangedSubview(textLabel)
+            }
+
+            blockSV.addArrangedSubview(textSV)
             sectionSV.addArrangedSubview(blockSV)
         }
         self.addArrangedSubview(sectionSV)

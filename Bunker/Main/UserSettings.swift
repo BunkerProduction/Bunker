@@ -41,7 +41,7 @@ final class UserSettings {
         }
     }
                 
-    public var appearance: Appearence = .candy {
+    public var appearance: Appearence = .light {
         didSet {
             setTheme()
             storage.set(appearance.rawValue, forKey: CodingKeys.appearence)

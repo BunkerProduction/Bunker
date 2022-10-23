@@ -27,6 +27,7 @@ final class WaitingCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         
         nameLabel.textAlignment = .left
         numberLabel.textAlignment = .left

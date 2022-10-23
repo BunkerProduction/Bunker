@@ -46,15 +46,12 @@ final class PackCollectionViewCell: UICollectionViewCell {
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         titleLabel.font = .customFont.body
-//        titleLabel.backgroundColor = .green //delete after bugfix
         descriptionLabel.font = .customFont.footnote
-//        descriptionLabel.backgroundColor = .red //delete after bugfix
         iconLabel.font = .customFont.icon
-//        iconLabel.backgroundColor = .black //delete after bugfix
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         
         let stackView = UIStackView(arrangedSubviews: [iconLabel, titleLabel, descriptionLabel])
-//        stackView.distribution = .equalSpacing
         stackView.alignment = .leading
         stackView.axis = .vertical
         stackView.spacing = 8
