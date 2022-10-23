@@ -20,6 +20,7 @@ final class BunkerTextField: UITextField {
     
     private func setupView() {
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         self.setLeftPaddingPoints(16)
         self.setHeight(to: 48)
     }

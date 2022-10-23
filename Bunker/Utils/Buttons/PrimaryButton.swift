@@ -30,9 +30,11 @@ final class PrimaryButton: UIButton {
         super.init(frame: frame)
         
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         self.setHeight(to: 48)
         self.setWidth(to: ScreenSize.Width-48)
         self.titleLabel?.font = .customFont.body
+        self.addTarget(self, action: #selector(touchedDown), for: .touchDown)
         self.addTarget(self, action: #selector(playSound), for: .touchUpInside)
         self.addSubview(loadingView)
         self.loadingView.alpha = 0
@@ -50,6 +52,19 @@ final class PrimaryButton: UIButton {
         }
 
     }
+
+    @objc
+    private func touchedDown() {
+        UIView.animate(
+            withDuration: 0.15,
+            delay: 0,
+            options: .curveEaseIn,
+            animations: {
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            },
+            completion: nil
+        )
+    }
     
     @objc
     private func playSound() {
@@ -61,8 +76,18 @@ final class PrimaryButton: UIButton {
             audioPlayer.setVolume(0.1, fadeDuration: 1)
             audioPlayer.play()
         } catch {
-            
+
         }
+        UIView.animate(
+            withDuration: 0.15,
+            delay: 0,
+            options: .curveEaseOut,
+            animations: {
+                self.transform = CGAffineTransform.identity
+            }, completion: { (_) in
+                self.transform = CGAffineTransform.identity
+            }
+        )
     }
 
     private func startAnimation() {

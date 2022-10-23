@@ -28,6 +28,7 @@ final class BunkerTabBar: UIControl {
     // MARK: - UI setup
     private func setupView() {
         self.layer.cornerRadius = 28
+        self.layer.cornerCurve = .continuous
 
         firstTabButton.setImage(UIImage(named: "earthIcon"), for: .normal)
         firstTabButton.tag = 0

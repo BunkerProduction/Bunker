@@ -21,6 +21,7 @@
 		4E81D5012833772800829361 /* buttonSound9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E81D5002833772800829361 /* buttonSound9.wav */; };
 		4E81D504283383B900829361 /* Baige.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E81D503283383B900829361 /* Baige.swift */; };
 		4E92461928BA8D7900D9C864 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92461828BA8D7900D9C864 /* LoadingView.swift */; };
+		4EAD441329052FCA00BB6F0D /* instruction.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EAD441229052FCA00BB6F0D /* instruction.json */; };
 		4EB3F87A28F185F40027DC71 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87928F185F40027DC71 /* FinishViewController.swift */; };
 		4EB3F87C28F32CA20027DC71 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87B28F32CA20027DC71 /* CGRect.swift */; };
 		4EB3F87E28F488F80027DC71 /* InstructionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3F87D28F488F80027DC71 /* InstructionTransition.swift */; };
@@ -176,6 +177,7 @@
 		4E81D5002833772800829361 /* buttonSound9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buttonSound9.wav; sourceTree = "<group>"; };
 		4E81D503283383B900829361 /* Baige.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baige.swift; sourceTree = "<group>"; };
 		4E92461828BA8D7900D9C864 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		4EAD441229052FCA00BB6F0D /* instruction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = instruction.json; sourceTree = "<group>"; };
 		4EB3F87928F185F40027DC71 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		4EB3F87B28F32CA20027DC71 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		4EB3F87D28F488F80027DC71 /* InstructionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionTransition.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 		C003F322283028A3006F3FE9 /* GameData */ = {
 			isa = PBXGroup;
 			children = (
+				4EAD441229052FCA00BB6F0D /* instruction.json */,
 				C003F32E28303D4A006F3FE9 /* condition.json */,
 				C003F32C28303D2F006F3FE9 /* threat.json */,
 				C003F32A28303D1A006F3FE9 /* shelter.json */,
@@ -997,6 +1000,7 @@
 				4ED4C61E282E4EB40062D0AD /* AlianPreview.png in Resources */,
 				C08783ED28AB12DA009DD819 /* fact.json in Resources */,
 				4E81D4F22832EDD400829361 /* buttonSound2.wav in Resources */,
+				4EAD441329052FCA00BB6F0D /* instruction.json in Resources */,
 				4E81D4FF2833771D00829361 /* buttonSound8.mp3 in Resources */,
 				C003F2F3282DB942006F3FE9 /* Dark@3x.png in Resources */,
 				4ED4C61D282E4EB40062D0AD /* MonoPreview.png in Resources */,

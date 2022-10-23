@@ -30,6 +30,7 @@ final class GameSpecialCardView: UIView {
     private func setupView() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         self.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
 
         let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, actionButton])

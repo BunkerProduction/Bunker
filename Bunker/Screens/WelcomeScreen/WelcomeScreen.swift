@@ -134,7 +134,7 @@ final class WelcomeController: UIViewController {
     @objc
     private func instructionPressed() {
         UIView.animate(withDuration: 0.25) {
-            self.instructionView.transform = CGAffineTransform.identity
+            self.instructionView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         }
         let instructionControler = InstructionsViewController()
         instructionControler.modalPresentationStyle = .overCurrentContext

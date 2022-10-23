@@ -45,6 +45,7 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup View
     private func setupView() {
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
 
         let attributeStackView = UIStackView(arrangedSubviews: attributeLabels)
         attributeStackView.axis = .horizontal

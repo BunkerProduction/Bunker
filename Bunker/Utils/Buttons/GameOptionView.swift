@@ -24,6 +24,7 @@ final class GameOptionView: UIButton {
     
     private func setupView() {
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         self.setHeight(to: 154)
         self.pinWidth(to: self.heightAnchor, 1)
         
@@ -42,7 +43,6 @@ final class GameOptionView: UIButton {
         self.chosenLabel.text = chosen
         self.emoji.text = emoji
     }
-    
     
     public func setTheme(_ theme: Appearence) {
         self.backgroundColor = .Background.Accent.colorFor(theme)

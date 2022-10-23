@@ -30,6 +30,7 @@ final class VersionCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
         buyButton.setTitle("Buy", for: .normal)
         buyButton.backgroundColor = .red
         buyButton.titleLabel?.font = .customFont.body
@@ -86,7 +87,13 @@ final class VersionCollectionViewCell: UICollectionViewCell {
     }
     
     public func setTheme(_ theme: Appearence) {
-        self.backgroundColor = isPremium ? .Main.Primary.colorFor(theme) : .Background.Accent.colorFor(theme)
+        if isPremium {
+            self.layer.applyFigmaShadow(color: .Main.Shadow.colorFor(theme) ?? .clear)
+            self.backgroundColor = .Main.Primary.colorFor(theme)
+        } else {
+            self.layer.applyFigmaShadow(color: .clear)
+            self.backgroundColor = .Background.Accent.colorFor(theme)
+        }
         buyButton.backgroundColor = .Background.LayerTwo.colorFor(theme)
         buyButton.setTitleColor(.TextAndIcons.Primary.colorFor(theme), for: .normal)
         titleLabel.textColor = isPremium ? .Main.onPrimary.colorFor(theme) : .TextAndIcons.Primary.colorFor(theme)

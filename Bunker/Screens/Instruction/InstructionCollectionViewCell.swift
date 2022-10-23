@@ -15,7 +15,6 @@ final class InstructionCollectionViewCell: UICollectionViewCell {
     private var sectionSV = UIStackView()
     private let settings = UserSettings.shared
 
-
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,26 +27,22 @@ final class InstructionCollectionViewCell: UICollectionViewCell {
 
     private func setupView() {
         pageSV.axis = .vertical
-        pageSV.spacing = 8
+        pageSV.spacing = 0
         pageSV.alignment = .leading
-
         self.contentView.addSubview(pageSV)
 
         pageSV.translatesAutoresizingMaskIntoConstraints = false
         pageSV.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24).isActive = true
         pageSV.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -24).isActive = true
         pageSV.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-
     }
 
     private func configureHeadlineLabel(_ headline: String?) {
         if headline != nil {
             let theme = settings.appearance
-
             headlineLabel.text = headline
             headlineLabel.font = .customFont.headline
             headlineLabel.textColor = .TextAndIcons.Primary.colorFor(theme)
-
             pageSV.addArrangedSubview(headlineLabel)
         }
     }
@@ -59,7 +54,6 @@ final class InstructionCollectionViewCell: UICollectionViewCell {
 
         for section in sections {
             let section = InstructionSectionView(section: section, settings)
-
             sectionSV.addArrangedSubview(section)
         }
         pageSV.addArrangedSubview(sectionSV)

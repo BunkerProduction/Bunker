@@ -32,6 +32,7 @@ final class GameInfoCollectionViewCell: UICollectionViewCell {
         self.widthAnchor.constraint(equalToConstant: ScreenSize.Width - 48).isActive = true
 
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
 
         typeLabel.font = .customFont.caption
 

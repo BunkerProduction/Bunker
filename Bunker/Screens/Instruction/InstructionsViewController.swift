@@ -26,15 +26,15 @@ final class InstructionsViewController: UIViewController {
 
         return collectionView
     }()
-    let data = InstructionModel.testPages
+    var data = [InstructionScreen]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        data = getInstructions()
         setupUI()
         instructionCollectionView.delegate = self
         instructionCollectionView.dataSource = self
-//        transitioningDelegate = self
     }
 
     private func setupUI() {
@@ -67,7 +67,6 @@ final class InstructionsViewController: UIViewController {
 
     private func setupCollectionView() {
         view.addSubview(instructionCollectionView)
-
         instructionCollectionView.backgroundColor = .clear
         instructionCollectionView.showsHorizontalScrollIndicator = false
 
@@ -82,9 +81,21 @@ final class InstructionsViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
 
+    private func getInstructions() -> [InstructionScreen] {
+        let decoder = JSONDecoder()
+        if let data = JsonManager.shared.readLocalFile(forName: "instruction") {
+            do {
+                let instructionPages = try decoder.decode([InstructionScreen].self, from: data)
+                return instructionPages
+            } catch {
+                print("Failed to decode")
+            }
+        }
+        return []
+    }
+
     @objc
     private func goBack() {
-//        navigationController?.popViewController(animated: true)
         self.dismiss(animated: true)
     }
 }

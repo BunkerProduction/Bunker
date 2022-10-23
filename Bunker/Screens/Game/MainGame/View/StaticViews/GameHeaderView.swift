@@ -51,6 +51,7 @@ final class GameHeaderView: UIView {
     // MARK: - UI setup
     private func setupView() {
         self.layer.cornerRadius = 16
+        self.layer.cornerCurve = .continuous
 
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(subtitleLabel)

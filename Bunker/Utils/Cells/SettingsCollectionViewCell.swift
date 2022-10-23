@@ -41,7 +41,7 @@ final class SettingsCollectionViewCell: UICollectionViewCell {
     // MARK: - SetupUI
     private func setupView() {
         self.layer.cornerRadius = 12
-//        self.backgroundColor = .Background.Accent.colorFor(UserSettings.shared.appearance)
+        self.layer.cornerCurve = .continuous
         
         nameLabel.textAlignment = .left
         iconLabel.textAlignment = .right

@@ -31,6 +31,7 @@ final class ConditionCollectionViewCell: UICollectionViewCell {
         self.widthAnchor.constraint(equalToConstant: ScreenSize.Width - 48).isActive = true
         
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
 
         iconLabel.font = .customFont.icon
         typeLabel.font = .customFont.caption

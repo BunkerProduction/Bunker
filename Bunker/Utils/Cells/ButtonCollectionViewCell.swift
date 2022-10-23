@@ -34,6 +34,7 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
         contentView.widthAnchor.constraint(equalToConstant: ScreenSize.Width - 48).isActive = true
 
         self.layer.cornerRadius = 12
+        self.layer.cornerCurve = .continuous
 
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
