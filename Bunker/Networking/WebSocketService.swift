@@ -49,6 +49,7 @@ final class WebSocketService {
     private func listen() {
         self.socket?.receive { [weak self] (result) in
             guard let sSelf = self else { return }
+
             sSelf.logger.log(event: .socketRecieve())
             switch result {
             case .failure(let error):
@@ -76,7 +77,8 @@ final class WebSocketService {
 
     // MARK: - Public
     public func connect(_ endPoint: String) {
-        var request = URLRequest(url: URL(string: endPoint)!)
+        let correctAddress = endPoint.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        var request = URLRequest(url: URL(string: correctAddress)!)
         request.addValue(UserSettings.applicationVersion, forHTTPHeaderField: "version_client")
         socket = session.webSocketTask(with: request)
         self.listen()

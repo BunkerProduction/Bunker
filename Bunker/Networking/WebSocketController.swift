@@ -74,8 +74,9 @@ final class WebSocketController {
 
     // MARK: - Handle data
     private func handle(_ data: Data) {
+        let stringRepresentation = String(data: data, encoding: .utf8)
+        self.logger.log(event: .socketRecieve(stringRepresentation))
         do {
-            print(String(data: data, encoding: .utf8))
             let sinData = try JSONDecoder().decode(MessageSinData.self, from: data)
             switch sinData.type {
             case .handshake:

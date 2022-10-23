@@ -9,8 +9,10 @@ import UIKit
 
 final class DebugTableViewCell: UITableViewCell {
     static let reuseIdentifier = "DebugTableViewCell"
-    private let label = UILabel()
+    private let label = CopyableLabel()
 
+    public var isShowingExplicit: Bool = false
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 

@@ -105,6 +105,22 @@ extension DebagViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = SHLogger.shared.sessionLogs[indexPath.row]
+        if case let .info(description, data) = item,
+            data != nil {
+            if let cell = tableView.cellForRow(at: indexPath) as? DebugTableViewCell {
+                if cell.isShowingExplicit {
+                    cell.configure(text: item.debugString)
+                } else {
+                    cell.configure(text: data!)
+                    tableView.setNeedsLayout()
+                }
+                cell.isShowingExplicit.toggle()
+            }
+        }
+    }
 }
 
 extension DebagViewController: SHLoggerDelegate {

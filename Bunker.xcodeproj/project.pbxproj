@@ -102,6 +102,7 @@
 		C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */; };
 		C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */; };
 		C048A072283283EA008C9F5B /* WaitingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */; };
+		C05B647D2904B8B2007DEA11 /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05B647C2904B8B2007DEA11 /* CopyLabel.swift */; };
 		C06642CE287B8A6300DD7C28 /* ConditionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */; };
 		C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642CF287CCDFE00DD7C28 /* ThreatsViewModel.swift */; };
 		C06642D2287CCE0800DD7C28 /* MainGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642D1287CCE0800DD7C28 /* MainGameViewModel.swift */; };
@@ -265,6 +266,7 @@
 		C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCodeViewController.swift; sourceTree = "<group>"; };
 		C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplittedDigitInput.swift; sourceTree = "<group>"; };
 		C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingCollectionViewCell.swift; sourceTree = "<group>"; };
+		C05B647C2904B8B2007DEA11 /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
 		C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C06642CF287CCDFE00DD7C28 /* ThreatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatsViewModel.swift; sourceTree = "<group>"; };
 		C06642D1287CCE0800DD7C28 /* MainGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameViewModel.swift; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 				C068817E29046BC200A6EE74 /* DebagViewController.swift */,
 				C068818029046E9A00A6EE74 /* DebagView.swift */,
 				C068818429047A1100A6EE74 /* DebugTableViewCell.swift */,
+				C05B647C2904B8B2007DEA11 /* CopyLabel.swift */,
 			);
 			path = DebagMenu;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				C02D109F283BE1B90053BFD8 /* BunkerTabBar.swift in Sources */,
 				C048A072283283EA008C9F5B /* WaitingCollectionViewCell.swift in Sources */,
 				C0455E7828257C4400990351 /* Colors.swift in Sources */,
+				C05B647D2904B8B2007DEA11 /* CopyLabel.swift in Sources */,
 				C003F33128304971006F3FE9 /* String+Height.swift in Sources */,
 				C02D10A8283C046D0053BFD8 /* MainGameViewController.swift in Sources */,
 				C08783FC28B10262009DD819 /* PlayerDetailsViewController.swift in Sources */,
