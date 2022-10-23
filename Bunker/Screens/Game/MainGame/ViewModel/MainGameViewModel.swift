@@ -118,7 +118,7 @@ final class MainGameViewModel: MainScreenLogic {
             updateHeaderView()
 
             dataSource?.apply(newSnapshot, animatingDifferences: true)
-        case .finished:
+        case .finish:
             showFinishController(true)
         }
     }
@@ -136,7 +136,7 @@ final class MainGameViewModel: MainScreenLogic {
                 progressCache.clearProgress()
             case .voting:
                 gameScreen?.setupHeaderView(model: .init(mode: .voting))
-            case .finished:
+            case .finish:
                 return
         }
     }

@@ -109,7 +109,7 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
                 leftView.isHidden = false
                 progressView.isHidden = false
                 applayVotesProgress(progress: player.votesForHim, identifier: player.UID)
-            case .finished:
+            case .finish:
                 return
         }
     }
