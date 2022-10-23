@@ -36,6 +36,7 @@ final class MainWindow: UIWindow {
         addSubview(debugView)
         debugView.frame = CGRect(x: 50, y: 150, width: 50, height: 50)
         let panG = UIPanGestureRecognizer(target: self, action: #selector(draggedView(_:)))
+        panG.maximumNumberOfTouches = 1
         debugView.addGestureRecognizer(panG)
     }
 

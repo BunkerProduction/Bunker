@@ -134,7 +134,6 @@ final class WebSocketController {
         // костыль ебаный
         let correctString = workAround(model: gamePref)
         do {
-            let data = correctString.data(using: .utf8)!
             self.socketSerivce.socket?.send(.string(correctString)) { (error) in
                 if let networkError = error {
                     self.logger.log(event: .socketSendGamePrefFailed(gamePrefs: correctString, error: networkError))

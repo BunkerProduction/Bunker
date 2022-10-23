@@ -65,7 +65,10 @@ final class WebSocketService {
                         str.remove(at: str.startIndex)
                         str.remove(at: str.index(before: str.endIndex))
                     }
-                    guard let data = str.data(using: .utf8) else { return }
+                    guard let data = str.data(using: .utf8) else {
+                        sSelf.logger.log(event: .error(description: "failed to encode data", error: nil))
+                        return
+                    }
                     self?.delegate?.receivedData(data: .success(data))
                 default:
                     break
