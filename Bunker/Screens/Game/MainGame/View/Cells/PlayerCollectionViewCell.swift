@@ -95,18 +95,16 @@ final class PlayerCollectionViewCell: UICollectionViewCell {
             }
         }
 
-        leftView.isUserInteractionEnabled = canVote
-
         switch mode {
             case .normal:
                 self.layer.borderWidth = 0
-                leftView.isUserInteractionEnabled = true
+                leftView.isUserInteractionEnabled = canVote
                 leftView.isHidden = true
                 progressView.isHidden = true
                 leftView.reset()
             case .voting:
                 self.layer.borderWidth = 2
-                leftView.isUserInteractionEnabled = true
+                leftView.isUserInteractionEnabled = canVote
                 leftView.isHidden = false
                 progressView.isHidden = false
                 applayVotesProgress(progress: player.votesForHim, identifier: player.UID)
