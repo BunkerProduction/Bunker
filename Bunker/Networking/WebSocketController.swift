@@ -142,8 +142,6 @@ final class WebSocketController {
                     self.logger.log(event: .socketSendGamePrefSucceeded(gamePrefs: correctString))
                 }
             }
-        } catch {
-            print(error)
         }
     }
 

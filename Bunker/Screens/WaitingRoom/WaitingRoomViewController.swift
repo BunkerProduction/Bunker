@@ -84,7 +84,7 @@ final class WaitingRoomViewController: UIViewController {
     
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Комната Ожидания"
+        self.navigationItem.title = "Waiting room"
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,
@@ -96,7 +96,7 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     private func setCodeView() {
-        roomCodeView.setTitleLabel("Номер комнаты")
+        roomCodeView.setTitleLabel("room number")
 
         view.addSubview(roomCodeView)
         roomCodeView.pin(to: view, [.left: 24, .right: 24])
@@ -105,8 +105,8 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     private func setButtons() {
-        shareButton.setTitle("Поделиться комнатой", for: .normal)
-        startGameButton.setTitle("Начать игру", for: .normal)
+        shareButton.setTitle("Share room", for: .normal)
+        startGameButton.setTitle("Start game", for: .normal)
         
         startGameButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareRoom), for: .touchUpInside)

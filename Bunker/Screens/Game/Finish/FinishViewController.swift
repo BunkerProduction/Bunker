@@ -16,7 +16,7 @@ final class FinishViewController: UIViewController {
         static let edgeInset: Double = 24
         static let imageSize: Double = 140
         static let interInset: Double = 16
-        static let cornerRadius: CGFloat = 8
+        static let cornerRadius: CGFloat = 12
         static let buttonHeight: Double = 48
         static let iconConfig = UIImage.SymbolConfiguration(weight: .bold)
     }
@@ -86,13 +86,15 @@ final class FinishViewController: UIViewController {
         menuButton.backgroundColor = .Background.Accent.colorFor(theme)
         stayButton.setTitleColor(.TextAndIcons.Primary.colorFor(theme), for: .normal)
         stayButton.backgroundColor = .Background.Accent.colorFor(theme)
+        iconView.tintColor = .TextAndIcons.Primary.colorFor(theme)
     }
 
     private func setupStayButton() {
         view.addSubview(stayButton)
-        stayButton.setTitle("Остаться наблюдателем", for: .normal)
+        stayButton.setTitle("Spectate", for: .normal)
         stayButton.titleLabel?.font = .customFont.body
         stayButton.layer.cornerRadius = Consts.cornerRadius
+        stayButton.layer.cornerCurve = .continuous
         stayButton.setHeight(to: Consts.buttonHeight)
         stayButton.pin(to: view, [.left: Consts.edgeInset, .right: Consts.edgeInset])
         stayButton.pinBottom(to: menuButton.topAnchor, Consts.interInset)
@@ -102,9 +104,10 @@ final class FinishViewController: UIViewController {
 
     private func setupMenuButton() {
         view.addSubview(menuButton)
-        menuButton.setTitle("В главное меню", for: .normal)
+        menuButton.setTitle("Go to menu", for: .normal)
         menuButton.titleLabel?.font = .customFont.body
         menuButton.layer.cornerRadius = Consts.cornerRadius
+        menuButton.layer.cornerCurve = .continuous
         menuButton.setHeight(to: Consts.buttonHeight)
         menuButton.pin(to: view, [.left: Consts.edgeInset, .right: Consts.edgeInset])
         menuButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, Consts.interInset)
@@ -126,12 +129,14 @@ final class FinishViewController: UIViewController {
     public func configure(_ mode: FinishMode) {
         switch mode {
         case .won:
-            iconView.image = UIImage(named: "win")?.withTintColor(.blue)
-            textLabel.text = "Поздравляю! \nВы остались в бункере до конца\nи выжили."
+            iconView.image = UIImage(systemName: "person.3.fill")
+            iconView.contentMode = .scaleAspectFit
+            textLabel.text = "Congratulations!\nYou stayed in bunket untill the end\nand survived."
             stayButton.isHidden = true
         case .lost:
-            iconView.image = UIImage(named: "lose")?.withTintColor(.blue)
-            textLabel.text = "Вы выбыли из бункера.\nМожете остаться наблюдателем\nили покинуть комнату."
+            iconView.image = UIImage(systemName: "hand.raised.square.fill")
+            iconView.contentMode = .scaleAspectFit
+            textLabel.text = "You got expelled from bunker.\nYou can stay and spectate\nили or leave the room."
             stayButton.isHidden = false
         }
     }

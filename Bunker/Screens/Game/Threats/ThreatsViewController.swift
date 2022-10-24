@@ -89,19 +89,19 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
 
     private func showAlert() {
         let alertView = UIAlertController(
-            title: "Выйти",
-            message: "Вы уверены что хотите выйти из игры?",
+            title: "Exit",
+            message: "Are you sure you want to exit game?",
             preferredStyle: .alert)
         alertView.addAction(
             UIAlertAction(
-                title: "Отменить",
+                title: "Cancel",
                 style: .cancel,
                 handler: nil
             )
         )
         alertView.addAction(
             UIAlertAction(
-                title: "Выйти",
+                title: "Exit",
                 style: .destructive,
                 handler: {_ in
                     self.viewModel?.exitGame()
@@ -115,7 +115,7 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "Appocalypse"
+        self.title = "Apocalyplse"
     }
 }
 
