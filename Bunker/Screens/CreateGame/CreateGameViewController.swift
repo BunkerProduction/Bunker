@@ -174,7 +174,7 @@ final class CreateGameViewController: UIViewController {
     public func setScreenData(username: String, prefs: GamePreferences, _ buttonEnabled: Bool) {
         nameTextField.text = username
         if let catastrophy = prefs.catastrophe {
-            packView.setLabels("Набор", catastrophy.name, catastrophy.icon)
+            packView.setLabels("Pack", catastrophy.name, catastrophy.icon)
         }
         if let difficulty = prefs.difficulty {
             difficultyView.setLabels("Сложность", "", "")
@@ -190,6 +190,24 @@ final class CreateGameViewController: UIViewController {
 
 // MARK: - TextFieldDelegate
 extension CreateGameViewController: UITextFieldDelegate {
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        switch textField.tag {
+        case 1:
+            if textField.text != "" {
+                createButton.isEnabled = true
+            } else {
+                createButton.isEnabled = false
+            }
+        case 2:
+            if textField.text != "" {
+
+            }
+        default:
+            return
+        }
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag {
         case 1:

@@ -31,10 +31,11 @@ final class VersionCollectionViewCell: UICollectionViewCell {
     private func setupView() {
         self.layer.cornerRadius = 12
         self.layer.cornerCurve = .continuous
-        buyButton.setTitle("Buy", for: .normal)
+        buyButton.setTitle("Купить", for: .normal)
         buyButton.backgroundColor = .red
         buyButton.titleLabel?.font = .customFont.body
         buyButton.layer.cornerRadius = 8
+        buyButton.layer.cornerCurve = .continuous
         buyButton.setTitleColor(.black, for: .normal)
         buyButton.setHeight(to: 36)
         
@@ -43,7 +44,6 @@ final class VersionCollectionViewCell: UICollectionViewCell {
         
         textLabel.textAlignment = .left
         textLabel.font = .customFont.footnote
-//        textLabel.backgroundColor = .clear
         textLabel.numberOfLines = 0
         
         priceLabel.textAlignment = .left
@@ -51,7 +51,6 @@ final class VersionCollectionViewCell: UICollectionViewCell {
         
         let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, priceLabel, buyButton])
         stackView.distribution = .equalSpacing
-//        stackView.alignment = .fill
         stackView.axis = .vertical
         stackView.spacing = 24
         

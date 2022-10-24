@@ -10,7 +10,7 @@ import UIKit
 final class WelcomeController: UIViewController {
     private let settingsButton = UIButton()
     private let logo = BunkerLogo()
-    public let instructionView = UIView()
+    public let instructionView = UIControl()
     private let createGameButton = PrimaryButton(frame: .zero)
     private let joinGameButton = PrimaryButton(frame: .zero)
     private var settings: UserSettings?
@@ -61,8 +61,8 @@ final class WelcomeController: UIViewController {
     
     // MARK: - SetupView
     private func setupView() {
-        createGameButton.setTitle("Create game", for: .normal)
-        joinGameButton.setTitle("Join game", for: .normal)
+        createGameButton.setTitle("Create", for: .normal)
+        joinGameButton.setTitle("Join", for: .normal)
         
         let buttonSV = UIStackView(arrangedSubviews: [joinGameButton, createGameButton])
         buttonSV.distribution = .fillEqually
@@ -119,10 +119,13 @@ final class WelcomeController: UIViewController {
         instructionView.setHeight(to: 280)
         instructionView.setWidth(to: 216)
 
-        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(instructionPressed))
-        gesture.numberOfTapsRequired = 1
-        instructionView.isUserInteractionEnabled = true
-        instructionView.addGestureRecognizer(gesture)
+//        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(instructionPressed))
+//        gesture.numberOfTapsRequired = 1
+//        instructionView.isUserInteractionEnabled = true
+//        instructionView.addGestureRecognizer(gesture)
+
+        instructionView.addTarget(self, action: #selector(instructionPressedTouchDown), for: .touchDown)
+        instructionView.addTarget(self, action: #selector(instructionPressedTouchUpInside), for: .touchUpInside)
     }
     
     private func setupGameButtons() {
@@ -132,10 +135,30 @@ final class WelcomeController: UIViewController {
     
     // MARK: - Interactions
     @objc
-    private func instructionPressed() {
-        UIView.animate(withDuration: 0.25) {
-            self.instructionView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        }
+    private func instructionPressedTouchDown() {
+        UIView.animate(
+            withDuration: 0.15,
+            delay: 0,
+            options: .curveEaseIn,
+            animations: {
+                self.instructionView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            },
+            completion: nil
+        )
+    }
+
+    @objc
+    private func instructionPressedTouchUpInside() {
+        UIView.animate(
+            withDuration: 0.15,
+            delay: 0,
+            options: .curveEaseOut,
+            animations: {
+                self.instructionView.transform = CGAffineTransform.identity
+            },
+            completion: nil
+        )
+        
         let instructionControler = InstructionsViewController()
         instructionControler.modalPresentationStyle = .overCurrentContext
         self.present(instructionControler, animated: true, completion: nil)

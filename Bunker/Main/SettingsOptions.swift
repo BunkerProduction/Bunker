@@ -19,12 +19,12 @@ protocol SettingsOption {
 
 // MARK: - Language
 public enum Language: String, SettingsOption, CaseIterable {
-    case ru = "Русский"
-    case eng = "Английский"
-    case zhi = "Китайский"
+    case ru = "Russian"
+    case eng = "English"
+    case zhi = "Chinese"
     
     var optionType: String {
-        return "Язык"
+        return "Language"
     }
     
     var optionName: String {
@@ -49,10 +49,10 @@ public enum Language: String, SettingsOption, CaseIterable {
 
 // MARK: - Appearence
 public enum Appearence: String, SettingsOption, CaseIterable {
-    case light = "Cветлая", dark = "Темная", system = "Система", toxic = "Токсичная", poisonous = "Ядовитая", mono = "Монохромная", alian = "Инопланетная", holo = "Голографическая"
+    case light = "Light", dark = "Dark", system = "System", toxic = "Toxic", poisonous = "Poisonous", mono = "Mono", alian = "Alian", holo = "Holo"
     
     var optionType: String {
-        return "Тема"
+        return "Theme"
     }
     
     var optionName: String {
@@ -87,10 +87,10 @@ public enum Appearence: String, SettingsOption, CaseIterable {
 
 // MARK: - Sound
 public enum Sound: String, SettingsOption, CaseIterable {
-    case on = "Вкл", off = "Выкл"
+    case on = "On", off = "Off"
     
     var optionType: String {
-        return "Звуки"
+        return "Sound"
     }
     
     var optionName: String {

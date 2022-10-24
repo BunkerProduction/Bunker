@@ -17,12 +17,29 @@ final class PackCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            if(isSelected) {
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-                    self.layer.borderWidth = 2
-                    self.layer.borderColor = UIColor.Main.Primary.colorFor(UserSettings.shared.appearance)?.cgColor
-                }) {_ in self.transform = CGAffineTransform.identity}
+            if (isSelected) {
+                UIView.animate(
+                    withDuration: 0.15,
+                    delay: 0,
+                    options: .curveEaseIn,
+                    animations: {
+                        self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                        self.layer.borderWidth = 2
+                        self.layer.borderColor = UIColor.Main.Primary.colorFor(UserSettings.shared.appearance)?.cgColor
+                    },
+                    completion: { (_) in
+                        self.transform = .identity
+                        UIView.animate(
+                            withDuration: 0.15,
+                            delay: 0,
+                            options: .curveEaseOut,
+                            animations: {
+                                self.transform = .identity
+                            },
+                            completion: nil
+                        )
+                    }
+                )
             } else {
                 self.layer.borderColor = borderColorNormal ?? UIColor.systemGray5.cgColor
                 self.layer.borderWidth = 0

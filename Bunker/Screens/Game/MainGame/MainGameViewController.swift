@@ -79,35 +79,35 @@ final class MainGameViewController: UIViewController {
 
         headerView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         headerView.pin(to: view, [.left: 24, .right: 24])
-        headerHeightConstraint = headerView.setHeight(to: 80)
+        headerHeightConstraint = headerView.setHeight(to: 60)
 
-        [firstSpecialView, secondScecialView].forEach {
-            specialsStackView.addArrangedSubview($0)
-        }
-        specialsStackView.distribution = .fillEqually
-        specialsStackView.alignment = .fill
-        specialsStackView.axis = .horizontal
-        specialsStackView.spacing = 16
-
-        view.addSubview(specialsStackView)
-        specialsStackView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 150)
-        specialsStackView.pin(to: view, [.left: 24, .right: 24])
-        specialsStackView.setHeight(to: 130)
+//        [firstSpecialView, secondScecialView].forEach {
+//            specialsStackView.addArrangedSubview($0)
+//        }
+//        specialsStackView.distribution = .fillEqually
+//        specialsStackView.alignment = .fill
+//        specialsStackView.axis = .horizontal
+//        specialsStackView.spacing = 16
+//
+//        view.addSubview(specialsStackView)
+//        specialsStackView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 150)
+//        specialsStackView.pin(to: view, [.left: 24, .right: 24])
+//        specialsStackView.setHeight(to: 130)
     }
 
     private func setupCollectionView() {
         view.addSubview(collectionView)
 
         collectionView.pinTop(to: headerView.bottomAnchor, 0)
-        collectionView.pin(to: view, [.left: 24, .right: 24, .bottom: 0])
-        collectionView.pinBottom(to: specialsStackView.topAnchor)
+        collectionView.pin(to: view, [.left: 24, .right: 24])
+        collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 120)
     }
 
     // MARK: - Setup NavBar
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "Game and Participants"
+        self.title = "Game and participants"
     }
 }
 

@@ -35,7 +35,8 @@ final class PrimaryButton: UIButton {
         self.setWidth(to: ScreenSize.Width-48)
         self.titleLabel?.font = .customFont.body
         self.addTarget(self, action: #selector(touchedDown), for: .touchDown)
-        self.addTarget(self, action: #selector(playSound), for: .touchUpInside)
+        self.addTarget(self, action: #selector(touchUp), for: .touchUpInside)
+        self.addTarget(self, action: #selector(touchUp), for: .touchUpOutside)
         self.addSubview(loadingView)
         self.loadingView.alpha = 0
 
@@ -50,7 +51,6 @@ final class PrimaryButton: UIButton {
         } else {
             self.titleLabel?.alpha = 0
         }
-
     }
 
     @objc
@@ -64,19 +64,20 @@ final class PrimaryButton: UIButton {
             },
             completion: nil
         )
+        let generator = UIImpactFeedbackGenerator(style: .soft)
+        generator.impactOccurred(intensity: 1)
     }
     
     @objc
-    private func playSound() {
-        if(UserSettings.shared.volume == .off) {
-            return
-        }
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: PrimaryButton.sound1)
-            audioPlayer.setVolume(0.1, fadeDuration: 1)
-            audioPlayer.play()
-        } catch {
-
+    private func touchUp() {
+        if (UserSettings.shared.volume == .on) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: PrimaryButton.sound1)
+                audioPlayer.setVolume(0.1, fadeDuration: 1)
+                audioPlayer.play()
+            } catch(let error) {
+                print(error)
+            }
         }
         UIView.animate(
             withDuration: 0.15,
@@ -84,23 +85,29 @@ final class PrimaryButton: UIButton {
             options: .curveEaseOut,
             animations: {
                 self.transform = CGAffineTransform.identity
-            }, completion: { (_) in
-                self.transform = CGAffineTransform.identity
-            }
+            },
+            completion: nil
         )
     }
 
     private func startAnimation() {
-        loadingView.isAnimating = true
-        loadingView.alpha = 1
-        self.setTitleVisible(false)
-
+        UIView.animate(withDuration: 0.1) {
+            self.setTitleVisible(false)
+        }
+        UIView.animate(withDuration: 0.1) {
+            self.loadingView.isAnimating = true
+            self.loadingView.alpha = 1
+        }
     }
 
     private func stopAnimation() {
-        loadingView.isAnimating = false
-        loadingView.alpha = 0
-        self.setTitleVisible(true)
+        UIView.animate(withDuration: 0.1) {
+            self.loadingView.isAnimating = false
+            self.loadingView.alpha = 0
+        }
+        UIView.animate(withDuration: 0.1) {
+            self.setTitleVisible(true)
+        }
     }
     
     required init?(coder: NSCoder) {

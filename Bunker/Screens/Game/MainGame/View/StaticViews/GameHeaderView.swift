@@ -20,7 +20,7 @@ final class GameHeaderView: UIView {
     private let backgroundView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        view.layer.borderWidth = 2
+        view.layer.borderWidth = 0
 
         return view
     }()

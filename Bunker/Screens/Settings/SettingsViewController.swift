@@ -83,7 +83,7 @@ final class SettingsViewController: UIViewController {
         } else {
             sectionS.append(("false",""))
             sectionS.append(("true",""))
-            sectionT.append(("Restore purchase","🛍"))
+            sectionT.append(("Restore purchases","🛍"))
         }
         let dataSource = [sectionF, sectionS, sectionT]
         self.dataSource = dataSource
