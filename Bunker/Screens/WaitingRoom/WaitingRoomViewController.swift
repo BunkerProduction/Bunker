@@ -92,7 +92,6 @@ final class WaitingRoomViewController: UIViewController {
             action: #selector(goBack)
         )
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     private func setCodeView() {
