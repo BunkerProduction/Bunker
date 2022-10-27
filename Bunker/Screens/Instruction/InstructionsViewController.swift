@@ -83,7 +83,7 @@ final class InstructionsViewController: UIViewController {
 
     private func getInstructions() -> [InstructionScreen] {
         let decoder = JSONDecoder()
-        if let data = JsonManager.shared.readLocalFile(forName: "instruction") {
+        if let data = JsonManager.shared.readLocalFile(forName: "instruction_eng") {
             do {
                 let instructionPages = try decoder.decode([InstructionScreen].self, from: data)
                 return instructionPages

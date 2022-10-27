@@ -1,0 +1,312 @@
+[
+    {
+        "id":0,
+        "category":"Багаж",
+        "description":"Звуковая отвертка"
+    },
+    {
+        "id":1,
+        "category":"Багаж",
+        "description":"Гитара"
+    },
+    {
+        "id":2,
+        "category": "Багаж",
+        "description": "Дефибриллятор"
+    },
+    {
+        "id":3,
+        "category":"Багаж",
+        "description": "Инкубатор с набором яиц"
+    },
+    {
+        "id":4,
+        "category": "Багаж",
+        "description": "3 слитка золота"
+    },
+    {
+        "id":5,
+        "category": "Багаж",
+        "description": "Антибиотики и обезболивающие"
+    },
+    {
+        "id":6,
+        "category":"Багаж",
+        "description":"Инструменты электрика"
+    },
+    {
+        "id":7,
+        "category": "Багаж",
+        "description": "Ловушки и набор ядов"
+    },
+    {
+        "id":8,
+        "category":"Багаж",
+        "description":"Книги Айзека Азимова"
+    },
+    {
+        "id":9,
+        "category":"Багаж",
+        "description": "Мешок картошки"
+    },
+    {
+        "id":10,
+        "category":"Багаж",
+        "description": "Кукла вуду"
+    },
+    {
+        "id":11,
+        "category":"Багаж",
+        "description": "Мешок с семенами"
+    },
+    {
+        "id":12,
+        "category": "Багаж",
+        "description":"Миллион долларов"
+    },
+    {
+        "id":13,
+        "category":"Багаж",
+        "description": "Компас и карта"
+    },
+    {
+        "id":14,
+        "category":"Багаж",
+        "description": "Лук и стрелы"
+    },
+    {
+        "id":15,
+        "category":"Багаж",
+        "description": "Набор отмычек"
+    },
+    {
+        "id":16,
+        "category":"Багаж",
+        "description": "Надувная кукла"
+    },
+    {
+        "id":17,
+        "category":"Багаж",
+        "description":"Настольные игры"
+    },
+    {
+        "id":18,
+        "category":"Багаж",
+        "description":"Саженцы фруктовых деревьев"
+    },
+    {
+        "id":19,
+        "category": "Багаж",
+        "description": "Пистолет"
+    },
+    {
+        "id":20,
+        "category": "Багаж",
+        "description": "Прибор ночного видения"
+    },
+    {
+        "id":21,
+        "category":"Багаж",
+        "description": "Портативная электростанция"
+    },
+    {
+        "id":22,
+        "category":"Багаж",
+        "description": "Метательные ножи"
+    },
+    {
+        "id":23,
+        "category":"Багаж",
+        "description":"Ноутбук и платы arduino"
+    },
+    {
+        "id":24,
+        "category":"Багаж",
+        "description":"Столярные инструменты"
+    },
+    {
+        "id":25,
+        "category":"Багаж",
+        "description":"Снайперская винтовка"
+    },
+    {
+        "id":26,
+        "category":"Багаж",
+        "description":"Спиритическая доска"
+    },
+    {
+        "id":27,
+        "category":"Багаж",
+        "description": "Портфель фельдшера"
+    },
+    {
+        "id":28,
+        "category":"Багаж",
+        "description":"Шляпа из фольги"
+    },
+    {
+        "id":29,
+        "category":"Багаж",
+        "description":"Энциклопедия грибника"
+    },
+    {
+        "id":30,
+        "category":"Багаж",
+        "описание": "Стерильные одноразовые шприцы"
+    },
+    {
+        "id":31,
+        "category":"Багаж",
+        "description":"Открывалка для бутылок"
+    },
+    {
+        "id":32,
+        "category":"Багаж",
+        "description": "Молоток и гвозди"
+    },
+    {
+        "id":33,
+        "category":"Багаж",
+        "description": "Портативные рации"
+    },
+    {
+        "id":34,
+        "category":"Багаж",
+        "description":"Книга по социологии"
+    },
+    {
+        "id":35,
+        "category":"Багаж",
+        "description": "Фонарик и запасные батарейки"
+    },
+    {
+        "id":36,
+        "category":"Багаж",
+        "description":"Ноутбук"
+    },
+    {
+        "id":37,
+        "category": "Багаж",
+        "description":"Набор для шитья"
+    },
+    {
+        "id":38,
+        "category":"Багаж",
+        "description":"Семена моркови"
+    },
+    {
+        "id":39,
+        "category":"Багаж",
+        "description":"Гаечный ключ"
+    },
+    {
+        "id":40,
+        "category":"Багаж",
+        "description": "Аптечка первой помощи"
+    },
+    {
+        "id":41,
+        "category":"Багаж",
+        "description":"Музыкальная шкатулка"
+    },
+    {
+        "id":42,
+        "category":"Багаж",
+        "description": "Зажигалка"
+    },
+    {
+        "id":43,
+        "category":"Багаж",
+        "description":"Губная гармошка"
+    },
+    {
+        "id":44,
+        "category":"Багаж",
+        "description":"Газовая горелка"
+    },
+    {
+        "id":45,
+        "category":"Багаж",
+        "description":"Спичечный коробок"
+    },
+    {
+        "id":46,
+        "category":"Багаж",
+        "description":"Беспроводная колонка"
+    },
+    {
+        "id":47,
+        "category":"Багаж",
+        "description":"Персидский ковер"
+    },
+    {
+        "id":48,
+        "category":"Багаж",
+        "description": "Презервативы"
+    },
+    {
+        "id":49,
+        "category":"Багаж",
+        "description":"Компас"
+    },
+    {
+        "id":50,
+        "category": "Багаж",
+        "description": "Бумага формата А4"
+    },
+    {
+        "id":51,
+        "category":"Багаж",
+        "description":"Будильник"
+    },
+    {
+        "id":52,
+        "category":"Багаж",
+        "описание":"Туалетная бумага"
+    },
+    {
+        "id":53,
+        "category":"Багаж",
+        "description": "Комнатное растение"
+    },
+    {
+        "id":54,
+        "category":"Багаж",
+        "description":"Теплая одежда"
+    },
+    {
+        "id":55,
+        "category":"Багаж",
+        "description":"Надувная лодка"
+    },
+    {
+        "id":56,
+        "category":"Багаж",
+        "description": "Подушка"
+    },
+    {
+        "id":57,
+        "category": "Багаж",
+        "description":"Вращение"
+    },
+    {
+        "id":58,
+        "category":"Багаж",
+        "description": "Батарейки типа ААА"
+    },
+    {
+        "id":59,
+        "category":"Багаж",
+        "description":"Сковорода"
+    },
+    {
+        "id":60,
+        "category": "Багаж",
+        "description": "Биотопливо"
+    },
+    {
+        "id":61,
+        "category":"Багаж",
+        "description":"Золотая цепочка"
+    }
+]

@@ -102,8 +102,17 @@ final class ConnectToGameViewController: UIViewController {
     // MARK: - Navigation
     @objc
     private func goNext() {
-        let enterRoomController = RoomCodeViewController()
-        self.navigationController?.pushViewController(enterRoomController, animated: true)
+        if nameTextField.text == "" {
+            UIView.animate(withDuration: 0.2) {
+                self.nameTextField.layer.borderWidth = 2
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.nameTextField.layer.borderWidth = 0
+            }
+            let enterRoomController = RoomCodeViewController()
+            self.navigationController?.pushViewController(enterRoomController, animated: true)
+        }
     }
     
     @objc
@@ -117,6 +126,18 @@ extension ConnectToGameViewController: UIGestureRecognizerDelegate { }
 
 // MARK: - TextField Delegate
 extension ConnectToGameViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField.text == "" {
+            UIView.animate(withDuration: 0.1) {
+                self.nameTextField.layer.borderWidth = 2
+            }
+        } else {
+            UIView.animate(withDuration: 0.1) {
+                self.nameTextField.layer.borderWidth = 0
+            }
+        }
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let string = textField.text, string != "" {
             UserSettings.shared.username = string

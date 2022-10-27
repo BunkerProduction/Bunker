@@ -61,8 +61,8 @@ final class WelcomeController: UIViewController {
     
     // MARK: - SetupView
     private func setupView() {
-        createGameButton.setTitle("Create", for: .normal)
-        joinGameButton.setTitle("Join", for: .normal)
+        createGameButton.setTitle("create".localize(), for: .normal)
+        joinGameButton.setTitle("join".localize(), for: .normal)
         
         let buttonSV = UIStackView(arrangedSubviews: [joinGameButton, createGameButton])
         buttonSV.distribution = .fillEqually
@@ -104,7 +104,7 @@ final class WelcomeController: UIViewController {
     
     private func setupInstructionView() {
         instructionView.layer.cornerRadius = 12
-        instructionLabel.text = "Rules"
+        instructionLabel.text = "Rules".localize()
         instructionLabel.font = .customFont.title
         instructionLabel.textAlignment = .center
         
@@ -125,7 +125,8 @@ final class WelcomeController: UIViewController {
 //        instructionView.addGestureRecognizer(gesture)
 
         instructionView.addTarget(self, action: #selector(instructionPressedTouchDown), for: .touchDown)
-        instructionView.addTarget(self, action: #selector(instructionPressedTouchUpInside), for: .touchUpInside)
+        instructionView.addTarget(self, action: #selector(instructionPressedTouchUp), for: .touchUpInside)
+        instructionView.addTarget(self, action: #selector(instructionPressedTouchUp), for: .touchUpOutside)
     }
     
     private func setupGameButtons() {
@@ -148,7 +149,7 @@ final class WelcomeController: UIViewController {
     }
 
     @objc
-    private func instructionPressedTouchUpInside() {
+    private func instructionPressedTouchUp() {
         UIView.animate(
             withDuration: 0.15,
             delay: 0,

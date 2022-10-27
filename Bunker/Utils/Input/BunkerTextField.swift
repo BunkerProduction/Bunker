@@ -31,6 +31,8 @@ final class BunkerTextField: UITextField {
         self.font = .customFont.body
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? " ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Tertiary.colorFor(theme) ?? .white])
         self.textColor = .TextAndIcons.Primary.colorFor(theme)
+        self.layer.borderWidth = 0
+        self.layer.borderColor = UIColor.Main.Warning.colorFor(theme)?.cgColor
     }
     
     public func addDoneButtonOnKeyboard() {

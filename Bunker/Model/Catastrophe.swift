@@ -16,7 +16,7 @@ struct Catastrophe: Hashable {
     
     public static func getAll() -> [Catastrophe] {
         let decoder = JSONDecoder()
-        if let data = JsonManager.shared.readLocalFile(forName: "catastrophe") {
+        if let data = JsonManager.shared.readLocalFile(forName: "catastrophe_eng") {
             do {
                 let allCatastrophes = try decoder.decode([Catastrophe].self, from: data)
                 return allCatastrophes

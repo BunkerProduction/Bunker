@@ -74,6 +74,7 @@ final class FinishViewController: UIViewController {
 
     private func setupLabel() {
         textLabel.font = .customFont.body
+        textLabel.numberOfLines = 0
         textLabel.textAlignment = .center
     }
 

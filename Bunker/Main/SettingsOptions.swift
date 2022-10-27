@@ -49,7 +49,14 @@ public enum Language: String, SettingsOption, CaseIterable {
 
 // MARK: - Appearence
 public enum Appearence: String, SettingsOption, CaseIterable {
-    case light = "Light", dark = "Dark", system = "System", toxic = "Toxic", poisonous = "Poisonous", mono = "Mono", alian = "Alian", holo = "Holo"
+    case light = "Light",
+         dark = "Dark",
+         system = "System",
+         toxic = "Toxic",
+         poisonous = "Poisonous",
+         mono = "Mono",
+         alian = "Alian",
+         holo = "Holo"
     
     var optionType: String {
         return "Theme"
