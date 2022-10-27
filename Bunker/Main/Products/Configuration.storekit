@@ -1,0 +1,38 @@
+{
+  "identifier" : "0137E526",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "4EBF971D",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Premium Version",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "",
+          "displayName" : "Премиум Версия",
+          "locale" : "ru"
+        }
+      ],
+      "productID" : "com.PremiumVersion",
+      "referenceName" : "Premium Version",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

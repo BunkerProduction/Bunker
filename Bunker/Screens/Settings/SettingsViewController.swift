@@ -192,6 +192,8 @@ extension SettingsViewController: UICollectionViewDelegate {
                 options.option = option
             }
             self.navigationController?.pushViewController(options, animated: true)
+        } else if indexPath.section == 2 {
+            ProductManager.shared.restorePurchaes()
         }
     }
 }
@@ -230,7 +232,10 @@ extension SettingsViewController: UICollectionViewDataSource {
             ) as! VersionCollectionViewCell
             let isPremium = dataSource[indexPath.section][indexPath.row] as? Spair
             let bol = isPremium?.0 == "true" ? true : false
-            cell.configure(bol)
+            let action = {
+                ProductManager.shared.purchase(product: Product.premium)
+            }
+            cell.configure(bol, action: action)
             cell.setTheme(settings.appearance)
             
             return cell
@@ -254,5 +259,3 @@ extension SettingsViewController: UICollectionViewDataSource {
         }
     }
 }
-
-

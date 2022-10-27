@@ -15,6 +15,8 @@ final class VersionCollectionViewCell: UICollectionViewCell {
     private let priceLabel = UILabel()
     private let buyButton = UIButton()
     private var isPremium: Bool = false
+
+    private var action: (() -> Void)?
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -38,6 +40,7 @@ final class VersionCollectionViewCell: UICollectionViewCell {
         buyButton.layer.cornerCurve = .continuous
         buyButton.setTitleColor(.black, for: .normal)
         buyButton.setHeight(to: 36)
+        buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
         
         titleLabel.textAlignment = .left
         titleLabel.font = .customFont.body
@@ -57,8 +60,13 @@ final class VersionCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(stackView)
         stackView.pin(to: self.contentView, [.left: 16, .right: 16, .top: 16, .bottom: 16])
     }
+
+    @objc private func buyButtonTapped() {
+        action?()
+    }
     
-    public func configure(_ premium: Bool) {
+    public func configure(_ premium: Bool, action: (() -> Void)?) {
+        self.action = action
         self.isPremium = premium
         if(isPremium) {
             titleLabel.text = "Премиум Версия"
