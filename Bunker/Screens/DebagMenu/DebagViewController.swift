@@ -108,7 +108,7 @@ extension DebagViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = SHLogger.shared.sessionLogs[indexPath.row]
-        if case let .info(description, data) = item,
+        if case let .info(_, data) = item,
             data != nil {
             if let cell = tableView.cellForRow(at: indexPath) as? DebugTableViewCell {
                 if cell.isShowingExplicit {

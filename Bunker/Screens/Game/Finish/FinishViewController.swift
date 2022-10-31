@@ -92,7 +92,7 @@ final class FinishViewController: UIViewController {
 
     private func setupStayButton() {
         view.addSubview(stayButton)
-        stayButton.setTitle("Spectate", for: .normal)
+        stayButton.setTitle("Spectate".localize(lan: settings.language), for: .normal)
         stayButton.titleLabel?.font = .customFont.body
         stayButton.layer.cornerRadius = Consts.cornerRadius
         stayButton.layer.cornerCurve = .continuous
@@ -105,7 +105,7 @@ final class FinishViewController: UIViewController {
 
     private func setupMenuButton() {
         view.addSubview(menuButton)
-        menuButton.setTitle("Go to menu", for: .normal)
+        menuButton.setTitle("GO_BACK_TO_MENU".localize(lan: settings.language), for: .normal)
         menuButton.titleLabel?.font = .customFont.body
         menuButton.layer.cornerRadius = Consts.cornerRadius
         menuButton.layer.cornerCurve = .continuous
@@ -132,13 +132,13 @@ final class FinishViewController: UIViewController {
         case .won:
             iconView.image = UIImage(systemName: "person.3.fill")
             iconView.contentMode = .scaleAspectFit
-            textLabel.text = "Congratulations!\nYou stayed in bunket untill the end\nand survived."
+            textLabel.text = "CONGRATULATIONS".localize(lan: settings.language)
             stayButton.isHidden = true
         case .lost:
             iconView.image = UIImage(systemName: "hand.raised.square.fill")
             iconView.contentMode = .scaleAspectFit
-            textLabel.text = "You got expelled from bunker.\nYou can stay and spectate\nили or leave the room."
-            stayButton.isHidden = false
+            textLabel.text = "YOU_ARE_EXCLUDED".localize(lan: settings.language)
+            stayButton.isHidden = true
         }
     }
 }

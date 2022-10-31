@@ -1,0 +1,517 @@
+[
+    {
+        "id":0,
+        "category":"Биология",
+        "description":"Андроид"
+    },
+    {
+        "id":1,
+        "category":"Биология",
+        "description":"Кот-гендер"
+    },
+    {
+        "id":2,
+        "category":"Биология",
+        "description":"Мужчина 18 лет"
+    },
+    {
+        "id":3,
+        "category":"Биология",
+        "description":"Мужчина 19 лет"
+    },
+    {
+        "id":4,
+        "category":"Биология",
+        "description":"Мужчина 20 лет"
+    },
+    {
+        "id":5,
+        "category":"Биология",
+        "description":"Мужчина 21 год"
+    },
+    {
+        "id":6,
+        "category":"Биология",
+        "description":"Мужчина 23 лет"
+    },
+    {
+        "id":7,
+        "category":"Биология",
+        "description":"Мужчина 25 лет"
+    },
+    {
+        "id":8,
+        "category":"Биология",
+        "description":"Мужчина 28 лет"
+    },
+    {
+        "id":9,
+        "category":"Биология",
+        "description":"Мужчина 29 лет"
+    },
+    {
+        "id":10,
+        "category":"Биология",
+        "description":"Мужчина 30 лет"
+    },
+    {
+        "id":11,
+        "category":"Биология",
+        "description":"Мужчина 31 год"
+    },
+    {
+        "id":12,
+        "category":"Биология",
+        "description":"Мужчина 33 года"
+    },
+    {
+        "id":13,
+        "category":"Биология",
+        "description":"Мужчина 35 лет"
+    },
+    {
+        "id":14,
+        "category":"Биология",
+        "description":"Мужчина 38 лет"
+    },
+    {
+        "id":15,
+        "category":"Биология",
+        "description":"Мужчина 40 лет"
+    },
+    {
+        "id":16,
+        "category":"Биология",
+        "description":"Мужчина 43 года"
+    },
+    {
+        "id":17,
+        "category":"Биология",
+        "description":"Мужчина 44 года"
+    },
+    {
+        "id":18,
+        "category":"Биология",
+        "description":"Мужчина 45 лет"
+    },
+    {
+        "id":19,
+        "category":"Биология",
+        "description":"Мужчина 46 лет"
+    },
+    {
+        "id":20,
+        "category":"Биология",
+        "description":"Мужчина 48 лет"
+    },
+    {
+        "id":21,
+        "category":"Биология",
+        "description":"Мужчина 50 лет"
+    },
+    {
+        "id":22,
+        "category":"Биология",
+        "description":"Мужчина 53 лет"
+    },
+    {
+        "id":23,
+        "category":"Биология",
+        "description":"Мужчина 54 лет"
+    },
+    {
+        "id":24,
+        "category":"Биология",
+        "description":"Мужчина 55 лет"
+    },
+    {
+        "id":25,
+        "category":"Биология",
+        "description":"Мужчина 56 лет"
+    },
+    {
+        "id":26,
+        "category":"Биология",
+        "description":"Мужчина 58 лет"
+    },
+    {
+        "id":27,
+        "category":"Биология",
+        "description":"Мужчина 59 лет"
+    },
+    {
+        "id":28,
+        "category":"Биология",
+        "description":"Мужчина 60 лет"
+    },
+    {
+        "id":29,
+        "category":"Биология",
+        "description":"Мужчина 61 год"
+    },
+    {
+        "id":30,
+        "category":"Биология",
+        "description":"Мужчина 63 лет"
+    },
+    {
+        "id":31,
+        "category":"Биология",
+        "description":"Мужчина 64 года"
+    },
+    {
+        "id":32,
+        "category":"Биология",
+        "description":"Мужчина 65 лет"
+    },
+    {
+        "id":33,
+        "category":"Биология",
+        "description":"Мужчина 66 лет"
+    },
+    {
+        "id":34,
+        "category":"Биология",
+        "description":"Мужчина 68 лет"
+    },
+    {
+        "id":35,
+        "category":"Биология",
+        "description":"Мужчина 70 лет"
+    },
+    {
+        "id":36,
+        "category":"Биология",
+        "description":"Мужчина 73 лет"
+    },
+    {
+        "id":37,
+        "category":"Биология",
+        "description":"Мужчина 75 лет"
+    },
+    {
+        "id":38,
+        "category":"Биология",
+        "description":"Мужчина 78 лет"
+    },
+    {
+        "id":39,
+        "category":"Биология",
+        "description":"Мужчина 79 лет"
+    },
+    {
+        "id":40,
+        "category":"Биология",
+        "description":"Мужчина 80 лет"
+    },
+    {
+        "id":41,
+        "category":"Биология",
+        "description":"Мужчина 81 год"
+    },
+    {
+        "id":42,
+        "category":"Биология",
+        "description":"Мужчина 83 лет"
+    },
+    {
+        "id":43,
+        "category":"Биология",
+        "description":"Мужчина 84 лет"
+    },
+    {
+        "id":44,
+        "category":"Биология",
+        "description":"Мужчина 85 лет"
+    },
+    {
+        "id":45,
+        "category":"Биология",
+        "description":"Мужчина 86 лет"
+    },
+    {
+        "id":46,
+        "category":"Биология",
+        "description":"Мужчина 88 лет"
+    },
+    {
+        "id":47,
+        "category":"Биология",
+        "description":"Мужчина 89 лет"
+    },
+    {
+        "id":48,
+        "category":"Биология",
+        "description":"Мужчина 90 лет"
+    },
+    {
+        "id":49,
+        "category":"Биология",
+        "description":"Мужчине 91 год"
+    },
+    {
+        "id":50,
+        "category":"Биология",
+        "description":"Мужчина 96 лет"
+    },
+    {
+        "id":51,
+        "category":"Биология",
+        "description":"Мужчина 98 лет"
+    },
+    {
+        "id":52,
+        "category":"Биология",
+        "description":"Мужчина 102 года"
+    },
+    {
+        "id":53,
+        "category":"Биология",
+        "description":"Женщина 18 лет"
+    },
+    {
+        "id":54,
+        "category":"Биология",
+        "description":"Женщина 19 лет"
+    },
+    {
+        "id":55,
+        "category":"Биология",
+        "description":"Женщина 20 лет"
+    },
+    {
+        "id":56,
+        "category":"Биология",
+        "description":"Женщина 21 год"
+    },
+    {
+        "id":57,
+        "category":"Биология",
+        "description":"Женщина 23 года"
+    },
+    {
+        "id":58,
+        "category":"Биология",
+        "description":"Женщина 25 лет"
+    },
+    {
+        "id":59,
+        "category":"Биология",
+        "description":"Женщина 28 лет"
+    },
+    {
+        "id":60,
+        "category":"Биология",
+        "description":"Женщина 29 лет"
+    },
+    {
+        "id":61,
+        "category":"Биология",
+        "description":"Женщина 30 лет"
+    },
+    {
+        "id":62,
+        "category":"Биология",
+        "description":"Женщина 31 год"
+    },
+    {
+        "id":63,
+        "category":"Биология",
+        "description":"Женщина 31 год"
+    },
+    {
+        "id":64,
+        "category":"Биология",
+        "description":"Женщина 35 лет"
+    },
+    {
+        "id":65,
+        "category":"Биология",
+        "description":"Женщина 38 лет"
+    },
+    {
+        "id":66,
+        "category":"Биология",
+        "description":"Женщина 40 лет"
+    },
+    {
+        "id":67,
+        "category":"Биология",
+        "description":"Женщина 43 года"
+    },
+    {
+        "id":68,
+        "category":"Биология",
+        "description":"Женщина 44 года"
+    },
+    {
+        "id":69,
+        "category":"Биология",
+        "description":"Женщина 45 лет"
+    },
+    {
+        "id":70,
+        "category":"Биология",
+        "description":"Женщина 46 лет"
+    },
+    {
+        "id":71,
+        "category":"Биология",
+        "description":"Женщина 48 лет"
+    },
+    {
+        "id":72,
+        "category":"Биология",
+        "description":"Женщина 50 лет"
+    },
+    {
+        "id":73,
+        "category":"Биология",
+        "description":"Женщина 53 лет"
+    },
+    {
+        "id":74,
+        "category":"Биология",
+        "description":"Женщина 54 года"
+    },
+    {
+        "id":75,
+        "category":"Биология",
+        "description":"Женщина 55 лет"
+    },
+    {
+        "id":76,
+        "category":"Биология",
+        "description":"Женщина 56 лет"
+    },
+    {
+        "id":77,
+        "category":"Биология",
+        "description":"Женщина 58 лет"
+    },
+    {
+        "id":78,
+        "category":"Биология",
+        "description":"Женщина 59 лет"
+    },
+    {
+        "id":79,
+        "category":"Биология",
+        "description":"Женщина 60 лет"
+    },
+    {
+        "id":80,
+        "category":"Биология",
+        "description":"Женщина 61 год"
+    },
+    {
+        "id":81,
+        "category":"Биология",
+        "description":"Женщина 63 года"
+    },
+    {
+        "id":82,
+        "category":"Биология",
+        "description":"Женщина 64 года"
+    },
+    {
+        "id":83,
+        "category":"Биология",
+        "description":"Женщина 65 лет"
+    },
+    {
+        "id":84,
+        "category":"Биология",
+        "description":"Женщина 66 лет"
+    },
+    {
+        "id":85,
+        "category":"Биология",
+        "description":"Женщина 68 лет"
+    },
+    {
+        "id":86,
+        "category":"Биология",
+        "description":"Женщина 70 лет"
+    },
+    {
+        "id":87,
+        "category":"Биология",
+        "description":"Женщина 73 года"
+    },
+    {
+        "id":88,
+        "category":"Биология",
+        "description":"Женщина 75 лет"
+    },
+    {
+        "id":89,
+        "category":"Биология",
+        "description":"Женщина 78 лет"
+    },
+    {
+        "id":90,
+        "category":"Биология",
+        "description":"Женщина 79 лет"
+    },
+    {
+        "id":91,
+        "category":"Биология",
+        "description":"Женщина 80 лет"
+    },
+    {
+        "id":92,
+        "category":"Биология",
+        "description":"Женщина 81 год"
+    },
+    {
+        "id":93,
+        "category":"Биология",
+        "description":"Женщина 83 года"
+    },
+    {
+        "id":94,
+        "category":"Биология",
+        "description":"Женщина 84 лет"
+    },
+    {
+        "id":95,
+        "category":"Биология",
+        "description":"Женщина 85 лет"
+    },
+    {
+        "id":96,
+        "category":"Биология",
+        "description":"Женщина 86 лет"
+    },
+    {
+        "id":97,
+        "category":"Биология",
+        "description":"Женщина 88 лет"
+    },
+    {
+        "id":98,
+        "category":"Биология",
+        "description":"Женщина 89 лет"
+    },
+    {
+        "id":99,
+        "category":"Биология",
+        "description":"Женщина 90 лет"
+    },
+    {
+        "id":100,
+        "category":"Биология",
+        "description":"Женщина 91 год"
+    },
+    {
+        "id":101,
+        "category":"Биология",
+        "description":"Женщина 96 лет"
+    },
+    {
+        "id":102,
+        "category":"Биология",
+        "description":"Женщина 101 год"
+    }
+]

@@ -29,7 +29,7 @@ final class UserSettings {
         }
     }
     
-    public var language: Language = .ru {
+    public var language: Language = .russian {
         didSet {
             storage.set(language.rawValue, forKey: CodingKeys.language)
         }
@@ -71,7 +71,7 @@ final class UserSettings {
             self.setTheme()
         }
         if let langauge = storage.object(forKey: CodingKeys.language) as? String {
-            self.language = Language(rawValue: langauge) ?? .ru
+            self.language = Language(rawValue: langauge) ?? .russian
         }
         if let icon = storage.object(forKey: CodingKeys.appIcon) as? String {
             self.appIcon = AppIcon(rawValue: icon) ?? .light

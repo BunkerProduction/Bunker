@@ -85,9 +85,9 @@ final class CreateGameViewController: UIViewController {
     }
     
     private func setup() {
-        nameTextField.placeholder = "Enter name"
+        nameTextField.placeholder = "ENTER_NAME".localize(lan: settings.language)
         nameTextField.delegate = self
-        voteTimeTextField.placeholder = "Enter voting time (1-20 min)"
+        voteTimeTextField.placeholder = "ENTER_VOTING".localize(lan: settings.language)
         voteTimeTextField.delegate = self
         voteTimeTextField.keyboardType = .numberPad
         voteTimeTextField.isHidden = true
@@ -100,7 +100,11 @@ final class CreateGameViewController: UIViewController {
     
     private func setOptions() {
         packView.addTarget(self, action: #selector(choosePack), for: .touchUpInside)
-        difficultyView.setLabels("Pack", "Random", "🎲")
+        difficultyView.setLabels(
+            "PACK".localize(lan: settings.language),
+            "RANDOM".localize(lan: settings.language),
+            "🎲"
+        )
     }
     
     // MARK: - View setup
@@ -143,7 +147,7 @@ final class CreateGameViewController: UIViewController {
     
     private func setButton() {
         createButton.isEnabled = false
-        createButton.setTitle("Create game", for: .normal)
+        createButton.setTitle("CREATE_GAME".localize(lan: settings.language), for: .normal)
         createButton.addTarget(self, action: #selector(createGame), for: .touchUpInside)
     }
     
@@ -174,10 +178,18 @@ final class CreateGameViewController: UIViewController {
     public func setScreenData(username: String, prefs: GamePreferences, _ buttonEnabled: Bool) {
         nameTextField.text = username
         if let catastrophy = prefs.catastrophe {
-            packView.setLabels("Pack", catastrophy.name, catastrophy.icon)
+            packView.setLabels(
+                "PACK".localize(lan: settings.language),
+                catastrophy.name,
+                catastrophy.icon
+            )
         }
         if let difficulty = prefs.difficulty {
-            difficultyView.setLabels("Сложность", "", "")
+            difficultyView.setLabels(
+                "DIFFICULTY".localize(lan: settings.language),
+                "CLASSIC".localize(lan: settings.language),
+                "😯"
+            )
         }
         createButton.isEnabled = buttonEnabled
     }

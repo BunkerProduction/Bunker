@@ -58,7 +58,7 @@ final class ThreatViewModel: ThreatsLogic {
                 )
                 if let cell = cell as? ConditionCollectionViewCell,
                     let item  = itemIdentifier as? ShelterCondition {
-                    cell.configure(icon: "⚡️", type: "Условие", description: item.description)
+                    cell.configure(icon: "⚡️", type: "CONDITION".localize(lan: self.settings.language), description: item.description)
                     cell.setTheme(self.settings.appearance)
                 }
                 return cell
@@ -69,7 +69,7 @@ final class ThreatViewModel: ThreatsLogic {
                 )
                 if let cell = cell as? GameInfoCollectionViewCell,
                    let item = itemIdentifier as? Shelter {
-                    cell.configure(icon: item.icon, title: item.name, type: "Бункер", description: item.description)
+                    cell.configure(icon: item.icon, title: item.name, type: "SHELTER".localize(lan: self.settings.language), description: item.description)
                     cell.setTheme(self.settings.appearance)
                 }
 
@@ -84,7 +84,7 @@ final class ThreatViewModel: ThreatsLogic {
                     cell.configure(
                         icon: catastrophe.icon,
                         title: catastrophe.name,
-                        type: "Аппокалипсис",
+                        type: "APOCALYPSE".localize(lan: self.settings.language),
                         description: catastrophe.fullDesciption
                     )
                     cell.setTheme(self.settings.appearance)
@@ -96,7 +96,7 @@ final class ThreatViewModel: ThreatsLogic {
                     for: indexPath
                 )
                 if let cell = cell as? ButtonCollectionViewCell {
-                    cell.configure("Выйти из игры")
+                    cell.configure("EXIT_GAME".localize(lan: self.settings.language))
                     cell.setTheme(self.settings.appearance, true)
                 }
 

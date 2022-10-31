@@ -26,6 +26,7 @@ final class InstructionsViewController: UIViewController {
 
         return collectionView
     }()
+    private var fileName = String()
     var data = [InstructionScreen]()
 
     override func viewDidLoad() {
@@ -82,8 +83,9 @@ final class InstructionsViewController: UIViewController {
     }
 
     private func getInstructions() -> [InstructionScreen] {
+        
         let decoder = JSONDecoder()
-        if let data = JsonManager.shared.readLocalFile(forName: "instruction_eng") {
+        if let data = JsonManager.shared.readLocalFile(forName: "INSTRUCTION".localize(lan: settings.language)) {
             do {
                 let instructionPages = try decoder.decode([InstructionScreen].self, from: data)
                 return instructionPages
@@ -138,9 +140,3 @@ extension InstructionsViewController: UICollectionViewDelegateFlowLayout {
         )
     }
 }
-
-//extension InstructionsViewController: UIViewControllerTransitioningDelegate {
-//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return AnimationController(animationDuration: 1, .present)
-//    }
-//}

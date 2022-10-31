@@ -19,12 +19,12 @@ protocol SettingsOption {
 
 // MARK: - Language
 public enum Language: String, SettingsOption, CaseIterable {
-    case ru = "Russian"
-    case eng = "English"
-    case zhi = "Chinese"
+    case russian = "ru"
+    case english = "en"
+    case chinese = "zh-Hans"
     
     var optionType: String {
-        return "Language"
+        return "LANGUAGE"
     }
     
     var optionName: String {
@@ -37,11 +37,11 @@ public enum Language: String, SettingsOption, CaseIterable {
     
     func associatedIcon() -> String {
         switch self {
-        case .ru:
+        case .russian:
             return "🇷🇺"
-        case .eng:
+        case .english:
             return "🇬🇧"
-        case .zhi:
+        case .chinese:
             return "🇨🇳"
         }
     }
@@ -49,17 +49,10 @@ public enum Language: String, SettingsOption, CaseIterable {
 
 // MARK: - Appearence
 public enum Appearence: String, SettingsOption, CaseIterable {
-    case light = "Light",
-         dark = "Dark",
-         system = "System",
-         toxic = "Toxic",
-         poisonous = "Poisonous",
-         mono = "Mono",
-         alian = "Alian",
-         holo = "Holo"
+    case light = "LIGHT", dark = "DARK", system = "SYSTEM", toxic = "TOXIC", poisonous = "POISONOUS", mono = "MONO", alian = "ALIAN", holo = "HOLO"
     
     var optionType: String {
-        return "Theme"
+        return "THEME"
     }
     
     var optionName: String {
@@ -94,10 +87,10 @@ public enum Appearence: String, SettingsOption, CaseIterable {
 
 // MARK: - Sound
 public enum Sound: String, SettingsOption, CaseIterable {
-    case on = "On", off = "Off"
+    case on = "ON", off = "OFF"
     
     var optionType: String {
-        return "Sound"
+        return "SOUND"
     }
     
     var optionName: String {

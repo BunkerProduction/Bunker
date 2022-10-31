@@ -207,7 +207,7 @@ extension OptionsViewController: UICollectionViewDataSource {
                 collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
             }
             if let cell = cell as? SettingsCollectionViewCell {
-                cell.configure(item.optionName, item.associatedIcon())
+                cell.configure(item.optionName.localize(lan: settings.language), item.associatedIcon())
                 cell.setTheme(settings.appearance)
             }
             

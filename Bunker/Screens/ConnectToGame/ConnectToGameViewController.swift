@@ -67,7 +67,7 @@ final class ConnectToGameViewController: UIViewController {
         if let username = UserSettings.shared.username {
             nameTextField.text = username
         }
-        nameTextField.placeholder = "Enter name"
+        nameTextField.placeholder = "ENTER_NAME".localize(lan: settings.language)
         nameTextField.delegate = self
         
         setButton()
@@ -89,7 +89,7 @@ final class ConnectToGameViewController: UIViewController {
         
         nextButton.pin(to: view, [.left: 24, .right: 24])
         nextButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle("NEXT".localize(lan: settings.language), for: .normal)
         nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
     }
     

@@ -84,7 +84,7 @@ final class WaitingRoomViewController: UIViewController {
     
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Waiting room"
+        self.navigationItem.title = "WAITING_ROOM".localize(lan: settings.language)
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,
@@ -96,7 +96,7 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     private func setCodeView() {
-        roomCodeView.setTitleLabel("room number")
+        roomCodeView.setTitleLabel("ENTER_ROOM_NUMBER".localize(lan: settings.language))
 
         view.addSubview(roomCodeView)
         roomCodeView.pin(to: view, [.left: 24, .right: 24])
@@ -105,8 +105,8 @@ final class WaitingRoomViewController: UIViewController {
     }
     
     private func setButtons() {
-        shareButton.setTitle("Share room", for: .normal)
-        startGameButton.setTitle("Start game", for: .normal)
+        shareButton.setTitle("SHARE_ROOM".localize(lan: settings.language), for: .normal)
+        startGameButton.setTitle("START_GAME".localize(lan: settings.language), for: .normal)
         
         startGameButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareRoom), for: .touchUpInside)
@@ -149,8 +149,8 @@ final class WaitingRoomViewController: UIViewController {
     }
 
     public func showError(errorString: String) {
-        let alert = UIAlertController(title: "Start Error", message: errorString, preferredStyle: .actionSheet)
-        let ok = UIAlertAction(title: "OK", style: .default)
+        let alert = UIAlertController(title: "START_ERROR".localize(lan: settings.language), message: errorString, preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "OK".localize(lan: settings.language), style: .default)
         alert.addAction(ok)
         self.present(alert, animated: true)
     }

@@ -82,11 +82,6 @@ final class MainGameViewModel: MainScreenLogic {
                     },
                     canVote: self.gameModel?.hasVoted == false ? true : false
                 )
-                if let voted = self.gameModel?.hasVoted {
-                    if voted {
-                        print("==========================Voted")
-                    }
-                }
                 cell.setTheme(self.settings.appearance)
             }
 
@@ -131,7 +126,8 @@ final class MainGameViewModel: MainScreenLogic {
         switch gameModel.gameState {
             case .normal:
                 if let playerWithTurn = gameModel.players.first(where: {$0.UID == gameModel.turn }) {
-                    gameScreen?.setupHeaderView(model: .init(mode: .normal(text: "Ход игрока: \(playerWithTurn.username)")))
+                    let text = "PLAYERS_TURN".localize(lan: settings.language) + "\(playerWithTurn.username)"
+                    gameScreen?.setupHeaderView(model: .init(mode: .normal(text: text)))
                 }
                 progressCache.clearProgress()
             case .voting:
@@ -147,7 +143,8 @@ final class MainGameViewModel: MainScreenLogic {
         }
         guard let playerToKick = gameModel?.players.first(where: { $0.UID == kickedPlayer.id }) else { return }
         isShowingKick = true
-        gameScreen?.setupHeaderView(model: .init(mode: .normal(text: "Исключен игрок: \(playerToKick.username)")))
+        let text = "PLAYER_EXCLUDED".localize(lan: settings.language) + "\(playerToKick.username)"
+        gameScreen?.setupHeaderView(model: .init(mode: .normal(text: text)))
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.isShowingKick = false

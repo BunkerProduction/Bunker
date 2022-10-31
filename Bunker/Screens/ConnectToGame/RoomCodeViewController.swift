@@ -85,7 +85,7 @@ final class RoomCodeViewController: UIViewController {
         
         connectButton.pin(to: view, [.left: 24, .right: 24])
         connectButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
-        connectButton.setTitle("Join", for: .normal)
+        connectButton.setTitle("JOIN".localize(lan: settings.language), for: .normal)
         connectButton.addTarget(self, action: #selector(joinGame), for: .touchUpInside)
     }
     
@@ -115,8 +115,8 @@ final class RoomCodeViewController: UIViewController {
 
     public func showError(errorString: String) {
         connectButton.isLoading = false
-        let alert = UIAlertController(title: "Join Error", message: errorString, preferredStyle: .actionSheet)
-        let ok = UIAlertAction(title: "OK", style: .default)
+        let alert = UIAlertController(title: "JOIN_ERROR".localize(lan: settings.language), message: errorString, preferredStyle: .actionSheet)
+        let ok = UIAlertAction(title: "OK".localize(lan: settings.language), style: .default)
         alert.addAction(ok)
         self.present(alert, animated: true)
     }

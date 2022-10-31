@@ -8,8 +8,12 @@
 import UIKit
 
 final class BaigeView: UIView {
+    private var settings = UserSettings.shared
     private let baigeLabel = UILabel()
-    private let settings = UserSettings.shared
+    enum Label {
+        case soon
+        case premium
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,15 +25,18 @@ final class BaigeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupView() {
-        switch settings.language {
-        case .ru:
-            baigeLabel.text = "ПРЕМИУМ"
-        case .eng:
-            baigeLabel.text = "PREMIUM"
-        case .zhi:
-            baigeLabel.text = "优质的"
+    convenience init(label: Label) {
+        self.init()
+
+        switch label {
+        case .soon:
+            baigeLabel.text = "SOOM".localize(lan: settings.language)
+        case .premium:
+            baigeLabel.text = "PREMIUM".localize(lan: settings.language)
         }
+    }
+
+    private func setupView() {
         baigeLabel.font = .customFont.baige
         baigeLabel.textAlignment = .center
         self.addSubview(baigeLabel)
