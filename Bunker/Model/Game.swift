@@ -8,7 +8,7 @@
 import Foundation
 
 enum GameState: String, Codable {
-    case normal, voting, finished
+    case normal, voting, finish
 }
 
 enum GameModelError: String, Error {

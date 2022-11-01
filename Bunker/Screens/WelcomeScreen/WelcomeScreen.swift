@@ -39,6 +39,7 @@ final class WelcomeController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         updateUI()

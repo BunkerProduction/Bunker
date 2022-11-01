@@ -113,6 +113,9 @@
 		C0455E9D2825BDCC00990351 /* RoomCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */; };
 		C0455E9F2825C5F500990351 /* SplittedDigitInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */; };
 		C048A072283283EA008C9F5B /* WaitingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */; };
+		C04DFB262909C0E700EDCA1F /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DFB252909C0E700EDCA1F /* ProductManager.swift */; };
+		C04DFB2A2909C12700EDCA1F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DFB292909C12700EDCA1F /* Product.swift */; };
+		C04DFB302909D1D500EDCA1F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04DFB2F2909D1D500EDCA1F /* StoreKit.framework */; };
 		C05B647D2904B8B2007DEA11 /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05B647C2904B8B2007DEA11 /* CopyLabel.swift */; };
 		C06642CE287B8A6300DD7C28 /* ConditionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */; };
 		C06642D0287CCDFE00DD7C28 /* ThreatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06642CF287CCDFE00DD7C28 /* ThreatsViewModel.swift */; };
@@ -293,6 +296,10 @@
 		C0455E9C2825BDCC00990351 /* RoomCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCodeViewController.swift; sourceTree = "<group>"; };
 		C0455E9E2825C5F500990351 /* SplittedDigitInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplittedDigitInput.swift; sourceTree = "<group>"; };
 		C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingCollectionViewCell.swift; sourceTree = "<group>"; };
+		C04DFB252909C0E700EDCA1F /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
+		C04DFB292909C12700EDCA1F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C04DFB2D2909C60E00EDCA1F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		C04DFB2F2909D1D500EDCA1F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C05B647C2904B8B2007DEA11 /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
 		C06642CD287B8A6300DD7C28 /* ConditionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C06642CF287CCDFE00DD7C28 /* ThreatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatsViewModel.swift; sourceTree = "<group>"; };
@@ -339,6 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04DFB302909D1D500EDCA1F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +650,7 @@
 				C0455E5D28257A0B00990351 /* BunkerTests */,
 				C0455E6728257A0B00990351 /* BunkerUITests */,
 				C0455E4528257A0B00990351 /* Products */,
+				C04DFB2E2909D1D500EDCA1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -689,7 +698,7 @@
 		C0455E7928257D7E00990351 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C068817D29046BB200A6EE74 /* DebagMenu */,
+				C068817D29046BB200A6EE74 /* DebugMenu */,
 				4E3C700028D8904000263D3A /* Instruction */,
 				C0455E862825910C00990351 /* WelcomeScreen */,
 				C0455E872825911800990351 /* Settings */,
@@ -724,11 +733,11 @@
 		C0455E812825825500990351 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C04DFB282909C10100EDCA1F /* Products */,
+				C04DFB272909C0EF00EDCA1F /* Settings */,
 				C0455E4728257A0B00990351 /* AppDelegate.swift */,
 				C0455E4928257A0B00990351 /* SceneDelegate.swift */,
 				C0455E822825827A00990351 /* BaseNavigationController.swift */,
-				C0455E962825A1A200990351 /* UserSettings.swift */,
-				C003F2C6282D74F9006F3FE9 /* SettingsOptions.swift */,
 				C0455E5228257A0B00990351 /* LaunchScreen.storyboard */,
 				C068818229046F7800A6EE74 /* MainWindow.swift */,
 			);
@@ -794,6 +803,33 @@
 				C068811F28E7901900A6EE74 /* WebSocketService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		C04DFB272909C0EF00EDCA1F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C0455E962825A1A200990351 /* UserSettings.swift */,
+				C003F2C6282D74F9006F3FE9 /* SettingsOptions.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C04DFB282909C10100EDCA1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C04DFB252909C0E700EDCA1F /* ProductManager.swift */,
+				C04DFB292909C12700EDCA1F /* Product.swift */,
+				C04DFB2D2909C60E00EDCA1F /* Configuration.storekit */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		C04DFB2E2909D1D500EDCA1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C04DFB2F2909D1D500EDCA1F /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C06642D3287CDF0100DD7C28 /* Threats */ = {
@@ -897,7 +933,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		C068817D29046BB200A6EE74 /* DebagMenu */ = {
+		C068817D29046BB200A6EE74 /* DebugMenu */ = {
 			isa = PBXGroup;
 			children = (
 				C068817E29046BC200A6EE74 /* DebagViewController.swift */,
@@ -905,7 +941,7 @@
 				C068818429047A1100A6EE74 /* DebugTableViewCell.swift */,
 				C05B647C2904B8B2007DEA11 /* CopyLabel.swift */,
 			);
-			path = DebagMenu;
+			path = DebugMenu;
 			sourceTree = "<group>";
 		};
 		C06D637F2839248E00253B24 /* WaitingRoom */ = {
@@ -1218,7 +1254,9 @@
 				C003F31E282FF22D006F3FE9 /* DynamicLayout.swift in Sources */,
 				C0455E992825A1C300990351 /* ConnectToGameViewController.swift in Sources */,
 				C02D10AA283C04800053BFD8 /* ThreatsViewController.swift in Sources */,
+				C04DFB2A2909C12700EDCA1F /* Product.swift in Sources */,
 				C033A5072831512A006B7A6C /* WebSocketController.swift in Sources */,
+				C04DFB262909C0E700EDCA1F /* ProductManager.swift in Sources */,
 				C0455E972825A1A200990351 /* UserSettings.swift in Sources */,
 				C0455E7C28257E8E00990351 /* PrimaryButton.swift in Sources */,
 				C0455E4A28257A0B00990351 /* SceneDelegate.swift in Sources */,
@@ -1634,6 +1672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7QZL932B66;
@@ -1642,19 +1681,22 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = skyman44.Bunker;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyman44.BunkerApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1663,6 +1705,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7QZL932B66;
@@ -1671,19 +1714,22 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = skyman44.Bunker;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyman44.BunkerApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

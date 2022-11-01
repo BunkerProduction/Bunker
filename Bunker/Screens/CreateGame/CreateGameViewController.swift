@@ -57,6 +57,7 @@ final class CreateGameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         view.isUserInteractionEnabled = true
         viewModel?.viewWillAppear()
         updateUI()

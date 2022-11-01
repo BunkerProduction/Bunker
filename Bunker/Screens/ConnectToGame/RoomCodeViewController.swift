@@ -51,7 +51,8 @@ final class RoomCodeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         viewModel.navigatedBack()
         updateUI()
     }

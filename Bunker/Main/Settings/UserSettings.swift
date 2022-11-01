@@ -15,6 +15,7 @@ final class UserSettings {
         static let appearence = "Appearence"
         static let language = "Language"
         static let appIcon = "AppIcon"
+        static let isPremiumActive = "PremiumStatus"
     }
     
     static private let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
@@ -22,6 +23,12 @@ final class UserSettings {
     static let applicationVersion: String = "1.0.1"
 
     private let storage = UserDefaults.standard
+
+    public var isPremium: Bool = false {
+        didSet {
+            storage.set(isPremium, forKey: CodingKeys.isPremiumActive)
+        }
+    }
     
     public var username: String? {
         didSet {
@@ -52,12 +59,6 @@ final class UserSettings {
         didSet {
             AppIcon.applyAppIcon(icon: appIcon)
             storage.set(appIcon.rawValue, forKey: CodingKeys.appIcon)
-        }
-    }
-    
-    public var isPremium: Bool = false {
-        didSet {
-            
         }
     }
     
