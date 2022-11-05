@@ -89,19 +89,19 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
 
     private func showAlert() {
         let alertView = UIAlertController(
-            title: "Exit",
-            message: "Are you sure you want to exit game?",
+            title: "EXIT".localize(lan: settings.language),
+            message: "EXIT_MESSAGE".localize(lan: settings.language),
             preferredStyle: .alert)
         alertView.addAction(
             UIAlertAction(
-                title: "Cancel",
+                title: "CANCEL".localize(lan: settings.language),
                 style: .cancel,
                 handler: nil
             )
         )
         alertView.addAction(
             UIAlertAction(
-                title: "Exit",
+                title: "EXIT".localize(lan: settings.language),
                 style: .destructive,
                 handler: {_ in
                     self.viewModel?.exitGame()
@@ -115,7 +115,7 @@ final class ThreatsViewController: UIViewController, ThreatsScreen {
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "Apocalyplse"
+        self.title = "APOCALYPSE".localize(lan: settings.language)
     }
 }
 

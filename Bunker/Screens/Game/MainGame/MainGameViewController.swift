@@ -107,7 +107,7 @@ final class MainGameViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "Game and participants"
+        self.title = "GAME_AND_PARTICIPANTS".localize(lan: settings.language)
     }
 }
 

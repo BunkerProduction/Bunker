@@ -1,0 +1,327 @@
+[
+    {
+        "id":0,
+        "category":"Хобби",
+        "description":"Гомеопатия"
+    },
+    {
+        "id":1,
+        "category":"Хобби",
+        "description":"Карточные фокусы"
+    },
+    {
+        "id":2,
+        "category":"Хобби",
+        "description":"Рисование"
+    },
+    {
+        "id":3,
+        "category":"Хобби",
+        "description":"Охота"
+    },
+    {
+        "id":4,
+        "category":"Хобби",
+        "description":"Изучение топографических карт"
+    },
+    {
+        "id":5,
+        "category":"Хобби",
+        "description":"Ремонт часов"
+    },
+    {
+        "id":6,
+        "category":"Хобби",
+        "description":"Медитация"
+    },
+    {
+        "id":7,
+        "category":"Хобби",
+        "description":"Шитье и вязание"
+    },
+    {
+        "id":8,
+        "category":"Хобби",
+        "description":"Пивоварение"
+    },
+    {
+        "id":9,
+        "category":"Хобби",
+        "description":"Зоология"
+    },
+    {
+        "id":10,
+        "category":"Хобби",
+        "description":"Стрельба"
+    },
+    {
+        "id":11,
+        "category":"Хобби",
+        "description":"Выращивание растений"
+    },
+    {
+        "id":12,
+        "category":"Хобби",
+        "description":"Столярное дело"
+    },
+    {
+        "id":13,
+        "category":"Хобби",
+        "description":"Фотография"
+    },
+    {
+        "id":14,
+        "category":"Хобби",
+        "description":"Радиосвязь"
+    },
+    {
+        "id":15,
+        "category":"Хобби",
+        "description":"Альпинизм"
+    },
+    {
+        "id":16,
+        "category":"Хобби",
+        "description":"Шахматы"
+    },
+    {
+        "id":17,
+        "category":"Хобби",
+        "description":"DotA"
+    },
+    {
+        "id":18,
+        "category":"Хобби",
+        "description":"Рыбалка"
+    },
+    {
+        "id":19,
+        "category":"Хобби",
+        "description":"Гольф"
+    },
+    {
+        "id":20,
+        "category":"Хобби",
+        "description":"Стрельба из лука"
+    },
+    {
+        "id":21,
+        "category":"Хобби",
+        "description":"Игра на губной гармошке"
+    },
+    {
+        "id":22,
+        "category":"Хобби",
+        "description":"Боевые искусства"
+    },
+    {
+        "id":23,
+        "category":"Хобби",
+        "description":"Охота за грибами"
+    },
+    {
+        "id":24,
+        "category":"Хобби",
+        "description":"Парусный спорт"
+    },
+    {
+        "id":25,
+        "category":"Хобби",
+        "description":"Танцы"
+    },
+    {
+        "id":26,
+        "category":"Хобби",
+        "description":"Футбол"
+    },
+    {
+        "id":27,
+        "category":"Хобби",
+        "description":"Пение"
+    },
+    {
+        "id":28,
+        "category":"Хобби",
+        "description":"Кулинария"
+    },
+    {
+        "id":29,
+        "category":"Хобби",
+        "description":"Гидропоника"
+    },
+    {
+        "id":30,
+        "category":"Хобби",
+        "description":"Здоровый образ жизни"
+    },
+    {
+        "id":31,
+        "category":"Хобби",
+        "description":"Фильмы и сериалы"
+    },
+    {
+        "id":32,
+        "category":"Хобби",
+        "description":"Паркур"
+    },
+    {
+        "id":33,
+        "category":"Хобби",
+        "description":"Альтернативная медицина"
+    },
+    {
+        "id":34,
+        "category":"Хобби",
+        "description":"Свинг-вечеринки"
+    },
+    {
+        "id":35,
+        "category":"Хобби",
+        "description":"Уфология и мистицизм"
+    },
+    {
+        "id":36,
+        "category":"Хобби",
+        "description":"Стриптиз"
+    },
+    {
+        "id":37,
+        "category":"Хобби",
+        "description":"Кроссворды"
+    },
+    {
+        "id":38,
+        "category":"Хобби",
+        "description":"Играет на пианино"
+    },
+    {
+        "id":39,
+        "category":"Хобби",
+        "description":"Караоке"
+    },
+    {
+        "id":40,
+        "category":"Хобби",
+        "description":"Ведет подкасты"
+    },
+    {
+        "id":41,
+        "category":"Хобби",
+        "description": "Умеет жонглировать"
+    },
+    {
+        "id":42,
+        "category":"Хобби",
+        "description":"Шутки"
+    },
+    {
+        "id":43,
+        "category":"Хобби",
+        "description":"Шалости"
+    },
+    {
+        "id":44,
+        "category":"Хобби",
+        "description":"Верховая езда"
+    },
+    {
+        "id":45,
+        "category":"Хобби",
+        "description":"Играет на виолончели"
+    },
+    {
+        "id":46,
+        "category":"Хобби",
+        "description":"Лепка из глины"
+    },
+    {
+        "id":47,
+        "category":"Хобби",
+        "description":"Робототехника"
+    },
+    {
+        "id":48,
+        "category":"Хобби",
+        "description":"Пишет фанфики"
+    },
+    {
+        "id":49,
+        "category":"Хобби",
+        "description":"Резьба по дереву"
+    },
+    {
+        "id":50,
+        "category":"Хобби",
+        "description":"Настольные игры"
+    },
+    {
+        "id":51,
+        "category":"Хобби",
+        "description":"Охота за сокровищами"
+    },
+    {
+        "id":52,
+        "category":"Хобби",
+        "description":"Увлекаюсь археологией"
+    },
+    {
+        "id":53,
+        "category":"Хобби",
+        "description":"Просмотр мелодрам"
+    },
+    {
+        "id":54,
+        "category":"Хобби",
+        "description":"Собирайте блокноты"
+    },
+    {
+        "id":55,
+        "category":"Хобби",
+        "description":"Катание на коньках"
+    },
+    {
+        "id":56,
+        "category":"Хобби",
+        "description":"Прыжки с парашютом"
+    },
+    {
+        "id":57,
+        "category":"Хобби",
+        "description":"Пазлы"
+    },
+    {
+        "id":58,
+        "category":"Хобби",
+        "description":"Плетет корзины"
+    },
+    {
+        "id":59,
+        "category":"Хобби",
+        "description":"Играю в теннис"
+    },
+    {
+        "id":60,
+        "category":"Хобби",
+        "description":"Собирает гербарий"
+    },
+    {
+        "id":61,
+        "category":"Хобби",
+        "description":"Азартные игры"
+    },
+    {
+        "id":62,
+        "category":"Хобби",
+        "description":"Пишет музыку"
+    },
+    {
+        "id":63,
+        "category":"Хобби",
+        "description":"Смотрит шоу суеверий"
+    },
+    {
+        "id":64,
+        "category":"Хобби",
+        "description":"Играет в боулинг"
+    }
+]

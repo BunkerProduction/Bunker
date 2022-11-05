@@ -64,7 +64,7 @@ final class PlayerDetailsViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "\(player.username) Characteristics"
+        self.title = "CHARACTERISTICS_OF".localize(lan: settings.language) + "\(player.username)"
     }
 
     private func generateLayout() -> UICollectionViewLayout {

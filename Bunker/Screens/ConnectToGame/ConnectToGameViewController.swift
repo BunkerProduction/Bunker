@@ -67,7 +67,7 @@ final class ConnectToGameViewController: UIViewController {
         if let username = UserSettings.shared.username {
             nameTextField.text = username
         }
-        nameTextField.placeholder = "Enter name"
+        nameTextField.placeholder = "ENTER_NAME".localize(lan: settings.language)
         nameTextField.delegate = self
         
         setButton()
@@ -89,7 +89,7 @@ final class ConnectToGameViewController: UIViewController {
         
         nextButton.pin(to: view, [.left: 24, .right: 24])
         nextButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 24)
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle("NEXT".localize(lan: settings.language), for: .normal)
         nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
     }
     
@@ -102,8 +102,17 @@ final class ConnectToGameViewController: UIViewController {
     // MARK: - Navigation
     @objc
     private func goNext() {
-        let enterRoomController = RoomCodeViewController()
-        self.navigationController?.pushViewController(enterRoomController, animated: true)
+        if nameTextField.text == "" {
+            UIView.animate(withDuration: 0.2) {
+                self.nameTextField.layer.borderWidth = 2
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.nameTextField.layer.borderWidth = 0
+            }
+            let enterRoomController = RoomCodeViewController()
+            self.navigationController?.pushViewController(enterRoomController, animated: true)
+        }
     }
     
     @objc
@@ -117,6 +126,18 @@ extension ConnectToGameViewController: UIGestureRecognizerDelegate { }
 
 // MARK: - TextField Delegate
 extension ConnectToGameViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField.text == "" {
+            UIView.animate(withDuration: 0.1) {
+                self.nameTextField.layer.borderWidth = 2
+            }
+        } else {
+            UIView.animate(withDuration: 0.1) {
+                self.nameTextField.layer.borderWidth = 0
+            }
+        }
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let string = textField.text, string != "" {
             UserSettings.shared.username = string

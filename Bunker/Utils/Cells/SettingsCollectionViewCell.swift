@@ -12,6 +12,7 @@ final class SettingsCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel = UILabel()
     private let iconLabel = UILabel()
+    private var settings = UserSettings.shared
     
     override var isSelected: Bool {
         didSet {
@@ -60,7 +61,7 @@ final class SettingsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Interface
     public func configure(_ name: String, _ icon: String) {
-        self.nameLabel.text = name
+        self.nameLabel.text = name.localize(lan: settings.language)
         self.iconLabel.text = icon
     }
     

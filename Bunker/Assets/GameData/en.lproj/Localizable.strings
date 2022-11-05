@@ -1,0 +1,97 @@
+// MARK: - FILENAMES
+"INSTRUCTION_FILENAME" = "instruction_eng";
+"CATASTROPHE_FILENAME" = "catastrophe_eng";
+"CONDITION_FILENAME" = "condition_eng";
+"THREAT_FILENAME" = "threat_eng";
+"SHELTER_FILENAME" = "shelter_eng";
+"BIOLOGY_FILENAME" = "biology_eng";
+"PROFESSION_FILENAME" = "profession_eng";
+"FACT_FILENAME" = "fact_eng";
+"HEALTH_FILENAME" = "health_eng";
+"HOBBY_FILENAME" = "hobby_eng";
+"LUGGAGE_FILENAME" = "luggage_eng";
+
+// MARK: - WELCOME
+"CREATE" = "Create";
+"JOIN" = "Join";
+"RULES" = "Rules";
+
+// MARK: - SETTINGS
+"LANGUAGE" = "Language";
+"RUSSIAN" = "Russian";
+"ENGLISH" = "English";
+"CHINESE" = "Chinese";
+
+"THEME" = "Theme";
+"LIGHT" = "Light";
+"DARK" = "Dark";
+"SYSTEM" = "System";
+"TOXIC" = "Toxic";
+"POISONOUS" = "Poisonous";
+"MONO" = "Mono";
+"ALIAN" = "Alian";
+"HOLO" = "Holo";
+
+"SOUND" = "Sound";
+"ON" = "On";
+"OFF" = "Off";
+
+"SETTINGS" = "Settings";
+"RESTORE_PURCHASES" = "Restore purchases";
+
+// MARK: - CREATE GAME
+"ENTER_NAME" = "Enter name";
+"ENTER_VOTING" = "Enter voting time (1-20 min)";
+
+"PACK" = "Pack";
+"RANDOM" = "Random";
+
+"CREATE_GAME" = "Create Game";
+
+"DIFFICULTY" = "Difficulty";
+"CLASSIC" = "Classic";
+
+"PACKS" = "Packs";
+
+// MARK: - CONNECT TO GAME
+"JOIN_ERROR" = "JOIN_ERROR";
+"OK" = "OK";
+"NEXT" = "Next";
+"WAITING_ROOM" = "Waiting room";
+"ENTER_ROOM_NUMBER" = "Enter room number";
+"START_GAME" = "Start game";
+"SHARE_ROOM" = "Share room";
+"START_ERROR" = "START_ERROR";
+
+// MARK: - GAME
+"CONDITION" = "Condition";
+"SHELTER" = "Shelter";
+"APOCALYPSE" = "Apocalypse";
+"EXIT_GAME" = "Exit game";
+"EXIT" = "Exit";
+"EXIT_MESSAGE" = "EXIT_MESSAGE";
+"CANCEL" = "Cancel";
+"CHOOSE_WHOM_TO_EXCLUDE" = "Chose whom to exclude";
+"CHARACTERISTICS_OF" = "Characteristics of";
+"PLAYERS_TURN" = "Player's turn:";
+"PLAYER_EXCLUDED" = "Player excluded:";
+"GAME_AND_PARTICIPANTS" = "Game and participants";
+"OPEN_CARD" = "Open card";
+"MY_CHARACTERISTICS" = "My characteristics";
+"GO_BACK_TO_MENU" = "Go back to menu";
+"CONGRATULATIONS" = "Congratulations!";
+"YOU_ARE_EXCLUDED" = "You are excluded";
+
+//MARK: - SHARED
+"SOON" = "SOON";
+"PREMIUM" = "PREMIUM";
+"GOLDEN" = "GOLDEN";
+"DONE" = "Done";
+
+
+
+
+
+
+
+

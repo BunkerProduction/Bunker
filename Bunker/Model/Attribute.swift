@@ -41,12 +41,12 @@ struct Attribute {
     static var allAttributes: [[Attribute]] = []
 
     static let fileNames = [
-        0: ("profession", "🧑🏼‍🎓"),
-        1: ("health", "🫀"),
-        2: ("biology", "👽"),
-        3: ("hobby", "🏓"),
-        4: ("luggage", "🎒"),
-        5: ("fact", "⚠️")
+        0: ("profession_eng", "🧑🏼‍🎓"),
+        1: ("health_eng", "🫀"),
+        2: ("biology_eng", "👽"),
+        3: ("hobby_eng", "🏓"),
+        4: ("luggage_eng", "🎒"),
+        5: ("fact_eng", "⚠️")
     ]
 
     static func load() {

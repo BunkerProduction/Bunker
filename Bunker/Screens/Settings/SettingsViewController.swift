@@ -83,7 +83,7 @@ final class SettingsViewController: UIViewController {
         } else {
             sectionS.append(("false",""))
             sectionS.append(("true",""))
-            sectionT.append(("Restore purchases","🛍"))
+            sectionT.append(("RESTORE_PURCHASES".localize(lan: settings.language),"🛍"))
         }
         let dataSource = [sectionF, sectionS, sectionT]
         self.dataSource = dataSource
@@ -92,7 +92,7 @@ final class SettingsViewController: UIViewController {
     // MARK: - setupView
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = "SETTINGS".localize(lan: settings.language)
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,
