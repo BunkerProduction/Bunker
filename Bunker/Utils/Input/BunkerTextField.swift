@@ -8,6 +8,7 @@
 import UIKit
 
 final class BunkerTextField: UITextField {
+    private var settings = UserSettings.shared
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -31,6 +32,8 @@ final class BunkerTextField: UITextField {
         self.font = .customFont.body
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? " ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Tertiary.colorFor(theme) ?? .white])
         self.textColor = .TextAndIcons.Primary.colorFor(theme)
+        self.layer.borderWidth = 0
+        self.layer.borderColor = UIColor.Main.Warning.colorFor(theme)?.cgColor
     }
     
     public func addDoneButtonOnKeyboard() {
@@ -38,7 +41,7 @@ final class BunkerTextField: UITextField {
         doneToolbar.barStyle = .default
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let done: UIBarButtonItem = UIBarButtonItem(title: "DONE".localize(lan: settings.language), style: .done, target: self, action: #selector(self.doneButtonAction))
         
         let items = [flexSpace, done]
         doneToolbar.items = items

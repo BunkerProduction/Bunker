@@ -69,7 +69,7 @@ final class PlayerViewController: UIViewController, PlayerScreen {
     private func setupNavBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "My characteristics"
+        self.title = "MY_CHARACTERISTICS".localize(lan: settings.language)
     }
 
     private func generateLayout() -> UICollectionViewLayout {

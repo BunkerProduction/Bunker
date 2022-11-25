@@ -1,0 +1,97 @@
+// MARK: - FILENAMES
+"INSTRUCTION_FILENAME" = "instruction_ru";
+"CATASTROPHE_FILENAME" = "catastrophe_ru";
+"CONDITION_FILENAME" = "condition_ru";
+"THREAT_FILENAME" = "threat_ru";
+"SHELTER_FILENAME" = "shelter_ru";
+"BIOLOGY_FILENAME" = "biology_ru";
+"PROFESSION_FILENAME" = "profession_ru";
+"FACT_FILENAME" = "fact_ru";
+"HEALTH_FILENAME" = "health_ru";
+"HOBBY_FILENAME" = "hobby_ru";
+"LUGGAGE_FILENAME" = "luggage_ru";
+
+// MARK: - WELCOME
+"CREATE" = "Создать";
+"JOIN" = "Присоединиться";
+"RULES" = "Правила";
+
+// MARK: - SETTINGS
+"LANGUAGE" = "Язык";
+"RUSSIAN" = "Русский";
+"ENGLISH" = "Английский";
+"CHINESE" = "Китайский";
+
+"THEME" = "Тема";
+"LIGHT" = "Светлая";
+"DARK" = "Темная";
+"SYSTEM" = "Системная";
+"TOXIC" = "Токсичная";
+"POISONOUS" = "Ядовитая";
+"MONO" = "Монозромная";
+"ALIAN" = "Инопланетная";
+"HOLO" = "Голлографическая";
+
+"SOUND" = "Звук";
+"ON" = "Вкл";
+"OFF" = "Выкл";
+
+"SETTINGS" = "Настройки";
+"RESTORE_PURCHASES" = "Восстановить покупки";
+
+// MARK: - CREATE GAME
+"ENTER_NAME" = "Введите имя";
+"ENTER_VOTING" = "Введите время голосования (1-20 мин)";
+
+"PACK" = "Набор";
+"RANDOM" = "рандом";
+
+"CREATE_GAME" = "Создать игру";
+
+"DIFFICULTY" = "Сложность";
+"CLASSIC" = "Классическая";
+
+"PACKS" = "Наборы";
+
+// MARK: - CONNECT TO GAME
+"JOIN_ERROR" = "JOIN_ERROR";
+"OK" = "OK";
+"NEXT" = "Далее";
+"WAITING_ROOM" = "Комната ожидания";
+"ENTER_ROOM_NUMBER" = "Введите номер комнаты";
+"START_GAME" = "Начать игру";
+"SHARE_ROOM" = "Поделиться комнатой";
+"START_ERROR" = "START_ERROR";
+
+// MARK: - GAME
+"CONDITION" = "Условие";
+"SHELTER" = "Бункер";
+"APOCALYPSE" = "Аппокалипсис";
+"EXIT_GAME" = "Выйти из игры";
+"EXIT" = "Выйти";
+"EXIT_MESSAGE" = "EXIT_MESSAGE";
+"CANCEL" = "Отменить";
+"CHOOSE_WHO_TO_EXCLUDE" = "Выберите кого выгнать";
+"CHARACTERISTICS_OF" = "Характеристики";
+"PLAYERS_TURN" = "Ход игрока:";
+"PLAYER_EXCLUDED" = "Игрок исключен:";
+"GAME_AND_PARTICIPANTS" = "Игра и участники";
+"OPEN_CARD" = "открыть карту";
+"MY_CHARACTERISTICS" = "Мои характеристики";
+"GO_BACK_TO_MENU" = "Вернуться назад в меню";
+"CONGRATULATIONS" = "Поздравляю!";
+"YOU_ARE_EXCLUDED" = "Вас выгнали :(";
+
+//MARK: - SHARED
+"SOON" = "СКОРО";
+"PREMIUM" = "ПРЕМИУМ";
+"GOLDEN" = "ЗОЛОТАЯ";
+"DONE" = "Скрыть";
+
+
+
+
+
+
+
+

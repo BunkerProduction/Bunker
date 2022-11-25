@@ -17,6 +17,7 @@ final class GameHeaderView: UIView {
         let mode: HeaderMode
     }
 
+    private var settings = UserSettings.shared
     private let backgroundView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
@@ -81,7 +82,7 @@ final class GameHeaderView: UIView {
                 subtitleLabel.text = text
                 title.isHidden = true
             case .voting:
-                subtitleLabel.text = "Выберите кого исключить"
+            subtitleLabel.text = "CHOOSE_WHOM_TO_EXCLUDE".localize(lan: settings.language)
                 title.isHidden = false
         }
     }

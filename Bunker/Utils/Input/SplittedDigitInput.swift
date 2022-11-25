@@ -14,6 +14,7 @@ final class SplittedDigitInput: UIView {
     private let numberOfDigits = 6
     private var isInputWrong: Bool = false
     private var isPresenting: Bool = false
+    private var settings = UserSettings.shared
     
     // MARK: - Init
     override init(frame: CGRect) {
@@ -42,7 +43,7 @@ final class SplittedDigitInput: UIView {
         self.layer.cornerRadius = 12
         self.layer.cornerCurve = .continuous
         
-        titleLabel.text = "Enter room number"
+        titleLabel.text = "ENTER_ROOM_NUMBER".localize(lan: settings.language)
         titleLabel.textAlignment = .center
         titleLabel.font = .customFont.body
         

@@ -59,7 +59,7 @@ final class PackViewController: UIViewController {
     // MARK: - setup UI
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Packs"
+        self.navigationItem.title = "PACKS".localize(lan: settings.language)
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,

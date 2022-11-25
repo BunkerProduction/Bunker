@@ -69,10 +69,31 @@ final class SettingsViewController: UIViewController {
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
     }
     
+    // MARK: - DataSource
+    private func constructDataSource() {
+        let volume = settings.volume
+        let theme = settings.appearance
+        let lang = settings.language
+        
+        let sectionF = [lang, volume, theme] as [Any]
+        
+        var sectionS: [Spair] = []
+        var sectionT: [Spair] = []
+        if(settings.isPremium) {
+            sectionS.append(("true",""))
+        } else {
+            sectionS.append(("false",""))
+            sectionS.append(("true",""))
+            sectionT.append(("RESTORE_PURCHASES".localize(lan: settings.language),"🛍"))
+        }
+        let dataSource = [sectionF, sectionS, sectionT]
+        self.dataSource = dataSource
+    }
+    
     // MARK: - setupView
     private func setupNavBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = "SETTINGS".localize(lan: settings.language)
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "returnIcon"),
             style: .plain,

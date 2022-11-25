@@ -30,7 +30,7 @@ struct Shelter {
 
     public static func getAll() -> [Shelter] {
         let decoder = JSONDecoder()
-        if let data = JsonManager.shared.readLocalFile(forName: "shelter") {
+        if let data = JsonManager.shared.readLocalFile(forName: "shelter_eng") {
             do {
                 let allShelters = try decoder.decode([Shelter].self, from: data)
                 return allShelters
@@ -82,7 +82,7 @@ struct ShelterCondition {
 
     public static func getAll() -> [ShelterCondition] {
         let decoder = JSONDecoder()
-        if let data = JsonManager.shared.readLocalFile(forName: "condition") {
+        if let data = JsonManager.shared.readLocalFile(forName: "condition_eng") {
             do {
                 let allConditions = try decoder.decode([ShelterCondition].self, from: data)
                 return allConditions
