@@ -37,7 +37,7 @@
 		4ED4C61F282E4EB40062D0AD /* ToxicPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4C619282E4EB40062D0AD /* ToxicPreview.png */; };
 		C003F2BF282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */; };
 		C003F2C1282C7615006F3FE9 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C0282C7615006F3FE9 /* OptionsViewController.swift */; };
-		C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */; };
+		C003F2C3282C76EA006F3FE9 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C2282C76EA006F3FE9 /* ProductCollectionViewCell.swift */; };
 		C003F2C5282D4320006F3FE9 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C4282D4320006F3FE9 /* IconCollectionViewCell.swift */; };
 		C003F2C7282D74F9006F3FE9 /* SettingsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C003F2C6282D74F9006F3FE9 /* SettingsOptions.swift */; };
 		C003F2ED282DB942006F3FE9 /* Mono3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C003F2E3282DB942006F3FE9 /* Mono3x.png */; };
@@ -151,6 +151,7 @@
 		C0937AD928B576350027B48B /* MainGameProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937AD828B576350027B48B /* MainGameProtocols.swift */; };
 		C0937ADB28B58ABB0027B48B /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937ADA28B58ABB0027B48B /* DeepLink.swift */; };
 		C0BAE407285BD0F2005F1E3C /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */; };
+		C0FB38EB290EEE1C00D26353 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FB38EA290EEE1C00D26353 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,7 +202,7 @@
 		4ED4C619282E4EB40062D0AD /* ToxicPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToxicPreview.png; sourceTree = "<group>"; };
 		C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C003F2C0282C7615006F3FE9 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCollectionViewCell.swift; sourceTree = "<group>"; };
+		C003F2C2282C76EA006F3FE9 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		C003F2C4282D4320006F3FE9 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		C003F2C6282D74F9006F3FE9 /* SettingsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptions.swift; sourceTree = "<group>"; };
 		C003F2E3282DB942006F3FE9 /* Mono3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mono3x.png; sourceTree = "<group>"; };
@@ -320,6 +321,7 @@
 		C0937AD828B576350027B48B /* MainGameProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameProtocols.swift; sourceTree = "<group>"; };
 		C0937ADA28B58ABB0027B48B /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		C0BAE406285BD0F2005F1E3C /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0FB38EA290EEE1C00D26353 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,7 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				C003F2BE282C6AA7006F3FE9 /* SettingsCollectionViewCell.swift */,
-				C003F2C2282C76EA006F3FE9 /* VersionCollectionViewCell.swift */,
+				C003F2C2282C76EA006F3FE9 /* ProductCollectionViewCell.swift */,
 				C003F2C4282D4320006F3FE9 /* IconCollectionViewCell.swift */,
 				C003F31B282FEFE7006F3FE9 /* PackCollectionViewCell.swift */,
 				C048A071283283EA008C9F5B /* WaitingCollectionViewCell.swift */,
@@ -658,6 +660,7 @@
 		C0455E872825911800990351 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				C0FB38EC29107FF400D26353 /* ViewModel */,
 				C0455E882825912F00990351 /* SettingsViewController.swift */,
 				C003F2C0282C7615006F3FE9 /* OptionsViewController.swift */,
 			);
@@ -927,6 +930,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C0FB38EC29107FF400D26353 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C0FB38EA290EEE1C00D26353 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1167,7 +1178,7 @@
 				C02D10A4283BE3430053BFD8 /* PlayerViewModel.swift in Sources */,
 				C08783FF28B18577009DD819 /* PlayerDetailsViewModel.swift in Sources */,
 				C003F2FB282DBD8B006F3FE9 /* Font.swift in Sources */,
-				C003F2C3282C76EA006F3FE9 /* VersionCollectionViewCell.swift in Sources */,
+				C003F2C3282C76EA006F3FE9 /* ProductCollectionViewCell.swift in Sources */,
 				4E92461928BA8D7900D9C864 /* LoadingView.swift in Sources */,
 				4E45DA9228318B0100F5BF7A /* Label.swift in Sources */,
 				4EB3F87C28F32CA20027DC71 /* CGRect.swift in Sources */,
@@ -1188,6 +1199,7 @@
 				C0455E7E28257ECD00990351 /* CALayer+Shadow.swift in Sources */,
 				C003F32728302B11006F3FE9 /* JsonManager.swift in Sources */,
 				C02D10A6283BE44E0053BFD8 /* Game.swift in Sources */,
+				C0FB38EB290EEE1C00D26353 /* SettingsViewModel.swift in Sources */,
 				C0455E912825968C00990351 /* GameOptionView.swift in Sources */,
 				C06642DD288B2A5200DD7C28 /* GameCoordinatorProtocol.swift in Sources */,
 				4E81D504283383B900829361 /* Baige.swift in Sources */,

@@ -8,10 +8,18 @@
 import Foundation
 import StoreKit
 
+
+protocol ProductManagerDelegate {
+    func productPurchased(_ product: Product)
+    func productRestored(_ product: Product)
+}
+
 final class ProductManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     public static let shared = ProductManager()
 
-    private var products: [SKProduct]?
+    public var delegate: ProductManagerDelegate?
+
+    public var products: [SKProduct]?
 
     override init() {
         super.init()
@@ -52,15 +60,17 @@ final class ProductManager: NSObject, SKProductsRequestDelegate, SKPaymentTransa
                 case .purchasing:
                     break
                 case .purchased:
-                if let product = Product(rawValue: $0.payment.productIdentifier) {
-
-                }
-                SKPaymentQueue.default().finishTransaction($0)
-                SKPaymentQueue.default().remove(self)
+                    if let product = Product(rawValue: $0.payment.productIdentifier) {
+                        delegate?.productPurchased(product)
+                    }
+                    SKPaymentQueue.default().finishTransaction($0)
+                    SKPaymentQueue.default().remove(self)
                 case .failed:
                     break
                 case .restored:
-                    print("restored")
+                    if let product = Product(rawValue: $0.payment.productIdentifier) {
+                        delegate?.productRestored(product)
+                    }
                 case .deferred:
                     break
                 @unknown default:

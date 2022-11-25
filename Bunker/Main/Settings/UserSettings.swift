@@ -16,6 +16,7 @@ final class UserSettings {
         static let language = "Language"
         static let appIcon = "AppIcon"
         static let isPremiumActive = "PremiumStatus"
+        static let ownedProducts = "OwnedProducts"
     }
     
     static private let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
@@ -23,6 +24,12 @@ final class UserSettings {
     static let applicationVersion: String = "1.0.1"
 
     private let storage = UserDefaults.standard
+
+    private(set) var ownedProducts: [Product] = []
+
+    public var isPremiumBought: Bool {
+        ownedProducts.contains(where: { $0 == Product.premium })
+    }
 
     public var isPremium: Bool = false {
         didSet {
@@ -63,6 +70,10 @@ final class UserSettings {
     }
     
     init() {
+        if let products = storage.object(forKey: CodingKeys.ownedProducts) as? [String] {
+            self.ownedProducts = products.map { Product(rawValue: $0)! }
+        }
+
         self.username = storage.object(forKey: CodingKeys.username) as? String
         if let sound = storage.object(forKey: CodingKeys.sound) as? String {
             self.volume = Sound(rawValue: sound) ?? .off
@@ -102,5 +113,10 @@ final class UserSettings {
             return self.appearance
         }
         return nil
+    }
+
+    public func saveProduct(product: Product) {
+        self.ownedProducts.append(product)
+        storage.set(self.ownedProducts.map { $0.rawValue}, forKey: CodingKeys.ownedProducts)
     }
 }

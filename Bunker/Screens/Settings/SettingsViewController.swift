@@ -19,30 +19,32 @@ final class SettingsViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: generateLayout())
         collectionView.register(SettingsCollectionViewCell.self, forCellWithReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier)
-        collectionView.register(VersionCollectionViewCell.self, forCellWithReuseIdentifier: VersionCollectionViewCell.reuseIdentifier)
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.reuseIdentifier)
         
         collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         
         return collectionView
     }()
+
+    private var viewModel: SettingsViewModel?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.viewModel = SettingsViewModel(self, self.collectionView)
         self.view.backgroundColor = .white
-        constructDataSource()
         setupNavBar()
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        viewModel?.viewWillAppear()
         updateUI()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,33 +62,11 @@ final class SettingsViewController: UIViewController {
     
     // MARK: - Update UI
     private func updateUI() {
-        constructDataSource()
         let theme = settings.appearance
         self.view.backgroundColor = .Background.LayerOne.colorFor(theme)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.TextAndIcons.Primary.colorFor(theme)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         navigationItem.leftBarButtonItem?.tintColor = UIColor.TextAndIcons.Primary.colorFor(theme)
-    }
-    
-    // MARK: - DataSource
-    private func constructDataSource() {
-        let volume = settings.volume
-        let theme = settings.appearance
-        let lang = settings.language
-        
-        let sectionF = [lang, volume, theme] as [Any]
-        
-        var sectionS: [Spair] = []
-        var sectionT: [Spair] = []
-        if(settings.isPremium) {
-            sectionS.append(("true",""))
-        } else {
-            sectionS.append(("false",""))
-            sectionS.append(("true",""))
-            sectionT.append(("Restore purchases","🛍"))
-        }
-        let dataSource = [sectionF, sectionS, sectionT]
-        self.dataSource = dataSource
     }
     
     // MARK: - setupView
@@ -152,7 +132,7 @@ final class SettingsViewController: UIViewController {
                 section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in
                     let centerX = point.x + ScreenSize.Width / 2
                     visibleItems.forEach { item in
-                        guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? VersionCollectionViewCell
+                        guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? ProductCollectionViewCell
                         else { return }
                         
                         if(cell.frame.minX <= centerX && cell.frame.maxX >= centerX) {
@@ -186,76 +166,6 @@ extension SettingsViewController: UIGestureRecognizerDelegate { }
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-        if(indexPath.section == 0) {
-            let options = OptionsViewController()
-            if let option  = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
-                options.option = option
-            }
-            self.navigationController?.pushViewController(options, animated: true)
-        } else if indexPath.section == 2 {
-            ProductManager.shared.restorePurchaes()
-        }
-    }
-}
-
-
-// MARK: - Collection DataSource
-extension SettingsViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionItems = dataSource[section]
-        let number = sectionItems.count
-        return number
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! SettingsCollectionViewCell
-            cell.setTheme(settings.appearance)
-            if let option = dataSource[indexPath.section][indexPath.row] as? SettingsOption {
-                let item = (option.optionType, option.associatedIcon())
-                cell.configure(item.0, item.1)
-            }
-            
-            return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: VersionCollectionViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! VersionCollectionViewCell
-            let isPremium = dataSource[indexPath.section][indexPath.row] as? Spair
-            let bol = isPremium?.0 == "true" ? true : false
-            let action = {
-                ProductManager.shared.purchase(product: Product.premium)
-            }
-            cell.configure(bol, action: action)
-            cell.setTheme(settings.appearance)
-            
-            return cell
-        case 2:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! SettingsCollectionViewCell
-            cell.setTheme(settings.appearance)
-            if let item = dataSource[indexPath.section][indexPath.row] as? Spair {
-                cell.configure(item.0, item.1)
-            }
-            return cell
-        default:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: SettingsCollectionViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! SettingsCollectionViewCell
-            
-            return cell
-        }
+        viewModel?.selectMenuItemAt(indexPath)
     }
 }
