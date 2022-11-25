@@ -7,16 +7,22 @@
 
 import UIKit
 
-final class VersionCollectionViewCell: UICollectionViewCell {
+final class ProductCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "VersionCollectionViewCell"
-    
+
+    public struct ViewModel {
+        let title: String
+        let desciption: String
+        let price: String?
+        let action: (() -> Void)?
+    }
+
     private let titleLabel = UILabel()
     private let textLabel = UILabel()
     private let priceLabel = UILabel()
     private let buyButton = UIButton()
-    private var isPremium: Bool = false
 
-    private var action: (() -> Void)?
+    private var viewModel: ViewModel?
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -62,38 +68,27 @@ final class VersionCollectionViewCell: UICollectionViewCell {
     }
 
     @objc private func buyButtonTapped() {
-        action?()
+        viewModel?.action?()
     }
     
-    public func configure(_ premium: Bool, action: (() -> Void)?) {
-        self.action = action
-        self.isPremium = premium
-        if(isPremium) {
-            titleLabel.text = "Премиум Версия"
-            let text = "— 18 аппокалипсисов\n— новые характеристики\n— увеличенные комнаты\n— 4 цветовые темы\n— выбор сложности"
-            textLabel.setCustomAttributedText(
-                string: text,
-                font: .customFont.footnote ?? .systemFont(ofSize: 0),
-                1.25
-            )
-            priceLabel.text = "159₽"
-            buyButton.isHidden = false
-            self.backgroundColor = .clear
-        } else {
-            titleLabel.text = "Базовая Версия"
-            let text = "— 5 аппокалипсисов \n— игры до 12 человек \n— карты особых условий \n— темная тема"
-            textLabel.setCustomAttributedText(
-                string: text,
-                font: .customFont.footnote ?? .systemFont(ofSize: 0),
-                1.25
-            )
-            priceLabel.text = ""
+    public func configure(_ viewModel: ViewModel) {
+        self.viewModel = viewModel
+        titleLabel.text = viewModel.title
+        priceLabel.text = viewModel.price
+
+        textLabel.setCustomAttributedText(
+            string: viewModel.desciption,
+            font: .customFont.footnote ?? .systemFont(ofSize: 0),
+            1.25
+        )
+
+        if viewModel.action == nil {
             buyButton.isHidden = true
-            self.backgroundColor = .clear
         }
     }
     
     public func setTheme(_ theme: Appearence) {
+        let isPremium = true
         if isPremium {
             self.layer.applyFigmaShadow(color: .Main.Shadow.colorFor(theme) ?? .clear)
             self.backgroundColor = .Main.Primary.colorFor(theme)
@@ -110,7 +105,7 @@ final class VersionCollectionViewCell: UICollectionViewCell {
 }
 
 // MARK: - Transformation
-extension VersionCollectionViewCell {
+extension ProductCollectionViewCell {
     public func transformToLarge() {
         UIView.animate(withDuration: 0.2) {
             self.transform = CGAffineTransform.identity
